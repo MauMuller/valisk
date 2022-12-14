@@ -10,8 +10,8 @@ function App() {
       <InputValidation
         type={"text"}
         typeValidation={"fullphone"}
-        inicialValue={"55 51"}
-        hashMask={true}
+        inicialValue={"5551"}
+        hashMask={false}
       />
       <button onClick={() => setHiddenValue(!hiddenValue)}>Mostrar</button>
     </>
