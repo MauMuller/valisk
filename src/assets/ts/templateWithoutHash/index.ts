@@ -19,8 +19,12 @@ const templateWithoutHash = (template: string, value: string) => {
     template.indexOf(char) === -1 ? template.length : template.indexOf(char);
 
   const valueWithoutMaskChar = template.substring(0, indexLastValue);
-  const indexToRemove = valueWithoutMaskChar.search(/(\W$)/gim);
-  console.log(valueWithoutMaskChar.match(/(\W$)/gim));
+  const indexSpecialChar = valueWithoutMaskChar.search(/(\W$)/gim);
+
+  const indexToRemove =
+    valueWithoutMaskChar.search(/((\)|\s)(\s|\()$)/gi) != -1
+      ? indexSpecialChar - 1
+      : indexSpecialChar;
 
   return (
     valueWithoutMaskChar.substring(0, indexToRemove) || valueWithoutMaskChar

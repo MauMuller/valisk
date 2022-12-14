@@ -9,7 +9,7 @@ function App() {
     <>
       <InputValidation
         type={"text"}
-        typeValidation={"phone"}
+        typeValidation={"default"}
         hashMask={false}
         validationFromInput={(validation) => {
           // console.log(validation);

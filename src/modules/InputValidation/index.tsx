@@ -9,6 +9,7 @@ type TypesValidation =
   | "cep"
   | "money"
   | "phone"
+  | "fullphone"
   | "password"
   | "default";
 

@@ -3,7 +3,8 @@ export const masks = {
   cnpj: "__.___.___/____-__",
   cep: "_____-___",
   money: "R$ __,__",
-  phone: "(__) __ _ ____-____",
+  phone: "(__) _ ____-____",
+  fullphone: "+__ (__) _ ____-____",
   password: "\u2022",
   default: "",
 };

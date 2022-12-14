@@ -2,12 +2,14 @@ import { maskCPF } from "../../controller/masks/maskCPF";
 import { maskCNPJ } from "../../controller/masks/maskCNPJ";
 import { maskCEP } from "../../controller/masks/maskCEP";
 import { maskPhone } from "../../controller/masks/maskPhone";
+import { maskFullphone } from "../../controller/masks/maskFullphone";
 import { maskPassword } from "../../controller/masks/maskPassword";
 
 import { isCPF } from "../../controller/validations/isCPF";
 import { isCNPJ } from "../../controller/validations/isCNPJ";
 import { isCEP } from "../../controller/validations/isCEP";
 import { isPhone } from "../../controller/validations/isPhone";
+import { isFullphone } from "../../controller/validations/isFullphone";
 import { isPassword } from "../../controller/validations/isPassword";
 
 import { TypesDigits } from "../../modules/InputValidation";
@@ -63,6 +65,13 @@ const ValidationsType: AccessKeys = {
   phone: ({ value, hashMask, keyDown }) => {
     const formatedValue = maskPhone(value, hashMask, keyDown);
     const isValidateValue = isPhone(formatedValue);
+
+    return { formatedValue, isValidateValue };
+  },
+
+  fullphone: ({ value, hashMask, keyDown }) => {
+    const formatedValue = maskFullphone(value, hashMask, keyDown);
+    const isValidateValue = isFullphone(formatedValue);
 
     return { formatedValue, isValidateValue };
   },
