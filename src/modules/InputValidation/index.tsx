@@ -40,6 +40,7 @@ interface InputProps {
   placeholder?: string;
   autoComplete?: TypesAutoComplete;
   hideValue?: TypesBoolean;
+  inicialValue?: string;
   name?: string;
   passwordPontenciality?: TypesDigits;
   valueFromInput?: (value: string) => void;
@@ -58,6 +59,7 @@ const InputValidation = ({
   style,
   autoComplete,
   name,
+  inicialValue,
   hideValue,
   placeholder,
   passwordPontenciality,
@@ -68,6 +70,8 @@ const InputValidation = ({
   const hashMaskCheck = hashMask ?? false;
   const styleCheck: CSSProperties = style ?? {};
   const hideValueCheck = hideValue ?? false;
+  const inicialValueCheck = inicialValue ?? "";
+
   const passwordPontencialityCheck = defaultValuesForPassword(
     passwordPontenciality
   );
@@ -137,6 +141,10 @@ const InputValidation = ({
   useEffect(() => {
     if (typeValidationCheck === "password") formatingValueToInput(defaultValue);
   }, [hideValue]);
+
+  useEffect(() => {
+    inicialValueCheck != "" ? formatingValueToInput(inicialValueCheck) : null;
+  }, []);
 
   return (
     <input

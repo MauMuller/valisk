@@ -9,11 +9,9 @@ function App() {
     <>
       <InputValidation
         type={"text"}
-        typeValidation={"default"}
-        hashMask={false}
-        validationFromInput={(validation) => {
-          // console.log(validation);
-        }}
+        typeValidation={"fullphone"}
+        inicialValue={"55 51"}
+        hashMask={true}
       />
       <button onClick={() => setHiddenValue(!hiddenValue)}>Mostrar</button>
     </>
