@@ -3,6 +3,7 @@ import { maskCNPJ } from "../../controller/masks/maskCNPJ";
 import { maskCEP } from "../../controller/masks/maskCEP";
 import { maskPhone } from "../../controller/masks/maskPhone";
 import { maskFullphone } from "../../controller/masks/maskFullphone";
+import { maskMoney } from "../../controller/masks/maskMoney";
 import { maskPassword } from "../../controller/masks/maskPassword";
 
 import { isCPF } from "../../controller/validations/isCPF";
@@ -77,6 +78,8 @@ const ValidationsType: AccessKeys = {
   },
 
   money: ({ value }) => {
+    const formatedValue = maskMoney(value);
+    // console.log(formatedValue);
     return { formatedValue: value, isValidateValue: true };
   },
 

@@ -8,7 +8,7 @@ const replaceTemplateCharByValueChar = (
   keydown: string
 ) => {
   const withHash = templateWithHash(template, value, keydown);
-  const withoutHash = templateWithoutHash(template, value, keydown);
+  const withoutHash = templateWithoutHash(template, value);
   return hashMask ? withHash : withoutHash;
 };
 

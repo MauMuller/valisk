@@ -29,9 +29,6 @@ const isPassword = (normalText: string, passwordPontenciality: TypesDigits) => {
     propertiesCheck.push(objectValidation);
   }
 
-  // console.clear();
-  // console.log(normalText);
-  // console.log(JSON.stringify(propertiesCheck, null, "\t"));
   return propertiesCheck;
 };
 

@@ -143,7 +143,11 @@ const InputValidation = ({
   }, [hideValue]);
 
   useEffect(() => {
-    inicialValueCheck != "" ? formatingValueToInput(inicialValueCheck) : null;
+    if (inicialValueCheck != "" && typeValidationCheck != "money") {
+      formatingValueToInput(inicialValueCheck);
+    } else {
+      formatingValueToInput(masks.money);
+    }
   }, []);
 
   return (
