@@ -77,16 +77,16 @@ const ValidationsType: AccessKeys = {
     return { formatedValue, isValidateValue };
   },
 
-  money: ({ value, keyDown }) => {
-    const formatedValue = maskMoney(value, keyDown);
-    return { formatedValue: formatedValue, isValidateValue: true };
+  money: ({ value, hashMask }) => {
+    const formatedValue = maskMoney(value, hashMask);
+    return { formatedValue, isValidateValue: true };
   },
 
   password: ({ value, hideValue, passwordPontenciality, normalText }) => {
     const formatedValue = hideValue ? maskPassword(value) : value;
     const isValidateValue = isPassword(normalText, passwordPontenciality);
 
-    return { formatedValue, isValidateValue: isValidateValue };
+    return { formatedValue, isValidateValue };
   },
 };
 

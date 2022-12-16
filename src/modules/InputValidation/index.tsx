@@ -2,6 +2,7 @@ import { useState, LegacyRef, CSSProperties, useEffect } from "react";
 import { acessValidationTypes } from "../../assets/ts/acessValidationTypes";
 import { masks } from "../../data/masks";
 import { defaultValuesForPassword } from "../../assets/ts/defaultValuesForPassword";
+import { firstPartMoney } from "../../assets/ts/firstPartMoney";
 
 type TypesValidation =
   | "cpf"
@@ -76,7 +77,13 @@ const InputValidation = ({
     passwordPontenciality
   );
 
-  const inicialValueForInput = hashMaskCheck ? masks[typeValidationCheck] : "";
+  const valueMask = masks[typeValidationCheck];
+
+  const moneyMask = hashMaskCheck ? valueMask : firstPartMoney(valueMask);
+  const defaultMask = hashMaskCheck ? valueMask : "";
+
+  const inicialValueForInput =
+    typeValidationCheck === "money" ? moneyMask : defaultMask;
   const defaultInputState: TypesValidationReturn = {
     value: inicialValueForInput,
     validation: false,
@@ -143,11 +150,7 @@ const InputValidation = ({
   }, [hideValue]);
 
   useEffect(() => {
-    if (inicialValueCheck != "" && typeValidationCheck != "money") {
-      formatingValueToInput(inicialValueCheck);
-    } else {
-      formatingValueToInput(masks.money);
-    }
+    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
   }, []);
 
   return (

@@ -7,7 +7,12 @@ function App() {
 
   return (
     <>
-      <InputValidation type={"text"} typeValidation={"money"} />
+      <InputValidation
+        type={"text"}
+        typeValidation={"money"}
+        hashMask={true}
+        inicialValue={""}
+      />
       <button onClick={() => setHiddenValue(!hiddenValue)}>Mostrar</button>
     </>
   );
