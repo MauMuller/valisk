@@ -1,4 +1,4 @@
-import setAnMasksCharacter from "../setAnMasksCharacter";
+import setAnMasksCharacter from "../../../data/setAnMasksCharacter";
 const { char } = setAnMasksCharacter;
 
 const templateWithoutHash = (template: string, value: string) => {
