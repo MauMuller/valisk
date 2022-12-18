@@ -1,6 +1,7 @@
 import setAnMasksCharacter from "../../../data/setAnMasksCharacter";
 import { firstPartMoney } from "../firstPartMoney";
 import { lastPartMoney } from "../lastPartMoney";
+import { replaceValueForMasks } from "../replaceValueForMasks";
 
 const replaceZeroCharAtValue = (
   value: string,
@@ -9,6 +10,9 @@ const replaceZeroCharAtValue = (
 ) => {
   const { moneyChar } = setAnMasksCharacter;
   let cont = 0;
+
+  template = replaceValueForMasks(template, "0");
+  console.log(template);
 
   const firstPartTemplate = firstPartMoney(template);
   const lastPartTemplate = lastPartMoney(template);
