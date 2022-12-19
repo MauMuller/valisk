@@ -14,8 +14,17 @@ import { isPassword } from "../../controller/validations/isPassword";
 import { masks } from "../../data/masks";
 import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
 
-import { TypesDigits } from "../../modules/InputValidation";
-import { TypesPhones, TypesValidation } from "../../modules/InputValidation";
+import { TypesDigits } from "../../modules/InputPassaword";
+import { TypesPhones } from "../../modules/InputPhone";
+
+export type TypesValidation =
+  | "cpf"
+  | "cnpj"
+  | "cep"
+  | "money"
+  | "phone"
+  | "fullphone"
+  | "password";
 
 type TypesObjectProps = {
   typeValidationCheck: TypesPhones | TypesValidation;
@@ -44,10 +53,6 @@ interface AccessKeys {
 }
 
 const ValidationsType: AccessKeys = {
-  default: ({ value }) => {
-    return { formatedValue: value, isValidateValue: true };
-  },
-
   cpf: ({ value, hashMask, keyDown }) => {
     const formatedValue = maskCPF(value, hashMask, keyDown);
     const isValidateValue = isCPF(formatedValue);

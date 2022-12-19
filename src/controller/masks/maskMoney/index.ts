@@ -1,4 +1,3 @@
-import { onlyNumbers } from "../../../assets/ts/onlyNumbers";
 import { replaceZeroCharAtValue } from "../../../assets/ts/replaceZeroCharAtValue";
 import { removeZerosBeforeValueForMaskMoney } from "../../../assets/ts/removeZerosBeforeValueForMaskMoney";
 import { masks } from "../../../data/masks";
