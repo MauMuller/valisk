@@ -1,7 +1,7 @@
 import ValidationsType from "../../../model/ValidationsType";
 
 import { TypesValidation } from "../../../model/ValidationsType";
-import { TypesDigits } from "../../../modules/InputPassaword";
+import { TypesDigits } from "../../../modules/InputPassword";
 import { TypesPhones } from "../../../modules/InputPhone";
 
 type ValidationsProps = {

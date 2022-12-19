@@ -1,4 +1,4 @@
-import { TypesDigits } from "../../../modules/InputPassaword";
+import { TypesDigits } from "../../../modules/InputPassword";
 import { defaultValuesForPassword } from "../../../assets/ts/defaultValuesForPassword";
 interface TypesRegex {
   [value: string]: string;

@@ -39,8 +39,6 @@ const replaceZeroCharAtValue = (
     )
     .reverse();
 
-  // console.log(formatedTemplateArr);
-
   const textTemplate = formatedTemplateArr.join("");
   const digitsValues = removeZerosBeforeValueForMaskMoney(textTemplate);
   const valueOnlyNumbersAndCifrao = firstPartTemplate + digitsValues;

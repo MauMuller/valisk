@@ -5,7 +5,7 @@ import { InputCNPJ } from "./modules/InputCNPJ";
 import { InputCEP } from "./modules/InputCEP";
 import { InputMoney } from "./modules/InputMoney";
 import { InputPhone } from "./modules/InputPhone";
-import { InputPassaword } from "./modules/InputPassaword";
+import { InputPassword } from "./modules/InputPassword";
 
 function App() {
   const id = useId();
@@ -50,7 +50,7 @@ function App() {
         // valueFromInput={(value) => console.log(value)}
       />
 
-      <InputPassaword
+      <InputPassword
         type="text"
         hideValue={hiddenValue}
         inicialValue={""}

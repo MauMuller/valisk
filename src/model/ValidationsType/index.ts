@@ -14,7 +14,7 @@ import { isPassword } from "../../controller/validations/isPassword";
 import { masks } from "../../data/masks";
 import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
 
-import { TypesDigits } from "../../modules/InputPassaword";
+import { TypesDigits } from "../../modules/InputPassword";
 import { TypesPhones } from "../../modules/InputPhone";
 
 export type TypesValidation =

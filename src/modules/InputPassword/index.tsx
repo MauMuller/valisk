@@ -38,7 +38,7 @@ interface InputProps {
   validationFromInput?: (value: boolean | object) => void;
 }
 
-const InputPassaword = ({
+const InputPassword = ({
   type,
   inicialValue,
   hideValue,
@@ -182,4 +182,4 @@ const InputPassaword = ({
   );
 };
 
-export { InputPassaword };
+export { InputPassword };
