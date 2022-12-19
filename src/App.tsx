@@ -3,6 +3,7 @@ import { useId, useState } from "react";
 import { InputValidation } from "./modules/InputValidation";
 import { InputCPF } from "./modules/InputCPF";
 import { InputCNPJ } from "./modules/InputCNPJ";
+import { InputCEP } from "./modules/InputCEP";
 
 function App() {
   const id = useId();
@@ -21,7 +22,14 @@ function App() {
         type="text"
         hashMask={true}
         inicialValue={""}
-        valueFromInput={(value) => console.log(value)}
+        // valueFromInput={(value) => console.log(value)}
+      />
+
+      <InputCEP
+        type="text"
+        hashMask={true}
+        inicialValue={""}
+        // valueFromInput={(value) => console.log(value)}
       />
 
       {/* <InputValidation
