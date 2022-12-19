@@ -8,7 +8,7 @@ type TypesBoolean = true | false;
 type TypesAutoComplete = "on" | "off";
 type TypesValidationReturn = { value: string; validation: boolean | object };
 
-interface InputCPF {
+interface InputProps {
   type: TypesInput;
   hashMask?: TypesBoolean;
   inicialValue?: string;
@@ -43,7 +43,7 @@ const InputCPF = ({
   autoComplete,
   name,
   placeholder,
-}: InputCPF) => {
+}: InputProps) => {
   const hashMaskCheck = hashMask ?? false;
   const styleCheck: CSSProperties = style ?? {};
   const inicialValueCheck = inicialValue ?? "";

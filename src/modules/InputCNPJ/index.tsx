@@ -1,10 +1,6 @@
 import { useState, LegacyRef, CSSProperties, useEffect } from "react";
 import { acessValidationTypes } from "../../assets/ts/acessValidationTypes";
 import { masks } from "../../data/masks";
-import { defaultValuesForPassword } from "../../assets/ts/defaultValuesForPassword";
-import { firstPartMoney } from "../../assets/ts/firstPartMoney";
-import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
-import { controlInsertMask } from "../../controller/controlInsertMask";
 
 export type TypesInput = "text" | "tel";
 type TypesBooleanString = "yes" | "no";
