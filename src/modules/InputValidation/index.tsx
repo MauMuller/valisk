@@ -200,12 +200,12 @@ const InputValidation = ({
         const templateValue = savingLetterByLetterFromValue(valueInput);
         isPassawordType ? setDefaultValue(templateValue) : "";
 
-        const { isValidateValue } = formatingValueToInput(
+        const { isValidateValue, formatedValue } = formatingValueToInput(
           valueInput,
           templateValue
         );
 
-        if (valueFromInput) valueFromInput(valueInput);
+        if (valueFromInput) valueFromInput(formatedValue);
         if (validationFromInput) validationFromInput(isValidateValue);
       }}
     />

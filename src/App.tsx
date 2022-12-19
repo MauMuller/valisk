@@ -2,18 +2,26 @@ import { useId, useState } from "react";
 
 import { InputValidation } from "./modules/InputValidation";
 import { InputCPF } from "./modules/InputCPF";
+import { InputCNPJ } from "./modules/InputCNPJ";
 
 function App() {
   const id = useId();
   const [hiddenValue, setHiddenValue] = useState(true);
 
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <InputCPF
         type={"text"}
-        hashMask={false}
+        hashMask={true}
         inicialValue={""}
         // valueFromInput={(value) => console.log(value)}
+      />
+
+      <InputCNPJ
+        type="text"
+        hashMask={true}
+        inicialValue={""}
+        valueFromInput={(value) => console.log(value)}
       />
 
       {/* <InputValidation
@@ -26,7 +34,7 @@ function App() {
         incrementDDDAndPrefix={true}
       /> */}
       <button onClick={() => setHiddenValue(!hiddenValue)}>Mostrar</button>
-    </>
+    </div>
   );
 }
 
