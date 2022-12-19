@@ -1,14 +1,20 @@
 import ValidationsType from "../../../model/ValidationsType";
-import { TypesDigits } from "../../../modules/InputValidation";
+import {
+  TypesDigits,
+  TypesPhones,
+  TypesValidation,
+} from "../../../modules/InputValidation";
 
 type ValidationsProps = {
-  typeValidationCheck: string;
+  typeValidationCheck: TypesPhones | TypesValidation;
   valueInput: string;
-  defaultValue?: string;
   hashMaskCheck: boolean;
-  keyDown?: string;
-  hideValueCheck: boolean;
-  passwordPontencialityCheck: TypesDigits;
+  keyDown: string;
+
+  defaultValue?: string;
+  hideValueCheck?: boolean;
+  passwordPontencialityCheck?: TypesDigits;
+  incrementDDDAndPrefix?: boolean;
 };
 type ValidationReturn = {
   formatedValue: string;
@@ -16,6 +22,7 @@ type ValidationReturn = {
 };
 
 const acessValidationTypes = ({
+  incrementDDDAndPrefix,
   typeValidationCheck,
   valueInput,
   defaultValue,
@@ -25,14 +32,16 @@ const acessValidationTypes = ({
   passwordPontencialityCheck,
 }: ValidationsProps): ValidationReturn => {
   const keyPressed = keyDown ?? "";
-  const defaultValueCheck = defaultValue ?? valueInput;
 
   let objValidation = ValidationsType[typeValidationCheck]({
     value: valueInput,
     hashMask: hashMaskCheck,
+    typeValidationCheck,
     keyDown: keyPressed,
+
+    normalText: defaultValue,
+    incrementDDDAndPrefix,
     hideValue: hideValueCheck,
-    normalText: defaultValueCheck,
     passwordPontenciality: passwordPontencialityCheck,
   });
 

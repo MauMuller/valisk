@@ -1,24 +1,24 @@
 import setAnMasksCharacter from "../../../data/setAnMasksCharacter";
 import { firstPartMoney } from "../firstPartMoney";
 import { lastPartMoney } from "../lastPartMoney";
-import { replaceValueForMasks } from "../replaceValueForMasks";
 
 const replaceZeroCharAtValue = (
-  value: string,
+  valueWithOnlyNumbers: string,
   template: string,
   hashMask: boolean
 ) => {
   const { moneyChar } = setAnMasksCharacter;
   let cont = 0;
 
-  template = replaceValueForMasks(template, "0");
-  console.log(template);
-
   const firstPartTemplate = firstPartMoney(template);
   const lastPartTemplate = lastPartMoney(template);
   const lastLength = lastPartTemplate.length - 1;
 
-  const valuesRest = value.length > lastLength ? value.length - lastLength : 0;
+  const valuesRest =
+    valueWithOnlyNumbers.length > lastLength
+      ? valueWithOnlyNumbers.length - lastLength
+      : 0;
+
   const arrayWithChars = [];
 
   for (let i = 0; i < valuesRest; i++) {
@@ -29,7 +29,7 @@ const replaceZeroCharAtValue = (
     firstPartTemplate + arrayWithChars.join("") + lastPartTemplate;
 
   const reverseTemplate = modifiedTemplate.split("").reverse();
-  const reverseValue = value.split("").reverse().join("");
+  const reverseValue = valueWithOnlyNumbers.split("").reverse().join("");
 
   const formatedTemplateArr = reverseTemplate
     .map((value) =>
@@ -38,6 +38,7 @@ const replaceZeroCharAtValue = (
     .reverse();
 
   const textTemplate = formatedTemplateArr.join("");
+
   const lastPartFormatedTemplate = lastPartMoney(textTemplate);
   const existZeroChar = lastPartFormatedTemplate.search(moneyChar) != -1;
   const valueWithoutHashMask = (

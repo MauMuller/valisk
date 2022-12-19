@@ -3,16 +3,19 @@ import { acessValidationTypes } from "../../assets/ts/acessValidationTypes";
 import { masks } from "../../data/masks";
 import { defaultValuesForPassword } from "../../assets/ts/defaultValuesForPassword";
 import { firstPartMoney } from "../../assets/ts/firstPartMoney";
+import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
+import { controlInsertMask } from "../../controller/controlInsertMask";
 
-type TypesValidation =
+export type TypesValidation =
   | "cpf"
   | "cnpj"
   | "cep"
   | "money"
   | "phone"
-  | "fullphone"
   | "password"
   | "default";
+
+export type TypesPhones = "phoneMovel" | "phoneFixo";
 
 export type TypesInput = "text" | "tel";
 type TypesBooleanString = "yes" | "no";
@@ -43,6 +46,10 @@ interface InputProps {
   hideValue?: TypesBoolean;
   inicialValue?: string;
   name?: string;
+
+  typePhone?: TypesPhones;
+  incrementDDDAndPrefix?: boolean;
+
   passwordPontenciality?: TypesDigits;
   valueFromInput?: (value: string) => void;
   validationFromInput?: (value: boolean | object) => void;
@@ -60,6 +67,8 @@ const InputValidation = ({
   style,
   autoComplete,
   name,
+  typePhone,
+  incrementDDDAndPrefix,
   inicialValue,
   hideValue,
   placeholder,
@@ -67,7 +76,10 @@ const InputValidation = ({
   valueFromInput,
   validationFromInput,
 }: InputProps) => {
-  const typeValidationCheck = typeValidation ?? "default";
+  const phoneValidation =
+    typeValidation === "phone" ? typePhone ?? "phoneMovel" : typeValidation;
+
+  const typeValidationCheck = phoneValidation ?? "default";
   const hashMaskCheck = hashMask ?? false;
   const styleCheck: CSSProperties = style ?? {};
   const hideValueCheck = hideValue ?? false;
@@ -79,11 +91,21 @@ const InputValidation = ({
 
   const valueMask = masks[typeValidationCheck];
 
+  const phoneWithOrWithoutDDD = incrementDDDAndPrefix
+    ? usePrefixAndDDDToPhone(valueMask)
+    : valueMask;
+
+  const phoneMask = hashMaskCheck ? phoneWithOrWithoutDDD : "";
+
   const moneyMask = hashMaskCheck ? valueMask : firstPartMoney(valueMask);
   const defaultMask = hashMaskCheck ? valueMask : "";
 
-  const inicialValueForInput =
-    typeValidationCheck === "money" ? moneyMask : defaultMask;
+  const inicialValueForInput = controlInsertMask(typeValidationCheck, {
+    moneyMask,
+    phoneMask,
+    defaultMask,
+  });
+
   const defaultInputState: TypesValidationReturn = {
     value: inicialValueForInput,
     validation: false,
@@ -93,7 +115,6 @@ const InputValidation = ({
   const [defaultValue, setDefaultValue] = useState("");
 
   const { value } = inputValue;
-
   let keyDown: string;
 
   const changeStateInputValue = (
@@ -111,6 +132,7 @@ const InputValidation = ({
 
   const formatingValueToInput = (valueInput: string, defaultValue?: string) => {
     const { formatedValue, isValidateValue } = acessValidationTypes({
+      incrementDDDAndPrefix,
       typeValidationCheck,
       valueInput,
       hashMaskCheck,
