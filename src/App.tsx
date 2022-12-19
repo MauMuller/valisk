@@ -1,12 +1,11 @@
 import { useId, useState } from "react";
 
-import { InputValidation } from "./modules/InputValidation";
-
 import { InputCPF } from "./modules/InputCPF";
 import { InputCNPJ } from "./modules/InputCNPJ";
 import { InputCEP } from "./modules/InputCEP";
 import { InputMoney } from "./modules/InputMoney";
 import { InputPhone } from "./modules/InputPhone";
+import { InputPassaword } from "./modules/InputPassaword";
 
 function App() {
   const id = useId();
@@ -51,16 +50,21 @@ function App() {
         // valueFromInput={(value) => console.log(value)}
       />
 
-      {/* <InputValidation
-        type={"text"}
-        typeValidation={"password"}
-        hashMask={true}
+      <InputPassaword
+        type="text"
         hideValue={hiddenValue}
-        inicialValue={"51213"}
-        typePhone={"phoneMovel"}
-        incrementDDDAndPrefix={true}
-      /> */}
-      {/* <button onClick={() => setHiddenValue(!hiddenValue)}>Mostrar</button> */}
+        inicialValue={""}
+        passwordPontenciality={{
+          specialChars: [1, ""],
+        }}
+        // valueFromInput={(value) => console.log(value)}
+        // validationFromInput={(value) => {
+        //   console.clear();
+        //   console.log(JSON.stringify(value, null, "\t"));
+        // }}
+      />
+
+      <button onClick={() => setHiddenValue(!hiddenValue)}>Mostrar</button>
     </div>
   );
 }

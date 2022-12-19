@@ -8,7 +8,7 @@ import {
 type ValidationsProps = {
   typeValidationCheck: TypesPhones | TypesValidation;
   valueInput: string;
-  hashMaskCheck: boolean;
+  hashMaskCheck?: boolean;
   keyDown?: string;
 
   defaultValue?: string;
@@ -32,10 +32,11 @@ const acessValidationTypes = ({
   passwordPontencialityCheck,
 }: ValidationsProps): ValidationReturn => {
   const keyPressed = keyDown ?? "";
+  const hashMask = hashMaskCheck ?? false;
 
   let objValidation = ValidationsType[typeValidationCheck]({
     value: valueInput,
-    hashMask: hashMaskCheck,
+    hashMask,
     typeValidationCheck,
     keyDown: keyPressed,
 

@@ -2,20 +2,6 @@ import { useState, LegacyRef, CSSProperties, useEffect } from "react";
 import { acessValidationTypes } from "../../assets/ts/acessValidationTypes";
 import { masks } from "../../data/masks";
 import { defaultValuesForPassword } from "../../assets/ts/defaultValuesForPassword";
-import { firstPartMoney } from "../../assets/ts/firstPartMoney";
-import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
-import { controlInsertMask } from "../../controller/controlInsertMask";
-
-export type TypesValidation =
-  | "cpf"
-  | "cnpj"
-  | "cep"
-  | "money"
-  | "phone"
-  | "password"
-  | "default";
-
-export type TypesPhones = "phoneMovel" | "phoneFixo";
 
 export type TypesInput = "text" | "tel";
 type TypesBooleanString = "yes" | "no";
@@ -33,9 +19,11 @@ export type TypesDigits = {
 
 interface InputProps {
   type: TypesInput;
+  hideValue?: TypesBoolean;
+  inicialValue?: string;
+  passwordPontenciality?: TypesDigits;
+
   inputReference?: LegacyRef<HTMLInputElement>;
-  typeValidation?: TypesValidation;
-  hashMask?: TypesBoolean;
   id?: string;
   translate?: TypesBooleanString;
   spellCheck?: TypesBoolean;
@@ -43,44 +31,31 @@ interface InputProps {
   style?: CSSProperties;
   placeholder?: string;
   autoComplete?: TypesAutoComplete;
-  hideValue?: TypesBoolean;
-  inicialValue?: string;
   name?: string;
 
-  typePhone?: TypesPhones;
-  incrementDDDAndPrefix?: boolean;
-
-  passwordPontenciality?: TypesDigits;
   valueFromInput?: (value: string) => void;
   validationFromInput?: (value: boolean | object) => void;
 }
 
-const InputValidation = ({
+const InputPassaword = ({
   type,
-  typeValidation,
-  inputReference,
-  hashMask,
+  inicialValue,
+  hideValue,
+  passwordPontenciality,
+
   id,
   translate,
+  inputReference,
   spellCheck,
   className,
   style,
   autoComplete,
   name,
-  typePhone,
-  incrementDDDAndPrefix,
-  inicialValue,
-  hideValue,
   placeholder,
-  passwordPontenciality,
+
   valueFromInput,
   validationFromInput,
 }: InputProps) => {
-  const phoneValidation =
-    typeValidation === "phone" ? typePhone ?? "phoneMovel" : typeValidation;
-
-  const typeValidationCheck = phoneValidation ?? "default";
-  const hashMaskCheck = hashMask ?? false;
   const styleCheck: CSSProperties = style ?? {};
   const hideValueCheck = hideValue ?? false;
   const inicialValueCheck = inicialValue ?? "";
@@ -89,32 +64,17 @@ const InputValidation = ({
     passwordPontenciality
   );
 
-  const valueMask = masks[typeValidationCheck];
-
-  const phoneWithOrWithoutDDD = incrementDDDAndPrefix
-    ? usePrefixAndDDDToPhone(valueMask)
-    : valueMask;
-
-  const phoneMask = hashMaskCheck ? phoneWithOrWithoutDDD : "";
-
-  const moneyMask = hashMaskCheck ? valueMask : firstPartMoney(valueMask);
-  const defaultMask = hashMaskCheck ? valueMask : "";
-
-  const inicialValueForInput = controlInsertMask(typeValidationCheck, {
-    moneyMask,
-    phoneMask,
-    defaultMask,
-  });
+  const valueMask = masks.password;
 
   const defaultInputState: TypesValidationReturn = {
-    value: inicialValueForInput,
+    value: valueMask,
     validation: false,
   };
 
   const [inputValue, setInputValue] = useState(defaultInputState);
   const [defaultValue, setDefaultValue] = useState("");
 
-  const { value } = inputValue;
+  const { value, validation } = inputValue;
   let keyDown: string;
 
   const changeStateInputValue = (
@@ -131,11 +91,11 @@ const InputValidation = ({
     });
 
   const formatingValueToInput = (valueInput: string, defaultValue?: string) => {
+    const typeValidationCheck = "password";
+
     const { formatedValue, isValidateValue } = acessValidationTypes({
-      incrementDDDAndPrefix,
       typeValidationCheck,
       valueInput,
-      hashMaskCheck,
       keyDown,
       defaultValue,
       hideValueCheck,
@@ -168,11 +128,18 @@ const InputValidation = ({
   };
 
   useEffect(() => {
-    if (typeValidationCheck === "password") formatingValueToInput(defaultValue);
+    const { isValidateValue, formatedValue } =
+      formatingValueToInput(defaultValue);
+
+    if (valueFromInput) valueFromInput(formatedValue);
+    if (validationFromInput) validationFromInput(isValidateValue);
   }, [hideValue]);
 
   useEffect(() => {
-    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
+    if (inicialValueCheck != "") {
+      formatingValueToInput(inicialValueCheck);
+      setDefaultValue(inicialValueCheck);
+    }
   }, []);
 
   return (
@@ -195,10 +162,9 @@ const InputValidation = ({
       }}
       onChange={(evt) => {
         const valueInput = evt.target.value;
-        const isPassawordType = typeValidationCheck === "password";
 
         const templateValue = savingLetterByLetterFromValue(valueInput);
-        isPassawordType ? setDefaultValue(templateValue) : "";
+        setDefaultValue(templateValue);
 
         const { isValidateValue, formatedValue } = formatingValueToInput(
           valueInput,
@@ -212,4 +178,4 @@ const InputValidation = ({
   );
 };
 
-export { InputValidation };
+export { InputPassaword };
