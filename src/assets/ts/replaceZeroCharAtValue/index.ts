@@ -1,4 +1,6 @@
 import setAnMasksCharacter from "../../../data/setAnMasksCharacter";
+
+import { removeZerosBeforeValueForMaskMoney } from "../removeZerosBeforeValueForMaskMoney";
 import { firstPartMoney } from "../firstPartMoney";
 import { lastPartMoney } from "../lastPartMoney";
 
@@ -37,13 +39,13 @@ const replaceZeroCharAtValue = (
     )
     .reverse();
 
-  const textTemplate = formatedTemplateArr.join("");
+  // console.log(formatedTemplateArr);
 
-  const lastPartFormatedTemplate = lastPartMoney(textTemplate);
-  const existZeroChar = lastPartFormatedTemplate.search(moneyChar) != -1;
-  const valueWithoutHashMask = (
-    existZeroChar ? textTemplate.replace(",", moneyChar) : textTemplate
-  ).replaceAll(moneyChar, "");
+  const textTemplate = formatedTemplateArr.join("");
+  const digitsValues = removeZerosBeforeValueForMaskMoney(textTemplate);
+  const valueOnlyNumbersAndCifrao = firstPartTemplate + digitsValues;
+  const valueWithoutHashMask =
+    digitsValues.length <= 2 ? valueOnlyNumbersAndCifrao : textTemplate;
 
   return !hashMask ? valueWithoutHashMask : textTemplate;
 };

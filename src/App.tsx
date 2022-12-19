@@ -1,9 +1,11 @@
 import { useId, useState } from "react";
 
 import { InputValidation } from "./modules/InputValidation";
+
 import { InputCPF } from "./modules/InputCPF";
 import { InputCNPJ } from "./modules/InputCNPJ";
 import { InputCEP } from "./modules/InputCEP";
+import { InputMoney } from "./modules/InputMoney";
 
 function App() {
   const id = useId();
@@ -32,6 +34,13 @@ function App() {
         // valueFromInput={(value) => console.log(value)}
       />
 
+      <InputMoney
+        type="text"
+        hashMask={true}
+        inicialValue={""}
+        // valueFromInput={(value) => console.log(value)}
+      />
+
       {/* <InputValidation
         type={"text"}
         typeValidation={"password"}
@@ -41,7 +50,7 @@ function App() {
         typePhone={"phoneMovel"}
         incrementDDDAndPrefix={true}
       /> */}
-      <button onClick={() => setHiddenValue(!hiddenValue)}>Mostrar</button>
+      {/* <button onClick={() => setHiddenValue(!hiddenValue)}>Mostrar</button> */}
     </div>
   );
 }

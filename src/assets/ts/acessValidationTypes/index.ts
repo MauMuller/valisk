@@ -9,7 +9,7 @@ type ValidationsProps = {
   typeValidationCheck: TypesPhones | TypesValidation;
   valueInput: string;
   hashMaskCheck: boolean;
-  keyDown: string;
+  keyDown?: string;
 
   defaultValue?: string;
   hideValueCheck?: boolean;
