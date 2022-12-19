@@ -1,4 +1,4 @@
 export default {
   char: "_",
-  moneyChar: "᱐",
+  moneyChar: "0",
 };

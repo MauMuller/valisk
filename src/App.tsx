@@ -1,18 +1,30 @@
-import { InputValidation } from "./modules/InputValidation";
 import { useId, useState } from "react";
+
+import { InputValidation } from "./modules/InputValidation";
+import { InputCPF } from "./modules/InputCPF";
 
 function App() {
   const id = useId();
-  const [hiddenValue, setHiddenValue] = useState(false);
+  const [hiddenValue, setHiddenValue] = useState(true);
 
   return (
     <>
-      <InputValidation
+      <InputCPF
         type={"text"}
-        typeValidation={"money"}
-        hashMask={true}
+        hashMask={false}
         inicialValue={""}
+        // valueFromInput={(value) => console.log(value)}
       />
+
+      {/* <InputValidation
+        type={"text"}
+        typeValidation={"password"}
+        hashMask={true}
+        hideValue={hiddenValue}
+        inicialValue={"51213"}
+        typePhone={"phoneMovel"}
+        incrementDDDAndPrefix={true}
+      /> */}
       <button onClick={() => setHiddenValue(!hiddenValue)}>Mostrar</button>
     </>
   );
