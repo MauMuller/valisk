@@ -58,6 +58,7 @@ function App() {
           specialChars: [1, ""],
         }}
         // valueFromInput={(value) => console.log(value)}
+        // valueWithoutHide={(value) => console.log(value)}
         // validationFromInput={(value) => {
         //   console.clear();
         //   console.log(JSON.stringify(value, null, "\t"));

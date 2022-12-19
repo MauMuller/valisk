@@ -34,6 +34,7 @@ interface InputProps {
   name?: string;
 
   valueFromInput?: (value: string) => void;
+  valueWithoutHide?: (value: string) => void;
   validationFromInput?: (value: boolean | object) => void;
 }
 
@@ -54,6 +55,7 @@ const InputPassaword = ({
   placeholder,
 
   valueFromInput,
+  valueWithoutHide,
   validationFromInput,
 }: InputProps) => {
   const styleCheck: CSSProperties = style ?? {};
@@ -74,7 +76,7 @@ const InputPassaword = ({
   const [inputValue, setInputValue] = useState(defaultInputState);
   const [defaultValue, setDefaultValue] = useState("");
 
-  const { value, validation } = inputValue;
+  const { value } = inputValue;
   let keyDown: string;
 
   const changeStateInputValue = (
@@ -110,11 +112,11 @@ const InputPassaword = ({
   const savingLetterByLetterFromValue = (valueInput: string) => {
     const stringMask = `(${masks.password})`;
     const regexToCircle = new RegExp(stringMask, "gi");
-    const existAsteriscs = valueInput.search(regexToCircle) != -1;
+    const existHash = valueInput.search(regexToCircle) != -1;
     const getValueToInsert = valueInput.replaceAll(regexToCircle, "");
     let template = "";
 
-    if (existAsteriscs) {
+    if (existHash) {
       for (let i = 0; i < valueInput.length; i++) {
         template += defaultValue[i] ?? "";
       }
@@ -132,6 +134,7 @@ const InputPassaword = ({
       formatingValueToInput(defaultValue);
 
     if (valueFromInput) valueFromInput(formatedValue);
+    if (valueWithoutHide) valueWithoutHide(defaultValue);
     if (validationFromInput) validationFromInput(isValidateValue);
   }, [hideValue]);
 
@@ -172,6 +175,7 @@ const InputPassaword = ({
         );
 
         if (valueFromInput) valueFromInput(formatedValue);
+        if (valueWithoutHide) valueWithoutHide(templateValue);
         if (validationFromInput) validationFromInput(isValidateValue);
       }}
     />
