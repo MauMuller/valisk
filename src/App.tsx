@@ -6,6 +6,7 @@ import { InputCPF } from "./modules/InputCPF";
 import { InputCNPJ } from "./modules/InputCNPJ";
 import { InputCEP } from "./modules/InputCEP";
 import { InputMoney } from "./modules/InputMoney";
+import { InputPhone } from "./modules/InputPhone";
 
 function App() {
   const id = useId();
@@ -34,10 +35,19 @@ function App() {
         // valueFromInput={(value) => console.log(value)}
       />
 
-      <InputMoney
+      <InputMoney //Ainda faltam algumas pontuações
         type="text"
         hashMask={true}
         inicialValue={""}
+        // valueFromInput={(value) => console.log(value)}
+      />
+
+      <InputPhone
+        type="text"
+        hashMask={true}
+        incrementDDDAndPrefix={true}
+        inicialValue={""}
+        typePhone={"phoneFixo"}
         // valueFromInput={(value) => console.log(value)}
       />
 
