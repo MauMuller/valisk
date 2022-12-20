@@ -21,31 +21,23 @@ interface InputProps {
   placeholder?: string;
   autoComplete?: TypesAutoComplete;
   name?: string;
-  inputReference?: LegacyRef<HTMLInputElement>;
+  ref?: LegacyRef<HTMLInputElement>;
+  disabled?: boolean;
 
   valueFromInput?: (value: string) => void;
   validationFromInput?: (value: boolean | object) => void;
 }
 
 const InputCPF = ({
-  type,
-  inputReference,
   hashMask,
-  valueFromInput,
-  validationFromInput,
   inicialValue,
 
-  id,
-  translate,
-  spellCheck,
-  className,
-  style,
-  autoComplete,
-  name,
-  placeholder,
+  valueFromInput,
+  validationFromInput,
+
+  ...rest
 }: InputProps) => {
   const hashMaskCheck = hashMask ?? false;
-  const styleCheck: CSSProperties = style ?? {};
   const inicialValueCheck = inicialValue ?? "";
 
   const valueMask = masks.cpf;
@@ -95,18 +87,7 @@ const InputCPF = ({
 
   return (
     <input
-      type={type}
       value={value}
-      ref={inputReference}
-      className={className}
-      disabled={false}
-      id={id}
-      translate={translate}
-      spellCheck={spellCheck}
-      style={styleCheck}
-      name={name}
-      placeholder={placeholder}
-      autoComplete={autoComplete}
       onKeyDown={(evt) => {
         let keyDelete = "Backspace";
         keyDown = evt.key === keyDelete ? keyDelete : "";
@@ -119,6 +100,7 @@ const InputCPF = ({
         if (valueFromInput) valueFromInput(formatedValue);
         if (validationFromInput) validationFromInput(isValidateValue);
       }}
+      {...rest}
     />
   );
 };

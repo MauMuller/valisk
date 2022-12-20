@@ -34,9 +34,9 @@ function App() {
         // valueFromInput={(value) => console.log(value)}
       />
 
-      <InputMoney //Ainda faltam algumas pontuações
+      <InputMoney
         type="text"
-        hashMask={false}
+        hashMask={true}
         inicialValue={""}
         // valueFromInput={(value) => console.log(value)}
       />
