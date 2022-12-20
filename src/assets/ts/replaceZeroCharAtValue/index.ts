@@ -9,7 +9,7 @@ const replaceZeroCharAtValue = (
   template: string,
   hashMask: boolean
 ) => {
-  const { moneyChar } = setAnMasksCharacter;
+  const { moneyChar, char } = setAnMasksCharacter;
   let cont = 0;
 
   const firstPartTemplate = firstPartMoney(template);
@@ -40,12 +40,48 @@ const replaceZeroCharAtValue = (
     .reverse();
 
   const textTemplate = formatedTemplateArr.join("");
-  const digitsValues = removeZerosBeforeValueForMaskMoney(textTemplate);
+  const valueBeforeComma =
+    textTemplate.match(/(\d+(?=\,|\.))/g)?.join("") ?? "";
+
+  const valueBeforeCommaLength = valueBeforeComma.length;
+  let valueTemplateForDots = "";
+
+  for (let i = 0; i < valueBeforeCommaLength; i++) {
+    valueTemplateForDots += char;
+
+    let templateLength = valueTemplateForDots.length;
+    let divisionToInserDots = templateLength > 0 && templateLength % 4 === 0;
+
+    let firstPart = valueTemplateForDots.substring(0, templateLength - 3);
+    let lastPart = valueTemplateForDots.substring(
+      firstPart.length,
+      templateLength
+    );
+
+    valueTemplateForDots = divisionToInserDots
+      ? firstPart + "." + lastPart
+      : valueTemplateForDots;
+
+    valueTemplateForDots = valueTemplateForDots.replace(
+      char,
+      valueBeforeComma[i]
+    );
+  }
+
+  const indexOfComma = textTemplate.indexOf(",");
+  const valueAfterComma = textTemplate.substring(
+    indexOfComma,
+    textTemplate.length
+  );
+
+  const textValue = firstPartTemplate + valueTemplateForDots + valueAfterComma;
+
+  const digitsValues = removeZerosBeforeValueForMaskMoney(textValue);
   const valueOnlyNumbersAndCifrao = firstPartTemplate + digitsValues;
   const valueWithoutHashMask =
-    digitsValues.length <= 2 ? valueOnlyNumbersAndCifrao : textTemplate;
+    digitsValues.length <= 2 ? valueOnlyNumbersAndCifrao : textValue;
 
-  return !hashMask ? valueWithoutHashMask : textTemplate;
+  return !hashMask ? valueWithoutHashMask : textValue;
 };
 
 export { replaceZeroCharAtValue };
