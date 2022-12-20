@@ -30,7 +30,7 @@ type TypesObjectProps = {
   typeValidationCheck: TypesPhones | TypesValidation;
   value: string;
   hashMask: boolean;
-  keyDown: string;
+  keyDown: boolean;
 
   incrementDDDAndPrefix?: boolean;
   hideValue?: boolean;
