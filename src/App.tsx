@@ -10,17 +10,22 @@ import { InputPassword } from "./modules/InputPassword";
 import { useMaskCPF } from "./hooks/useMaskCPF";
 import { useMaskCNPJ } from "./hooks/useMaskCNPJ";
 import { useMaskCEP } from "./hooks/useMaskCEP";
+import { useMaskMoney } from "./hooks/useMaskMoney";
+
+import { useMasks } from "./hooks/useMasks";
 
 function App() {
-  // const [hiddenValue, setHiddenValue] = useState(true);
-
   const maksConfig = {
-    useExplictMask: true,
+    useExplictMask: false,
   };
+
+  const { values, setValues } = useMasks({ cpf: { inicialValue: "" } });
+  // console.log(setValues);
 
   const [cpf, setCPF, isValidCPF, setKeyCPF] = useMaskCPF(maksConfig);
   const [cnpj, setCNPJ, isValidCNPJ, setKeyCNPJ] = useMaskCNPJ(maksConfig);
   const [cep, setCEP, isValidCEP, setKeyCEP] = useMaskCEP(maksConfig);
+  const [money, setMoney, isValidMoney] = useMaskMoney(maksConfig);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -43,6 +48,12 @@ function App() {
         value={cep}
         onChange={(evt) => setCEP(evt.target.value)}
         onKeyDown={(evt) => setKeyCEP(evt.key)}
+      />
+
+      <input
+        type="text"
+        value={money}
+        onChange={(evt) => setMoney(evt.target.value)}
       />
 
       {/* 
