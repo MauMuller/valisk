@@ -14,23 +14,22 @@ import { useMaskPhone } from "./hooks/useMaskPhone";
 import { useMasks } from "./hooks/useMasks";
 
 function App() {
-  const [phoneValue, setPhone, isValidPhone, setKeyPhone] = useMaskPhone({
-    useExplictMask: true,
-    incrementDDDAndPrefix: true,
-    typePhone: "phoneMovel",
-    inicialValue: "5551",
-  });
-
   const { values, setValues, isValidValues, setKeys } = useMasks({
     cnpj: { useExplictMask: true },
     cpf: { useExplictMask: false },
+    phone: {
+      incrementDDDAndPrefix: true,
+      typePhone: "phoneFixo",
+      useExplictMask: true,
+      inicialValue: "5551",
+    },
   });
 
-  console.log(isValidPhone);
+  const [cnpjValue, cpfValue, phoneValue] = values;
+  const [setCNPJ, setCPF, setPhone] = setValues;
+  const [setKeysCNPJ, setKeysCPF, setKeysPhone] = setKeys;
 
-  const [cnpjValue, cpfValue] = values;
-  const [setCNPJ, setCPF] = setValues;
-  const [setKeysCNPJ, setKeysCPF] = setKeys;
+  console.log(isValidValues);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
@@ -52,47 +51,10 @@ function App() {
         type="text"
         value={phoneValue}
         onChange={(evt) => setPhone(evt.target.value)}
-        onKeyDown={(evt) => setKeyPhone(evt.key)}
+        onKeyDown={(evt) => setKeysPhone(evt.key)}
       />
-
-      {/* <input
-        type="text"
-        value={cpf}
-        onChange={(evt) => setCPF(evt.target.value)}
-        onKeyDown={(evt) => setKeyCPF(evt.key)}
-      />
-
-      <input
-        type="text"
-        value={cnpj}
-        onChange={(evt) => setCNPJ(evt.target.value)}
-        onKeyDown={(evt) => setKeyCNPJ(evt.key)}
-      />
-
-      <input
-        type="text"
-        value={cep}
-        onChange={(evt) => setCEP(evt.target.value)}
-        onKeyDown={(evt) => setKeyCEP(evt.key)}
-      />
-
-      <input
-        type="text"
-        value={money}
-        onChange={(evt) => setMoney(evt.target.value)}
-      /> */}
 
       {/*
-
-      <InputPhone
-        type="text"
-        hashMask={true}
-        incrementDDDAndPrefix={true}
-        inicialValue={""}
-        typePhone={"phoneFixo"}
-        valueFromInput={(value) => console.log(value)}
-      />
-
       <InputPassword
         type="text"
         hideValue={hiddenValue}

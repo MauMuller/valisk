@@ -74,7 +74,13 @@ const ValidationsType: AccessKeys = {
     return { formatedValue, isValidateValue };
   },
 
-  phoneMovel: ({ value, hashMask, keyDown, incrementDDDAndPrefix }) => {
+  phoneMovel: ({
+    value,
+    hashMask,
+    keyDown,
+    incrementDDDAndPrefix,
+    typeValidationCheck,
+  }) => {
     const maskMovel = masks.phoneMovel;
     const checkIncrementDDDandPrefix = incrementDDDAndPrefix ?? false;
 
@@ -83,12 +89,18 @@ const ValidationsType: AccessKeys = {
       : maskMovel;
 
     const formatedValue = maskPhone(value, hashMask, keyDown, template);
-    const isValidateValue = isPhone(formatedValue);
+    const isValidateValue = isPhone(formatedValue, typeValidationCheck);
 
     return { formatedValue, isValidateValue };
   },
 
-  phoneFixo: ({ value, hashMask, keyDown, incrementDDDAndPrefix }) => {
+  phoneFixo: ({
+    value,
+    hashMask,
+    keyDown,
+    incrementDDDAndPrefix,
+    typeValidationCheck,
+  }) => {
     const maskFixo = masks.phoneFixo;
     const checkIncrementDDDandPrefix = incrementDDDAndPrefix ?? false;
 
@@ -97,7 +109,7 @@ const ValidationsType: AccessKeys = {
       : maskFixo;
 
     const formatedValue = maskPhone(value, hashMask, keyDown, template);
-    const isValidateValue = isPhone(formatedValue);
+    const isValidateValue = isPhone(formatedValue, typeValidationCheck);
 
     return { formatedValue, isValidateValue };
   },
