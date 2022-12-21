@@ -1,19 +1,10 @@
-import {
-  TypesMasks,
-  TypesMaskObject,
-  TypesMasksForKeysObject,
-} from "../../../hooks/useMasks/useMasks";
+import { TypesMasks } from "../../../hooks/useMasks/useMasks";
 
 const modulateObjectToMask = (masksObject: TypesMasks) => {
   const arrayForResult = [];
-  const keys = Object.keys(masksObject);
-  const values = keys.map((keyValue) => {
-    let value = masksObject[keyValue];
-    return value;
-  });
 
-  for (let i = 0; i < keys.length; i++) {
-    let object = { maskName: keys[i], properties: values[i] };
+  for (const [key, value] of Object.entries(masksObject)) {
+    let object = { maskName: key, properties: value };
     arrayForResult.push(object);
   }
 

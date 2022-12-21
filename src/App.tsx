@@ -1,5 +1,3 @@
-import { useId, useState } from "react";
-
 import { InputCPF } from "./modules/InputCPF";
 import { InputCNPJ } from "./modules/InputCNPJ";
 import { InputCEP } from "./modules/InputCEP";
@@ -15,35 +13,29 @@ import { useMaskMoney } from "./hooks/useMaskMoney";
 import { useMasks } from "./hooks/useMasks";
 
 function App() {
-  const maksConfig = {
-    useExplictMask: false,
-  };
-
   const { values, setValues, isValidValues, setKeys } = useMasks({
-    cnpj: { inicialValue: "", useExplictMask: true },
-
-    // cpf: { inicialValue: "bah" },
+    cnpj: { useExplictMask: true },
+    cpf: { useExplictMask: false },
   });
 
-  const setCPF = setValues.at(0);
-  const setKeysCPF = setKeys.at(0);
-
-  // const [cpf, setCPF, isValidCPF, setKeyCPF] = useMaskCPF(maksConfig);
-  // const [cnpj, setCNPJ, isValidCNPJ, setKeyCNPJ] = useMaskCNPJ(maksConfig);
-  // const [cep, setCEP, isValidCEP, setKeyCEP] = useMaskCEP(maksConfig);
-  // const [money, setMoney, isValidMoney] = useMaskMoney(maksConfig);
+  const [cnpjValue, cpfValue] = values;
+  const [setCNPJ, setCPF] = setValues;
+  const [setKeysCNPJ, setKeysCPF] = setKeys;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <input
         type="text"
-        value={values.at(0)}
-        onChange={(evt) => {
-          setCPF ? setCPF(evt.target.value) : "";
-        }}
-        onKeyDown={(evt) => {
-          setKeysCPF ? setKeysCPF(evt.key) : null;
-        }}
+        value={cpfValue}
+        onChange={(evt) => setCPF(evt.target.value)}
+        onKeyDown={(evt) => setKeysCPF(evt.key)}
+      />
+
+      <input
+        type="text"
+        value={cnpjValue}
+        onChange={(evt) => setCNPJ(evt.target.value)}
+        onKeyDown={(evt) => setKeysCNPJ(evt.key)}
       />
 
       {/* <input
@@ -73,14 +65,7 @@ function App() {
         onChange={(evt) => setMoney(evt.target.value)}
       /> */}
 
-      {/* 
-
-      <InputMoney
-        type="text"
-        hashMask={true}
-        inicialValue={""}
-        valueFromInput={(value) => console.log(value)}
-      />
+      {/*
 
       <InputPhone
         type="text"

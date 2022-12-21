@@ -2,20 +2,12 @@ import { filterByInputMasks } from "../../assets/ts/filterByInputMasks";
 import { modulateObjectToMask } from "../../assets/ts/modulateObjectToMask";
 import { getNameFunctions } from "../../assets/ts/getNameFunctions";
 
-import { useMaskCPF } from "../useMaskCPF";
-import { useMaskCNPJ } from "../useMaskCNPJ";
-import { useMaskCEP } from "../useMaskCEP";
-import { useMaskMoney } from "../useMaskMoney";
-
-import { TypesMasks } from "../useMasks/useMasks";
-import { TypesHooks } from "../useMasks/useMasks";
-
-const hooksArray = [useMaskCPF, useMaskCNPJ, useMaskCEP, useMaskMoney];
+import { TypesMasks, TypesHooks } from "../useMasks/useMasks";
 
 const useMasks = (objMasks: TypesMasks) => {
   const modulateObjectMask = modulateObjectToMask(objMasks);
   const namesMasks = modulateObjectMask.map((obj) => obj.maskName);
-  const hookFiltered = filterByInputMasks(hooksArray, namesMasks);
+  const hookFiltered = filterByInputMasks(namesMasks);
 
   const values: string[] = [],
     setValues: Function[] = [],
