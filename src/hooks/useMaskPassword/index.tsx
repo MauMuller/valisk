@@ -47,13 +47,11 @@ const useMaskPassword = ({
     formatedValue,
     formatedValidate,
     formatedKeyDown,
-    sourceValue,
+    formatedSourceValue,
   }: TypesChangePasswordState) => {
-    const pureSourcePassword = extractValueFromPassword(sourceValue);
-
     setInputValue((prevValue) => {
       const clonedObject = { ...prevValue };
-      const { value, isValid, keyDown } = clonedObject;
+      const { value, isValid, keyDown, sourceValue } = clonedObject;
 
       if (formatedValue != value) clonedObject.value = formatedValue ?? value;
 
@@ -63,36 +61,37 @@ const useMaskPassword = ({
       if (formatedKeyDown != keyDown)
         clonedObject.keyDown = formatedKeyDown ?? keyDown;
 
-      clonedObject.sourceValue += pureSourcePassword;
-
-      const inputLength = formatedValue?.length ?? value.length;
-      const sourceLength = clonedObject.sourceValue.length;
-
-      if (inputLength < sourceLength) {
-        const differenceLength = sourceLength - (sourceLength - inputLength);
-        const removingDiferenceLength = clonedObject.sourceValue.substring(
-          0,
-          differenceLength
-        );
-        clonedObject.sourceValue = removingDiferenceLength;
-      }
-
+      clonedObject.sourceValue = formatedSourceValue ?? sourceValue;
       return clonedObject;
     });
   };
 
   const formatingValueToInput = (valueInput: string) => {
+    const pureSourcePassword = extractValueFromPassword(valueInput);
+    const valueSource = sourceValue + pureSourcePassword;
+
+    const inputLength = valueInput.length;
+    const sourceLength = valueSource.length;
+
+    const differenceLength = sourceLength - (sourceLength - inputLength);
+    const removingDiferenceLength = valueSource.substring(0, differenceLength);
+
+    const formatedSource =
+      inputLength < sourceLength ? removingDiferenceLength : valueSource;
+
+    console.log(sourceValue);
+
     const { formatedValue, isValidateValue } = acessValidationTypes({
       passwordPontencialityCheck,
       typeValidationCheck: typeMask,
-      sourceValue,
+      sourceValue: formatedSource,
       valueInput,
       keyDown,
       hideValueCheck,
     });
 
     changeStateInputValue({
-      sourceValue: valueInput,
+      sourceValue: formatedSource,
       formatedValue,
       formatedValidate: isValidateValue,
       formatedKeyDown: keyDown,
