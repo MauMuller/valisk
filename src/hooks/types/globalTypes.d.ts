@@ -9,6 +9,22 @@ type TypesMaskReturn = [
 
 type TypesPhones = "phoneMovel" | "phoneFixo";
 
+type TypesValidation =
+  | "cpf"
+  | "cnpj"
+  | "cep"
+  | "money"
+  | "phone"
+  | "fullphone"
+  | "password";
+
+type TypesPropertiesArray = [number, string?];
+interface TypesDigits {
+  specialChars?: TypesPropertiesArray;
+  numbers?: TypesPropertiesArray;
+  words?: TypesPropertiesArray;
+}
+
 interface TypesBasicsProperties {
   inicialValue?: string;
   useExplictMask?: boolean;
@@ -19,6 +35,10 @@ interface TypesPhoneMask extends TypesBasicsProperties {
   incrementDDDAndPrefix?: boolean;
 }
 
+interface TypesPasswordMask extends TypesBasicsProperties {
+  typePhone?: TypesPhones;
+  incrementDDDAndPrefix?: boolean;
+}
 interface TypesInicialObject {
   value: string;
   isValid: boolean | object;
@@ -30,6 +50,7 @@ interface TypesMasks {
   cep?: TypesBasicsProperties;
   money?: TypesBasicsProperties;
   phone?: TypesPhoneMask;
+  password?: TypesPasswordMask;
 }
 
 interface TypeChangeState {
@@ -62,4 +83,6 @@ export {
   TypesHooks,
   TypesPhones,
   TypesMaskObject,
+  TypesDigits,
+  TypesValidation,
 };

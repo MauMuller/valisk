@@ -1,20 +1,21 @@
 import ValidationsType from "../../../model/ValidationsType";
 
-import { TypesValidation } from "../../../model/ValidationsType";
-import { TypesDigits } from "../../../modules/InputPassword";
-import { TypesPhones } from "../../../modules/InputPhone";
+import {
+  TypesValidation,
+  TypesPhones,
+  TypesDigits,
+} from "../../../hooks/types/globalTypes";
 
-type ValidationsProps = {
+interface ValidationsProps {
   typeValidationCheck: TypesPhones | TypesValidation;
   valueInput: string;
   hashMaskCheck?: boolean;
   keyDown?: boolean;
-
   defaultValue?: string;
   hideValueCheck?: boolean;
   passwordPontencialityCheck?: TypesDigits;
   incrementDDDAndPrefix?: boolean;
-};
+}
 type ValidationReturn = {
   formatedValue: string;
   isValidateValue: boolean | object;

@@ -14,17 +14,11 @@ import { isPassword } from "../../controller/validations/isPassword";
 import { masks } from "../../data/masks";
 import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
 
-import { TypesDigits } from "../../modules/InputPassword";
-import { TypesPhones } from "../../modules/InputPhone";
-
-export type TypesValidation =
-  | "cpf"
-  | "cnpj"
-  | "cep"
-  | "money"
-  | "phone"
-  | "fullphone"
-  | "password";
+import {
+  TypesDigits,
+  TypesPhones,
+  TypesValidation,
+} from "../../hooks/types/globalTypes";
 
 type TypesObjectProps = {
   typeValidationCheck: TypesPhones | TypesValidation;

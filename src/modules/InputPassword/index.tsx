@@ -11,12 +11,6 @@ type TypesValidationReturn = { value: string; validation: boolean | object };
 
 type TypesPropertiesArray = [number, string?];
 
-export type TypesDigits = {
-  specialChars?: TypesPropertiesArray;
-  numbers?: TypesPropertiesArray;
-  words?: TypesPropertiesArray;
-};
-
 interface InputProps {
   type: TypesInput;
   hideValue?: TypesBoolean;
