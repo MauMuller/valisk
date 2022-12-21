@@ -5,8 +5,15 @@ import { useMaskCPF } from "../../../hooks/useMaskCPF";
 import { useMaskCNPJ } from "../../../hooks/useMaskCNPJ";
 import { useMaskCEP } from "../../../hooks/useMaskCEP";
 import { useMaskMoney } from "../../../hooks/useMaskMoney";
+import { useMaskPhone } from "../../../hooks/useMaskPhone";
 
-const hooksArray = [useMaskCPF, useMaskCNPJ, useMaskCEP, useMaskMoney];
+const hooksArray = [
+  useMaskCPF,
+  useMaskCNPJ,
+  useMaskCEP,
+  useMaskMoney,
+  useMaskPhone,
+];
 
 const filterByInputMasks = (masksNames: string[]) => {
   const functionsOrdened = masksNames.map((nameMask) =>

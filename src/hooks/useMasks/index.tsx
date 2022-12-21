@@ -2,7 +2,7 @@ import { filterByInputMasks } from "../../assets/ts/filterByInputMasks";
 import { modulateObjectToMask } from "../../assets/ts/modulateObjectToMask";
 import { getNameFunctions } from "../../assets/ts/getNameFunctions";
 
-import { TypesMasks, TypesHooks } from "../useMasks/useMasks";
+import { TypesMasks, TypesHooks } from "../types/globalTypes";
 
 const useMasks = (objMasks: TypesMasks) => {
   const modulateObjectMask = modulateObjectToMask(objMasks);

@@ -1,4 +1,4 @@
-import { TypesMasks } from "../../../hooks/useMasks/useMasks";
+import { TypesMasks } from "../../../hooks/types/globalTypes";
 
 const modulateObjectToMask = (masksObject: TypesMasks) => {
   const arrayForResult = [];
