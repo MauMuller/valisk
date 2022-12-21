@@ -12,6 +12,11 @@ interface TypesValuesFromUseMask {
   useExplictMask?: true | false;
 }
 
+interface TypesPhoneMask extends TypesValuesFromUseMask {
+  typePhone?: "phoneMovel" | "phoneFixo";
+  incrementDDDAndPrefix?: boolean;
+}
+
 interface TypesInicialObject {
   value: string;
   isValid: boolean | object;
@@ -28,6 +33,7 @@ export {
   TypesFunction,
   TypesMaskReturn,
   TypesValuesFromUseMask,
+  TypesPhoneMask,
   TypesInicialObject,
   TypeChangeState,
 };
