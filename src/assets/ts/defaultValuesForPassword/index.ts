@@ -1,4 +1,4 @@
-import { TypesDigits } from "../../../modules/InputPassword";
+import { TypesDigits } from "../../../hooks/types/globalTypes";
 
 const defaultValuesForPassword = (password?: TypesDigits) => {
   const clonnedPassword = { ...password };

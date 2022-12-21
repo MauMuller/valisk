@@ -1,10 +1,20 @@
 type TypesFunction<K> = (value: K) => void;
 
-type TypesMaskReturn = [
+type TypesBasicReturn = [
   value: string,
   setValue: TypesFunction<string>,
   isValid: boolean | object,
   setKey: TypesFunction<string>
+];
+
+type TypesMaskReturn = TypesBasicReturn;
+
+type TypesMaskPasswordReturn = [
+  value: string,
+  setValue: TypesFunction<string>,
+  isValid: boolean | object,
+  setKey: TypesFunction<string>,
+  sourceValue: string
 ];
 
 type TypesPhones = "phoneMovel" | "phoneFixo";
@@ -19,6 +29,7 @@ type TypesValidation =
   | "password";
 
 type TypesPropertiesArray = [number, string?];
+
 interface TypesDigits {
   specialChars?: TypesPropertiesArray;
   numbers?: TypesPropertiesArray;
@@ -35,15 +46,20 @@ interface TypesPhoneMask extends TypesBasicsProperties {
   incrementDDDAndPrefix?: boolean;
 }
 
-interface TypesPasswordMask extends TypesBasicsProperties {
-  typePhone?: TypesPhones;
-  incrementDDDAndPrefix?: boolean;
+interface TypesPasswordMask {
+  passwordPontenciality?: TypesDigits;
+  inicialValue?: string;
+  hideValue?: boolean;
 }
 interface TypesInicialObject {
   value: string;
   isValid: boolean | object;
   keyDown: boolean;
 }
+interface TypesInicialPassword extends TypesInicialObject {
+  sourceValue: string;
+}
+
 interface TypesMasks {
   cpf?: TypesBasicsProperties;
   cnpj?: TypesBasicsProperties;
@@ -57,6 +73,10 @@ interface TypeChangeState {
   formatedValue?: string;
   formatedValidate?: boolean | object;
   formatedKeyDown?: boolean;
+}
+
+interface TypesChangePasswordState extends TypeChangeState {
+  sourceValue?: string;
 }
 interface TypesMaskObject {
   maskName: string;
@@ -73,10 +93,10 @@ type TypesHooks = [
 export {};
 
 export {
+  TypesChangePasswordState,
   TypesFunction,
   TypesMaskReturn,
   TypesBasicsProperties,
-  TypesPhoneMask,
   TypesInicialObject,
   TypeChangeState,
   TypesMasks,
@@ -85,4 +105,8 @@ export {
   TypesMaskObject,
   TypesDigits,
   TypesValidation,
+  TypesPhoneMask,
+  TypesPasswordMask,
+  TypesInicialPassword,
+  TypesMaskPasswordReturn,
 };

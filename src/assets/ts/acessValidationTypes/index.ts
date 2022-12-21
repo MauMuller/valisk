@@ -11,7 +11,7 @@ interface ValidationsProps {
   valueInput: string;
   hashMaskCheck?: boolean;
   keyDown?: boolean;
-  defaultValue?: string;
+  sourceValue?: string;
   hideValueCheck?: boolean;
   passwordPontencialityCheck?: TypesDigits;
   incrementDDDAndPrefix?: boolean;
@@ -25,7 +25,7 @@ const acessValidationTypes = ({
   incrementDDDAndPrefix,
   typeValidationCheck,
   valueInput,
-  defaultValue,
+  sourceValue,
   hashMaskCheck,
   keyDown,
   hideValueCheck,
@@ -40,7 +40,7 @@ const acessValidationTypes = ({
     typeValidationCheck,
     keyDown: keyPressed,
 
-    normalText: defaultValue,
+    sourceValue: sourceValue,
     incrementDDDAndPrefix,
     hideValue: hideValueCheck,
     passwordPontenciality: passwordPontencialityCheck,

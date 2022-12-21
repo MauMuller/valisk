@@ -28,7 +28,7 @@ type TypesObjectProps = {
 
   incrementDDDAndPrefix?: boolean;
   hideValue?: boolean;
-  normalText?: string;
+  sourceValue?: string;
   passwordPontenciality?: TypesDigits;
 };
 
@@ -39,7 +39,7 @@ interface AccessKeys {
     hashMask,
     keyDown,
     hideValue,
-    normalText,
+    sourceValue,
   }: TypesObjectProps) => {
     formatedValue: string;
     isValidateValue: boolean | object;
@@ -113,10 +113,10 @@ const ValidationsType: AccessKeys = {
     return { formatedValue, isValidateValue: true };
   },
 
-  password: ({ value, hideValue, passwordPontenciality, normalText }) => {
+  password: ({ value, hideValue, passwordPontenciality, sourceValue }) => {
     const formatedValue = hideValue ? maskPassword(value) : value;
     const isValidateValue = isPassword(
-      normalText,
+      sourceValue,
       passwordPontenciality,
       value
     );

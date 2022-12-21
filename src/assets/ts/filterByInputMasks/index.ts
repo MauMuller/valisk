@@ -6,6 +6,7 @@ import { useMaskCNPJ } from "../../../hooks/useMaskCNPJ";
 import { useMaskCEP } from "../../../hooks/useMaskCEP";
 import { useMaskMoney } from "../../../hooks/useMaskMoney";
 import { useMaskPhone } from "../../../hooks/useMaskPhone";
+import { useMaskPassword } from "../../../hooks/useMaskPassword";
 
 const hooksArray = [
   useMaskCPF,
@@ -13,6 +14,7 @@ const hooksArray = [
   useMaskCEP,
   useMaskMoney,
   useMaskPhone,
+  useMaskPassword,
 ];
 
 const filterByInputMasks = (masksNames: string[]) => {

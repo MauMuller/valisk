@@ -3,9 +3,9 @@ import { acessValidationTypes } from "../../assets/ts/acessValidationTypes";
 import { masks } from "../../data/masks";
 import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
 
-export type TypesPhones = "phoneMovel" | "phoneFixo";
+type TypesPhones = "phoneMovel" | "phoneFixo";
 
-export type TypesInput = "text" | "tel";
+type TypesInput = "text" | "tel";
 type TypesBooleanString = "yes" | "no";
 type TypesBoolean = true | false;
 type TypesAutoComplete = "on" | "off";
