@@ -19,17 +19,34 @@ function App() {
     useExplictMask: false,
   };
 
-  const { values, setValues } = useMasks({ cpf: { inicialValue: "" } });
-  // console.log(setValues);
+  const { values, setValues, isValidValues, setKeys } = useMasks({
+    cnpj: { inicialValue: "", useExplictMask: true },
 
-  const [cpf, setCPF, isValidCPF, setKeyCPF] = useMaskCPF(maksConfig);
-  const [cnpj, setCNPJ, isValidCNPJ, setKeyCNPJ] = useMaskCNPJ(maksConfig);
-  const [cep, setCEP, isValidCEP, setKeyCEP] = useMaskCEP(maksConfig);
-  const [money, setMoney, isValidMoney] = useMaskMoney(maksConfig);
+    // cpf: { inicialValue: "bah" },
+  });
+
+  const setCPF = setValues.at(0);
+  const setKeysCPF = setKeys.at(0);
+
+  // const [cpf, setCPF, isValidCPF, setKeyCPF] = useMaskCPF(maksConfig);
+  // const [cnpj, setCNPJ, isValidCNPJ, setKeyCNPJ] = useMaskCNPJ(maksConfig);
+  // const [cep, setCEP, isValidCEP, setKeyCEP] = useMaskCEP(maksConfig);
+  // const [money, setMoney, isValidMoney] = useMaskMoney(maksConfig);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <input
+        type="text"
+        value={values.at(0)}
+        onChange={(evt) => {
+          setCPF ? setCPF(evt.target.value) : "";
+        }}
+        onKeyDown={(evt) => {
+          setKeysCPF ? setKeysCPF(evt.key) : null;
+        }}
+      />
+
+      {/* <input
         type="text"
         value={cpf}
         onChange={(evt) => setCPF(evt.target.value)}
@@ -54,7 +71,7 @@ function App() {
         type="text"
         value={money}
         onChange={(evt) => setMoney(evt.target.value)}
-      />
+      /> */}
 
       {/* 
 

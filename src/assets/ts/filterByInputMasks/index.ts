@@ -1,17 +1,12 @@
-import { modulateObjectToMask } from "../modulateObjectToMask";
-import { TypesMasks } from "../../../hooks/useMasks/useMasks";
+import { getNameFunctions } from "../getNameFunctions";
 
 const filterByInputMasks = (
   hooksArray: Array<Function>,
-  masksObject: TypesMasks
+  masksNames: string[]
 ) => {
-  const modulateObjectMask = modulateObjectToMask(masksObject);
-
   return hooksArray.filter((hooks) => {
-    let nameHook = hooks.name.substring(7).toLowerCase();
-
-    console.log(masksArray);
-    return masksArray.includes(nameHook);
+    let nameHook = getNameFunctions(hooks, [7]);
+    return masksNames.includes(nameHook);
   });
 };
 

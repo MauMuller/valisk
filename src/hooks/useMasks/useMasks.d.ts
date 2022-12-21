@@ -3,22 +3,29 @@ type TypesBasicsProperties = {
   inicialValue?: string;
 };
 
-interface TypesKeyProperties extends TypesBasicsProperties {
-  keyDown?: boolean;
-}
+type TypesStringWithOption = "cpf" | "cnpj" | "cep" | "money";
 
 interface TypesMasks {
-  cpf?: TypesKeyProperties;
-  cnpj?: TypesKeyProperties;
-  cep?: TypesKeyProperties;
+  cpf?: TypesBasicsProperties;
+  cnpj?: TypesBasicsProperties;
+  cep?: TypesBasicsProperties;
   money?: TypesBasicsProperties;
+}
+
+interface TypesMasksForKeysObject {
+  [key?: string]: TypesKeyProperties | TypesBasicsProperties;
+}
+
+interface TypesMaskObject {
+  maskName: string;
+  properties: object;
 }
 
 type TypesHooks = [
   value: string,
   setValue: Function,
   isValid: boolean,
-  setKey: boolean
+  setKey: Function
 ];
 
-export { TypesMasks, TypesHooks };
+export { TypesMasks, TypesHooks, TypesMaskObject, TypesMasksForKeysObject };
