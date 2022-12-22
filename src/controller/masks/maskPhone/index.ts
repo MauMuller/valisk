@@ -4,7 +4,7 @@ import { replaceTemplateCharByValueChar } from "../../../assets/ts/replaceTempla
 const maskPhone = (
   value: string,
   hashMask: boolean,
-  keyDown: string,
+  keyDown: boolean,
   template: string
 ): string => {
   const valueWithOnlyNumbers = onlyNumbers(value);

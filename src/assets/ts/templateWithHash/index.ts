@@ -1,7 +1,11 @@
 import setAnMasksCharacter from "../../../data/setAnMasksCharacter";
 const { char } = setAnMasksCharacter;
 
-const templateWithHash = (template: string, value: string, keydown: string) => {
+const templateWithHash = (
+  template: string,
+  value: string,
+  keydown: boolean
+) => {
   let contValueIndex = 0;
 
   for (const letterTemplate of template) {
@@ -21,7 +25,7 @@ const templateWithHash = (template: string, value: string, keydown: string) => {
     if (/(\d)/.test(template[i])) arrayWithValidIndex.push(i);
   }
 
-  if (keydown != "") {
+  if (keydown) {
     const lastIndex =
       arrayWithValidIndex.find(
         (value, ind) => ind === arrayWithValidIndex.length - 1

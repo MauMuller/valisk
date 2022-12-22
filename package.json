@@ -1,7 +1,24 @@
 {
-  "name": "input-validation",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-valisk",
+  "version": "1.0.0",
+  "keywords": [
+    "react",
+    "valisk",
+    "mask-for-inputs",
+    "validation-for-inputs"
+  ],
+  "license": "MIT License",
+  "author": {
+    "name": "Mauricio Muller dos Santos",
+    "email": "mauriciomuller2012@gmail.com",
+    "url": "https://www.instagram.com/mauricio_m_s/"
+  },
+  "main": "./src/hooks",
+  "homepage": "https://github.com/MauMuller/react-valisk#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MauMuller/react-valisk"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

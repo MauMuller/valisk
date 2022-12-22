@@ -14,27 +14,21 @@ import { isPassword } from "../../controller/validations/isPassword";
 import { masks } from "../../data/masks";
 import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
 
-import { TypesDigits } from "../../modules/InputPassword";
-import { TypesPhones } from "../../modules/InputPhone";
-
-export type TypesValidation =
-  | "cpf"
-  | "cnpj"
-  | "cep"
-  | "money"
-  | "phone"
-  | "fullphone"
-  | "password";
+import {
+  TypesDigits,
+  TypesPhones,
+  TypesValidation,
+} from "../../types/globalTypes";
 
 type TypesObjectProps = {
   typeValidationCheck: TypesPhones | TypesValidation;
   value: string;
   hashMask: boolean;
-  keyDown: string;
+  keyDown: boolean;
 
   incrementDDDAndPrefix?: boolean;
   hideValue?: boolean;
-  normalText?: string;
+  sourceValue?: string;
   passwordPontenciality?: TypesDigits;
 };
 
@@ -45,7 +39,7 @@ interface AccessKeys {
     hashMask,
     keyDown,
     hideValue,
-    normalText,
+    sourceValue,
   }: TypesObjectProps) => {
     formatedValue: string;
     isValidateValue: boolean | object;
@@ -74,7 +68,13 @@ const ValidationsType: AccessKeys = {
     return { formatedValue, isValidateValue };
   },
 
-  phoneMovel: ({ value, hashMask, keyDown, incrementDDDAndPrefix }) => {
+  phoneMovel: ({
+    value,
+    hashMask,
+    keyDown,
+    incrementDDDAndPrefix,
+    typeValidationCheck,
+  }) => {
     const maskMovel = masks.phoneMovel;
     const checkIncrementDDDandPrefix = incrementDDDAndPrefix ?? false;
 
@@ -83,12 +83,18 @@ const ValidationsType: AccessKeys = {
       : maskMovel;
 
     const formatedValue = maskPhone(value, hashMask, keyDown, template);
-    const isValidateValue = isPhone(formatedValue);
+    const isValidateValue = isPhone(formatedValue, typeValidationCheck);
 
     return { formatedValue, isValidateValue };
   },
 
-  phoneFixo: ({ value, hashMask, keyDown, incrementDDDAndPrefix }) => {
+  phoneFixo: ({
+    value,
+    hashMask,
+    keyDown,
+    incrementDDDAndPrefix,
+    typeValidationCheck,
+  }) => {
     const maskFixo = masks.phoneFixo;
     const checkIncrementDDDandPrefix = incrementDDDAndPrefix ?? false;
 
@@ -97,7 +103,7 @@ const ValidationsType: AccessKeys = {
       : maskFixo;
 
     const formatedValue = maskPhone(value, hashMask, keyDown, template);
-    const isValidateValue = isPhone(formatedValue);
+    const isValidateValue = isPhone(formatedValue, typeValidationCheck);
 
     return { formatedValue, isValidateValue };
   },
@@ -107,10 +113,10 @@ const ValidationsType: AccessKeys = {
     return { formatedValue, isValidateValue: true };
   },
 
-  password: ({ value, hideValue, passwordPontenciality, normalText }) => {
+  password: ({ value, hideValue, passwordPontenciality, sourceValue }) => {
     const formatedValue = hideValue ? maskPassword(value) : value;
     const isValidateValue = isPassword(
-      normalText,
+      sourceValue,
       passwordPontenciality,
       value
     );
