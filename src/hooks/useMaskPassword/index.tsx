@@ -35,15 +35,6 @@ const useMaskPassword = ({
 
   const valuesPassword: TypesPasswordValuesReturn = [value, sourceValue];
 
-  useEffect(() => {
-    if (!hideValueCheck) formatingValueToInput(sourceValue);
-    if (hideValueCheck) formatingValueToInput(value);
-  }, [hideValue]);
-
-  useEffect(() => {
-    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
-  }, []);
-
   const changeStateInputValue = ({
     formatedValue,
     formatedValidate,
@@ -92,6 +83,15 @@ const useMaskPassword = ({
       formatedValidate: isValidateValue,
     });
   };
+
+  useEffect(() => {
+    if (!hideValueCheck) formatingValueToInput(sourceValue);
+    if (hideValueCheck) formatingValueToInput(value);
+  }, [hideValue]);
+
+  useEffect(() => {
+    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
+  }, []);
 
   return [valuesPassword, formatingValueToInput, isValid];
 };

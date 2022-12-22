@@ -121,4 +121,5 @@ export {
   TypesMaskPasswordReturn,
   TypesMaskMoneyReturn,
   TypesPasswordValuesReturn,
+  TypesInicialWithoutKey,
 };

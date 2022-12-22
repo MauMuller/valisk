@@ -37,10 +37,6 @@ const useMaskPhone = ({
   const [inputValue, setInputValue] = useState(inicialObjectValues);
   const { value, isValid, keyDown } = inputValue;
 
-  useEffect(() => {
-    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
-  }, []);
-
   const changeStateInputValue = ({
     formatedValue,
     formatedValidate,
@@ -61,14 +57,11 @@ const useMaskPhone = ({
       return clonedObject;
     });
 
-  const formatingValueToInput = (valueInput: string, defaultValue?: string) => {
-    const defaultValueForMask = defaultValue ?? "";
-
+  const formatingValueToInput = (valueInput: string) => {
     const { formatedValue, isValidateValue } = acessValidationTypes({
       incrementDDDAndPrefix,
       typeValidationCheck: typeMask,
       hashMaskCheck: useExplictMaskCheck,
-      defaultValue: defaultValueForMask,
       valueInput,
       keyDown,
     });
@@ -86,6 +79,10 @@ const useMaskPhone = ({
     if (value != "Backspace" && keyDown)
       changeStateInputValue({ formatedKeyDown: false });
   };
+
+  useEffect(() => {
+    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
+  }, []);
 
   return [value, formatingValueToInput, isValid, setKey];
 };

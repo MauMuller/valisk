@@ -5,15 +5,15 @@ import { masks } from "../../data/masks";
 
 import {
   TypeChangeState,
-  TypesInicialObject,
-  TypesMaskReturn,
-  TypesValuesFromUseMask,
+  TypesInicialWithoutKey,
+  TypesMaskMoneyReturn,
+  TypesBasicsProperties,
 } from "../../types/globalTypes";
 
 const useMaskMoney = ({
   inicialValue,
   useExplictMask,
-}: TypesValuesFromUseMask): TypesMaskReturn => {
+}: TypesBasicsProperties): TypesMaskMoneyReturn => {
   const typeMask = "money";
   const valueMask = masks[typeMask];
 
@@ -23,18 +23,13 @@ const useMaskMoney = ({
     ? valueMask
     : firstPartMoney(valueMask);
 
-  const inicialObjectValues: TypesInicialObject = {
+  const inicialObjectValues: TypesInicialWithoutKey = {
     value: inicialMaskValue,
     isValid: false,
-    keyDown: false,
   };
 
   const [inputValue, setInputValue] = useState(inicialObjectValues);
-  const { value, isValid, keyDown } = inputValue;
-
-  useEffect(() => {
-    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
-  }, []);
+  const { value, isValid } = inputValue;
 
   const changeStateInputValue = ({
     formatedValue,
@@ -43,45 +38,34 @@ const useMaskMoney = ({
   }: TypeChangeState) =>
     setInputValue((prevValue) => {
       const clonedObject = { ...prevValue };
-      const { value, isValid, keyDown } = clonedObject;
+      const { value, isValid } = clonedObject;
 
       if (formatedValue != value) clonedObject.value = formatedValue ?? value;
 
       if (formatedValidate != isValid)
         clonedObject.isValid = formatedValidate ?? isValid;
 
-      if (formatedKeyDown != keyDown)
-        clonedObject.keyDown = formatedKeyDown ?? keyDown;
-
       return clonedObject;
     });
 
-  const formatingValueToInput = (valueInput: string, defaultValue?: string) => {
-    const defaultValueForMask = defaultValue ?? "";
-
+  const formatingValueToInput = (valueInput: string) => {
     const { formatedValue, isValidateValue } = acessValidationTypes({
       typeValidationCheck: typeMask,
       valueInput,
       hashMaskCheck: useExplictMaskCheck,
-      keyDown,
-      defaultValue: defaultValueForMask,
     });
 
     changeStateInputValue({
       formatedValue,
       formatedValidate: isValidateValue,
-      formatedKeyDown: keyDown,
     });
   };
 
-  const setKey = (value: string) => {
-    if (value === "Backspace") changeStateInputValue({ formatedKeyDown: true });
+  useEffect(() => {
+    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
+  }, []);
 
-    if (value != "Backspace" && keyDown)
-      changeStateInputValue({ formatedKeyDown: false });
-  };
-
-  return [value, formatingValueToInput, isValid, setKey];
+  return [value, formatingValueToInput, isValid];
 };
 
 export { useMaskMoney };

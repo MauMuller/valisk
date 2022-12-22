@@ -6,13 +6,13 @@ import {
   TypeChangeState,
   TypesInicialObject,
   TypesMaskReturn,
-  TypesValuesFromUseMask,
+  TypesBasicsProperties,
 } from "../../types/globalTypes";
 
 const useMaskCNPJ = ({
   inicialValue,
   useExplictMask,
-}: TypesValuesFromUseMask): TypesMaskReturn => {
+}: TypesBasicsProperties): TypesMaskReturn => {
   const typeMask = "cnpj";
   const valueMask = masks[typeMask];
 
@@ -28,10 +28,6 @@ const useMaskCNPJ = ({
 
   const [inputValue, setInputValue] = useState(inicialObjectValues);
   const { value, isValid, keyDown } = inputValue;
-
-  useEffect(() => {
-    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
-  }, []);
 
   const changeStateInputValue = ({
     formatedValue,
@@ -53,15 +49,12 @@ const useMaskCNPJ = ({
       return clonedObject;
     });
 
-  const formatingValueToInput = (valueInput: string, defaultValue?: string) => {
-    const defaultValueForMask = defaultValue ?? "";
-
+  const formatingValueToInput = (valueInput: string) => {
     const { formatedValue, isValidateValue } = acessValidationTypes({
       typeValidationCheck: typeMask,
       valueInput,
       hashMaskCheck: useExplictMaskCheck,
       keyDown,
-      defaultValue: defaultValueForMask,
     });
 
     changeStateInputValue({
@@ -77,6 +70,10 @@ const useMaskCNPJ = ({
     if (value != "Backspace" && keyDown)
       changeStateInputValue({ formatedKeyDown: false });
   };
+
+  useEffect(() => {
+    if (inicialValueCheck != "") formatingValueToInput(inicialValueCheck);
+  }, []);
 
   return [value, formatingValueToInput, isValid, setKey];
 };
