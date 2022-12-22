@@ -6,6 +6,7 @@ function App() {
   const [hiddenValue, setHiddenValue] = useState(true);
 
   const namesForLabes = ["password", "cep", "cnpj", "cpf"];
+
   const inputsMasks = namesForLabes.reduce((prev, current) => {
     const inicialObject = { inicialValue: "" };
     const passwordObj = { ...inicialObject, hideValue: hiddenValue };
