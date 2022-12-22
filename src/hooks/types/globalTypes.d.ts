@@ -1,20 +1,24 @@
 type TypesFunction<K> = (value: K) => void;
 
-type TypesBasicReturn = [
+type TypesMaskReturn = [
   value: string,
   setValue: TypesFunction<string>,
   isValid: boolean | object,
   setKey: TypesFunction<string>
 ];
 
-type TypesMaskReturn = TypesBasicReturn;
-
-type TypesMaskPasswordReturn = [
+type TypesMaskMoneyReturn = [
   value: string,
   setValue: TypesFunction<string>,
-  isValid: boolean | object,
-  setKey: TypesFunction<string>,
-  sourceValue: string
+  isValid: boolean | TypesDigits
+];
+
+type TypesPasswordValuesReturn = [value: string, sourceValue: string];
+
+type TypesMaskPasswordReturn = [
+  value: TypesPasswordValuesReturn,
+  setValue: TypesFunction<string>,
+  isValid: boolean | TypesDigits
 ];
 
 type TypesPhones = "phoneMovel" | "phoneFixo";
@@ -56,7 +60,13 @@ interface TypesInicialObject {
   isValid: boolean | object;
   keyDown: boolean;
 }
-interface TypesInicialPassword extends TypesInicialObject {
+
+interface TypesInicialWithoutKey {
+  value: string;
+  isValid: boolean | TypesDigits;
+}
+
+interface TypesInicialPassword extends TypesInicialWithoutKey {
   sourceValue: string;
 }
 
@@ -76,7 +86,7 @@ interface TypeChangeState {
 }
 
 interface TypesChangePasswordState extends TypeChangeState {
-  sourceValue?: string;
+  formatedSourceValue?: string;
 }
 interface TypesMaskObject {
   maskName: string;
@@ -84,10 +94,10 @@ interface TypesMaskObject {
 }
 
 type TypesHooks = [
-  value: string,
+  value: string | TypesPasswordValuesReturn,
   setValue: Function,
   isValid: boolean,
-  setKey: Function
+  setKey?: Function
 ];
 
 export {};
@@ -109,4 +119,6 @@ export {
   TypesPasswordMask,
   TypesInicialPassword,
   TypesMaskPasswordReturn,
+  TypesMaskMoneyReturn,
+  TypesPasswordValuesReturn,
 };

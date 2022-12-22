@@ -2,17 +2,21 @@ import { filterByInputMasks } from "../../assets/ts/filterByInputMasks";
 import { modulateObjectToMask } from "../../assets/ts/modulateObjectToMask";
 import { getNameFunctions } from "../../assets/ts/getNameFunctions";
 
-import { TypesMasks, TypesHooks } from "../types/globalTypes";
+import {
+  TypesMasks,
+  TypesHooks,
+  TypesPasswordValuesReturn,
+} from "../types/globalTypes";
 
 const useMasks = (objMasks: TypesMasks) => {
   const modulateObjectMask = modulateObjectToMask(objMasks);
   const namesMasks = modulateObjectMask.map((obj) => obj.maskName);
   const hookFiltered = filterByInputMasks(namesMasks);
 
-  const values: string[] = [],
+  const values: Array<string | TypesPasswordValuesReturn> = [],
     setValues: Function[] = [],
     isValidValues: boolean[] = [],
-    setKeys: Function[] = [];
+    setKeys: Array<Function | undefined> = [];
 
   hookFiltered.forEach((hooks) => {
     let nameFunction = getNameFunctions(hooks, [7]);

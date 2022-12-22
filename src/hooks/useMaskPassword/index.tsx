@@ -6,8 +6,8 @@ import { extractValueFromPassword } from "../../assets/ts/extractValueFromPasswo
 import {
   TypesChangePasswordState,
   TypesInicialPassword,
-  TypesMaskReturn,
   TypesPasswordMask,
+  TypesPasswordValuesReturn,
   TypesMaskPasswordReturn,
 } from "../types/globalTypes";
 
@@ -28,11 +28,12 @@ const useMaskPassword = ({
     value: "",
     sourceValue: "",
     isValid: false,
-    keyDown: false,
   };
 
   const [inputValue, setInputValue] = useState(inicialObjectValues);
-  const { value, isValid, keyDown, sourceValue } = inputValue;
+  const { value, isValid, sourceValue } = inputValue;
+
+  const valuesPassword: TypesPasswordValuesReturn = [value, sourceValue];
 
   useEffect(() => {
     if (!hideValueCheck) formatingValueToInput(sourceValue);
@@ -46,22 +47,20 @@ const useMaskPassword = ({
   const changeStateInputValue = ({
     formatedValue,
     formatedValidate,
-    formatedKeyDown,
     formatedSourceValue,
   }: TypesChangePasswordState) => {
     setInputValue((prevValue) => {
       const clonedObject = { ...prevValue };
-      const { value, isValid, keyDown, sourceValue } = clonedObject;
+      const { value, isValid, sourceValue } = clonedObject;
 
       if (formatedValue != value) clonedObject.value = formatedValue ?? value;
 
       if (formatedValidate != isValid)
         clonedObject.isValid = formatedValidate ?? isValid;
 
-      if (formatedKeyDown != keyDown)
-        clonedObject.keyDown = formatedKeyDown ?? keyDown;
+      if (formatedSourceValue != sourceValue)
+        clonedObject.sourceValue = formatedSourceValue ?? sourceValue;
 
-      clonedObject.sourceValue = formatedSourceValue ?? sourceValue;
       return clonedObject;
     });
   };
@@ -79,33 +78,22 @@ const useMaskPassword = ({
     const formatedSource =
       inputLength < sourceLength ? removingDiferenceLength : valueSource;
 
-    console.log(sourceValue);
-
     const { formatedValue, isValidateValue } = acessValidationTypes({
       passwordPontencialityCheck,
       typeValidationCheck: typeMask,
       sourceValue: formatedSource,
       valueInput,
-      keyDown,
       hideValueCheck,
     });
 
     changeStateInputValue({
-      sourceValue: formatedSource,
+      formatedSourceValue: formatedSource,
       formatedValue,
       formatedValidate: isValidateValue,
-      formatedKeyDown: keyDown,
     });
   };
 
-  const setKey = (value: string) => {
-    if (value === "Backspace") changeStateInputValue({ formatedKeyDown: true });
-
-    if (value != "Backspace" && keyDown)
-      changeStateInputValue({ formatedKeyDown: false });
-  };
-
-  return [value, formatingValueToInput, isValid, setKey, sourceValue];
+  return [valuesPassword, formatingValueToInput, isValid];
 };
 
 export { useMaskPassword };

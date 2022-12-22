@@ -11,33 +11,28 @@ import { useState } from "react";
 function App() {
   const [hiddenValue, setHiddenValue] = useState(true);
 
-  const [
-    valuePassword,
-    setPassword,
-    isValidPassword,
-    setKeyPassword,
-    sourceValue,
-  ] = useMaskPassword({
+  const [valuesPassword, setPassword, isValidPassword] = useMaskPassword({
     inicialValue: "10",
     hideValue: hiddenValue,
-    passwordPontenciality: { numbers: [5] },
+    passwordPontenciality: { numbers: [5], specialChars: [1, "#"] },
   });
 
   // const [cnpjValue, cpfValue, phoneValue] = values;
   // const [setCNPJ, setCPF, setPhone] = setValues;
   // const [setKeysCNPJ, setKeysCPF, setKeysPhone] = setKeys;
 
-  // console.clear();
-  // console.log(JSON.stringify(isValidPassword, null, "\t"));
-  // console.log(sourceValue);
+  const [value, sourceValue] = valuesPassword;
+
+  console.clear();
+  console.log(JSON.stringify(isValidPassword, null, "\t"));
+  console.log(sourceValue);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <input
         type="text"
-        value={valuePassword}
+        value={value}
         onChange={(evt) => setPassword(evt.target.value)}
-        onKeyDown={(evt) => setKeyPassword(evt.key)}
       />
 
       {/* <input
