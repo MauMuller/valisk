@@ -6,7 +6,7 @@ import {
   TypesMasks,
   TypesHooks,
   TypesPasswordValuesReturn,
-} from "../types/globalTypes";
+} from "../../types/globalTypes";
 
 const useMasks = (objMasks: TypesMasks) => {
   const modulateObjectMask = modulateObjectToMask(objMasks);

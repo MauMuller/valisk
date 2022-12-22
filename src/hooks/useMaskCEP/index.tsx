@@ -7,7 +7,7 @@ import {
   TypesInicialObject,
   TypesMaskReturn,
   TypesValuesFromUseMask,
-} from "../types/globalTypes";
+} from "../../types/globalTypes";
 
 const useMaskCEP = ({
   inicialValue,

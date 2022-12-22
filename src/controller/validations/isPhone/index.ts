@@ -1,4 +1,4 @@
-import { TypesPhones } from "../../../hooks/types/globalTypes";
+import { TypesPhones } from "../../../types/globalTypes";
 import { TypesValidation } from "../../../model/ValidationsType";
 
 const isPhone = (

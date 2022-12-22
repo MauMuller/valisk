@@ -1,4 +1,4 @@
-import { TypesDigits } from "../../../hooks/types/globalTypes";
+import { TypesDigits } from "../../../types/globalTypes";
 import { defaultValuesForPassword } from "../../../assets/ts/defaultValuesForPassword";
 interface TypesRegex {
   [value: string]: string;

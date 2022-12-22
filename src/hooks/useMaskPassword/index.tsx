@@ -9,7 +9,7 @@ import {
   TypesPasswordMask,
   TypesPasswordValuesReturn,
   TypesMaskPasswordReturn,
-} from "../types/globalTypes";
+} from "../../types/globalTypes";
 
 const useMaskPassword = ({
   inicialValue,

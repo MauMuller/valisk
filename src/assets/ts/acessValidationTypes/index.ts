@@ -4,7 +4,7 @@ import {
   TypesValidation,
   TypesPhones,
   TypesDigits,
-} from "../../../hooks/types/globalTypes";
+} from "../../../types/globalTypes";
 
 interface ValidationsProps {
   typeValidationCheck: TypesPhones | TypesValidation;

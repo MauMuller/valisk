@@ -8,7 +8,7 @@ import {
   TypesInicialObject,
   TypesMaskReturn,
   TypesValuesFromUseMask,
-} from "../types/globalTypes";
+} from "../../types/globalTypes";
 
 const useMaskMoney = ({
   inicialValue,

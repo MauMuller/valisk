@@ -8,7 +8,7 @@ import {
   TypesInicialObject,
   TypesMaskReturn,
   TypesPhoneMask,
-} from "../types/globalTypes";
+} from "../../types/globalTypes";
 
 const useMaskPhone = ({
   inicialValue,

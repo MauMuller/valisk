@@ -18,7 +18,7 @@ import {
   TypesDigits,
   TypesPhones,
   TypesValidation,
-} from "../../hooks/types/globalTypes";
+} from "../../types/globalTypes";
 
 type TypesObjectProps = {
   typeValidationCheck: TypesPhones | TypesValidation;
