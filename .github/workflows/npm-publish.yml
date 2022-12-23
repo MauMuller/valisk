@@ -28,9 +28,7 @@ jobs:
 
       - name: Keep same version (litte time) 🤗 version = ${{ github.GITHUB_REF }}
         env: 
-          token-repo: ${{ secrets.ACCESS_TO_REPO }}
-          
-        if: ${{ github.GITHUB_EVENT_NAME == "push" || github.GITHUB_EVENT_NAME == "release"}}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TO_REPO }}
         run: npm version 1.0.0 --allow-same-version
 
       - name: Publish package on NPM 😏
