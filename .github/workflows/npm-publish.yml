@@ -28,16 +28,10 @@ jobs:
       - name: Install Dependences and Build 😱
         run: npm ci && npm run build
 
-      - name: Publish package on NPM 😏
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
+      - name: Upgrade version Packeage
+        run: npm version patch
 
-  create-release:
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
-    steps:
-      - uses: actions/checkout@master
-      - uses: Roang-zero1/github-create-release-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Publish package on NPM 😏
+      #   run: npm publish --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
