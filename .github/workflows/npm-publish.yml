@@ -1,9 +1,9 @@
 name: Publish to NPM
 
 on:
-  push: 
-    branches: [ main ]
-  
+  push:
+    branches: [main]
+
 # release:
 # types: [created]
 
@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout code 😁
@@ -21,17 +22,25 @@ jobs:
       - name: Setup Node 😎
         uses: actions/setup-node@v3
         with:
-          node-version: "14.x"
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install Dependences and Build 😱
         run: npm ci && npm run build
 
-      - name: Keep same version (litte time) 🤗 version = ${{ github.GITHUB_REF }}
-        env: 
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TO_REPO }}
-        run: npm version 1.0.0 --allow-same-version
+      - name: Keep same version (litte time) 🤗 version
+        run: npm version 1.0.0
 
       - name: Publish package on NPM 😏
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
+
+  create-release:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@master
+      - uses: Roang-zero1/github-create-release-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
