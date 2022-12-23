@@ -36,8 +36,11 @@ jobs:
       - name: Upgrade version Packeage
         run: npm version patch
         
-      - name: git status
+      - name: Show status of commits
         run: git status
+        
+      - name: Push origin to main
+        run: git push -u origin main
 
       # - name: Publish package on NPM 😏
       #   run: npm publish --access public
