@@ -1,11 +1,10 @@
-name: Publish to NPM
+name: Publish package to NPM
 
 on:
   push:
     branches: [main]
-
-# release:
-# types: [created]
+  release:
+    types: [created]
 
 permissions:
   contents: write
@@ -17,10 +16,9 @@ jobs:
 
     steps:
       - name: Account
-        run: 
-          git config --global user.email "mauriciomuller2012@gmail.com" &&
+        run: git config --global user.email "mauriciomuller2012@gmail.com" &&
           git config --global user.name "maummuler"
-    
+
       - name: Checkout code 😁
         uses: actions/checkout@v3
 
@@ -35,13 +33,12 @@ jobs:
 
       - name: Upgrade version Packeage
         run: npm version patch
-        
+
       - name: Show status of commits
         run: git status
-        
-      - name: Push origin to main
-        run: git push -u origin main
 
+      - name: Push new packeage version to main
+        run: git push -u origin main
 
       # - name: Publish package on NPM 😏
       #   run: npm publish --access public
