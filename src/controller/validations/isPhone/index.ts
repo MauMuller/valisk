@@ -1,5 +1,5 @@
 import { TypesPhones } from "../../../types/globalTypes";
-import { TypesValidation } from "../../../model/ValidationsType";
+import { TypesValidation } from "../../../types/globalTypes";
 
 const isPhone = (
   value: string,
