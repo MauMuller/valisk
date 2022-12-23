@@ -1,11 +1,29 @@
-name: publish NPM Project
+name: Publish to NPM
+
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [created]
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: TESTEEEE
-      run: echo 'bah'
+  publish: # JOB
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code 😁
+        uses: actions/checkout@v3
+
+      - name: Setup Node 😎
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14.x"
+
+      - name: Install Dependences and Build 😱
+        run: npm ci && npm run build
+
+      - name: Publish package on NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
+
+      - name: TESTEEEE
+        shell: bash
+        run: echo 'bah'
