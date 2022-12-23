@@ -35,6 +35,9 @@ jobs:
 
       - name: Upgrade version Packeage
         run: npm version patch
+        
+      - name: git status
+        run: git status
 
       # - name: Publish package on NPM 😏
       #   run: npm publish --access public
