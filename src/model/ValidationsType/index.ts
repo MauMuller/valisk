@@ -2,34 +2,44 @@ import { maskCPF } from "../../controller/masks/maskCPF";
 import { maskCNPJ } from "../../controller/masks/maskCNPJ";
 import { maskCEP } from "../../controller/masks/maskCEP";
 import { maskPhone } from "../../controller/masks/maskPhone";
-import { maskFullphone } from "../../controller/masks/maskFullphone";
+import { maskMoney } from "../../controller/masks/maskMoney";
 import { maskPassword } from "../../controller/masks/maskPassword";
 
 import { isCPF } from "../../controller/validations/isCPF";
 import { isCNPJ } from "../../controller/validations/isCNPJ";
 import { isCEP } from "../../controller/validations/isCEP";
 import { isPhone } from "../../controller/validations/isPhone";
-import { isFullphone } from "../../controller/validations/isFullphone";
 import { isPassword } from "../../controller/validations/isPassword";
 
-import { TypesDigits } from "../../modules/InputValidation";
+import { masks } from "../../data/masks";
+import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
+
+import {
+  TypesDigits,
+  TypesPhones,
+  TypesValidation,
+} from "../../types/globalTypes";
 
 type TypesObjectProps = {
+  typeValidationCheck: TypesPhones | TypesValidation;
   value: string;
   hashMask: boolean;
-  keyDown: string;
-  hideValue: boolean;
-  normalText: string;
-  passwordPontenciality: TypesDigits;
+  keyDown: boolean;
+
+  incrementDDDAndPrefix?: boolean;
+  hideValue?: boolean;
+  sourceValue?: string;
+  passwordPontenciality?: TypesDigits;
 };
 
 interface AccessKeys {
   [key: string]: ({
+    typeValidationCheck,
     value,
     hashMask,
     keyDown,
     hideValue,
-    normalText,
+    sourceValue,
   }: TypesObjectProps) => {
     formatedValue: string;
     isValidateValue: boolean | object;
@@ -37,10 +47,6 @@ interface AccessKeys {
 }
 
 const ValidationsType: AccessKeys = {
-  default: ({ value }) => {
-    return { formatedValue: value, isValidateValue: true };
-  },
-
   cpf: ({ value, hashMask, keyDown }) => {
     const formatedValue = maskCPF(value, hashMask, keyDown);
     const isValidateValue = isCPF(formatedValue);
@@ -62,29 +68,60 @@ const ValidationsType: AccessKeys = {
     return { formatedValue, isValidateValue };
   },
 
-  phone: ({ value, hashMask, keyDown }) => {
-    const formatedValue = maskPhone(value, hashMask, keyDown);
-    const isValidateValue = isPhone(formatedValue);
+  phoneMovel: ({
+    value,
+    hashMask,
+    keyDown,
+    incrementDDDAndPrefix,
+    typeValidationCheck,
+  }) => {
+    const maskMovel = masks.phoneMovel;
+    const checkIncrementDDDandPrefix = incrementDDDAndPrefix ?? false;
+
+    const template = checkIncrementDDDandPrefix
+      ? usePrefixAndDDDToPhone(maskMovel)
+      : maskMovel;
+
+    const formatedValue = maskPhone(value, hashMask, keyDown, template);
+    const isValidateValue = isPhone(formatedValue, typeValidationCheck);
 
     return { formatedValue, isValidateValue };
   },
 
-  fullphone: ({ value, hashMask, keyDown }) => {
-    const formatedValue = maskFullphone(value, hashMask, keyDown);
-    const isValidateValue = isFullphone(formatedValue);
+  phoneFixo: ({
+    value,
+    hashMask,
+    keyDown,
+    incrementDDDAndPrefix,
+    typeValidationCheck,
+  }) => {
+    const maskFixo = masks.phoneFixo;
+    const checkIncrementDDDandPrefix = incrementDDDAndPrefix ?? false;
+
+    const template = checkIncrementDDDandPrefix
+      ? usePrefixAndDDDToPhone(maskFixo)
+      : maskFixo;
+
+    const formatedValue = maskPhone(value, hashMask, keyDown, template);
+    const isValidateValue = isPhone(formatedValue, typeValidationCheck);
 
     return { formatedValue, isValidateValue };
   },
 
-  money: ({ value }) => {
-    return { formatedValue: value, isValidateValue: true };
+  money: ({ value, hashMask }) => {
+    const formatedValue = maskMoney(value, hashMask);
+    return { formatedValue, isValidateValue: true };
   },
 
-  password: ({ value, hideValue, passwordPontenciality, normalText }) => {
+  password: ({ value, hideValue, passwordPontenciality, sourceValue }) => {
     const formatedValue = hideValue ? maskPassword(value) : value;
-    const isValidateValue = isPassword(normalText, passwordPontenciality);
+    const isValidateValue = isPassword(
+      sourceValue,
+      passwordPontenciality,
+      value
+    );
 
-    return { formatedValue, isValidateValue: isValidateValue };
+    return { formatedValue, isValidateValue };
   },
 };
 

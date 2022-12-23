@@ -1,38 +1,48 @@
 import ValidationsType from "../../../model/ValidationsType";
-import { TypesDigits } from "../../../modules/InputValidation";
 
-type ValidationsProps = {
-  typeValidationCheck: string;
+import {
+  TypesValidation,
+  TypesPhones,
+  TypesDigits,
+} from "../../../types/globalTypes";
+
+interface ValidationsProps {
+  typeValidationCheck: TypesPhones | TypesValidation;
   valueInput: string;
-  defaultValue?: string;
-  hashMaskCheck: boolean;
-  keyDown?: string;
-  hideValueCheck: boolean;
-  passwordPontencialityCheck: TypesDigits;
-};
+  hashMaskCheck?: boolean;
+  keyDown?: boolean;
+  sourceValue?: string;
+  hideValueCheck?: boolean;
+  passwordPontencialityCheck?: TypesDigits;
+  incrementDDDAndPrefix?: boolean;
+}
 type ValidationReturn = {
   formatedValue: string;
   isValidateValue: boolean | object;
 };
 
 const acessValidationTypes = ({
+  incrementDDDAndPrefix,
   typeValidationCheck,
   valueInput,
-  defaultValue,
+  sourceValue,
   hashMaskCheck,
   keyDown,
   hideValueCheck,
   passwordPontencialityCheck,
 }: ValidationsProps): ValidationReturn => {
-  const keyPressed = keyDown ?? "";
-  const defaultValueCheck = defaultValue ?? valueInput;
+  const keyPressed = keyDown ?? false;
+  const hashMask = hashMaskCheck ?? false;
 
   let objValidation = ValidationsType[typeValidationCheck]({
     value: valueInput,
-    hashMask: hashMaskCheck,
+    hashMask,
+    typeValidationCheck,
     keyDown: keyPressed,
+
+    sourceValue: sourceValue,
+    incrementDDDAndPrefix,
     hideValue: hideValueCheck,
-    normalText: defaultValueCheck,
     passwordPontenciality: passwordPontencialityCheck,
   });
 

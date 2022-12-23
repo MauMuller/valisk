@@ -1,5 +1,5 @@
-import { TypesDigits } from "../../../modules/InputValidation";
-
+import { TypesDigits } from "../../../types/globalTypes";
+import { defaultValuesForPassword } from "../../../assets/ts/defaultValuesForPassword";
 interface TypesRegex {
   [value: string]: string;
 }
@@ -10,10 +10,17 @@ const typesRegex: TypesRegex = {
   words: "^\\d\\s\\W",
 };
 
-const isPassword = (normalText: string, passwordPontenciality: TypesDigits) => {
+const isPassword = (
+  normalText?: string,
+  passwordPontenciality?: TypesDigits,
+  value?: string
+) => {
+  const defaultValueCheck = normalText ?? value;
+  const passwordPontencialityCheck =
+    passwordPontenciality ?? defaultValuesForPassword(passwordPontenciality);
   const propertiesCheck = [];
 
-  for (const [key, value] of Object.entries(passwordPontenciality)) {
+  for (const [key, value] of Object.entries(passwordPontencialityCheck)) {
     let [quantTimesThatNeed, especifValueThatNeed] = value;
     let checkedkey = key ?? "";
     let valueToSearch = especifValueThatNeed || typesRegex[checkedkey];
@@ -21,7 +28,8 @@ const isPassword = (normalText: string, passwordPontenciality: TypesDigits) => {
     let regexTemplate = `([${valueToSearch}]{${quantificators}})`;
     let createdRegexObject = new RegExp(regexTemplate, "gim");
 
-    let procedencesSearched = normalText.match(createdRegexObject) ?? [];
+    let procedencesSearched =
+      defaultValueCheck?.match(createdRegexObject) ?? [];
 
     let boolValidation = procedencesSearched.length >= quantTimesThatNeed;
     let objectValidation = { [`${key}Validation`]: boolValidation };
@@ -29,9 +37,6 @@ const isPassword = (normalText: string, passwordPontenciality: TypesDigits) => {
     propertiesCheck.push(objectValidation);
   }
 
-  // console.clear();
-  // console.log(normalText);
-  // console.log(JSON.stringify(propertiesCheck, null, "\t"));
   return propertiesCheck;
 };
 

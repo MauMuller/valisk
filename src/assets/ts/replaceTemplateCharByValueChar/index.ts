@@ -5,10 +5,10 @@ const replaceTemplateCharByValueChar = (
   template: string,
   value: string,
   hashMask: boolean,
-  keydown: string
+  keydown: boolean
 ) => {
   const withHash = templateWithHash(template, value, keydown);
-  const withoutHash = templateWithoutHash(template, value, keydown);
+  const withoutHash = templateWithoutHash(template, value);
   return hashMask ? withHash : withoutHash;
 };
 
