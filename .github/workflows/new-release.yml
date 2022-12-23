@@ -18,11 +18,11 @@ jobs:
         run: 
           ls
           
-          versionNumber="$(cat package.json | jq '."version"')"
+          # versionNumber="$(cat package.json | jq '."version"')"
           
-          echo $versionNumber
+          # echo $versionNumber
           
-          echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_ENV
+          # echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_ENV
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
