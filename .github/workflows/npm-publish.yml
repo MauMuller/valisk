@@ -7,13 +7,13 @@ on:
 # release:
 # types: [created]
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   publish: # JOB
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      packages: write
 
     steps:
       - name: Account
@@ -41,6 +41,7 @@ jobs:
         
       - name: Push origin to main
         run: git push -u origin main
+
 
       # - name: Publish package on NPM 😏
       #   run: npm publish --access public
