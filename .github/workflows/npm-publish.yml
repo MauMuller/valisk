@@ -1,29 +1,46 @@
-name: Publish to NPM
+name: Publish package to NPM
 
 on:
-  # release:
-  #   types: [created]
-  push: [main]
+  push:
+    branches: [main]
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+  packages: write
 
 jobs:
   publish: # JOB
     runs-on: ubuntu-latest
+
     steps:
+      - name: Account
+        run: git config --global user.email "mauriciomuller2012@gmail.com" &&
+          git config --global user.name "maummuler"
+
       - name: Checkout code 😁
         uses: actions/checkout@v3
 
       - name: Setup Node 😎
         uses: actions/setup-node@v3
         with:
-          node-version: "14.x"
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install Dependences and Build 😱
         run: npm ci && npm run build
 
-      - name: Keep same version (litte time)
-        run: npm version 1.0.0 --allow-same-version
+      - name: Upgrade version Packeage
+        run: npm version patch
 
-      - name: Publish package on NPM
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
+      - name: Show status of commits
+        run: git status
+
+      - name: Push new packeage version to main
+        run: git push -u origin main
+
+      # - name: Publish package on NPM 😏
+      #   run: npm publish --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
