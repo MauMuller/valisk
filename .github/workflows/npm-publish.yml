@@ -30,7 +30,7 @@ jobs:
         env: 
           token-repo: ${{ secrets.ACCESS_TO_REPO }}
           
-        if: ${{ github.GITHUB_EVENT_NAME === push || github.GITHUB_EVENT_NAME === release}}
+        if: ${{ github.GITHUB_EVENT_NAME == push || github.GITHUB_EVENT_NAME == release}}
         run: npm version 1.0.0 --allow-same-version
 
       - name: Publish package on NPM 😏
