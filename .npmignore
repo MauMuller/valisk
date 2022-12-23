@@ -1,5 +1,7 @@
 ./src/App.*
 ./src/*.css
-./vite*
-*.html
-./github/*
+./vite.config.ts
+./index.html
+./github
+LINCENSE.md
+.gitignore
