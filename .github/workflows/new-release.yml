@@ -1,0 +1,22 @@
+name: Generate a new release with YML
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  salve_package_version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: get and salve number
+        shell: bash
+        run: versionNumber="$(cat package.json | jq '."version"')"
+          echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_ENV
+
+      - name: Test env variable
+        run: echo "Versão do pacote - $VERSION_PACKAGE"
