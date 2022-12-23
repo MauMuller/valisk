@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Account
         run: 
-          git config --global user.email "mauriciomuller2012@gmail.com"
+          git config --global user.email "mauriciomuller2012@gmail.com" &&
           git config --global user.name "maummuler"
     
       - name: Checkout code 😁
