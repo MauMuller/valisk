@@ -1,8 +1,6 @@
 name: Publish package to NPM
 
 on:
-  push:
-    branches: [main]
   release:
     types: [created]
 
@@ -10,37 +8,43 @@ permissions:
   contents: write
   packages: write
 
+env:
+  DAY: Monday
+
 jobs:
   publish: # JOB
     runs-on: ubuntu-latest
 
     steps:
-      - name: Account
-        run: git config --global user.email "mauriciomuller2012@gmail.com" &&
-          git config --global user.name "maummuler"
+      - name: Testing Event
+        run: echo "dia da semana - $DAY"
 
-      - name: Checkout code 😁
-        uses: actions/checkout@v3
+      # - name: Account Configuration
+      #   run: git config --global user.email "mauriciomuller2012@gmail.com" &&
+      #     git config --global user.name "maummuler"
 
-      - name: Setup Node 😎
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.x"
-          registry-url: "https://registry.npmjs.org"
+      # - name: Checkout code
+      #   uses: actions/checkout@v3
 
-      - name: Install Dependences and Build 😱
-        run: npm ci && npm run build
+      # - name: Setup Node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: "16.x"
+      #     registry-url: "https://registry.npmjs.org"
 
-      - name: Upgrade version Packeage
-        run: npm version patch
+      # - name: Install Dependences and Build
+      #   run: npm ci && npm run build
 
-      - name: Show status of commits
-        run: git status
+      # - name: Upgrade version Package
+      #   run: npm version patch
 
-      - name: Push new packeage version to main
-        run: git push -u origin main
+      # - name: Show status of commits
+      #   run: git status
 
-      # - name: Publish package on NPM 😏
+      # - name: Push new package version to main
+      #   run: git push -u origin main
+
+      # - name: Publish on NPM
       #   run: npm publish --access public
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
