@@ -1,11 +1,18 @@
 name: publish NPM Project
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: TESTEEEE
-      run: echo 'bah'
+  publish: # JOB
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+
+      - name: TESTEEEE
+        shell: bash
+        run: echo 'bah'
