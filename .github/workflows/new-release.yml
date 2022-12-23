@@ -15,8 +15,15 @@ jobs:
     steps:
       - name: get and salve number
         shell: bash
-        run: versionNumber="$(cat package.json | jq '."version"')"
+        run: |
+          versionNumber="$(cat ./package.json | jq '."version"')"
+          echo $versionNumber
           echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_ENV
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
 
       - name: Test env variable
         run: echo "Versão do pacote - $VERSION_PACKAGE"
