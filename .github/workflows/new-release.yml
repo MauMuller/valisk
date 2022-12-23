@@ -15,10 +15,13 @@ jobs:
     steps:
       - name: get and salve number
         shell: bash
-        run:
+        run: 
           ls
+          
           versionNumber="$(cat package.json | jq '."version"')"
+          
           echo $versionNumber
+          
           echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_ENV
 
         env:
