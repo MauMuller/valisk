@@ -1,4 +1,4 @@
-import { useState, useId } from "react";
+import { useState, useId, useRef } from "react";
 import { useMasks } from "./hooks/useMasks";
 
 function App() {
@@ -46,6 +46,8 @@ function App() {
       </div>
     );
   });
+
+  const [value, setValue] = useState("");
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
