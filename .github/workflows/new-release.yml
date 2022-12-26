@@ -52,11 +52,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  creating_realese:
+  create_realese:
     runs-on: ubuntu-latest
+    needs: upgrade_package_version
     steps:
       - name: Show last package version
         run: echo $VERSION_PACKAGE
 
       - name: Create realease
         run: gh release create v$VERSION_PACKAGE -F .github/template/REALESE.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
