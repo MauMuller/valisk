@@ -2,14 +2,11 @@ name: Publish package to NPM
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 permissions:
   contents: write
   packages: write
-
-env:
-  DAY: Monday
 
 jobs:
   publish: # JOB
@@ -17,7 +14,7 @@ jobs:
 
     steps:
       - name: Testing Event
-        run: echo "Dia da semana - $DAY"
+        run: echo "I'M EXECUTED EVERY TIME ANY RELEASE IS CREATING"
 
       # - name: Account Configuration
       #   run: git config --global user.email "mauriciomuller2012@gmail.com" &&
