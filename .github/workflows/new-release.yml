@@ -29,7 +29,6 @@ jobs:
       - name: Get Package Version
         run: |
           versionNumber="$(cat package.json | jq -r '.version')";
-          echo $versionNumber;
           echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -41,14 +40,18 @@ jobs:
           thirtyValue=$VERSION_PACKAGE:4:1;
 
           if [[ $firstValue =~ [0] ]]; then npm version major; fi;
-          if [[ $thirtyValue =~ [0-8] ]]; then npm version patch; echo "terceiro: $thirtyValue"; else npm version minor; echo "segundo: $secondValue"; fi;
+          if [[ $thirtyValue =~ [0-8] ]]; then npm version patch; else npm version minor; fi;
           if [[ $secondValue =~ [9] ]]; then npm version major; fi;
 
-          # lengthVersion=`echo $versionNumber | wc -c`;
-          # for((i=0; i<$lengthVersion; i++)); do val=${versionNumber:${i}:1}; if [[ $val =~ [0-9] ]]; then $numbersArray+=($val); fi; done
-      
       - name: Push new version to main
         run: git push -u origin main
+
+      - name: Get new package version
+        run: |
+          versionNumber="$(cat package.json | jq -r '.version')";
+          echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get new package version
         run: |
