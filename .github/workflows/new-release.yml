@@ -12,21 +12,21 @@ jobs:
   upgrade_package_version:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org
 
-      - name: Get version package and storage into env variable
+      - name: Checkout
+        uses: actions/checkout@v3
+          
+      - name: get and salve number
+        run: |
+          versionNumber="$(cat package.json | jq -r '."version"')"
+          echo $versionNumber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: 
-          versionNumber="$(cat package.json | jq -r '."version"')";
-          echo $versionNumber;
 
       - name: Check Numbers Of Version
         run: |
