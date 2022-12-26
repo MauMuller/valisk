@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 versionNumber="$(cat package.json | jq -r '.version')";
 
 firstValue=${versionNumber:0:1};
