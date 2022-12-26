@@ -22,11 +22,11 @@ jobs:
           registry-url: "https://registry.npmjs.org
 
       - name: Get version package and storage into env variable
-        run: |
-          versionNumber="$(cat package.json | jq -r '."version"')"
-          echo $versionNumber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          versionNumber="$(cat package.json | jq -r '."version"')";
+          echo $versionNumber;
 
       - name: Check Numbers Of Version
         run: |
