@@ -25,7 +25,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "update": "./scripts/upPackageVersion.sh"
+    "update": "./scripts/updatePackage.sh || ./scripts/updatePackage.exe"
   },
   "dependencies": {
     "react": "^18.2.0",
