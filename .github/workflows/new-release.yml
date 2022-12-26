@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-          registry-url: "https://registry.npmjs.org"
 
       - name: Account Configuration
         run: |
@@ -53,10 +52,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Get new package version
-        run: |
-          versionNumber="$(cat package.json | jq -r '.version')";
-          echo $versionNumber;
-          echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  creating_realese:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show last package version
+        run: echo $VERSION_PACKAGE
+
+      - name: Create realease
+        run: gh release create v$VERSION_PACKAGE -F .github/template/REALESE.md
