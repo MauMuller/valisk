@@ -10,7 +10,3 @@ jobs:
         run: npm unpublish --force ${{ github.repository }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
-
-      - name: TESTEEEE
-        shell: bash
-        run: echo 'bah'

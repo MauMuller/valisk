@@ -1,0 +1,84 @@
+name: Publish package and release
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  publish_package:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Test code
+        run: echo "Testeeeeee"
+
+      # - name: Account Configuration
+      #   run: |
+      #     git config --global user.email "mauriciomuller2012@gmail.com" &&
+      #     git config --global user.name "maummuler"
+
+      # - name: Setup Node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: "16.x"
+      #     registry-url: "https://registry.npmjs.org"
+
+      # - name: Checkout code
+      #   uses: actions/checkout@v3
+
+      # - name: Install Dependences and Build
+      #   run: npm ci && npm run build
+
+      # - name: Publish on NPM
+      #   run: npm publish --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
+
+  get_package_version:
+    runs-on: ubuntu-latest
+    needs: publish_package
+
+    outputs:
+      version_package: ${{ steps.step_version.outputs.VERSION_PACKAGE }}
+
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+
+      - name: Account Configuration
+        run: |
+          git config --global user.email "mauriciomuller2012@gmail.com" &&
+          git config --global user.name "maummuler"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get package version
+        id: step_version
+        run: |
+          versionNumber="$(cat package.json | jq -r '.version')";
+          echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  create_realese:
+    runs-on: ubuntu-latest
+    needs: get_package_version
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Show last package version
+        run: echo "VERSION_PACKAGE="v${{ needs.get_package_version.outputs.version_package }} >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create realease
+        run: gh release create $VERSION_PACKAGE -t "$VERSION_PACKAGE | VALISK" -F ./CHANGELOG.md --latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
