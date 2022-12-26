@@ -29,19 +29,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # - name: Check Numbers Of Version
-      #   run: |
-      #     firstValue=$VERSION_PACKAGE:0:1;
-      #     secondValue=$VERSION_PACKAGE:2:1;
-      #     thirtyValue=$VERSION_PACKAGE:4:1;
-
-      #     if [[ $firstValue =~ [0] ]]; then npm version major; fi;
-      #     if [[ $thirtyValue =~ [0-8] ]]; then npm version patch; else npm version minor; fi;
-      #     if [[ $secondValue =~ [9] ]]; then npm version major; fi;
-
-      # - name: Push new version to main
-      #   run: git push -u origin main
-
       - name: Get package version
         id: step_version
         run: |
@@ -58,7 +45,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Show last package version
-        run: echo "VERSION_PACKAGE="v${{ needs.upgrade_package_version.outputs.version_package }} >> $GITHUB_ENV
+        run: echo "VERSION_PACKAGE="v${{ needs.get_package_version.outputs.version_package }} >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
