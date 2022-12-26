@@ -60,11 +60,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Show last package version
-        run: echo $VERSION_PACKAGE
+        run: echo ${{ env.VERSION_PACKAGE }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create realease
-        run: gh release create v$VERSION_PACKAGE -F ./.github/template.CHANGELOG.md
+        run: gh release create v${{ env.VERSION_PACKAGE }} -F ./CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
