@@ -64,6 +64,6 @@ jobs:
         run: echo $VERSION_PACKAGE
 
       - name: Create realease
-        run: gh release create v$ver_teste -F 'cd ./.github/template/RELEASE.md'
+        run: gh release create v$ver_teste -F ./RELEASE.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
