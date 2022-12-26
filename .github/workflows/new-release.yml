@@ -24,7 +24,7 @@ jobs:
       - name: Get version package and storage into env variable
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+        run: 
           versionNumber="$(cat package.json | jq -r '."version"')";
           echo $versionNumber;
 
