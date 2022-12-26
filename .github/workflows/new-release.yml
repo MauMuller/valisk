@@ -20,11 +20,11 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
-          
+
       - name: get and salve number
         run: |
           versionNumber="$(cat package.json | jq -r '."version"')"
-          echo $versionNumber
+          echo $versionNumber;
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
