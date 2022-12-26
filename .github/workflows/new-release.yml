@@ -12,11 +12,16 @@ jobs:
   upgrade_package_version:
     runs-on: ubuntu-latest
     steps:
-    #   - name: Setup Node
-    #    uses: actions/setup-node@v3
-    #    with:
-    #      node-version: "16.x"
-    #      registry-url: "https://registry.npmjs.org
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Account Configuration
+        run: |
+          git config --global user.email "mauriciomuller2012@gmail.com" &&
+          git config --global user.name "maummuler"
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -41,6 +46,9 @@ jobs:
 
           # lengthVersion=`echo $versionNumber | wc -c`;
           # for((i=0; i<$lengthVersion; i++)); do val=${versionNumber:${i}:1}; if [[ $val =~ [0-9] ]]; then $numbersArray+=($val); fi; done
+      
+      - name: Push new version to main
+        run: git push -u origin main
 
   salve_package_version:
     runs-on: ubuntu-latest
