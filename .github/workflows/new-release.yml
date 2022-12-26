@@ -70,6 +70,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create realease
-        run: gh prerelease create v$VERSION_PACKAGE -F ./CHANGELOG.md
+        run: gh release create v$VERSION_PACKAGE -p -F ./CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
