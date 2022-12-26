@@ -34,7 +34,7 @@ jobs:
           secondValue=${versionNumber:2:1};
           thirtyValue=${versionNumber:4:1};
 
-          if [[ $thirtyValue =~ [0-8] ]]; then npm version patch; else npm version minor; fi;
+          if [[ $thirtyValue =~ [0-8] ]]; then npm version patch; echo "terceiro: $thirtyValue"; else npm version minor; echo "segundo: $secondValue"; fi;
           if [[ $secondValue =~ [9] ]]; then npm version major; fi;
 
           # lengthVersion=`echo $versionNumber | wc -c`;
