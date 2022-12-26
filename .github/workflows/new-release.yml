@@ -65,7 +65,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Show last package version
-        run: echo "VERSION_PACKAGE="${{ needs.upgrade_package_version.outputs.version_package }} >> $GITHUB.ENV
+        run: echo "VERSION_PACKAGE="${{ needs.upgrade_package_version.outputs.version_package }} >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
