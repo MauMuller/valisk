@@ -8,6 +8,9 @@ permissions:
   contents: write
   packages: write
 
+env:
+  ver_teste: "v0.0.1"
+
 jobs:
   # upgrade_package_version:
   #   runs-on: ubuntu-latest
@@ -51,9 +54,6 @@ jobs:
   #         echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_ENV
   #       env:
   #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  env:
-    ver_teste: "v0.0.1"
 
   create_realese:
     runs-on: ubuntu-latest
