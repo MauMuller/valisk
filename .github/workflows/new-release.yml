@@ -12,11 +12,11 @@ jobs:
   upgrade_package_version:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.x"
-          registry-url: "https://registry.npmjs.org
+    #   - name: Setup Node
+    #    uses: actions/setup-node@v3
+    #    with:
+    #      node-version: "16.x"
+    #      registry-url: "https://registry.npmjs.org
 
       - name: Checkout
         uses: actions/checkout@v3
