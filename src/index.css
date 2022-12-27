@@ -6,7 +6,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #221f1f;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -42,34 +42,41 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+div {
+  /* border: 1px solid; */
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+input {
+  outline: none;
+  background: #0e0d0d;
+  box-shadow: 0.2rem 0.2rem 0.4rem #000000;
+  border-radius: 0.5rem;
+  border: 0;
+  padding: 0.8rem 1rem 0.8rem 1rem;
+  font-size: 1rem;
+}
+
+button {
+  border-radius: 0.5rem;
+  padding: 0.6em 1.2em;
+  font-size: 1.2em;
+  font-weight: 500;
+  border: none;
+  font-family: inherit;
+  background: #0e0d0d;
+  box-shadow: 0.4rem 0.4rem 0.5rem #020202;
+  cursor: pointer;
+}
+button:hover {
+  box-shadow: none;
+  transition: 200ms ease-out;
 }
