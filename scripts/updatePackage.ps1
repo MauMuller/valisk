@@ -6,7 +6,9 @@ $thirtyValue=$versionNumber[4];
 
 if($thirtyValue -match '[0-8]' -and $firstValue -ne '0') { 
   npm version patch;
-} else {
+} 
+
+if($thirtyValue -eq '9') { 
   npm version minor;
 }
 
