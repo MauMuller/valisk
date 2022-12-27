@@ -11,9 +11,8 @@ jobs:
 
       - name: Get last tag name
         run: |
-          json=$(gh api repos/maumuller/react-valisk/releases --jq '.[0].tag_name');
-          echo $json;
-          echo 'VERSION_PACKAGE='$json >> $GITHUB_ENV
+          tag=$(gh api repos/maumuller/react-valisk/releases --jq '.[0].tag_name');
+          echo 'VERSION_PACKAGE='$tag >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
