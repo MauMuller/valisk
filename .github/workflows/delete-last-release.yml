@@ -12,9 +12,12 @@ jobs:
       - name: Get package version
         run: |
           versionNumber="$(cat package.json | jq -r '.version')";
-          echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_OUTPUT
+          echo 'VERSION_PACKAGE='v$versionNumber >> $GITHUB_ENV
 
-      - name: Create realease
+      - name: Show Version versionNumber
+        run: echo "A versão é $VERSION_PACKAGE"
+
+      - name: Delete realease
         run: gh release delete $VERSION_PACKAGE --cleanup-tag -y
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
