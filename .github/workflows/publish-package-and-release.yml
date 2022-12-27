@@ -82,6 +82,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create realease
+        if: ${{ $VERSION_PACKAGE != v0.0.0 }}
         run: gh release create $VERSION_PACKAGE -t "$VERSION_PACKAGE" -F ./.github/template/RELEASE.md --latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
