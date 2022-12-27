@@ -25,8 +25,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "updateWindows": "realpath ./scripts/updatePackage.ps1",
-    "updateLinux": "realpath ./scripts/updatePackage.sh",
+    "updateWindows": "Powershell.exe -File ./scripts/updatePackage.ps1",
+    "updateLinux": "bash ./scripts/updatePackage.sh",
     "downgrade": "npm version 0.0.0"
   },
   "dependencies": {
