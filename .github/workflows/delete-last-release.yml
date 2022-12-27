@@ -1,0 +1,20 @@
+name: Delete last release
+
+on: workflow_dispatch
+
+jobs:
+  removing_release_and_tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get package version
+        run: |
+          versionNumber="$(cat package.json | jq -r '.version')";
+          echo 'VERSION_PACKAGE='$versionNumber >> $GITHUB_OUTPUT
+
+      - name: Create realease
+        run: gh release delete $VERSION_PACKAGE --cleanup-tag -y
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
