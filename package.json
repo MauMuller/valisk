@@ -25,7 +25,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "update": "./scripts/updatePackage.sh | ./scripts/updatePackage.ps1",
+    "updateWindows": "./scripts/updatePackage.ps1",
+    "updateLinux": "./scripts/updatePackage.sh",
     "downgrade": "npm version 0.0.0"
   },
   "dependencies": {
