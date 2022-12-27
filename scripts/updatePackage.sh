@@ -8,5 +8,5 @@ thirtyValue=${versionNumber:4:1};
 
 if [[ $firstValue =~ [0] ]]; then npm version major; fi;
 if [[ $secondValue =~ [9] ]]; then npm version major; fi;
-if [[ $thirtyValue =~ [0-8] ]] && [ $firstValue >= 2 ]; then npm version patch; fi;
+if [[ $thirtyValue =~ [0-8] ]] && [ $firstValue -ge '2' ]; then npm version patch; fi;
 if [[ $thirtyValue =~ [9] ]]; then npm version minor; fi;
