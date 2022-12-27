@@ -1,6 +1,8 @@
 import { useState, useId, useRef } from "react";
 import { useMasks } from "./hooks/useMasks";
 
+import { useMaskCPF } from "./hooks/useMaskCPF";
+
 function App() {
   const id = useId();
   const [hiddenValue, setHiddenValue] = useState(true);
@@ -60,7 +62,7 @@ function App() {
     );
   });
 
-  const [value, setValue] = useState("");
+  const [] = useMaskCPF({});
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>

@@ -45,11 +45,11 @@ jobs:
       - name: Install Dependences
         run: npm ci
 
-      - name: Publish on Github
-        if: ${{ env.VERSION_PACKAGE != 'v0.0.0' }}
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Publish on Github
+      #   if: ${{ env.VERSION_PACKAGE != 'v0.0.0' }}
+      #   run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish_package_npm:
     runs-on: "ubuntu-latest"
@@ -76,11 +76,11 @@ jobs:
       - name: Install Dependences
         run: npm ci
 
-      - name: Publish on NPM
-        if: ${{ env.VERSION_PACKAGE != 'v0.0.0' }}
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
+      # - name: Publish on NPM
+      #   if: ${{ env.VERSION_PACKAGE != 'v0.0.0' }}
+      #   run: npm publish --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
 
   create_realese:
     runs-on: ubuntu-latest
