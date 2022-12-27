@@ -14,6 +14,8 @@ jobs:
           json=$(gh api repos/maumuller/react-valisk/releases --jq '.[].tag_name');
           echo $json;
           echo 'VERSION_PACKAGE='$json >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show Version versionNumber
         run: echo "A versão é $VERSION_PACKAGE"
