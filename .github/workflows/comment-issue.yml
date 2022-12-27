@@ -7,7 +7,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - run: gh issue comment $ISSUE --body "Obrigado por criar um comentário!"
+      - run: gh issue comment $ISSUE --body "Thanks for comment ISSUE"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE: ${{ github.event.issue.html_url }}
