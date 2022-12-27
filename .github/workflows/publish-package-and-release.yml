@@ -16,7 +16,7 @@ jobs:
       version_package: ${{ steps.step_version.outputs.VERSION_PACKAGE }}
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Get package version
@@ -89,7 +89,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Show last package version
+      - name: Get last package version by JOBS
         run: echo "VERSION_PACKAGE="v${{ needs.get_package_version.outputs.version_package }} >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
