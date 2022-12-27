@@ -37,14 +37,50 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  publish_package:
+  publish_package_github:
     runs-on: "ubuntu-latest"
     needs: get_package_version
+
+    permissions:
+      packages: write
+      contents: read
+
     steps:
       - name: Show last package version
         run: echo "VERSION_PACKAGE="v${{ needs.get_package_version.outputs.version_package }} >> $GITHUB_ENV
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          registry-url: "https://npm.pkg.github.com/"
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Dependences and Build
+        run: npm ci
+
+      - name: Publish on Github
+        if: ${{ env.VERSION_PACKAGE != 'v0.0.0' }}
+        run: npm publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish_package_npm:
+    runs-on: "ubuntu-latest"
+    needs: [get_package_version, publish_package_github]
+
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - name: Show last package version
+        run: echo "VERSION_PACKAGE="v${{ needs.get_package_version.outputs.version_package }} >> $GITHUB_ENV
+
+      - name: Show Version package
+        run: echo $VERSION_PACKAGE
 
       # - name: Account Configuration
       #   run: |
@@ -71,7 +107,7 @@ jobs:
 
   create_realese:
     runs-on: ubuntu-latest
-    needs: get_package_version
+    needs: [get_package_version, publish_package_npm]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
