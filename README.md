@@ -1,4 +1,4 @@
-[<img align="left" height="165px" width="125px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Group_3Valisk.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672190456214"/>]()
+[<img align="left" height="165px" width="135px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Group_3Valisk.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672190456214"/>]()
 
 ## React Valisk
 
@@ -40,27 +40,41 @@ A ideia da construção da biblioteca já existia a muito tempo, porém, apenas 
 
 **Valisk** trabalha `hooks`, ou seja, funcionalidades que realizam algumas tarefas para facilitar o dia a dia do desenvolvedor, esses hooks são a essencia do React funcional, aqui está um link para entender melhor sobre o funcionamento -> [React Hooks](https://pt-br.reactjs.org/docs/hooks-reference.html#gatsby-focus-wrapper).
 
-A biblioteca disponibiliza _métodos_, _hooks_ e _valores_ iniciais para deixar bem completo o desenvolvimento.
+A biblioteca disponibiliza _métodos_, _hooks_ e _valores_ iniciais para deixar bem completo o desenvolvimento. Qualquer dúvida, basta navegar até a sessão -> [API de Referência](#api-de-referencia) e procurar pela questão em especial ou ainda, mandar uma issue.
 
 Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 ### Mapa de uso
 
 - [Instalação](#instalação)
+  - [NPM](#npm)
+- [Casos de Uso](#casos-de-uso)
+- [API de Referencia](#api-de-referencia)
+  - [useMaskCPF](#usemaskcpf)
 
 <br />
 
 ## Instalação
 
-Para sua utilização é necessário instalar o pacote, para isso temos algumas opções:
+Para sua utilização é necessário a instalação do pacote, para isso existem algumas possibilidades até o momento, entre elas:
 
 ### NPM
+
+Através do gerenciador de pacotes mais utilizado entre o desenvolvimento, podendo assim, acessar o pacote no site oficial.
+
+**Repositório NPM**:
+<https://www.npmjs.com/settings/mauricio_m_s/packages>
 
 ```shell
 npm i react-valisk
 ```
 
 ### Github
+
+Se preferir, é possível instalar pelo próprio GITHUB, acessando o pacote através do repositório, realizando o clone e instalando para a utilização.
+
+**Repositório Github**:
+<https://github.com/MauMuller/react-valisk/>
 
 ```shell
 Em breve...
@@ -74,7 +88,7 @@ Em breve...
 
 <br />
 
-## Casos de usos
+## Casos de uso
 
 Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a apresentação do hook.
 
@@ -82,23 +96,34 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a aprese
 
 ## API de Referencia
 
-Todas as referencias, tipos e métodos estão aqui, qualquer tipo de dúvida, relacionado a passagem de parametros pode encontrar aqui juntamente com o nome `padrão` dados ao retorno a partir do array.
+Nessa sessão você poderá tirar todas suas dúvidas quanto a parametros ou retornos dos hooks, assim como ententer os tipos e até mesmo verificar a sintaxe de utilização para variados casos de uso.
 
-Esses valores são chamados de `ParametroDeEntrada` e `ValoresDeSaida`, ambos são essenciais para a execução da biblioteca, sua sintaxe é extremamente intuitiva:
+Antes de olhar a documentação, é necessário ter em mente como que funciona de forma prática os principais conceitos da biblioteca.
+
+Os principais conceitos são bem simples, básicamente `parametros` e `retornos`, eles são, respectivamente, valores de entrada e de saída.
+
+Podemos ver abaixo de forma ilustrativa como que eles se moldam dentro do código:
 
 ```JS
 import { useMasks } from "react-valisk";
 
+// [values, setValues, isValid, setKey] - Valores de Retorno
+// { cpf: { inicialValue: '0452' } } - Valor de Parâmetro
+
 const [values, setValues, isValid, setKey] = useMasks({
   cpf: {
-    inicialValue: '0452',
-
+    inicialValue: '0452'
   }
-
 });
 ```
 
-Aqui
+Assim como desmonstrado no código acima, os valores de `retorno` são aqueles que são `desestruturados` a partir de um `array` _(Caso não saiba do que se trata a **"Desestruturação do ECMAScript"** -> [Desestruturação de Valores](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment))_.
+
+Já os valores de `parâmetro`, são aqueles passados através do `objeto` dentro da chamada do `hook`, a partir dele é posível saber quais propriedades são esperadas para cada mascará selecionada.
+
+---
+
+Com essa breve explicação, vamos aos tópicos de cada um dos hooks, mostrando um pouco das suas propriedades, retornos e possibilidades dentro do desenvolvimento:
 
 ### useMaskCPF
 
