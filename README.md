@@ -1,6 +1,6 @@
 [<img align="left" height="125px" width="125px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Valisk?ik-sdk-version=javascript-1.4.3&updatedAt=1672157447910"/>]()
 
-#### React Valisk
+### React Valisk
 
 Trata-se de uma biblioteca com a finalidade de proporcionar mascaras e validações para os campos de texto, tudo por meio de `HOOKS`, visando as tipagens e variadas opções para personalização.
 
@@ -16,22 +16,23 @@ Trata-se de uma biblioteca com a finalidade de proporcionar mascaras e validaç�
   <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/maumuller/react-valisk?color=black&style=for-the-badge" width="140">
 </div>
 
+<br />
+
 <div align="center">
-  <img src="https://ik.imagekit.io/e6khzhxvx/valisk-preview.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672165728023" width="500">
+
+[<img width="500" src="https://ik.imagekit.io/e6khzhxvx/valisk-preview.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672165728023"/>]()
+
 </div>
 
-<div style="
-  display: flex;
-  justify-content: center;
-  align-items: center;
-">
+<br />
 
-<div>
-  <div align="center">
+<div align="center">
 
 > Essa é uma biblioteca feita em **REACT** e **TYPESCRIPT**, porém pode ser integrada com qualquer outra lib/framework, isso porque assim como os `hooks` do REACT, VALISK apenas utiliza `hooks` para controlar o campo de texto.
 
-  </div>
+</div>
+
+<br />
 
 ## Introdução
 
@@ -100,7 +101,3 @@ Aqui
 | Propriedade | Tipagem | ASDASD |
 | :---------- | :------ | :----- |
 | aaa         | AAA     | ASDASD |
-
-</div>
-
-</div>
