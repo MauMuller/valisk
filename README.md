@@ -1,6 +1,6 @@
 [<img align="left" height="125px" width="125px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Valisk?ik-sdk-version=javascript-1.4.3&updatedAt=1672157447910"/>]()
 
-### React Valisk
+## React Valisk
 
 Trata-se de uma biblioteca com a finalidade de proporcionar mascaras e validações para os campos de texto, tudo por meio de `HOOKS`, visando as tipagens e variadas opções para personalização.
 
@@ -48,6 +48,8 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 - [Instalação](#instalação)
 
+<br />
+
 ## Instalação
 
 Para sua utilização é necessário instalar o pacote, para isso temos algumas opções:
@@ -70,9 +72,13 @@ Em breve...
 Em breve...
 ```
 
+<br />
+
 ## Casos de usos
 
 Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a apresentação do hook.
+
+<br />
 
 ## API de Referencia
 
