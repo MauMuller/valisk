@@ -52,14 +52,11 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
   - [Github](#github)
   - [Yarn](#yarn)
 
-  <br />
-
 - [Casos de Uso](#casos-de-uso)
-
-  <br />
-
 - [API de Referência](#api-de-referência)
   - [**useMaskCPF**](#usemaskcpf)
+  - [**useMaskCNPJ**](#usemaskcnpj)
+  - [**useMaskCEP**](#usemaskcep)
 
 <br />
 
@@ -136,7 +133,14 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
 - ### useMaskCPF
 
-  Aqui temos o hook para a validação e máscara de CPF, com ela é possível criar diversos campos utilizando máximo de acessibilidade para o usuário.
+  Esse hook funciona a partir do `template` mostrado entre os tópicos abaixo.
+
+  **Lista de Caracteristicas**
+
+  - [x] Máscara
+  - [x] Válidação
+  - [x] Auto-Complete do navegador
+  - [x] CTRL-C / CTRL-V com ou sem máscara
 
 <dl>
   <!-- Template -->
@@ -218,10 +222,14 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
 - ### useMaskCNPJ
 
-  [ x ] Máscara
-  [ x ] Válidação
+  Esse hook funciona a partir do `template` mostrado entre os tópicos abaixo.
 
-  Esse hook funciona a partir do `template` do CNPJ mostrado no tópico abaixo.
+  **Lista de Caracteristicas**
+
+  - [x] Máscara
+  - [x] Válidação
+  - [x] Auto-Complete do navegador
+  - [x] CTRL-C / CTRL-V com ou sem máscara
 
 <dl>
   <!-- Template -->
@@ -247,6 +255,91 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   ...
 
   const [value, setValue, isValid, setKey] = useMaskCNPJ({
+    inicialValue: "4823",
+    useExplictMask: true
+  });
+
+```
+
+  </details>
+  </dd>
+
+  <!-- Parâmetros -->
+  <dd>  
+  <details>
+    <summary><b>Parâmetros</b></summary>
+
+<br />
+
+> OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
+
+| Propriedade      | Tipos                 | Obrigatório | Descrição                                |
+| :--------------- | :-------------------- | :---------- | :--------------------------------------- |
+| `{}`             | Object                | Sim         | Objeto Vázio.                            |
+| `inicialValue`   | String _/_ Undefined  | Não         | Valor inicial para o campo de texto.     |
+| `useExplictMask` | Boolean _/_ Undefined | Não         | Utilização da máscara de forma explicita |
+
+  </details>
+  </dd>
+
+  <!-- Retornos -->
+  <dd>
+  <details>
+    <summary><b>Retornos</b></summary>
+
+<br />
+
+> OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
+
+| Propriedade | Tipos             | Obrigatório                                                                   | Descrição                                                                                                |
+| :---------- | :---------------- | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
+| `[]`        | Array             | Sim                                                                           | Array para desestruturação dos valores.                                                                  |
+| `value`     | String            | Sim                                                                           | Valor para o campo de texto.                                                                             |
+| `setValue`  | Function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
+| `isValid`   | Boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
+| `setKey`    | Function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
+
+  </details>
+  </dd>
+</dl>
+
+<br />
+
+- ### useMaskCEP
+
+  Esse hook funciona a partir do `template` mostrado entre os tópicos abaixo.
+
+  **Lista de Caracteristicas**
+
+  - [x] Máscara
+  - [x] Válidação
+  - [x] Auto-Complete do navegador
+  - [x] CTRL-C / CTRL-V com ou sem máscara
+
+<dl>
+  <!-- Template -->
+  <dd>
+  <details>
+    <summary><b>Template</b></a></summary>
+
+```TS
+  //00000-000
+```
+
+  </details>
+  </dd>
+
+  <!-- Sintaxe -->
+  <dd>  
+  <details>
+    <summary><b>Sintaxe</b></summary>
+
+```Typescript
+  import { useMaskCEP } from "react-valisk";
+
+  ...
+
+  const [value, setValue, isValid, setKey] = useMaskCEP({
     inicialValue: "4823",
     useExplictMask: true
   });
