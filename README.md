@@ -4,9 +4,10 @@
 
 <font size="5"><b>React Valisk</b></font>
 <font size="3">Trata-se de uma biblioteca com a finalidade de proporcionar mascaras e validações para os campos de texto, tudo por meio de HOOKS, visando as tipagens e variadas opções para personalização.</font>
-<br/>
 
 </embed>
+
+<br/>
 
 <div align="center">
   <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/react-valisk?color=%23ff1f3d&label=npm&style=for-the-badge" width="90">
