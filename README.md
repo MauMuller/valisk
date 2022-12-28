@@ -1,4 +1,4 @@
-[<img align="left" height="125px" width="125px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Valisk?ik-sdk-version=javascript-1.4.3&updatedAt=1672157447910"/>]()
+[<img align="left" height="165px" width="125px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Group_3Valisk.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672190456214"/>]()
 
 ## React Valisk
 
