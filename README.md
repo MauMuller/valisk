@@ -179,9 +179,9 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   | Propriedade      | Tipos                 | Obrigatório | Descrição                                |
   | :--------------- | :-------------------- | :---------- | :--------------------------------------- |
-  | `{}`             | Object                | Sim         | Objeto Vázio.                            |
-  | `inicialValue`   | String _/_ Undefined  | Não         | Valor inicial para o campo de texto.     |
-  | `useExplictMask` | Boolean _/_ Undefined | Não         | Utilização da máscara de forma explicita |
+  | `{}`             | object                | Sim         | Objeto Vázio.                            |
+  | `inicialValue`   | string _/_ undefined  | Não         | Valor inicial para o campo de texto.     |
+  | `useExplictMask` | boolean _/_ undefined | Não         | Utilização da máscara de forma explicita |
 
     </details>
 
@@ -193,11 +193,11 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   | Propriedade | Tipos             | Obrigatório                                                                   | Descrição                                                                                                |
   | :---------- | :---------------- | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
-  | `[]`        | Array             | Sim                                                                           | Array para desestruturação dos valores.                                                                  |
-  | `value`     | String            | Sim                                                                           | Valor para o campo de texto.                                                                             |
-  | `setValue`  | Function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
-  | `isValid`   | Boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
-  | `setKey`    | Function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
+  | `[]`        | array             | Sim                                                                           | array para desestruturação dos valores.                                                                  |
+  | `value`     | string            | Sim                                                                           | Valor para o campo de texto.                                                                             |
+  | `setValue`  | function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
+  | `isValid`   | boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
+  | `setKey`    | function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
 
     </details>
 
@@ -251,9 +251,9 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   | Propriedade      | Tipos                 | Obrigatório | Descrição                                |
   | :--------------- | :-------------------- | :---------- | :--------------------------------------- |
-  | `{}`             | Object                | Sim         | Objeto Vázio.                            |
-  | `inicialValue`   | String _/_ Undefined  | Não         | Valor inicial para o campo de texto.     |
-  | `useExplictMask` | Boolean _/_ Undefined | Não         | Utilização da máscara de forma explicita |
+  | `{}`             | object                | Sim         | Objeto Vázio.                            |
+  | `inicialValue`   | string _/_ undefined  | Não         | Valor inicial para o campo de texto.     |
+  | `useExplictMask` | boolean _/_ undefined | Não         | Utilização da máscara de forma explicita |
 
     </details>
 
@@ -265,11 +265,11 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   | Propriedade | Tipos             | Obrigatório                                                                   | Descrição                                                                                                |
   | :---------- | :---------------- | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
-  | `[]`        | Array             | Sim                                                                           | Array para desestruturação dos valores.                                                                  |
-  | `value`     | String            | Sim                                                                           | Valor para o campo de texto.                                                                             |
-  | `setValue`  | Function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
-  | `isValid`   | Boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
-  | `setKey`    | Function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
+  | `[]`        | array             | Sim                                                                           | array para desestruturação dos valores.                                                                  |
+  | `value`     | string            | Sim                                                                           | Valor para o campo de texto.                                                                             |
+  | `setValue`  | function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
+  | `isValid`   | boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
+  | `setKey`    | function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
 
     </details>
 
@@ -323,9 +323,9 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   | Propriedade      | Tipos                 | Obrigatório | Descrição                                |
   | :--------------- | :-------------------- | :---------- | :--------------------------------------- |
-  | `{}`             | Object                | Sim         | Objeto Vázio.                            |
-  | `inicialValue`   | String _/_ Undefined  | Não         | Valor inicial para o campo de texto.     |
-  | `useExplictMask` | Boolean _/_ Undefined | Não         | Utilização da máscara de forma explicita |
+  | `{}`             | object                | Sim         | Objeto Vázio.                            |
+  | `inicialValue`   | string _/_ undefined  | Não         | Valor inicial para o campo de texto.     |
+  | `useExplictMask` | boolean _/_ undefined | Não         | Utilização da máscara de forma explicita |
 
     </details>
 
@@ -337,11 +337,11 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   | Propriedade | Tipos             | Obrigatório                                                                   | Descrição                                                                                                |
   | :---------- | :---------------- | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
-  | `[]`        | Array             | Sim                                                                           | Array para desestruturação dos valores.                                                                  |
-  | `value`     | String            | Sim                                                                           | Valor para o campo de texto.                                                                             |
-  | `setValue`  | Function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
-  | `isValid`   | Boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
-  | `setKey`    | Function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
+  | `[]`        | array             | Sim                                                                           | array para desestruturação dos valores.                                                                  |
+  | `value`     | string            | Sim                                                                           | Valor para o campo de texto.                                                                             |
+  | `setValue`  | function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
+  | `isValid`   | boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
+  | `setKey`    | function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
 
     </details>
 
@@ -395,9 +395,9 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   | Propriedade      | Tipos                 | Obrigatório | Descrição                                |
   | :--------------- | :-------------------- | :---------- | :--------------------------------------- |
-  | `{}`             | Object                | Sim         | Objeto Vázio.                            |
-  | `inicialValue`   | String _/_ Undefined  | Não         | Valor inicial para o campo de texto.     |
-  | `useExplictMask` | Boolean _/_ Undefined | Não         | Utilização da máscara de forma explicita |
+  | `{}`             | object                | Sim         | Objeto Vázio.                            |
+  | `inicialValue`   | string _/_ undefined  | Não         | Valor inicial para o campo de texto.     |
+  | `useExplictMask` | boolean _/_ undefined | Não         | Utilização da máscara de forma explicita |
 
     </details>
 
@@ -409,15 +409,15 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   | Propriedade | Tipos                     | Obrigatório | Descrição                                               |
   | :---------- | :------------------------ | :---------- | :------------------------------------------------------ |
-  | `[]`        | Array                     | Sim         | Array para desestruturação dos valores.                 |
-  | `value`     | String                    | Sim         | Valor para o campo de texto.                            |
-  | `setValue`  | Function<string\>         | Sim         | Função para atualizar o valor dentro do estado do hook. |
-  | `isValid`   | True (Ainda indísponivel) | Não         | Verifica se o valor em específico satisfaz a máscara.   |
+  | `[]`        | array                     | Sim         | array para desestruturação dos valores.                 |
+  | `value`     | string                    | Sim         | Valor para o campo de texto.                            |
+  | `setValue`  | function<string\>         | Sim         | Função para atualizar o valor dentro do estado do hook. |
+  | `isValid`   | true (Ainda indísponivel) | Não         | Verifica se o valor em específico satisfaz a máscara.   |
 
     </details>
 
     <details>
-    <summary><b><mark>Em breve...</mark></b></summary>
+    <summary><img src="https://ik.imagekit.io/e6khzhxvx/Em_breve.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672254525848" width="100"></summary>
     <br />
 
   > OBS: Essa sessão ainda está em desenvolvimento, **nenhuma das funcionalidades citadas aqui estão disponivéis para uso!**
@@ -441,8 +441,8 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
        const [value, setValue, isValid] = useMaskMoney({
          inicialValue: "",
          useExplictMask: true,
-         minValue: '30' //R$ 30,00 <-
-         maxValue: '100' //R$ 100,00 <-
+         minValue: '30', //R$ 30,00 <- Sendo assim, o valor informado sempre o valor antes das casas decimais
+         maxValue: '100' //R$ 100,00 <- Igualmente aqui, porém, sendo o o valor máximo
        });
      ```
 
@@ -452,3 +452,189 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   </dl>
 
   <br />
+
+- ## useMaskPhone
+
+  - [x] Máscara Válida;
+  - [x] Válidação ao completar a máscara;
+  - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
+  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+
+  <dl>
+    <dt>Definições:<dt>
+    <dd>
+
+    <details>
+    <summary><b>Template</b></a></summary>
+
+  ```TS
+    //Celular completo
+    //+00 (00) 0 0000-0000
+
+    //Celular parcial
+    //0 0000-0000
+
+    //Telefone completo
+    //+00 (00) 0000-0000
+
+    //Telefone parcial
+    //0000-0000
+  ```
+
+    </details>
+
+    <details>
+    <summary><b>Sintaxe</b></summary>
+
+  ```Typescript
+    import { useMaskPhone } from "react-valisk";
+
+    ...
+
+    const [value, setValue, isValid, setKey] = useMaskPhone({
+      inicialValue: "4823",
+      useExplictMask: true,
+      incrementDDDAndPrefix: true,
+      typePhone: "phoneFixo",
+    });
+
+  ```
+
+    </details>
+
+    <details>
+    <summary><b>Parâmetros</b></summary>
+    <br />
+
+  > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
+
+  | Propriedade             | Tipos                                  | Obrigatório | Descrição                                         |
+  | :---------------------- | :------------------------------------- | :---------- | :------------------------------------------------ |
+  | `{}`                    | object                                 | Sim         | Objeto Vázio.                                     |
+  | `inicialValue`          | string _/_ undefined                   | Não         | Valor inicial para o campo de texto.              |
+  | `useExplictMask`        | boolean _/_ undefined                  | Não         | Utilização da máscara de forma explicita.         |
+  | `incrementDDDAndPrefix` | boolean _/_ undefined                  | Não         | Tem o papel de incrementar o _DDD_ e o _prefixo_. |
+  | `typePhone`             | phoneFixo _/_ phoneMovel _/_ undefined | Não         | Direciona qual tipo de fone deverá ter no campo.  |
+
+    </details>
+
+    <details>
+    <summary><b>Retornos</b></summary>
+    <br />
+
+  > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
+
+  | Propriedade | Tipos             | Obrigatório                                                                   | Descrição                                                                                                |
+  | :---------- | :---------------- | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
+  | `[]`        | array             | Sim                                                                           | array para desestruturação dos valores.                                                                  |
+  | `value`     | string            | Sim                                                                           | Valor para o campo de texto.                                                                             |
+  | `setValue`  | function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
+  | `isValid`   | boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
+  | `setKey`    | function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
+
+    </details>
+
+    </dd>
+  </dl>
+
+  <br />
+
+- ## useMaskPassword
+
+  - [x] Máscara Válida;
+  - [x] Válidação ao completar a máscara;
+  - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
+  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+
+  <dl>
+    <dt>Definições:<dt>
+    <dd>
+
+    <details>
+    <summary><b>Template</b></a></summary>
+
+  ```TS
+    //Valor escondido
+    //******
+  ```
+
+    </details>
+
+    <details>
+    <summary><b>Sintaxe</b></summary>
+
+  ```Typescript
+    import { useMaskPassword } from "react-valisk";
+
+    ...
+
+    const [values, setValue, isValid] = useMaskPassword({
+      inicialValue: "4823",
+      hideValue: true,
+      passwordPontenciality: {
+        numbers: [2, "123"],
+        specialChars: [1],
+        words: [3, 'abcde'],
+      },
+    });
+
+    const [value, sourceValue] = values;
+
+  ```
+
+    </details>
+
+    <details>
+    <summary><b>Parâmetros</b></summary>
+    <br />
+
+  > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
+
+  | Propriedade             | Tipos                 | Obrigatório                                                                                               | Descrição                                                                                         |
+  | :---------------------- | :-------------------- | :-------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------ |
+  | `{}`                    | object                | Sim                                                                                                       | Objeto Vázio.                                                                                     |
+  | `inicialValue`          | string _/_ undefined  | Não                                                                                                       | Valor inicial para o campo de texto.                                                              |
+  | `hideValue`             | boolean _/_ undefined | Não                                                                                                       | Esconde ou mostra o valor dentro do campo.                                                        |
+  | `passwordPontenciality` | object _/_ undefined  | Não/Sim (Caso haja propriedades algumas propriedades `numbers`, `specialChars` ou `words`, é necessário). | A partir daqui que é possível realizar uma validação de senha a partir das propriedades a seguir. |
+
+  **Dentro do `passwordPontenciality`**
+
+  | Propriedade    | Tipos               | Obrigatório | Descrição                                                                                                |
+  | :------------- | :------------------ | :---------- | :------------------------------------------------------------------------------------------------------- |
+  | `numbers`      | array _/_ undefined | Não         | A propriedade deverá receber um array para apoás, receber outras duas propriedades (`number`, `string`). |
+  | `specialChars` | array _/_ undefined | Não         | " "                                                                                                      |
+  | `words`        | array _/_ undefined | Não         | " "                                                                                                      |
+
+  **Dentro do `numbers`,`specialChars` e `words`**
+
+  | Propriedade                 | Tipos  | Obrigatório                                                                     | Descrição                                                                                                                                                                                                                              |
+  | :-------------------------- | :----- | :------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+  | `minValueToValidate`        | number | Sim (Porém, só será obrigartório se uma das propriedades acima serem chamadas). | Aqui será colocado o menor valor para a validação dessa propriedade. (Ex: caso seja indicado `numbers: [1]`, o campo deverá ter pelo menos 1 número digitado para retornar `true`).                                                    |
+  | `especificValuesToValidate` | string | Não                                                                             | Nessa posição deverá ser inserido os valores em específico que devem ter pelo menos uma vez dentro do campo. (Ex: caso seja inserido `specialChars: [2, '@']`, o campo deverá ter pelo menos dois `@` digitados para retornar `true`). | " " |
+
+    </details>
+
+    <details>
+    <summary><b>Retornos</b></summary>
+    <br />
+
+  > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
+
+  | Propriedade | Tipos             | Obrigatório                                                          | Descrição                                                          |
+  | :---------- | :---------------- | :------------------------------------------------------------------- | :----------------------------------------------------------------- |
+  | `[]`        | array             | Sim                                                                  | Array para desestruturação dos valores.                            |
+  | `values`    | array             | Sim                                                                  | Array com dois valores do campo de texto (`value`, `sourceValue`). |
+  | `setValue`  | function<string\> | Sim                                                                  | Função para atualizar o valor dentro do estado do hook.            |
+  | `isValid`   | boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_ | Verifica se o valor em específico satisfaz a máscara.              |
+
+  **Dentro do `values`**
+
+  | Propriedade   | Tipos  | Obrigatório | Descrição                                                                    |
+  | :------------ | :----- | :---------- | :--------------------------------------------------------------------------- |
+  | `value`       | string | Sim         | Este é o valor na qual está no campo de texto, seja com ou sem os `*`.       |
+  | `sourceValue` | string | Não         | Já esse retorna o valor por padrão digitado, ou seja, completamente sem `*`. |
+
+    </details>
+
+    </dd>
+  </dl>
