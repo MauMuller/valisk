@@ -417,7 +417,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     </details>
 
     <details>
-    <summary><img src="https://ik.imagekit.io/e6khzhxvx/Em_breve.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672254525848" width="100"></summary>
+    <summary><a href="#"><img src="https://ik.imagekit.io/e6khzhxvx/Group_5.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672260661007" width="100"></a></summary>
     <br />
 
   > OBS: Essa sessão ainda está em desenvolvimento, **nenhuma das funcionalidades citadas aqui estão disponivéis para uso!**
@@ -608,9 +608,9 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   **Dentro do `numbers`,`specialChars` e `words`**
 
   | Propriedade                 | Tipos  | Obrigatório                                                                     | Descrição                                                                                                                                                                                                                              |
-  | :-------------------------- | :----- | :------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+  | :-------------------------- | :----- | :------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
   | `minValueToValidate`        | number | Sim (Porém, só será obrigartório se uma das propriedades acima serem chamadas). | Aqui será colocado o menor valor para a validação dessa propriedade. (Ex: caso seja indicado `numbers: [1]`, o campo deverá ter pelo menos 1 número digitado para retornar `true`).                                                    |
-  | `especificValuesToValidate` | string | Não                                                                             | Nessa posição deverá ser inserido os valores em específico que devem ter pelo menos uma vez dentro do campo. (Ex: caso seja inserido `specialChars: [2, '@']`, o campo deverá ter pelo menos dois `@` digitados para retornar `true`). | " " |
+  | `especificValuesToValidate` | string | Não                                                                             | Nessa posição deverá ser inserido os valores em específico que devem ter pelo menos uma vez dentro do campo. (Ex: caso seja inserido `specialChars: [2, '@']`, o campo deverá ter pelo menos dois `@` digitados para retornar `true`). |
 
     </details>
 
