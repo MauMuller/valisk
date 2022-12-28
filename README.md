@@ -44,7 +44,7 @@ A biblioteca disponibiliza _métodos_, _hooks_ e _valores_ iniciais para deixar 
 
 Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
-### Mapa de uso
+### Mapa da documentação
 
 - [Instalação](#instalação)
   - [NPM](#npm)
@@ -58,33 +58,37 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 Para sua utilização é necessário a instalação do pacote, para isso existem algumas possibilidades até o momento, entre elas:
 
-### NPM
+- ### NPM
 
-Através do gerenciador de pacotes mais utilizado entre o desenvolvimento, podendo assim, acessar o pacote no site oficial.
+  Através do gerenciador de pacotes mais utilizado entre o desenvolvimento, podendo assim, acessar o pacote no site oficial.
 
-**Repositório NPM**:
-<https://www.npmjs.com/settings/mauricio_m_s/packages>
+  <br />
 
-```shell
-npm i react-valisk
-```
+  **Repositório NPM**:
+  <https://www.npmjs.com/settings/mauricio_m_s/packages>
 
-### Github
+  <br />
 
-Se preferir, é possível instalar pelo próprio GITHUB, acessando o pacote através do repositório, realizando o clone e instalando para a utilização.
+  ```shell
+  npm i react-valisk
+  ```
 
-**Repositório Github**:
-<https://github.com/MauMuller/react-valisk/>
+- ### Github
 
-```shell
-Em breve...
-```
+  Se preferir, é possível instalar pelo próprio GITHUB, acessando o pacote através do repositório, realizando o clone e instalando para a utilização.
 
-### Yarn
+  **Repositório Github**:
+  <https://github.com/MauMuller/react-valisk/>
 
-```shell
-Em breve...
-```
+  ```shell
+  Em breve...
+  ```
+
+- ### Yarn
+
+  ```shell
+  Em breve...
+  ```
 
 <br />
 
@@ -125,10 +129,10 @@ Já os valores de `parâmetro`, são aqueles passados através do `objeto` dentr
 
 Com essa breve explicação, vamos aos tópicos de cada um dos hooks, mostrando um pouco das suas propriedades, retornos e possibilidades dentro do desenvolvimento:
 
-### useMaskCPF
+- ### useMaskCPF
 
-**useMaskCPF** precisa receber obrigatóriamente um (objeto `{}`), dentro desse objetos ele pode receber duas propriedades:
+  **useMaskCPF** precisa receber obrigatóriamente um (objeto `{}`), dentro desse objetos ele pode receber duas propriedades:
 
-| Propriedade | Tipagem | ASDASD |
-| :---------- | :------ | :----- |
-| aaa         | AAA     | ASDASD |
+  | Propriedade | Tipagem | ASDASD |
+  | :---------- | :------ | :----- |
+  | aaa         | AAA     | ASDASD |
