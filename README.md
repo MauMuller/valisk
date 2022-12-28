@@ -46,10 +46,11 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 ### Mapa da documentação
 
-- [Instalação](#instalação)
-  -> [NPM](#npm)
-  -> [Github](#github)
-  -> [Yarn](#yarn)
+- Instalação
+
+  - [NPM](#npm)
+  - [Github](#github)
+  - [Yarn](#yarn)
 
   <br />
 
@@ -138,7 +139,6 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   Aqui temos o hook para a validação e máscara de CPF, com ela é possível criar diversos campos utilizando máximo de acessibilidade para o usuário.
 
 <dl>
-  <dl>
   <!-- Template -->
   <dd>
   <details>
@@ -213,4 +213,84 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   </details>
   </dd>
 </dl>
+
+<br />
+
+- ### useMaskCNPJ
+
+  [ x ] Máscara
+  [ x ] Válidação
+
+  Esse hook funciona a partir do `template` do CNPJ mostrado no tópico abaixo.
+
+<dl>
+  <!-- Template -->
+  <dd>
+  <details>
+    <summary><b>Template</b></a></summary>
+
+```TS
+  //00.000.000/0000-00
+```
+
+  </details>
+  </dd>
+
+  <!-- Sintaxe -->
+  <dd>  
+  <details>
+    <summary><b>Sintaxe</b></summary>
+
+```Typescript
+  import { useMaskCNPJ } from "react-valisk";
+
+  ...
+
+  const [value, setValue, isValid, setKey] = useMaskCNPJ({
+    inicialValue: "4823",
+    useExplictMask: true
+  });
+
+```
+
+  </details>
+  </dd>
+
+  <!-- Parâmetros -->
+  <dd>  
+  <details>
+    <summary><b>Parâmetros</b></summary>
+
+<br />
+
+> OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
+
+| Propriedade      | Tipos                 | Obrigatório | Descrição                                |
+| :--------------- | :-------------------- | :---------- | :--------------------------------------- |
+| `{}`             | Object                | Sim         | Objeto Vázio.                            |
+| `inicialValue`   | String _/_ Undefined  | Não         | Valor inicial para o campo de texto.     |
+| `useExplictMask` | Boolean _/_ Undefined | Não         | Utilização da máscara de forma explicita |
+
+  </details>
+  </dd>
+
+  <!-- Retornos -->
+  <dd>
+  <details>
+    <summary><b>Retornos</b></summary>
+
+<br />
+
+> OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
+
+| Propriedade | Tipos             | Obrigatório                                                                   | Descrição                                                                                                |
+| :---------- | :---------------- | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
+| `[]`        | Array             | Sim                                                                           | Array para desestruturação dos valores.                                                                  |
+| `value`     | String            | Sim                                                                           | Valor para o campo de texto.                                                                             |
+| `setValue`  | Function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
+| `isValid`   | Boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
+| `setKey`    | Function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
+
+  </details>
+  </dd>
 </dl>
