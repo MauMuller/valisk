@@ -47,12 +47,18 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 ### Mapa da documentação
 
 - [Instalação](#instalação)
-  - [NPM](#npm)
-  - [Github](#github)
-  - [Yarn](#yarn)
+  -> [NPM](#npm)
+  -> [Github](#github)
+  -> [Yarn](#yarn)
+
+  <br />
+
 - [Casos de Uso](#casos-de-uso)
-- [API de Referencia](#api-de-referencia)
-  - [useMaskCPF](#usemaskcpf)
+
+  <br />
+
+- [API de Referência](#api-de-referência)
+  - [**useMaskCPF**](#usemaskcpf)
 
 <br />
 
@@ -96,7 +102,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a aprese
 
 <br />
 
-## API de Referencia
+## API de Referência
 
 Nessa sessão você poderá tirar todas suas dúvidas quanto a parametros ou retornos dos hooks, assim como ententer os tipos e até mesmo verificar a sintaxe de utilização para variados casos de uso.
 
@@ -131,11 +137,14 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   Aqui temos o hook para a validação e máscara de CPF, com ela é possível criar diversos campos utilizando máximo de acessibilidade para o usuário.
 
-<dl style="list-style-type: none;">
+<dl>
+  <dl>
   <!-- Template -->
   <dd>
   <details>
-    <summary><b>Template</b></summary>
+    <summary><b>Template</b></a></summary>
+
+<br />
 
 ```TS
   //000.000.000-00
@@ -148,6 +157,8 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   <dd>  
   <details>
     <summary><b>Sintaxe</b></summary>
+
+<br />
 
 ```Typescript
   import { useMaskCPF } from "react-valisk";
@@ -201,4 +212,5 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   </details>
   </dd>
-</ol>
+</dl>
+</dl>
