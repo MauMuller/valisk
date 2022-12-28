@@ -1,37 +1,14 @@
-<div  
-  style="
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:1rem;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.8rem;
-    border-bottom: 1px solid #696969
-">
-  <img 
-    src="https://ik.imagekit.io/e6khzhxvx/Valisk?ik-sdk-version=javascript-1.4.3&updatedAt=1672157447910" 
-    width="120"
-  />
-  <div style="width:25rem;">
-    <span style="
-      font-weight:bold; 
-      font-size:1.5rem;
-      color:white;"
-    >
-      React Valisk
-    </span>
-    <p style="font-size:0.8rem">
-      Trata-se de uma biblioteca com a finalidade de proporcionar mascaras e validações para os campos de texto, tudo por meio de HOOKS, visando as tipagens e variadas opções para personalização.
-    </p>
-  </div>
-</div>
+<embed width="100">
 
-<div style="
-  padding-bottom: 0.8rem;
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-">
+[<img align="left" height="120px" width="125px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Valisk?ik-sdk-version=javascript-1.4.3&updatedAt=1672157447910"/>]()
+
+<font size="5"><b>React Valisk</b></font>
+<font size="3">Trata-se de uma biblioteca com a finalidade de proporcionar mascaras e validações para os campos de texto, tudo por meio de HOOKS, visando as tipagens e variadas opções para personalização.</font>
+<br/>
+
+</embed>
+
+<div align="center">
   <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/react-valisk?color=%23ff1f3d&label=npm&style=for-the-badge" width="90">
 
   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/maumuller/react-valisk/publish-package-and-release.yml?color=black&style=for-the-badge" width="105">
@@ -51,31 +28,12 @@
   align-items: center;
 ">
 
-<div style="
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 40rem;
-  flex-direction:column;
-">
+<div>
+  <div align="center">
 
-<div align="center" style="width:100%;">
+> Essa é uma biblioteca feita em **REACT** e **TYPESCRIPT**, porém pode ser integrada com qualquer outra lib/framework, isso porque assim como os `hooks` do REACT, VALISK apenas utiliza `hooks` para controlar o campo de texto.
 
-Essa é uma biblioteca feita em **REACT** e **TYPESCRIPT**, porém pode ser integrada com qualquer outra lib/framework, isso porque assim como os `hooks` do REACT, VALISK apenas utiliza `hooks` para controlar o campo de texto.
-
-</div>
-
-<!-- <p align="center" style="width:100%;">
-  <a href="#Introducao">Introdução</a>
-  &nbsp;&bull;&nbsp;
-  <a href="#installation">Installation</a>
-  &nbsp;&bull;&nbsp;
-  <a href="#usage">Usage</a>
-  &nbsp;&bull;&nbsp;
-  <a href="#documentation">Documentation</a>
-  &nbsp;&bull;&nbsp;
-  <a href="#issue">Issue?</a>
-</p> -->
+  </div>
 
 ## Introdução
 
