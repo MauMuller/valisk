@@ -137,8 +137,17 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   - [x] Máscara
   - [x] Válidação
-  - [x] Auto-Complete do navegador
-  - [x] CTRL-C / CTRL-V com ou sem máscara
+  - [x] Funciona em conjunto com o `Auto-Complete do navegador`
+  - [x] `CTRL-C / CTRL-V` com ou sem máscara
+
+    <details>
+    <summary><b>Template</b></a></summary>
+
+    ```TS
+      //000.000.000-00
+    ```
+
+    </details>
 
 <dl>
   <!-- Template -->
