@@ -48,6 +48,8 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 - [Instalação](#instalação)
   - [NPM](#npm)
+  - [Github](#github)
+  - [Yarn](#yarn)
 - [Casos de Uso](#casos-de-uso)
 - [API de Referencia](#api-de-referencia)
   - [useMaskCPF](#usemaskcpf)
@@ -62,12 +64,8 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
 
   Através do gerenciador de pacotes mais utilizado entre o desenvolvimento, podendo assim, acessar o pacote no site oficial.
 
-  <br />
-
-  **Repositório NPM**:
+  **Repositório**:
   <https://www.npmjs.com/settings/mauricio_m_s/packages>
-
-  <br />
 
   ```shell
   npm i react-valisk
@@ -77,7 +75,7 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
 
   Se preferir, é possível instalar pelo próprio GITHUB, acessando o pacote através do repositório, realizando o clone e instalando para a utilização.
 
-  **Repositório Github**:
+  **Repositório**:
   <https://github.com/MauMuller/react-valisk/>
 
   ```shell
