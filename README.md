@@ -57,6 +57,7 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
   - [**useMaskCPF**](#usemaskcpf)
   - [**useMaskCNPJ**](#usemaskcnpj)
   - [**useMaskCEP**](#usemaskcep)
+  - [**useMaskMoney**](#usemaskmoney)
 
 <br />
 
@@ -157,14 +158,14 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-  import { useMaskCPF } from "react-valisk";
+    import { useMaskCPF } from "react-valisk";
 
-      ...
+    ...
 
-      const [value, setValue, isValid, setKey] = useMaskCPF({
-        inicialValue: "4823",
-        useExplictMask: true
-      });
+    const [value, setValue, isValid, setKey] = useMaskCPF({
+      inicialValue: "4823",
+      useExplictMask: true
+    });
 
   ```
 
@@ -373,14 +374,14 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-      import { useMaskMoney } from "react-valisk";
+    import { useMaskMoney } from "react-valisk";
 
-      ...
+    ...
 
-      const [value, setValue, isValid] = useMaskMoney({
-        inicialValue: "4823",
-        useExplictMask: true
-      });
+    const [value, setValue, isValid] = useMaskMoney({
+      inicialValue: "4823",
+      useExplictMask: true
+    });
 
   ```
 
@@ -412,6 +413,38 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   | `value`     | String                    | Sim         | Valor para o campo de texto.                            |
   | `setValue`  | Function<string\>         | Sim         | Função para atualizar o valor dentro do estado do hook. |
   | `isValid`   | True (Ainda indísponivel) | Não         | Verifica se o valor em específico satisfaz a máscara.   |
+
+    </details>
+
+    <details>
+    <summary><b><mark>Em breve...</mark></b></summary>
+    <br />
+
+  > OBS: Essa sessão ainda está em desenvolvimento, **nenhuma das funcionalidades citadas aqui estão disponivéis para uso!**
+
+  No futuro, pretendo adicionar dois incrementos dentro do hook, ambos relacionados aos `parâmetros`.
+  A ideia seria justamente dar mais personalização e funcionalidade para a validação e máscara.
+
+  1. Primeira ideia seria realizar o incremento de uma propriedade chamada `explictCipher` do tipo `boolean`, servindo básicamente como forma de mostrar ou retirar o cifrão no campo.
+
+     ```TSX
+       const [value, setValue, isValid] = useMaskMoney({
+         inicialValue: "",
+         useExplictMask: true,
+         explictCipher: true // <- Dessa maneira!
+       });
+     ```
+
+  2. Já a segunda ideia seria realizar algo parecido com o que existe atualmente no hook `useMaskPassword`, podendo inserir uma validação personalizada, seja por um número mínimo ou número máximo. Sendo assim, `minValue` e `maxValue`, ambos do tipo `Númber`.
+
+     ```TSX
+       const [value, setValue, isValid] = useMaskMoney({
+         inicialValue: "",
+         useExplictMask: true,
+         minValue: '30' //R$ 30,00 <-
+         maxValue: '100' //R$ 100,00 <-
+       });
+     ```
 
     </details>
 
