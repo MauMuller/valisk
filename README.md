@@ -131,11 +131,9 @@ Já os valores de `parâmetro`, são aqueles passados através do `objeto` dentr
 
 Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrando um pouco das suas propriedades, retornos e possibilidades dentro do desenvolvimento:
 
-- ### useMaskCPF
+<br />
 
-  Esse hook funciona a partir do `template` mostrado entre os tópicos abaixo.
-
-  **Lista de Caracteristicas**
+- ## useMaskCPF
 
   - [x] Máscara
   - [x] Válidação
@@ -220,7 +218,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
 <br />
 
-- ### useMaskCNPJ
+- ## useMaskCNPJ
 
   Esse hook funciona a partir do `template` mostrado entre os tópicos abaixo.
 
@@ -305,7 +303,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
 <br />
 
-- ### useMaskCEP
+- ## useMaskCEP
 
   Esse hook funciona a partir do `template` mostrado entre os tópicos abaixo.
 
