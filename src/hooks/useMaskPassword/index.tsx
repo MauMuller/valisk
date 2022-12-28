@@ -5,7 +5,6 @@ import { extractValueFromPassword } from "../../assets/ts/extractValueFromPasswo
 
 import {
   TypesChangePasswordState,
-  TypesInicialPassword,
   TypesPasswordMask,
   TypesPasswordValuesReturn,
   TypesMaskPasswordReturn,
@@ -24,10 +23,10 @@ const useMaskPassword = ({
 
   const hideValueCheck = hideValue ?? true;
   const inicialValueCheck = String(inicialValue ?? "");
-  const inicialObjectValues: TypesInicialPassword = {
+  const inicialObjectValues = {
     value: "",
     sourceValue: "",
-    isValid: false,
+    isValid: {},
   };
 
   const [inputValue, setInputValue] = useState(inicialObjectValues);
@@ -77,10 +76,13 @@ const useMaskPassword = ({
       hideValueCheck,
     });
 
+    const isValidBoolean =
+      typeof isValidateValue === "object" ? isValidateValue : {};
+
     changeStateInputValue({
       formatedSourceValue: formatedSource,
       formatedValue,
-      formatedValidate: isValidateValue,
+      formatedValidate: isValidBoolean,
     });
   };
 

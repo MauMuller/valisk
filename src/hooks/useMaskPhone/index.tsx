@@ -4,10 +4,10 @@ import { usePrefixAndDDDToPhone } from "../../assets/ts/usePrefixAndDDDToPhone";
 import { masks } from "../../data/masks";
 
 import {
-  TypeChangeState,
   TypesInicialObject,
-  TypesMaskReturn,
   TypesPhoneMask,
+  TypesMaskReturn,
+  TypesChangeBoolean,
 } from "../../types/globalTypes";
 
 const useMaskPhone = ({
@@ -28,7 +28,7 @@ const useMaskPhone = ({
 
   const inicialMaskValue = useExplictMask ? phoneWithOrWithoutDDD : "";
 
-  const inicialObjectValues: TypesInicialObject = {
+  const inicialObjectValues = {
     value: inicialMaskValue,
     isValid: false,
     keyDown: false,
@@ -41,7 +41,7 @@ const useMaskPhone = ({
     formatedValue,
     formatedValidate,
     formatedKeyDown,
-  }: TypeChangeState) =>
+  }: TypesChangeBoolean) =>
     setInputValue((prevValue) => {
       const clonedObject = { ...prevValue };
       const { value, isValid, keyDown } = clonedObject;
@@ -66,9 +66,12 @@ const useMaskPhone = ({
       keyDown,
     });
 
+    const isValidBoolean =
+      typeof isValidateValue === "object" ? false : isValidateValue;
+
     changeStateInputValue({
       formatedValue,
-      formatedValidate: isValidateValue,
+      formatedValidate: isValidBoolean,
       formatedKeyDown: keyDown,
     });
   };

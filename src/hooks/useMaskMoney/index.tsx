@@ -4,10 +4,9 @@ import { firstPartMoney } from "../../assets/ts/firstPartMoney";
 import { masks } from "../../data/masks";
 
 import {
-  TypeChangeState,
-  TypesInicialWithoutKey,
   TypesMaskMoneyReturn,
   TypesBasicsProperties,
+  TypesChangeBoolean,
 } from "../../types/globalTypes";
 
 const useMaskMoney = ({
@@ -23,7 +22,7 @@ const useMaskMoney = ({
     ? valueMask
     : firstPartMoney(valueMask);
 
-  const inicialObjectValues: TypesInicialWithoutKey = {
+  const inicialObjectValues = {
     value: inicialMaskValue,
     isValid: false,
   };
@@ -34,8 +33,7 @@ const useMaskMoney = ({
   const changeStateInputValue = ({
     formatedValue,
     formatedValidate,
-    formatedKeyDown,
-  }: TypeChangeState) =>
+  }: TypesChangeBoolean) =>
     setInputValue((prevValue) => {
       const clonedObject = { ...prevValue };
       const { value, isValid } = clonedObject;
@@ -55,9 +53,12 @@ const useMaskMoney = ({
       hashMaskCheck: useExplictMaskCheck,
     });
 
+    const isValidBoolean =
+      typeof isValidateValue === "object" ? false : isValidateValue;
+
     changeStateInputValue({
       formatedValue,
-      formatedValidate: isValidateValue,
+      formatedValidate: isValidBoolean,
     });
   };
 

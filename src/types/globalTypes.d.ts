@@ -3,14 +3,14 @@ type TypesFunction<K> = (value: K) => void;
 type TypesMaskReturn = [
   value: string,
   setValue: TypesFunction<string>,
-  isValid: boolean | object,
+  isValid: boolean,
   setKey: TypesFunction<string>
 ];
 
 type TypesMaskMoneyReturn = [
   value: string,
   setValue: TypesFunction<string>,
-  isValid: boolean | TypesDigits
+  isValid: boolean
 ];
 
 type TypesPasswordValuesReturn = [value: string, sourceValue: string];
@@ -18,7 +18,7 @@ type TypesPasswordValuesReturn = [value: string, sourceValue: string];
 type TypesMaskPasswordReturn = [
   value: TypesPasswordValuesReturn,
   setValue: TypesFunction<string>,
-  isValid: boolean | TypesDigits
+  isValid: TypesDigits
 ];
 
 type TypesPhones = "phoneMovel" | "phoneFixo";
@@ -78,15 +78,25 @@ interface TypesMasks {
   phone?: TypesPhoneMask;
   password?: TypesPasswordMask;
 }
-
 interface TypeChangeState {
   formatedValue?: string;
   formatedValidate?: boolean | object;
   formatedKeyDown?: boolean;
 }
 
-interface TypesChangePasswordState extends TypeChangeState {
+type TypesChangeStateProperties = Omit<TypeChangeState, "formatedValidate">;
+
+interface TypesChangeBoolean extends TypesChangeStateProperties {
+  formatedValidate?: boolean;
+}
+interface TypesChangeObject extends TypesChangeStateProperties {
+  formatedValidate?: TypesDigits;
+}
+
+interface TypesChangePasswordState {
   formatedSourceValue?: string;
+  formatedValue?: string;
+  formatedValidate?: TypesDigits;
 }
 interface TypesMaskObject {
   maskName: string;
@@ -122,4 +132,6 @@ export {
   TypesMaskMoneyReturn,
   TypesPasswordValuesReturn,
   TypesInicialWithoutKey,
+  TypesChangeBoolean,
+  TypesChangeObject,
 };

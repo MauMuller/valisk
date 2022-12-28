@@ -169,6 +169,8 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   <details>
     <summary><b>Parâmetros</b></summary>
 
+<br />
+
 > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
 
 | Propriedade      | Tipos                 | Obrigatório | Descrição                                |
@@ -181,9 +183,11 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   </dd>
 
   <!-- Retornos -->
-  <dd>  
+  <dd>
   <details>
     <summary><b>Retornos</b></summary>
+
+<br />
 
 > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
 
@@ -197,5 +201,4 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   </details>
   </dd>
-
 </ol>

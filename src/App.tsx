@@ -1,5 +1,9 @@
-import { useState, useId, useRef } from "react";
+import { useState, useId } from "react";
+
 import { useMasks } from "./hooks/useMasks";
+import { useMaskMoney } from "./hooks/useMaskMoney";
+import { useMaskPassword } from "./hooks/useMaskPassword";
+import { useMaskPhone } from "./hooks/useMaskPhone";
 
 import { useMaskCPF } from "./hooks/useMaskCPF";
 
@@ -15,11 +19,11 @@ function App() {
   const namesForLabes = ["password", "cep", "cnpj", "cpf"];
 
   const inputsMasks = namesForLabes.reduce((prev, current) => {
-    const inicialObject = { inicialValue: "" };
-    const passwordObj = { ...inicialObject, hideValue: hiddenValue };
-    const othersObjects =
+    let inicialObject = { inicialValue: "" };
+    let passwordObj = { ...inicialObject, hideValue: hiddenValue };
+    let othersObjects =
       current === "cpf" ? { useExplictMask: false } : { useExplictMask: true };
-    const data = current === "password" ? passwordObj : othersObjects;
+    let data = current === "password" ? passwordObj : othersObjects;
 
     return { ...prev, [current]: data };
   }, {});
@@ -63,6 +67,9 @@ function App() {
   });
 
   // const [value, setValue, isValid, setKey] = useMaskCPF({});
+  // const [valueM, setValueM, isValidM] = useMaskMoney({});
+  // const [valueP, setValueP, isValidP] = useMaskPassword({});
+  // const [valuePh, setValuePh, isValidPh] = useMaskPhone({});
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
