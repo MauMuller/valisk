@@ -62,7 +62,7 @@ function App() {
     );
   });
 
-  const [] = useMaskCPF({});
+  // const [value, setValue, isValid, setKey] = useMaskCPF({});
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>

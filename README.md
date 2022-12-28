@@ -2,7 +2,7 @@
 
 ## React Valisk
 
-Trata-se de uma biblioteca com a finalidade de proporcionar mascaras e validações para os campos de texto, tudo por meio de `HOOKS`, visando as tipagens e variadas opções para personalização.
+Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validações para os campos de texto, tudo por meio de `HOOKS`, visando as tipagens e variadas opções para personalização.
 
 <br />
 
@@ -125,12 +125,77 @@ Já os valores de `parâmetro`, são aqueles passados através do `objeto` dentr
 
 ---
 
-Com essa breve explicação, vamos aos tópicos de cada um dos hooks, mostrando um pouco das suas propriedades, retornos e possibilidades dentro do desenvolvimento:
+Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrando um pouco das suas propriedades, retornos e possibilidades dentro do desenvolvimento:
 
 - ### useMaskCPF
 
-  **useMaskCPF** precisa receber obrigatóriamente um (objeto `{}`), dentro desse objetos ele pode receber duas propriedades:
+  Aqui temos o hook para a validação e máscara de CPF, com ela é possível criar diversos campos utilizando máximo de acessibilidade para o usuário.
 
-  | Propriedade | Tipagem | ASDASD |
-  | :---------- | :------ | :----- |
-  | aaa         | AAA     | ASDASD |
+<ol style="list-style-type: none;">
+  <!-- Template -->
+  <li>
+  <details>
+    <summary><b>Template</b></summary>
+
+```TS
+  //000.000.000-00
+```
+
+  </details>
+  </li>
+
+  <!-- Sintaxe -->
+  <li>  
+  <details>
+    <summary><b>Sintaxe</b></summary>
+
+```Typescript
+  import { useMaskCPF } from "react-valisk";
+
+  ...
+
+  const [value, setValue, isValid, setKey] = useMaskCPF({
+    inicialValue: "4823",
+    useExplictMask: true
+  });
+
+```
+
+  </details>
+  </li>
+
+  <!-- Parâmetros -->
+  <li>  
+  <details>
+    <summary><b>Parâmetros</b></summary>
+
+> OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
+
+| Propriedade      | Tipos                 | Obrigatório | Descrição                                |
+| :--------------- | :-------------------- | :---------- | :--------------------------------------- |
+| `{}`             | Object                | Sim         | Objeto Vázio.                            |
+| `inicialValue`   | String _/_ Undefined  | Não         | Valor inicial para o campo de texto.     |
+| `useExplictMask` | Boolean _/_ Undefined | Não         | Utilização da máscara de forma explicita |
+
+  </details>
+  </li>
+
+  <!-- Retornos -->
+  <li>  
+  <details>
+    <summary><b>Retornos</b></summary>
+
+> OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
+
+| Propriedade | Tipos             | Obrigatório                                                                   | Descrição                                                                                                |
+| :---------- | :---------------- | :---------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------- |
+| `[]`        | Array             | Sim                                                                           | Array para desestruturação dos valores.                                                                  |
+| `value`     | String            | Sim                                                                           | Valor para o campo de texto.                                                                             |
+| `setValue`  | Function<string\> | Sim                                                                           | Função para atualizar o valor dentro do estado do hook.                                                  |
+| `isValid`   | Boolean           | Sim/Não _(Se o retorno `setKey` é utilizada, é necessário declarar)_          | Verifica se o valor em específico satisfaz a máscara.                                                    |
+| `setKey`    | Function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
+
+  </details>
+  </li>
+
+</ol>
