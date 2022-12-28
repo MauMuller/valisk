@@ -131,9 +131,9 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   Aqui temos o hook para a validação e máscara de CPF, com ela é possível criar diversos campos utilizando máximo de acessibilidade para o usuário.
 
-<ol style="list-style-type: none;">
+<dl style="list-style-type: none;">
   <!-- Template -->
-  <li>
+  <dd>
   <details>
     <summary><b>Template</b></summary>
 
@@ -142,10 +142,10 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 ```
 
   </details>
-  </li>
+  </dd>
 
   <!-- Sintaxe -->
-  <li>  
+  <dd>  
   <details>
     <summary><b>Sintaxe</b></summary>
 
@@ -162,10 +162,10 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 ```
 
   </details>
-  </li>
+  </dd>
 
   <!-- Parâmetros -->
-  <li>  
+  <dd>  
   <details>
     <summary><b>Parâmetros</b></summary>
 
@@ -178,10 +178,10 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 | `useExplictMask` | Boolean _/_ Undefined | Não         | Utilização da máscara de forma explicita |
 
   </details>
-  </li>
+  </dd>
 
   <!-- Retornos -->
-  <li>  
+  <dd>  
   <details>
     <summary><b>Retornos</b></summary>
 
@@ -196,6 +196,6 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 | `setKey`    | Function<string\> | Sim/Não _(Se a propriedade `useExplictMask` é `true`, é necessário utilizar)_ | Função para capturar a tecla digitada e apagar a máscara quando a propriedade `useExplictMask` é `true`. |
 
   </details>
-  </li>
+  </dd>
 
 </ol>
