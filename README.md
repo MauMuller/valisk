@@ -1,7 +1,10 @@
-[<img align="left" height="120px" width="125px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Valisk?ik-sdk-version=javascript-1.4.3&updatedAt=1672157447910"/>]()
+[<img align="left" height="125px" width="120px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Valisk?ik-sdk-version=javascript-1.4.3&updatedAt=1672157447910"/>]()
 
-<font size="+3"><b>React Valisk</b></font> <br />
-<font size="3">Trata-se de uma biblioteca com a finalidade de proporcionar mascaras e validações para os campos de texto, tudo por meio de HOOKS, visando as tipagens e variadas opções para personalização.</font>
+<b>React Valisk</b> <br />
+
+Trata-se de uma biblioteca com a finalidade de proporcionar mascaras e validações para os campos de texto, tudo por meio de HOOKS, visando as tipagens e variadas opções para personalização.
+
+---
 
 <div align="center">
   <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/react-valisk?color=%23ff1f3d&label=npm&style=for-the-badge" width="120">
