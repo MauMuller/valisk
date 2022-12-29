@@ -7,13 +7,13 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 <br />
 
 <div align="center">
-  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/react-valisk?color=%23ff1f3d&label=npm&style=for-the-badge" width="100">
+  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/react-valisk?color=%23ff1f3d&label=npm&style=for-the-badge" width="120">
 
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/maumuller/react-valisk/publish-package-and-release.yml?color=black&style=for-the-badge" width="130">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/maumuller/react-valisk/publish-package-and-release.yml?color=black&style=for-the-badge" width="150">
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/maumuller/react-valisk?color=%23ff1f3d&style=for-the-badge" width="100">
+  <img alt="GitHub" src="https://img.shields.io/github/license/maumuller/react-valisk?color=%23ff1f3d&style=for-the-badge" width="120">
 
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/maumuller/react-valisk?color=black&style=for-the-badge" width="140">
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/maumuller/react-valisk?color=black&style=for-the-badge" width="160">
 </div>
 
 <br />
@@ -38,9 +38,9 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 
 A ideia da construção da biblioteca já existia a muito tempo, porém, apenas depois de adquirir conhecimento das técnologias da modernidade que fui capaz de realiza-lá.
 
-**Valisk** trabalha `hooks`, ou seja, funcionalidades que realizam algumas tarefas para facilitar o dia a dia do desenvolvedor, esses hooks são a essencia do React funcional, aqui está um link para entender melhor sobre o funcionamento -> <a target="_blank" src="https://pt-br.reactjs.org/docs/hooks-reference.html#gatsby-focus-wrapper">React Hooks</a>.
+**Valisk** trabalha `hooks`, ou seja, funcionalidades que realizam algumas tarefas para facilitar o dia a dia do desenvolvedor, esses hooks são a essencia do React funcional, aqui está um link para entender melhor sobre o funcionamento -> [React Hooks](https://pt-br.reactjs.org/docs/hooks-reference.html#gatsby-focus-wrapper).
 
-A biblioteca disponibiliza _métodos_, _hooks_ e _valores_ iniciais para deixar bem completo o desenvolvimento. Qualquer dúvida, basta navegar até a sessão -> [API de Referência](#api-de-referencia) e procurar pela questão em especial ou ainda, mandar uma issue.
+A biblioteca disponibiliza _métodos_, _hooks_ e _valores_ iniciais para deixar bem completo o desenvolvimento. Qualquer dúvida, basta navegar até a sessão -> [API de Referência](#api-de-referência) e procurar pela questão em especial ou ainda, mandar uma issue.
 
 Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
@@ -79,7 +79,7 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
   <br />
 
   <b>Repositório:</b>
-  <a href="https://www.npmjs.com/settings/mauricio_m_s/packages">https://www.npmjs.com/settings/mauricio_m_s/packages</a>
+  <https://www.npmjs.com/settings/mauricio_m_s/packages>
 
   ```bash
     npm i react-valisk
@@ -97,7 +97,7 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
   <br />
 
   <b>Repositório:</b>
-  <a href="https://github.com/MauMuller/react-valisk">https://github.com/MauMuller/react-valisk</a>
+  <https://github.com/MauMuller/react-valisk>
 
   ```bash
     Em breve...
@@ -149,7 +149,7 @@ const [values, setValues, isValid, setKey] = useMasks({
 });
 ```
 
-Assim como desmonstrado no código acima, os valores de `retorno` são aqueles que são `desestruturados` a partir de um `array` \_(Caso não saiba do que se trata a **"Desestruturação do ECMAScript"** -> <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank">Desestruturação de Valores</a>)
+Assim como desmonstrado no código acima, os valores de `retorno` são aqueles que são `desestruturados` a partir de um `array` \_(Caso não saiba do que se trata a **"Desestruturação do ECMAScript"** -> [Desestruturação de Valores](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment))
 
 Já os valores de `parâmetro`, são aqueles passados através do `objeto` dentro da chamada do `hook`, a partir dele é posível saber quais propriedadess são esperadas para cada mascará selecionada.
 
