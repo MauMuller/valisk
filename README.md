@@ -55,12 +55,13 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 - [Casos de Uso](#casos-de-uso)
 
 - [API de Referência](#api-de-referência)
-  - [==**useMaskCPF**==](#usemaskcpf)
-  - [==**useMaskCNPJ**==](#usemaskcnpj)
-  - [==**useMaskCEP**==](#usemaskcep)
-  - [==**useMaskMoney**==](#usemaskmoney)
-  - [==**useMaskPhone**==](#usemaskphone)
-  - [==**useMaskPassword**==](#usemaskpassword)
+  - [**useMaskCPF**](#usemaskcpf)
+  - [**useMaskCNPJ**](#usemaskcnpj)
+  - [**useMaskCEP**](#usemaskcep)
+  - [**useMaskMoney**](#usemaskmoney)
+  - [**useMaskPhone**](#usemaskphone)
+  - [**useMaskPassword**](#usemaskpassword)
+  - [**useMasks** _(Principal)_](#usemasks)
 
 <br />
 
@@ -73,13 +74,15 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
   Através do gerenciador de pacotes mais utilizado entre o desenvolvimento, podendo assim, acessar o pacote no site oficial.
 
   <details>
-    <summary>Instalação</summary>
+  <summary>Instalação</summary>
+
+  <br />
 
   <b>Repositório:</b>
   <a href="https://www.npmjs.com/settings/mauricio_m_s/packages">https://www.npmjs.com/settings/mauricio_m_s/packages</a>
 
-  ```shell
-  npm i react-valisk
+  ```bash
+    npm i react-valisk
   ```
 
   </details>
@@ -88,17 +91,31 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
 
   Se preferir, é possível instalar pelo próprio GITHUB, acessando o pacote através do repositório, realizando o clone e instalando para a utilização.
 
-  **Repositório**:
-  <https://github.com/MauMuller/react-valisk/>
+  <details>
+  <summary><b>Instalação</b></summary>
 
-  ```shell
-  Em breve...
+  <br />
+
+  <b>Repositório:</b>
+  <a href="https://github.com/MauMuller/react-valisk">https://github.com/MauMuller/react-valisk</a>
+
+  ```bash
+    Em breve...
   ```
+
+  </details>
 
 - ### Yarn
 
-  ```shell
-  Em breve...
+  Também com YARN em breve.
+
+  <details>
+  <summary><b>Instalação</b></summary>
+
+  <br />
+
+  ```bash
+    Em breve...
   ```
 
 <br />
@@ -425,7 +442,9 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     </details>
 
     <details>
-    <summary><u>Em breve</u></summary>
+    <summary>
+      <s>Em breve</s>
+    </summary>
     <br />
 
   > OBS: Essa sessão ainda está em desenvolvimento, **nenhuma das funcionalidades citadas aqui estão disponivéis para uso!**
