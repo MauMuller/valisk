@@ -38,7 +38,7 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 
 A ideia da construção da biblioteca já existia a muito tempo, porém, apenas depois de adquirir conhecimento das técnologias da modernidade que fui capaz de realiza-lá.
 
-**Valisk** trabalha `hooks`, ou seja, funcionalidades que realizam algumas tarefas para facilitar o dia a dia do desenvolvedor, esses hooks são a essencia do React funcional, aqui está um link para entender melhor sobre o funcionamento -> [React Hooks](https://pt-br.reactjs.org/docs/hooks-reference.html#gatsby-focus-wrapper).
+**Valisk** trabalha `hooks`, ou seja, funcionalidades que realizam algumas tarefas para facilitar o dia a dia do desenvolvedor, esses hooks são a essencia do React funcional, aqui está um link para entender melhor sobre o funcionamento -> <a target="_blank" src="https://pt-br.reactjs.org/docs/hooks-reference.html#gatsby-focus-wrapper">React Hooks</a>.
 
 A biblioteca disponibiliza _métodos_, _hooks_ e _valores_ iniciais para deixar bem completo o desenvolvimento. Qualquer dúvida, basta navegar até a sessão -> [API de Referência](#api-de-referencia) e procurar pela questão em especial ou ainda, mandar uma issue.
 
@@ -46,18 +46,21 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 ### Mapa da documentação
 
-- Instalação
+- [Instalação](#instalação)
 
   - [NPM](#npm)
   - [Github](#github)
   - [Yarn](#yarn)
 
 - [Casos de Uso](#casos-de-uso)
+
 - [API de Referência](#api-de-referência)
-  - [**useMaskCPF**](#usemaskcpf)
-  - [**useMaskCNPJ**](#usemaskcnpj)
-  - [**useMaskCEP**](#usemaskcep)
-  - [**useMaskMoney**](#usemaskmoney)
+  - [==**useMaskCPF**==](#usemaskcpf)
+  - [==**useMaskCNPJ**==](#usemaskcnpj)
+  - [==**useMaskCEP**==](#usemaskcep)
+  - [==**useMaskMoney**==](#usemaskmoney)
+  - [==**useMaskPhone**==](#usemaskphone)
+  - [==**useMaskPassword**==](#usemaskpassword)
 
 <br />
 
@@ -69,12 +72,17 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
 
   Através do gerenciador de pacotes mais utilizado entre o desenvolvimento, podendo assim, acessar o pacote no site oficial.
 
-  **Repositório**:
-  <https://www.npmjs.com/settings/mauricio_m_s/packages>
+  <details>
+    <summary>Instalação</summary>
+
+  <b>Repositório:</b>
+  <a href="https://www.npmjs.com/settings/mauricio_m_s/packages">https://www.npmjs.com/settings/mauricio_m_s/packages</a>
 
   ```shell
   npm i react-valisk
   ```
+
+  </details>
 
 - ### Github
 
@@ -417,7 +425,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     </details>
 
     <details>
-    <summary><a href="#"><img src="https://ik.imagekit.io/e6khzhxvx/Group_5.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672260661007" width="100"></a></summary>
+    <summary><u>Em breve</u></summary>
     <br />
 
   > OBS: Essa sessão ainda está em desenvolvimento, **nenhuma das funcionalidades citadas aqui estão disponivéis para uso!**
