@@ -7,7 +7,7 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 <br />
 
 <div align="center">
-  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/react-valisk?color=%23ff1f3d&label=npm&style=for-the-badge" width="120">
+  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/react-valisk?color=%23ff1f3d&label=version&style=for-the-badge" width="140">
 
   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/maumuller/react-valisk/publish-package-and-release.yml?color=black&style=for-the-badge" width="150">
 
@@ -38,7 +38,7 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 
 A ideia da construção da biblioteca já existia a muito tempo, porém, apenas depois de adquirir conhecimento das técnologias da modernidade que fui capaz de realiza-lá.
 
-**Valisk** trabalha `hooks`, ou seja, funcionalidades que realizam algumas tarefas para facilitar o dia a dia do desenvolvedor, esses hooks são a essencia do React funcional, aqui está um link para entender melhor sobre o funcionamento -> [React Hooks](https://pt-br.reactjs.org/docs/hooks-reference.html#gatsby-focus-wrapper).
+**Valisk** trabalha com `hooks`, ou seja, funcionalidades que realizam algumas tarefas para facilitar o dia a dia do desenvolvedor, esses hooks são a essencia do React funcional, aqui está um link para entender melhor sobre o funcionamento -> [React Hooks](https://pt-br.reactjs.org/docs/hooks-reference.html#gatsby-focus-wrapper).
 
 A biblioteca disponibiliza _métodos_, _hooks_ e _valores_ iniciais para deixar bem completo o desenvolvimento. Qualquer dúvida, basta navegar até a sessão -> [API de Referência](#api-de-referência) e procurar pela questão em especial ou ainda, mandar uma issue.
 
@@ -54,7 +54,11 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 - [Casos de Uso](#casos-de-uso)
 
+  - [Uso Simples](#utilização-simples)
+  - [Uso Complexo](#utilização-complexa)
+
 - [API de Referência](#api-de-referência)
+
   - [**useMaskCPF**](#usemaskcpf)
   - [**useMaskCNPJ**](#usemaskcnpj)
   - [**useMaskCEP**](#usemaskcep)
@@ -62,6 +66,13 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
   - [**useMaskPhone**](#usemaskphone)
   - [**useMaskPassword**](#usemaskpassword)
   - [**useMasks** _(Principal)_](#usemasks-principal)
+
+- [Dúvidas](#dúvidas)
+
+  - [Dúvidas no uso da lib?](#duvidas-uso-da-lib)
+  - [Encontrou algum problema?](#encontrou-algum-problema)
+  - [Tem algumas ideias para contribuir?](#ideais-para-contribuir)
+  - [Ta asim de contribuir codando?](#contribuir-codando)
 
 <br />
 
@@ -124,6 +135,93 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
 
 Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a apresentação do hook.
 
+<dl>
+  <dd>
+  <details>
+  <summary id="utilização-básica">Utilização Básica</summary>
+
+Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskCNPJ`.
+
+```TSX
+  import { useMaskCPF, useMaskCNPJ } from "react-valisk";
+
+  const App = () => {
+    const configHooks = {
+      cpf: { inicialValue: "55552" },
+      cnpj: { useExplictMask: true }
+    };
+
+    const [cpf, setCPF, isCPF, setKeyCPF] = useMaskCPF(cpfConfig.cpf);
+    const [cnpj, setCNPJ, isCNPJ, setKeyCNPJ] = useMaskCNPJ(cpfConfig.cnpj);
+
+    return (
+      <>
+        <input
+          type="text"
+          value={cpf}
+          onChange={evt => setCPF(evt.target.value)}
+          onKeyDown={evt => setKey(evt.key)}
+        />
+
+        <input
+          type="text"
+          value={value}
+          onChange={evt => setCNPJ(evt.target.value)}
+          onKeyDown={evt => setCNPJ(evt.key)}
+        />
+      </>
+    );
+  }
+
+  /*
+    cpf: "555.52"
+    isCPF: false;
+  */
+
+  /*
+    cnpj: "__.___.___/____-__"
+    isCPF: false;
+  */
+
+  export { App };
+```
+
+  </details>
+
+<details>
+  <summary id="utilização-complexa">Utilização Complexa</summary>
+
+Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim o seu verdadeiro potencial.
+
+```TSX
+  import { useMaskCPF, useMaskCNPJ } from "react-valisk";
+
+  const App = () => {
+    const cpfConfig = {
+      inicialValue: "55552",
+    }
+
+    const [value, setValue, isValid, setKey] = useMaskCPF(cpfConfig);
+
+    return (
+      <>
+        <input
+          type="text"
+          value={value}
+          onChange={evt => setValue(evt.target.value)}
+          onKeyDown={evt => setKey(evt.key)}
+        />
+      </>
+    );
+  }
+
+  export { App };
+```
+
+  </details>
+  </dd>
+</dl>
+
 <br />
 
 ## API de Referência
@@ -151,11 +249,11 @@ const [values, setValues, isValid, setKey] = useMasks({
 
 Assim como desmonstrado no código acima, os valores de `retorno` são aqueles que são `desestruturados` a partir de um `array` \_(Caso não saiba do que se trata a **"Desestruturação do ECMAScript"** -> [Desestruturação de Valores](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment))
 
-Já os valores de `parâmetro`, são aqueles passados através do `objeto` dentro da chamada do `hook`, a partir dele é posível saber quais propriedadess são esperadas para cada mascará selecionada.
+Já os valores de `parâmetro`, são aqueles passados através do `objeto` dentro da chamada do `hook`, a partir dele é posível saber quais propriedades são esperadas para cada mascará selecionada.
 
 ---
 
-Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrando um pouco das suas propriedadess, retornos e possibilidades dentro do desenvolvimento:
+Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrando um pouco das suas propriedades, retornos e possibilidades dentro do desenvolvimento:
 
 <br />
 
@@ -774,11 +872,13 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
   É possível, atráves das tipagens, verificar todas as propriedades que cada um desses objetos recebem, porém, são as mesmas que cada hook precisa.
 
-  É importante entender que esse hook é básicamente, o conjunto de todos outros, ele serve justamente para `suprir a necessidade de ficar importando cada um` dos hooks.
+  É importante entender que esse hook é básicamente, o conjunto de todos outros, ele serve justamente para `suprir a necessidade de ficar desestruturando cada um` dos hooks, possibilitando realizações de operações muito mais complexas utilizando apenas um hook.
 
-  Porém, ele acaba se tornando um pouco mais complexo, por precisar entender que a `ordem de entrada` será a `ordem de saída`.
+  Por conta dessas complexidades, é necessário entender o funcionamento único do hook. A `ordem de entrada` será sempre a `ordem de saída`.
 
-  Além disso, é possível realizar alguns código bem `limpos` com esse hook, abusando de iterações como o `map` para não precisar usar diversas de desestruturação.
+  Essa lógica é interessante pois com ela, criar campos de texto com código limpo através do map acaba sendo muito simples e satisfatório de utilizar.
+
+  Caso deseja ver essas lógicas mais complexas, segue o link [Utilização complexa do `useMasks`](#utilização-complexa)
 
     </details>
 
@@ -848,3 +948,54 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 
     </dd>
   </dl>
+
+<br />
+
+## Dúvidas
+
+Aqui estão as melhores maneiras de contribuir com o projeto, caso tenha alguma coisa não explicada com as dúvidas abaixo, entre em contato.
+
+**Issue**:
+<https://github.com/MauMuller/react-valisk/issues/new>
+
+**Pull Request**:
+<https://github.com/MauMuller/react-valisk/pulls>
+
+<dl>
+  <dd>
+    <details>
+    <summary id="duvidas-uso-da-lib"><b>Dúvidas no uso da lib?</b></summary>
+      Opa, ta com dúvidas? Só fazer uma <code>issue</code> com o tema em específico, assim que der, eu respondo. 
+    </details>
+  <dd>
+
+  <dd>
+    <details>
+    <summary id="encontrou-algum-problema"><b>Encontrou algum problema?</b></summary>
+      Opa, achou algum problema com a lib ou algo não está funcionando? Só fazer uma <code>issue</code> com o tema em específico, assim que der, eu respondo. 
+    </details>
+  <dd>
+
+  <dd>
+    <details>
+      <summary id="ideais-para-contribuir"><b>Tem algumas ideias para contribuir?</b></summary>
+      Cara que daora, bom, aqui tu tem duas opções:
+      <br/>
+      <ol>
+        <li>
+            Tu pode fazer um <code>PR</code> para o código com essa ideia, com isso eu irei fazer um <code>code review</code> para avaliar.
+        </li>
+        <li>
+            Tu também pode criar uma <code>Issue</code> com a ideia, assim que der, a gente consegue trocar uma ideia.
+        </li>
+      </ol>
+    </details>
+  <dd>
+
+  <dd>
+    <details>
+    <summary id="contribuir-codando"><b>Ta afim de contribuir codando?</b></summary>
+      Ta afim de ajudar a codar? da um <code>fork</code> no projeto e manda uma <code>PR</code>.
+    </details>
+  <dd>
+</dl>
