@@ -10,7 +10,9 @@ import {
 
 const useMasks = (objMasks: TypesMasks) => {
   const modulateObjectMask = modulateObjectToMask(objMasks);
-  const namesMasks = modulateObjectMask.map((obj) => obj.maskName);
+  const namesMasks = modulateObjectMask.map((obj) =>
+    obj.maskName.toLowerCase()
+  );
   const hookFiltered = filterByInputMasks(namesMasks);
 
   const values: Array<string | TypesPasswordValuesReturn> = [],
