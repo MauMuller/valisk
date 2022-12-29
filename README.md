@@ -138,7 +138,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a aprese
 <dl>
   <dd>
   <details>
-  <summary id="utilização-básica">Utilização Básica</summary>
+  <summary id="utilização-simples">Utilização Simples</summary>
 
 Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskCNPJ`.
 
@@ -194,25 +194,10 @@ Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskC
 Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim o seu verdadeiro potencial.
 
 ```TSX
-  import { useMaskCPF, useMaskCNPJ } from "react-valisk";
+  import { useMasks } from "react-valisk";
 
   const App = () => {
-    const cpfConfig = {
-      inicialValue: "55552",
-    }
-
-    const [value, setValue, isValid, setKey] = useMaskCPF(cpfConfig);
-
-    return (
-      <>
-        <input
-          type="text"
-          value={value}
-          onChange={evt => setValue(evt.target.value)}
-          onKeyDown={evt => setKey(evt.key)}
-        />
-      </>
-    );
+    return;
   }
 
   export { App };
