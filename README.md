@@ -303,7 +303,7 @@ Nessa sessão você poderá tirar todas suas dúvidas quanto a parametros ou ret
 
 Antes de olhar a documentação, é necessário ter em mente como que funciona de forma prática os principais conceitos da biblioteca.
 
-Os principais conceitos são bem simples, básicamente `parametros` e `retornos`, eles são, respectivamente, valores de entrada e de saída.
+Os principais conceitos são bem simples, básicamente `parâmetros` e `retornos`, eles são, respectivamente, valores de entrada e de saída.
 
 Podemos ver abaixo de forma ilustrativa como que eles se moldam dentro do código:
 
