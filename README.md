@@ -177,7 +177,6 @@ Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskC
     );
   };
 
-
   export { App };
 ```
 
@@ -185,7 +184,7 @@ Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskC
 
   <dt>Resultado:</dt>
   <dd>
-    <img src="https://ik.imagekit.io/e6khzhxvx/camposSimples.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672400315476" width="300" />
+    <img src="https://ik.imagekit.io/e6khzhxvx/image_3.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672402991950" width="300" />
   </dd>
 </dl>
 
@@ -289,7 +288,7 @@ Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim um 
   
   <dt>Resultado:</dt>
   <dd>
-    <img src="https://ik.imagekit.io/e6khzhxvx/campos.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672399035101" width="700" />
+    <img src="https://ik.imagekit.io/e6khzhxvx/image_2.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672402787301" width="700" />
   </dd>
 </dl>
   </details>
@@ -1030,10 +1029,10 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 Aqui estão as melhores maneiras de contribuir com o projeto, caso tenha alguma coisa não explicada com as dúvidas abaixo, entre em contato.
 
 **Issue**:
-<https://github.com/MauMuller/@maumuller/valisk/issues/new>
+<https://github.com/MauMuller/valisk/issues/new>
 
 **Pull Request**:
-<https://github.com/MauMuller/@maumuller/valisk/pulls>
+<https://github.com/MauMuller/valisk/pulls>
 
 <dl>
   <dd>

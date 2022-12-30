@@ -1,84 +1,35 @@
 import { useId } from "react";
 import { useMasks } from "./hooks/useMasks";
 
-const passwordCondition = {
-  numbers: [4],
-  specialChars: [2, "*"],
-  words: [4],
-};
+import { useMaskCNPJ } from "./hooks/useMaskCNPJ";
+import { useMaskCPF } from "./hooks/useMaskCPF";
 
-const templateMasks = [
-  { type: "cnpj", inicialValue: "21523554" },
-  { type: "cpf", useExplictMask: true },
-  { type: "cep" },
-  { type: "phone", incrementDDDAndPrefix: true, useExplictMask: true },
-  { type: "money", useExplictMask: true },
-  { type: "password", passwordPontenciality: passwordCondition },
-];
+const App = () => {
+  const configHooks = {
+    cpf: { inicialValue: "55552" },
+    cnpj: { useExplictMask: true },
+  };
 
-function App() {
-  const id = useId();
-  const globalStyle = { display: "flex", gap: "0.5rem" };
-
-  const configMask = templateMasks.reduce((prev, current) => {
-    const {
-      type,
-      inicialValue,
-      useExplictMask,
-      passwordPontenciality,
-      incrementDDDAndPrefix,
-    } = current;
-
-    const objectToType = {
-      inicialValue,
-      useExplictMask,
-      passwordPontenciality,
-      incrementDDDAndPrefix,
-    };
-
-    return { ...prev, [type]: objectToType };
-  }, {});
-
-  const { values, setValues, areValidValues, setKeys } = useMasks(configMask);
-
-  const inputs = templateMasks.map((object, indexByObject) => {
-    const { type } = object;
-    const isPasswordType = type === "password";
-
-    const [valueInput, sourceValue] = values[indexByObject];
-    const value = isPasswordType ? valueInput : values[indexByObject];
-
-    const setValue = setValues[indexByObject];
-    const isValid = areValidValues[indexByObject];
-    const setKey = setKeys.at(indexByObject);
-
-    const idConect = `${id}-${type}`;
-    const nameLabel = type[0].toUpperCase() + type.substring(1);
-
-    return (
-      <div key={indexByObject} style={{ ...globalStyle, flexDirection: "row" }}>
-        <label htmlFor={idConect}>{nameLabel}</label>
-
-        <div style={{ ...globalStyle, flexDirection: "column" }}>
-          <input
-            id={idConect}
-            type="tel"
-            value={value}
-            onChange={(evt) => setValue(evt.target.value)}
-            onKeyDown={(evt) => setKey?.(evt.key)}
-          />
-          {isPasswordType ? <>{sourceValue}</> : ""}
-        </div>
-        <p style={{ width: "10rem" }}>
-          Validação do campo: {JSON.stringify(isValid)}
-        </p>
-      </div>
-    );
-  });
+  const [cpf, setCPF, isCPF, setKeyCPF] = useMaskCPF(configHooks.cpf);
+  const [cnpj, setCNPJ, isCNPJ, setKeyCNPJ] = useMaskCNPJ(configHooks.cnpj);
 
   return (
-    <div style={{ ...globalStyle, flexDirection: "column" }}>{inputs}</div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      <input
+        type="text"
+        value={cpf}
+        onChange={(evt) => setCPF(evt.target.value)}
+        onKeyDown={(evt) => setKeyCPF(evt.key)}
+      />
+
+      <input
+        type="text"
+        value={cnpj}
+        onChange={(evt) => setCNPJ(evt.target.value)}
+        onKeyDown={(evt) => setKeyCNPJ(evt.key)}
+      />
+    </div>
   );
-}
+};
 
 export default App;
