@@ -1,19 +1,19 @@
 [<img align="left" height="165px" width="135px" alt="Warpnet" src="https://ik.imagekit.io/e6khzhxvx/Group_3Valisk.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672190456214"/>]()
 
-## React Valisk
+# Valisk
 
 Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validações para os campos de texto, tudo por meio de `HOOKS`, visando as tipagens e variadas opções para personalização.
 
 <br />
 
 <div align="center">
-  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/react-valisk?color=%23ff1f3d&label=version&style=for-the-badge" width="140">
+  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/valisk?color=%23ff1f3d&label=version&style=for-the-badge" width="140">
 
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/maumuller/react-valisk/publish-package-and-release.yml?color=black&style=for-the-badge" width="150">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/maumuller/valisk/publish-package-and-release.yml?color=black&style=for-the-badge" width="150">
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/maumuller/react-valisk?color=%23ff1f3d&style=for-the-badge" width="120">
+  <img alt="GitHub" src="https://img.shields.io/github/license/maumuller/valisk?color=%23ff1f3d&style=for-the-badge" width="120">
 
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/maumuller/react-valisk?color=black&style=for-the-badge" width="160">
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/maumuller/valisk?color=black&style=for-the-badge" width="160">
 </div>
 
 <br />
@@ -93,7 +93,7 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
   <https://www.npmjs.com/settings/mauricio_m_s/packages>
 
   ```bash
-    npm i react-valisk
+    npm i @maumuller/valisk
   ```
 
   </details>
@@ -108,7 +108,7 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
   <br />
 
   <b>Repositório:</b>
-  <https://github.com/MauMuller/react-valisk>
+  <https://github.com/MauMuller/@maumuller/valisk>
 
   ```bash
     Em breve...
@@ -147,7 +147,7 @@ Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskC
   <dd>
 
 ```TSX
-  import { useMaskCPF, useMaskCNPJ } from "react-valisk";
+  import { useMaskCPF, useMaskCNPJ } from "@maumuller/valisk";
 
   const App = () => {
     const configHooks = {
@@ -202,7 +202,7 @@ Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim um 
 
 ```TSX
   import { useId } from "react";
-  import { useMasks } from "react-valisk";
+  import { useMasks } from "@maumuller/valisk";
 
   const passwordCondition = {
     numbers: [4],
@@ -309,7 +309,7 @@ Os principais conceitos são bem simples, básicamente `parametros` e `retornos`
 Podemos ver abaixo de forma ilustrativa como que eles se moldam dentro do código:
 
 ```JS
-import { useMasks } from "react-valisk";
+import { useMasks } from "@maumuller/valisk";
 
 // [values, setValues, isValid, setKey] - Valores de Retorno
 // { cpf: { inicialValue: '0452' } } - Valor de Parâmetro
@@ -355,7 +355,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskCPF } from "react-valisk";
+    import { useMaskCPF } from "@maumuller/valisk";
 
     ...
 
@@ -427,7 +427,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskCNPJ } from "react-valisk";
+    import { useMaskCNPJ } from "@maumuller/valisk";
 
     ...
 
@@ -499,7 +499,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskCEP } from "react-valisk";
+    import { useMaskCEP } from "@maumuller/valisk";
 
     ...
 
@@ -571,7 +571,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskMoney } from "react-valisk";
+    import { useMaskMoney } from "@maumuller/valisk";
 
     ...
 
@@ -686,7 +686,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskPhone } from "react-valisk";
+    import { useMaskPhone } from "@maumuller/valisk";
 
     ...
 
@@ -763,7 +763,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskPassword } from "react-valisk";
+    import { useMaskPassword } from "@maumuller/valisk";
 
     ...
 
@@ -894,7 +894,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMasks } from "react-valisk";
+    import { useMasks } from "@maumuller/valisk";
 
     ...
 
@@ -975,7 +975,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   Abaixo podemos ver um pequeno exemplo de como que seriam esses valores utilizados para campos de texto:
 
   ```TSX
-    import { useMasks } from "react-valisk";
+    import { useMasks } from "@maumuller/valisk";
 
     ...
 
@@ -1030,10 +1030,10 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
 Aqui estão as melhores maneiras de contribuir com o projeto, caso tenha alguma coisa não explicada com as dúvidas abaixo, entre em contato.
 
 **Issue**:
-<https://github.com/MauMuller/react-valisk/issues/new>
+<https://github.com/MauMuller/@maumuller/valisk/issues/new>
 
 **Pull Request**:
-<https://github.com/MauMuller/react-valisk/pulls>
+<https://github.com/MauMuller/@maumuller/valisk/pulls>
 
 <dl>
   <dd>
