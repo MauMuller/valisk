@@ -142,50 +142,67 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a aprese
 
 Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskCNPJ`.
 
+<dl>
+  <dt>Código:</dt>
+  <dd>
+
 ```TSX
   import { useMaskCPF, useMaskCNPJ } from "react-valisk";
 
   const App = () => {
     const configHooks = {
       cpf: { inicialValue: "55552" },
-      cnpj: { useExplictMask: true }
+      cnpj: { useExplictMask: true },
     };
 
-    const [cpf, setCPF, isCPF, setKeyCPF] = useMaskCPF(cpfConfig.cpf);
-    const [cnpj, setCNPJ, isCNPJ, setKeyCNPJ] = useMaskCNPJ(cpfConfig.cnpj);
+    const [cpf, setCPF, isCPF, setKeyCPF] = useMaskCPF(configHooks.cpf);
+    const [cnpj, setCNPJ, isCNPJ, setKeyCNPJ] = useMaskCNPJ(configHooks.cnpj);
 
     return (
-      <>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
         <input
           type="text"
           value={cpf}
-          onChange={evt => setCPF(evt.target.value)}
-          onKeyDown={evt => setKey(evt.key)}
+          onChange={(evt) => setCPF(evt.target.value)}
+          onKeyDown={(evt) => setKeyCPF(evt.key)}
         />
 
         <input
           type="text"
-          value={value}
-          onChange={evt => setCNPJ(evt.target.value)}
-          onKeyDown={evt => setCNPJ(evt.key)}
+          value={cnpj}
+          onChange={(evt) => setCNPJ(evt.target.value)}
+          onKeyDown={(evt) => setKeyCNPJ(evt.key)}
         />
-      </>
+      </div>
     );
-  }
+  };
+
 
   export { App };
 ```
+
+  </dd>
+
+  <dt>Resultado:</dt>
+  <dd>
+    <img src="https://ik.imagekit.io/e6khzhxvx/camposSimples.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672400315476" width="300" />
+  </dd>
+</dl>
 
   </details>
 
 <details>
   <summary id="utilização-complexa">Utilização Complexa</summary>
 
-Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim o seu verdadeiro potencial.
+Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim um pouco do que dá para fazer com esse hook.
+
+<dl>
+  <dt>Código:</dt>
+  <dd>
 
 ```TSX
   import { useId } from "react";
-  import { useMasks } from "./hooks/useMasks";
+  import { useMasks } from "react-valisk";
 
   const passwordCondition = {
     numbers: [4],
@@ -268,6 +285,13 @@ Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim o s
   }
 ```
 
+  </dd>
+  
+  <dt>Resultado:</dt>
+  <dd>
+    <img src="https://ik.imagekit.io/e6khzhxvx/campos.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672399035101" width="700" />
+  </dd>
+</dl>
   </details>
   </dd>
 </dl>
@@ -822,7 +846,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   - [x] Válidação ao completar a máscara;
   - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
   - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-  - [x] Contém todos outros hooks jutamente com suas propriedadess;
+  - [x] Contém todos outros hooks juntamente com suas propriedadess;
 
   <dl>
     <dt>Definições:<dt>
