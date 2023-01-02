@@ -1,6 +1,7 @@
 {
   "name": "@maumuller/valisk",
   "version": "0.0.0",
+  "license": "MIT License",
   "description": "Validações e máscaras para seus dados, e o melhor, tudo em forma de Hooks!",
   "keywords": [
     "react",
@@ -8,7 +9,6 @@
     "mask-for-inputs",
     "validation-for-inputs"
   ],
-  "license": "MIT License",
   "author": {
     "name": "Mauricio Muller dos Santos",
     "email": "mauriciomuller2012@gmail.com",
@@ -28,9 +28,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "updateWindows": "Powershell.exe -File ./scripts/updatePackage.ps1",
-    "updateLinux": "bash ./scripts/updatePackage.sh",
-    "downgrade": "npm version 0.0.0"
+    "updateWindows": "Powershell.exe -File ./scripts/updatePackage.ps1 || gitmoji-changelog",
+    "updateLinux": "bash ./scripts/updatePackage.sh || gitmoji-changelog",
+    "downgrade": "npm version 0.0.0",
+    "commit": "gitmoji -c"
   },
   "dependencies": {
     "react": "^18.2.0",
