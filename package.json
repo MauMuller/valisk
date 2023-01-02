@@ -28,16 +28,18 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "updateWindows": "Powershell.exe -File ./scripts/updatePackage.ps1 || gitmoji-changelog",
-    "updateLinux": "bash ./scripts/updatePackage.sh || gitmoji-changelog",
+    "updateWindows": "Powershell.exe -File ./scripts/updatePackage.ps1",
+    "updateLinux": "bash ./scripts/updatePackage.sh",
     "downgrade": "npm version 0.0.0",
-    "commit": "gitmoji -c"
+    "commit": "gitmoji -c || ts-node-esm ./scripts/generateLog.ts",
+    "log": "ts-node-esm ./scripts/generateLog.ts"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
