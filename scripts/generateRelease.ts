@@ -1,6 +1,7 @@
 import { writeFile } from "fs";
+import { version } from "../package.json";
 
-const version = process.env.npm_package_version ?? "";
+// const version = process.env.npm_package_version ?? "";
 
 const body = `
 # v${version} - Atualização da Lib

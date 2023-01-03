@@ -3,6 +3,38 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **3f251d3521f89ef707df664a82e24ae26dbfce04**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/3f251d3521f89ef707df664a82e24ae26dbfce04)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    1.0.0
+	```
+
+<br />
+
+- **74464a15cc3300774dcf092991c268a2de8d2382**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/74464a15cc3300774dcf092991c268a2de8d2382)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    0.0.0
+	```
+
+<br />
+
+- **17a65e3d7f8874aea80e2fe6047476cbe491f0e4**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/17a65e3d7f8874aea80e2fe6047476cbe491f0e4)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    🔨 (generate*.ts): Mudanças: Foi atualizado as mensagens de cada um dos geradores.ts
+    
+    Essa mudança deve-se a identificação de cada um dos scripts, isso acontece principalmente para entender qual arquivo foi criado/modificado através dos geradores
+	```
+
+<br />
+
 - **dc3e7b456bdcb5297cb895369317da8a4a7c3d7c**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/dc3e7b456bdcb5297cb895369317da8a4a7c3d7c)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
