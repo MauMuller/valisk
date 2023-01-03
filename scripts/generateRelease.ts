@@ -1,5 +1,15 @@
 import { writeFile } from "fs";
-import { version } from "../package.json";
+
+interface Version {
+  version: string;
+}
+
+const response = await fetch("../package.json");
+const data: Version = await response.json();
+
+console.log(data);
+
+const { version } = data;
 
 // const version = process.env.npm_package_version ?? "";
 

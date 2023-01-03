@@ -3,6 +3,48 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **d8519a9500e351cdf57e73787a9f2ba019c52865**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d8519a9500e351cdf57e73787a9f2ba019c52865)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    0.0.0
+	```
+
+<br />
+
+- **5e1e345a8d5f499709ab8d6a17324b89e880824d**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5e1e345a8d5f499709ab8d6a17324b89e880824d)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    1.0.0
+	```
+
+<br />
+
+- **954e88abf0d60cbbd3135088509ea782f4c28b85**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/954e88abf0d60cbbd3135088509ea782f4c28b85)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    0.0.0
+	```
+
+<br />
+
+- **af607fd84d192f315f56f4cf0a98a65083fc038a**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/af607fd84d192f315f56f4cf0a98a65083fc038a)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    🔖 (package.json & release.md $ generaterelease.md): Mudanças: script update, release e gerador
+    
+    Foi incrementado um script pra toda vez que a atualização for gerada, ser adicionado a mudaça e já comitada, dentro do gerador, foi trocado a variavel de  ambiente por um tentativa de capturar de forma direta a versão do jsomn
+	```
+
+<br />
+
 - **3f251d3521f89ef707df664a82e24ae26dbfce04**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/3f251d3521f89ef707df664a82e24ae26dbfce04)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
