@@ -33,7 +33,8 @@
     "log": "ts-node-esm ./scripts/generateLog.ts",
     "release": "ts-node-esm ./scripts/generateRelease.ts",
     "update": "ts-node-esm ./scripts/updatePackage.ts && ts-node-esm ./scripts/generateRelease.ts && git add . && git commit -m '(RELEASE.md)Docs: Incremento de versão na RELEASE\n\nNova versão disponivel no header'",
-    "commit": "ts-node-esm ./scripts/generateLog.ts && git add . && gitmoji -c"
+    "commit": "ts-node-esm ./scripts/generateLog.ts && git add . && gitmoji -c",
+    "PR": "ts-node-esm ./scripts/generatePR.ts"
   },
   "dependencies": {
     "react": "^18.2.0",

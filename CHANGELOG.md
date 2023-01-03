@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **55feacc07d35cc5ae6aff95fe0e594bcd77e87ba**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/55feacc07d35cc5ae6aff95fe0e594bcd77e87ba)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    🐛 (package.json): Bug: Ajustes de scripts
+    
+    Foi preciso utilizar o commit convencional para fazer a criação padrão de commits, além de tirar algumas quebras de linhas para ajustar todo o markdown
+	```
+
+<br />
+
 - **b462d8f76239200a64fcd7c52bde2eeed11ff938**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b462d8f76239200a64fcd7c52bde2eeed11ff938)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
