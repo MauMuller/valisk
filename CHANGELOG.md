@@ -3,6 +3,28 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **e0f0df58e5f572b1e4111c1b48f9ed231e32bd29**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/e0f0df58e5f572b1e4111c1b48f9ed231e32bd29)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    1.0.1
+	```
+
+<br />
+
+- **19dc79f2479d115a0b99ee48ec48d3b681eeb8ed**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/19dc79f2479d115a0b99ee48ec48d3b681eeb8ed)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    ✨ (generateRealese.ts & generateLog.ts): Atualizações: criação de realease e ajuste no texto do gerador de logs
+    
+    Nessa criação de 'releases' eu apenas peguei um a versão do pacote e incrementei um body para markdown
+	```
+
+<br />
+
 - **b872cb3066b2388f601f204d14c45393166188b4**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b872cb3066b2388f601f204d14c45393166188b4)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
