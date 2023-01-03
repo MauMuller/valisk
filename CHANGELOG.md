@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **09977bcd0eaddf732002040de78a0517ff06908a**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/09977bcd0eaddf732002040de78a0517ff06908a)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 01/01/2023
+	```
+    🔨 (CHANGELOG.md): Atualização: Incremento de mudanças no arquivo
+    
+    Apenas foi rodado o script para gerar um changelog automático para todo histório do projeto
+	```
+
+<br />
+
 - **5323f629a8c06efd31883c06dc00abad9b5a911b**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5323f629a8c06efd31883c06dc00abad9b5a911b)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
