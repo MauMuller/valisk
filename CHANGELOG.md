@@ -3,6 +3,28 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **b872cb3066b2388f601f204d14c45393166188b4**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b872cb3066b2388f601f204d14c45393166188b4)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    1.0.0
+	```
+
+<br />
+
+- **df136f1d0ae775291bc9f9d42af8bd12f20d2ee3**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/df136f1d0ae775291bc9f9d42af8bd12f20d2ee3)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    ✅ (CHANGELOG.md): Ajuste e testes: Atualização de testes e incremento de ajuste de horário
+    
+    Ajuste das datas, colocando as numerações corretas agora e realização de vários testes
+	```
+
+<br />
+
 - **6ffc84cc581dfb3ab2c965eea3a473a73707c585**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6ffc84cc581dfb3ab2c965eea3a473a73707c585)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
