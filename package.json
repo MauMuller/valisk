@@ -1,6 +1,6 @@
 {
   "name": "@maumuller/valisk",
-  "version": "1.0.3",
+  "version": "0.0.0",
   "license": "MIT License",
   "description": "Validações e máscaras para seus dados, e o melhor, tudo em forma de Hooks!",
   "keywords": [
@@ -31,9 +31,11 @@
     "updateWindows": "Powershell.exe -File ./scripts/updatePackage.ps1",
     "updateLinux": "bash ./scripts/updatePackage.sh",
     "downgrade": "npm version 0.0.0",
-    "commit": "gitmoji -c || ts-node-esm ./scripts/generateLog.ts",
     "log": "ts-node-esm ./scripts/generateLog.ts",
-    "update": "ts-node-esm ./scripts/updatePackage.ts"
+    "update": "ts-node-esm ./scripts/updatePackage.ts",
+    "commit": "gitmoji -c && ts-node-esm ./scripts/generateLog.ts",
+    "docs:log": "ts-node-esm ./scripts/generateLog.ts",
+    "docs:commit": "gitmoji -c"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -44,6 +46,7 @@
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
+    "concurrently": "^7.6.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.6.4",
     "vite": "^3.2.3"
