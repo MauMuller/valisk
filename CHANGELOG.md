@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **dc3e7b456bdcb5297cb895369317da8a4a7c3d7c**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/dc3e7b456bdcb5297cb895369317da8a4a7c3d7c)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    🔖 (REALEASE.md): Atualização: Criação de uma release para publicação da lib
+    
+    A partir do gerador de release foi possível criar uma release com a versão do pacote e assim upublicar
+	```
+
+<br />
+
 - **e0f0df58e5f572b1e4111c1b48f9ed231e32bd29**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/e0f0df58e5f572b1e4111c1b48f9ed231e32bd29)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)

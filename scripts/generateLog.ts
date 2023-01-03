@@ -131,7 +131,7 @@ exec("git log", (err, output) => {
 
   writeFile("CHANGELOG.md", finalBody, "utf8", (err) =>
     err
-      ? console.log("Ocorreu um erro ao criar/modificar o arquivo!\n")
-      : console.log("Arquivo criado/modificado com sucesso!\n")
+      ? console.log("Ocorreu um erro ao criar/modificar o CHANGELOG.md\n")
+      : console.log("CHANGELOG.md criado/modificado com sucesso!\n")
   );
 });

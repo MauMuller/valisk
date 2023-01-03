@@ -40,6 +40,6 @@ us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lob
 
 writeFile("./.github/template/RELEASE.md", body, "utf8", (err) =>
   err
-    ? console.log("Ocorreu um erro ao gerar a release\n")
-    : console.log("Realease Criada com sucesso!\n")
+    ? console.log("Ocorreu um erro ao criar/modificar a RELEASE.md\n")
+    : console.log("RELEASE.md criada/modificada com sucesso!\n")
 );
