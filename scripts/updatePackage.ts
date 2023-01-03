@@ -5,23 +5,23 @@ const numbers = version.split(".");
 
 const [major, minor, patch] = numbers;
 
-const errorMessage = "Faça commit dos arquivos no modo staged.";
-const sucessMessage = "A versão do pacote foi atualizada.";
+const alertMessage =
+  "\nCaso o commit não seja da versão atualizada, verifique se existe algum arquivo que necessita ser commitado!";
 
 if (patch.search(/[0-8]/g) != -1 && major.search(/[1-9]/g) != -1)
-  exec("npm version patch", (err) =>
-    console.log(err ? errorMessage : sucessMessage)
+  exec("npm version patch || git log -1 --stat ", () =>
+    console.warn(alertMessage)
   );
 
 if (patch === "9")
-  exec("npm version minor", (err) =>
-    console.log(err ? errorMessage : sucessMessage)
+  exec("npm version minor || git log -1 --stat", () =>
+    console.log(alertMessage)
   );
 if (minor === "9")
-  exec("npm version major", (err) =>
-    console.log(err ? errorMessage : sucessMessage)
+  exec("npm version major || git log -1 --stat", () =>
+    console.log(alertMessage)
   );
 if (major === "0")
-  exec("npm version major", (err) =>
-    console.log(err ? errorMessage : sucessMessage)
+  exec("npm version major || git log -1 --stat", () =>
+    console.log(alertMessage)
   );
