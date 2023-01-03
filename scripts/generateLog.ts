@@ -30,7 +30,7 @@ exec("git log", (err, output) => {
     (data) => data.match(/(\d{2}:\d{2}:\d{2})/g)?.join("") ?? ""
   );
   const dayOfDate = datesArr.map(
-    (data) => data.match(/(?<=\s)\d{2}(?=\s)/g)?.join("") ?? ""
+    (data) => data.match(/(?<=\s)(\d{2}|\d{1})(?=\s)/g)?.join("") ?? ""
   );
   const monthOfDate = datesArr.map(
     (data) => data.match(/(?<=\s)[a-zA-Z]+(?=\s)/g)?.at(-1) ?? ""
@@ -44,9 +44,7 @@ exec("git log", (err, output) => {
     const year = yearOfDate[indexDay];
     const time = timeOfDate[indexDay];
 
-    const date: Date = new Date(
-      `${month} ${parseInt(day) + 1}, ${year} ${time}`
-    );
+    const date: Date = new Date(`${month} ${day}, ${year} ${time}`);
     return `${date.toLocaleDateString()}`;
   });
 
