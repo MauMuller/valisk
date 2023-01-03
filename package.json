@@ -32,7 +32,8 @@
     "updateLinux": "bash ./scripts/updatePackage.sh",
     "downgrade": "npm version 0.0.0",
     "commit": "gitmoji -c || ts-node-esm ./scripts/generateLog.ts",
-    "log": "ts-node-esm ./scripts/generateLog.ts"
+    "log": "ts-node-esm ./scripts/generateLog.ts",
+    "update": "ts-node-esm ./scripts/updatePackage.ts"
   },
   "dependencies": {
     "react": "^18.2.0",
