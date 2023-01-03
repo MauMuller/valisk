@@ -31,6 +31,7 @@
     "updateLinux": "bash ./scripts/updatePackage.sh",
     "downgrade": "npm version 0.0.0",
     "log": "ts-node-esm ./scripts/generateLog.ts",
+    "release": "ts-node-esm ./scripts/generateRelease.ts",
     "update": "ts-node-esm ./scripts/updatePackage.ts && ts-node-esm ./scripts/generateRelease.ts && git add . && gitmoji -c --title='Docs: Incremento de versão na RELEASE ' --message='Nova versão disponivel no header' --scope='RELEASE.md' ",
     "commit": "ts-node-esm ./scripts/generateLog.ts && git add . && gitmoji -c"
   },

@@ -3,6 +3,28 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **bea75c7e9e6c0179fcfc2f935e1db0eaab1ecc9b**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/bea75c7e9e6c0179fcfc2f935e1db0eaab1ecc9b)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    1.0.0
+	```
+
+<br />
+
+- **b544d2781951bedc6c35c9f720b0c45bab6aec55**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b544d2781951bedc6c35c9f720b0c45bab6aec55)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    🐛 (generateRelease.ts): Bug: Ajuste ao bug para capturar a versão do package.json
+    
+    Utilizado um await top level para capturar a versão do package.json
+	```
+
+<br />
+
 - **d8519a9500e351cdf57e73787a9f2ba019c52865**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d8519a9500e351cdf57e73787a9f2ba019c52865)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)

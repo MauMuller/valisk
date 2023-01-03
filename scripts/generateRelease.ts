@@ -1,56 +1,50 @@
 import { writeFile } from "fs";
+import { exec } from "child_process";
 
-interface Version {
-  version: string;
-}
+exec("npm pkg get version", (err, output) => {
+  if (err) return Error("Erro ao atualizar/criar a RELEASE\n");
 
-const response = await fetch("../package.json");
-const data: Version = await response.json();
+  const version = output.replaceAll('"', "");
 
-console.log(data);
+  const body = `
+    # v${version} - Atualização da Lib
 
-const { version } = data;
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu.
 
-// const version = process.env.npm_package_version ?? "";
+    ## Enredo
 
-const body = `
-# v${version} - Atualização da Lib
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu. Aenean lectus tellus, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultricies. Mauris lacinia at metus pulvinar tempor.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu.
+    ## Atualizações
 
-## Enredo
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu. Aenean lectus tellus, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultricies. Mauris lacinia at metus pulvinar tempor.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu. Aenean lectus tellus, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultricies. Mauris lacinia at metus pulvinar tempor.
+    ### Lista de Atualizações
 
-## Atualizações
+    - Lorem ipsum dolor sit amet:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu. Aenean lectus tellus, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultricies. Mauris lacinia at metus pulvinar tempor.
+      aaaaaaaa
 
-### Lista de Atualizações
+    - Lorem ipsum dolor sit amet:
 
-- Lorem ipsum dolor sit amet:
+      bbbbbbbb
 
-  aaaaaaaa
+    - Lorem ipsum dolor sit amet:
 
-- Lorem ipsum dolor sit amet:
+      cccccccc
 
-  bbbbbbbb
+    ## Bugs Corrigidos
 
-- Lorem ipsum dolor sit amet:
+    us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultrici
 
-  cccccccc
+    ## Considerações Finais
 
-## Bugs Corrigidos
+    us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultrici
+  `;
 
-us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultrici
-
-## Considerações Finais
-
-us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultrici
-`;
-
-writeFile("./.github/template/RELEASE.md", body, "utf8", (err) =>
-  err
-    ? console.log("Ocorreu um erro ao criar/modificar a RELEASE.md\n")
-    : console.log("RELEASE.md criada/modificada com sucesso!\n")
-);
+  writeFile("./.github/template/RELEASE.md", body, "utf8", (err) =>
+    err
+      ? console.log("Ocorreu um erro ao criar/modificar a RELEASE.md\n")
+      : console.log("RELEASE.md criada/modificada com sucesso!\n")
+  );
+});
