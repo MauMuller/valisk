@@ -3,6 +3,38 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **b462d8f76239200a64fcd7c52bde2eeed11ff938**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b462d8f76239200a64fcd7c52bde2eeed11ff938)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    1.0.0
+	```
+
+<br />
+
+- **e32465731207c1de70939e7a10a0fc34bf8cbf64**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/e32465731207c1de70939e7a10a0fc34bf8cbf64)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    0.0.0
+	```
+
+<br />
+
+- **cfece971d62ad3a38a3d6499ae84ed750dc471c1**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/cfece971d62ad3a38a3d6499ae84ed750dc471c1)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    🐛 (generateRelease.ts): Ajustes: Correção de bug para capturar versão do pacote
+    
+    Apenas mandei o próprio npm executar o retorno da versão atual do package.json
+	```
+
+<br />
+
 - **bea75c7e9e6c0179fcfc2f935e1db0eaab1ecc9b**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/bea75c7e9e6c0179fcfc2f935e1db0eaab1ecc9b)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
