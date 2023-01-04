@@ -1,6 +1,6 @@
 {
   "name": "@libsdomau/valisk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT License",
   "description": "Validações e máscaras para seus dados, e o melhor, tudo em forma de Hooks!",
   "keywords": [
