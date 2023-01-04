@@ -9,7 +9,7 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 <div align="center">
   <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/maumuller/valisk?color=%23ff1f3d&label=version&style=for-the-badge" width="140">
 
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/maumuller/valisk/publish-package-and-release.yml?color=black&style=for-the-badge" width="150">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/maumuller/valisk/publish-package.yml?color=black&style=for-the-badge" width="150">
 
   <img alt="GitHub" src="https://img.shields.io/github/license/maumuller/valisk?color=%23ff1f3d&style=for-the-badge" width="120">
 
