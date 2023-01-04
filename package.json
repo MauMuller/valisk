@@ -1,5 +1,5 @@
 {
-  "name": "@maumuller/valisk",
+  "name": "@mauricio_m_s/valisk",
   "version": "1.0.0",
   "license": "MIT License",
   "description": "Validações e máscaras para seus dados, e o melhor, tudo em forma de Hooks!",
