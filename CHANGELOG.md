@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **46621c951399bc44becc387fe5f96218e4dcfe90**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/46621c951399bc44becc387fe5f96218e4dcfe90)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🐛 (npmignore & readme]): Remoção de arquivos desnecessários como o main.tsx e ajuste do pacote no readme
+    
+    Basicamente junto com os arquivo da lib foi o arquivo main.tsx, algo que não é necssário pois apenas o hooks são importates para a lib, além disso, fiz a atualização de todos os comandos da lib dentro do readme, subsituindo o '@maumuller' por '@libsdomau'
+	```
+
+<br />
+
 - **c6e04b471b4c198899651b8eb93d949344354014**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/c6e04b471b4c198899651b8eb93d949344354014)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)

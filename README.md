@@ -49,7 +49,6 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 - [Instalação](#instalação)
 
   - [NPM](#npm)
-  - [Github](#github)
   - [Yarn](#yarn)
 
 - [Casos de Uso](#casos-de-uso)
