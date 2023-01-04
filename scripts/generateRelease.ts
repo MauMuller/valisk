@@ -6,8 +6,7 @@ exec("npm pkg get version", (err, output) => {
 
   const version = output.replaceAll('"', "");
 
-  const body = `
-# v${version} - Atualização da Lib
+  const body = `# v${version} - Atualização da Lib
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu.
 
@@ -39,10 +38,9 @@ us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lob
 
 ## Considerações Finais
 
-us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultrici
-  `;
+us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultrici`;
 
-  writeFile("./.github/template/RELEASE.md", body, "utf8", (err) =>
+  writeFile("./.github/templates/RELEASE.md", body, "utf8", (err) =>
     err
       ? console.log("Ocorreu um erro ao criar/modificar a RELEASE.md\n")
       : console.log("RELEASE.md criada/modificada com sucesso!\n")
