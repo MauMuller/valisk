@@ -3,6 +3,28 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **f9b771b43516d8958a0234ca3ca1f2b5c323f34a**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f9b771b43516d8958a0234ca3ca1f2b5c323f34a)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    0.0.0
+	```
+
+<br />
+
+- **abbb7dfd052d149f3fce3289184c4a5e6babfe91**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/abbb7dfd052d149f3fce3289184c4a5e6babfe91)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🚩 (create-PR-templte.yml): Removido essa yml
+    
+    Foi removido essa yml pois realizei a criação do arquivo diretamente dentro do repositório
+	```
+
+<br />
+
 - **f1d4c1d9674e8d040bfb9e80e3bfe1f358106c3e**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f1d4c1d9674e8d040bfb9e80e3bfe1f358106c3e)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
