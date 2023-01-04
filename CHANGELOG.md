@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **5ea52287956b01bde17f57c0ea852e072177807a**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5ea52287956b01bde17f57c0ea852e072177807a)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    📝 (pull_request_template.md): Atualização do template para PR
+    
+    Incremento de atualizações de escrita na PR
+	```
+
+<br />
+
 - **d234b38c934aa1a701958b92c096b3772b5aa069**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d234b38c934aa1a701958b92c096b3772b5aa069)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
