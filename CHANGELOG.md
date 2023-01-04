@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **d3b134dedd2b1e6f9612e0cb60a0b3080b5cdf78**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d3b134dedd2b1e6f9612e0cb60a0b3080b5cdf78)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🔨 (package.json): Ajuste de scripts, colocando o git apenas para o arquivo modificado
+    
+    Antes, toda vez que era digitado o script 'commit' e 'update', além de gerar/modificar os arquivos ele adicionava todos outros na lista de trackeamento, por conta disso, apenas colocar para adicionar o arquivo em específico que foi trackeado
+	```
+
+<br />
+
 - **953b33c50f65975522672a9d3eb38da8964cb671**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/953b33c50f65975522672a9d3eb38da8964cb671)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
