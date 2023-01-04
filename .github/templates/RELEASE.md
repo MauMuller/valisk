@@ -1,4 +1,4 @@
-# v1.0.0
+# v1.0.1
  - Atualização da Lib
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu.

@@ -3,6 +3,28 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **916add0ab6a7506bcfd61122ebccb031fe85c789**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/916add0ab6a7506bcfd61122ebccb031fe85c789)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    1.0.1
+	```
+
+<br />
+
+- **e6366bf1f58f6982e32299c465b56e8ddf555a96**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/e6366bf1f58f6982e32299c465b56e8ddf555a96)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🐛 (Utilização dos hooks): Adição dos hooks quando importado a lib
+    
+    Antes, quando tentei acessar os hooks, não consegui ver nada dentro, tanto que apontava até um erro, mas agora, criei um arquivo com todos os imports para os hooks, possibilitando ter o acesso a todos apenas importando a lib
+	```
+
+<br />
+
 - **d3b134dedd2b1e6f9612e0cb60a0b3080b5cdf78**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d3b134dedd2b1e6f9612e0cb60a0b3080b5cdf78)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
