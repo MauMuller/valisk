@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **953b33c50f65975522672a9d3eb38da8964cb671**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/953b33c50f65975522672a9d3eb38da8964cb671)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    📝 (README.md): Remoção do link 'github' no menu
+    
+    Básicamente como a postagem do pacote no github estava em conflito com a postagem no npm, preferi remover do github por ser algo que não estáva funcionando 100%
+	```
+
+<br />
+
 - **46621c951399bc44becc387fe5f96218e4dcfe90**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/46621c951399bc44becc387fe5f96218e4dcfe90)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
