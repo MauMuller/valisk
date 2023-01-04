@@ -61,10 +61,8 @@ jobs:
       - name: Show last package version
         run: echo "VERSION_PACKAGE="v${{ needs.get_package_version.outputs.version_package }} >> $GITHUB_ENV
 
-      - name: Account Configuration
-        run: |
-          git config --global user.email "mauriciomuller2012@gmail.com" &&
-          git config --global user.name "maummuler"
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -72,14 +70,8 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
 
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Install Dependences
         run: npm ci
-        
-      - name: Set Registry NPM
-        run: npm set "//registry.npmjs.org/:_authToken"${{ secrets.PUBLISH_NPM }}
 
       - name: Publish on NPM
         if: ${{ env.VERSION_PACKAGE != 'v0.0.0' }}
