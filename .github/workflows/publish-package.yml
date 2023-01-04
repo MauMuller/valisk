@@ -46,6 +46,9 @@ jobs:
 
       - name: Install Dependences
         run: npm ci
+        
+      - name: Set Registry github
+        run: npm set "//npm.pkg.github.com/:_authToken"${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish on Github
         if: ${{ env.VERSION_PACKAGE != 'v0.0.0' }}
@@ -77,9 +80,12 @@ jobs:
 
       - name: Install Dependences
         run: npm ci
+        
+      - name: Set Registry NPM
+        run: npm set "//registry.npmjs.org/:_authToken"${{ secrets.PUBLISH_NPM }}
 
       - name: Publish on NPM
         if: ${{ env.VERSION_PACKAGE != 'v0.0.0' }}
-        run: npm publish --access public --registry=https://npm.pkg.github.com/
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
