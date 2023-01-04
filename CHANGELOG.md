@@ -3,6 +3,28 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **9e0acd7b47a73e202f2f193d4355c528060cf4b0**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/9e0acd7b47a73e202f2f193d4355c528060cf4b0)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    1.0.0
+	```
+
+<br />
+
+- **325e6fc94f951c0efb5413b29b5e954953e2b43c**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/325e6fc94f951c0efb5413b29b5e954953e2b43c)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    📝 (publish-package and readme): Adição de outro evento para o yml e ajuste no badge do readme
+    
+    Foi inserido dentro o 'publish-package.yml' um evento de disparar de maneira manual. E além disso, foi ajsutado obadge do readme
+	```
+
+<br />
+
 - **5ea52287956b01bde17f57c0ea852e072177807a**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5ea52287956b01bde17f57c0ea852e072177807a)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
