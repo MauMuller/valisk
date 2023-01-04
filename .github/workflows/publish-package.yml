@@ -80,6 +80,6 @@ jobs:
 
       - name: Publish on NPM
         if: ${{ env.VERSION_PACKAGE != 'v0.0.0' }}
-        run: npm publish --access public
+        run: npm publish --access public --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
