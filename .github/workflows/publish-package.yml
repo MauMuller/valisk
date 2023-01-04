@@ -28,7 +28,7 @@ jobs:
 
   publish_to_github:
     runs-on: "ubuntu-latest"
-    needs: get_package_version
+    needs: [get_package_version]
 
     steps:
       - name: Show last package version
@@ -54,7 +54,7 @@ jobs:
 
   publish_to_npm:
     runs-on: "ubuntu-latest"
-    needs: [get_package_version, publish_package_github]
+    needs: [get_package_version]
 
     steps:
       - name: Show last package version

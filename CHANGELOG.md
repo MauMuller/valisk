@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **a00a3b3a0a103a3f2451109a5c0510fb16e98ca7**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/a00a3b3a0a103a3f2451109a5c0510fb16e98ca7)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    ✨ (create-release.yml & publish-package.yml & PULL_REQUEST_TEMPLATE.md & package.json ): YAML para release e publicação e template para PR
+    
+    Foi decidido deixar a criação da release e a publicação dos pacotes em YAML separados, isso porque o vevento para executar ambos mudou, agora, a ideia é justametnte fazer esse disparo manualmente pois assim não existe o perigo de realizar publicações de pacotes de maneiraira insegura ou instavél. E foi criado um template para o pull request com o arquivo 'PULL_REQUEST_TEMPLATE.md' para facilitar na criação do PR
+	```
+
+<br />
+
 - **f9b771b43516d8958a0234ca3ca1f2b5c323f34a**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f9b771b43516d8958a0234ca3ca1f2b5c323f34a)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
