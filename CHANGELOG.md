@@ -3,6 +3,38 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **f1d4c1d9674e8d040bfb9e80e3bfe1f358106c3e**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f1d4c1d9674e8d040bfb9e80e3bfe1f358106c3e)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    Merge branch 'main' into development
+	```
+
+<br />
+
+- **54ce0496a0b90776d0cc3651c129dab9ed59c632**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/54ce0496a0b90776d0cc3651c129dab9ed59c632)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    ✨ (PR.md & create-PR-template.yml): Criando template para pull request
+    
+    Adicionando templates as pull requests do projeto
+	```
+
+<br />
+
+- **d94c257b735d8dc54a63c0fedef2de2e7d36480d**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d94c257b735d8dc54a63c0fedef2de2e7d36480d)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    action to generate an PR to project
+	```
+
+<br />
+
 - **cb4e0a9a10a5aa2121d9e2e8943bde4881eecac0**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/cb4e0a9a10a5aa2121d9e2e8943bde4881eecac0)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
