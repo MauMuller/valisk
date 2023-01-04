@@ -3,10 +3,9 @@ import { acessValidationTypes } from "../../assets/ts/acessValidationTypes";
 import { masks } from "../../data/masks";
 
 import {
-  TypeChangeState,
-  TypesInicialObject,
   TypesMaskReturn,
   TypesBasicsProperties,
+  TypesChangeBoolean,
 } from "../../types/globalTypes";
 
 const useMaskCNPJ = ({
@@ -20,7 +19,7 @@ const useMaskCNPJ = ({
   const useExplictMaskCheck = useExplictMask ?? false;
   const inicialMaskValue = useExplictMask ? valueMask : "";
 
-  const inicialObjectValues: TypesInicialObject = {
+  const inicialObjectValues = {
     value: inicialMaskValue,
     isValid: false,
     keyDown: false,
@@ -33,7 +32,7 @@ const useMaskCNPJ = ({
     formatedValue,
     formatedValidate,
     formatedKeyDown,
-  }: TypeChangeState) =>
+  }: TypesChangeBoolean) =>
     setInputValue((prevValue) => {
       const clonedObject = { ...prevValue };
       const { value, isValid, keyDown } = clonedObject;
@@ -57,9 +56,12 @@ const useMaskCNPJ = ({
       keyDown,
     });
 
+    const isValidBoolean =
+      typeof isValidateValue === "object" ? false : isValidateValue;
+
     changeStateInputValue({
       formatedValue,
-      formatedValidate: isValidateValue,
+      formatedValidate: isValidBoolean,
       formatedKeyDown: keyDown,
     });
   };

@@ -18,7 +18,7 @@ interface ValidationsProps {
 }
 type ValidationReturn = {
   formatedValue: string;
-  isValidateValue: boolean | object;
+  isValidateValue: boolean | TypesDigits;
 };
 
 const acessValidationTypes = ({

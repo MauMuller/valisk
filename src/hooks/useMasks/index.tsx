@@ -10,12 +10,14 @@ import {
 
 const useMasks = (objMasks: TypesMasks) => {
   const modulateObjectMask = modulateObjectToMask(objMasks);
-  const namesMasks = modulateObjectMask.map((obj) => obj.maskName);
+  const namesMasks = modulateObjectMask.map((obj) =>
+    obj.maskName.toLowerCase()
+  );
   const hookFiltered = filterByInputMasks(namesMasks);
 
   const values: Array<string | TypesPasswordValuesReturn> = [],
     setValues: Function[] = [],
-    isValidValues: boolean[] = [],
+    areValidValues: boolean[] = [],
     setKeys: Array<Function | undefined> = [];
 
   hookFiltered.forEach((hooks) => {
@@ -29,11 +31,11 @@ const useMasks = (objMasks: TypesMasks) => {
 
     values.push(value);
     setValues.push(setValue);
-    isValidValues.push(isValid);
+    areValidValues.push(isValid);
     setKeys.push(setKey);
   });
 
-  return { values, setValues, isValidValues, setKeys };
+  return { values, setValues, areValidValues, setKeys };
 };
 
 export { useMasks };

@@ -1,6 +1,7 @@
 {
-  "name": "@maumuller/react-valisk",
+  "name": "@maumuller/valisk",
   "version": "0.0.0",
+  "license": "MIT License",
   "description": "Validações e máscaras para seus dados, e o melhor, tudo em forma de Hooks!",
   "keywords": [
     "react",
@@ -8,7 +9,6 @@
     "mask-for-inputs",
     "validation-for-inputs"
   ],
-  "license": "MIT License",
   "author": {
     "name": "Mauricio Muller dos Santos",
     "email": "mauriciomuller2012@gmail.com",
@@ -28,18 +28,24 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "updateWindows": "Powershell.exe -File ./scripts/updatePackage.ps1",
     "updateLinux": "bash ./scripts/updatePackage.sh",
-    "downgrade": "npm version 0.0.0"
+    "downgrade": "npm version 0.0.0",
+    "log": "ts-node-esm ./scripts/generateLog.ts",
+    "release": "ts-node-esm ./scripts/generateRelease.ts",
+    "update": "ts-node-esm ./scripts/updatePackage.ts && ts-node-esm ./scripts/generateRelease.ts && git add CHANGELOG.md && git commit -m '(RELEASE.md)Docs: Incremento de versão na RELEASE\n\nNova versão disponivel no header'",
+    "commit": "ts-node-esm ./scripts/generateLog.ts && git add . && gitmoji -c",
+    "PR": "ts-node-esm ./scripts/generatePR.ts"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
+    "ts-node": "^10.9.1",
     "typescript": "^4.6.4",
     "vite": "^3.2.3"
   }
