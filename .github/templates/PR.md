@@ -25,8 +25,21 @@ Data:
 ## Trata-se de qual categoria alteração?
 
 <!-- (EX:
-    Docs;
-
+    Docs,
+    Bug,
+    Atualização,
+    Mudanças,
+    Ajuste,
+    Testes,
 ) -->
 
 ## O que você fez para resolver?
+
+<!-- (EX:
+    Docs,
+    Bug,
+    Atualização,
+    Mudanças,
+    Ajuste,
+    Testes,
+) -->

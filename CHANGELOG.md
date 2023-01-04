@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **cb4e0a9a10a5aa2121d9e2e8943bde4881eecac0**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/cb4e0a9a10a5aa2121d9e2e8943bde4881eecac0)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 03/01/2023
+	```
+    🧪 (files): testandop alguns arquivos
+    
+    cripstips de arquivos
+	```
+
+<br />
+
 - **55feacc07d35cc5ae6aff95fe0e594bcd77e87ba**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/55feacc07d35cc5ae6aff95fe0e594bcd77e87ba)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
