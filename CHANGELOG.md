@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **84861e0388b12c1ae941e840b54d9194f527f5b7**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/84861e0388b12c1ae941e840b54d9194f527f5b7)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🔖 (release.md & package.json): Primeira versão da lib de forma oficial sendo liberada
+    
+    Versão v0.0.1 da biblioteca, além de geração de release e ajuste no arquivo de geração de release
+	```
+
+<br />
+
 - **a1f94e872adccd507e8e9cf44d143e51cb9821ef**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/a1f94e872adccd507e8e9cf44d143e51cb9821ef)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
