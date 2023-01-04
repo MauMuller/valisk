@@ -21,9 +21,6 @@
     "url": "https://github.com/MauMuller/react-valisk"
   },
   "type": "module",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
