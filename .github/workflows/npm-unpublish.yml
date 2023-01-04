@@ -6,7 +6,7 @@ jobs:
   unpublish: # JOB
     runs-on: ubuntu-latest
     steps:
-      - name: Unpublishing packeage
-        run: npm unpublish --force ${{ github.repository }}
+      - name: Unpublishing package
+        run: npm unpublish --force valisk
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_NPM }}
