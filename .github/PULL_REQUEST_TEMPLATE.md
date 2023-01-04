@@ -8,20 +8,14 @@ _Todos os tópicos com `*` deverão ser respondidos de forma obrigatória, lembr
 
 _É possível incrementar mais tópicos e descrições, basta adicionar um link no menu._
 
-## Menu
-
-- [Trata-se de qual categoria alteração?\*](#trata-se-de-qual-categoria-alteração)
-
-- [Qual é o motivo das mudanças?\*](#qual-é-o-motivo-das-mudanças)
-
-- [O que você fez para resolver?\*](#o-que-você-fez-para-resolver)
-
 ## Trata-se de qual categoria alteração?\*
 
 - `DOCS`;
 - `BUG`;
 - `FEATURE`;
 - `TEST`;
+
+<br/>
 
 ## Qual é o motivo das mudanças?\*
 
@@ -30,6 +24,8 @@ O motivo das mudanças foi devido a ...
 Por conta dissom, houveram problemas graves na parte ...
 
 O que acabou quebrando outra parte do código, com isso, foi preciso fazer alterações ...
+
+<br/>
 
 ## O que você fez para resolver?\*
 
@@ -45,4 +41,13 @@ As features que foram incrementadas foram ...
 
 Foi atualizado os hooks dentro da documentação por conta de ...
 
-## Obrigado pela contribuição! 😁😁
+<br/>
+
+---
+
+<br/>
+
+<h3>Obrigado pela contribuição! 😁😁</h3>
+<span>A comunidade agradece pelos teus esforço em apoiar um projeto **OPEN SOURCE**.</span>
+
+<br/>
