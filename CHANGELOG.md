@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **ac80adb70330438383002c47cf43a596a8cc53c1**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/ac80adb70330438383002c47cf43a596a8cc53c1)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🐛 (publish-package.yml): Bug: Ajuste de dependencia do yml para publicação
+    
+    Foi removido um job a mais que existia nas dependencias do 'package_to_npm' aonde estavam apontando para um job que não existia mais
+	```
+
+<br />
+
 - **a00a3b3a0a103a3f2451109a5c0510fb16e98ca7**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/a00a3b3a0a103a3f2451109a5c0510fb16e98ca7)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
