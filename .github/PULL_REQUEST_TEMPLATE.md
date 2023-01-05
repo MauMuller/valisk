@@ -1,12 +1,13 @@
-# Pull Request
+<div align="center">
+  <h1>Pull Request</h1>
+  <p align="justify">Este é apenas um template para que seja mais fácil a comunicação e entendimento das mudanças, por conta disso, existem alguns tópicos abaixos que serão obrigatórios de serem respondidos.</p>
+  <p align="left"><b>Observações:</b></p>
+  <p align="justify">Dentro do menu haverá alguns <code>textos</code> para os tópicos, <code>todos esses textos são ilustrativos</code>, escreva no lugar deles as suas mudanças.</p>
+  <p align="justify">Todos os tópicos com <code>*</code> deverão ser respondidos de forma obrigatória, lembre-se disso.</p>
+  <p align="justify">É possível incrementar mais tópicos e descrições, basta adicionar um link no menu.</p>
+</div>
 
-Este é apenas um template para que seja mais fácil a comunicação e entendimento das mudanças, por conta disso, existem alguns tópicos abaixos que serão obrigatórios de serem respondidos.
-
-_Dentro do menu haverá alguns `textos` para os tópicos, `todos esses textos são ilustrativos`, escreva no lugar deles as suas mudanças._
-
-_Todos os tópicos com `*` deverão ser respondidos de forma obrigatória, lembre-se disso._
-
-_É possível incrementar mais tópicos e descrições, basta adicionar um link no menu._
+<br/><br/>
 
 ## Trata-se de qual categoria alteração?\*
 
@@ -41,13 +42,10 @@ As features que foram incrementadas foram ...
 
 Foi atualizado os hooks dentro da documentação por conta de ...
 
-<br/>
-
 ---
 
 <br/>
 
-<h3>Obrigado pela contribuição! 😁😁</h3>
-<span>A comunidade agradece pelos teus esforço em apoiar um projeto **OPEN SOURCE**.</span>
+<div align="center"><h3>Obrigado pela contribuição! 😁😁</h3></div>
 
 <br/>

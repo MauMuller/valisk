@@ -3,6 +3,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **62c9fe4a5089bbdaeae2bb57293616e217b1c2d1**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/62c9fe4a5089bbdaeae2bb57293616e217b1c2d1)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🐛 (scripts): Ajuste no path para executar os scripts
+    
+    Apenas ajustei o path dos scripts para serem executados na lib
+	```
+
+<br />
+
 - **916add0ab6a7506bcfd61122ebccb031fe85c789**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/916add0ab6a7506bcfd61122ebccb031fe85c789)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
