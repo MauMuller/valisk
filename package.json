@@ -3,6 +3,10 @@
   "version": "1.0.1",
   "license": "MIT License",
   "description": "Validações e máscaras para seus dados, e o melhor, tudo em forma de Hooks!",
+  "types": "./src/types/globalTypes.d.ts",
+  "main": "./src/hooks",
+  "type": "module",
+  "homepage": "https://github.com/MauMuller/react-valisk#readme",
   "keywords": [
     "react",
     "valisk",
@@ -14,13 +18,10 @@
     "email": "mauriciomuller2012@gmail.com",
     "url": "https://www.instagram.com/mauricio_m_s/"
   },
-  "main": "./src/hooks",
-  "homepage": "https://github.com/MauMuller/react-valisk#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/MauMuller/react-valisk"
   },
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

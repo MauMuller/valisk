@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **9b30a3042510a7b7eacec61d45375ec6e363403f**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/9b30a3042510a7b7eacec61d45375ec6e363403f)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 05/01/2023
+
+	```
+    🔨 (CHANGELOG.md & generateLog.ts): Incremento do '\n' para os textos
+    
+    Apenas incrementei o '\n' no gerador de log para que no github fique tudo separadinho e possa ser mais visivel de olhar
+	```
+
+<br />
+
 - **6b96a13c2f9858e334afc44e81fc3248b9b9520e**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6b96a13c2f9858e334afc44e81fc3248b9b9520e)
