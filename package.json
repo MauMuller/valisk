@@ -1,6 +1,6 @@
 {
   "name": "@libsdomau/valisk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT License",
   "description": "Validações e máscaras para seus dados, e o melhor, tudo em forma de Hooks!",
   "keywords": [
@@ -29,9 +29,9 @@
     "downgrade": "npm version 0.0.0",
     "log": "ts-node-esm ./scripts/generateLog.ts",
     "release": "ts-node-esm ./scripts/generateRelease.ts",
-    "update": "ts-node-esm ./scripts/updatePackage.ts && ts-node-esm ./scripts/generateRelease.ts && git add CHANGELOG.md && git commit -m '(RELEASE.md)Docs: Incremento de versão na RELEASE\n\nNova versão disponivel no header'",
-    "commit": "ts-node-esm ./scripts/generateLog.ts && git add . && gitmoji -c",
-    "PR": "ts-node-esm ./scripts/generatePR.ts"
+    "update": "ts-node-esm ./scripts/updatePackage.ts && ts-node-esm ./scripts/generateRelease.ts && git add ./.github/templates/RELEASE.md && git commit -m '(RELEASE.md)Docs: Incremento de versão na RELEASE\n\nNova versão disponivel no header'",
+    "commit": "ts-node-esm ./scripts/generateLog.ts && git add CHANGELOG.md && gitmoji -c",
+    "PR": "ts-node-esm ./scripts/generatePR.ts && git add ./.github/PULL_REQUEST_TEMPLATE.md"
   },
   "dependencies": {
     "react": "^18.2.0",

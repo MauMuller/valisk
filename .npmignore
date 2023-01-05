@@ -1,6 +1,7 @@
 index.html
 src/App.tsx
 src/index.tsx
+src/main.tsx
 src/index.css
 
 vite.config.ts

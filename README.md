@@ -49,7 +49,6 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 - [Instalação](#instalação)
 
   - [NPM](#npm)
-  - [Github](#github)
   - [Yarn](#yarn)
 
 - [Casos de Uso](#casos-de-uso)
@@ -90,28 +89,10 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
   <br />
 
   <b>Repositório:</b>
-  <https://www.npmjs.com/settings/mauricio_m_s/packages>
+  <https://www.npmjs.com/package/@libsdomau/valisk>
 
   ```bash
-    npm i @maumuller/valisk
-  ```
-
-  </details>
-
-- ### Github
-
-  Se preferir, é possível instalar pelo próprio GITHUB, acessando o pacote através do repositório, realizando o clone e instalando para a utilização.
-
-  <details>
-  <summary><b>Instalação</b></summary>
-
-  <br />
-
-  <b>Repositório:</b>
-  <https://github.com/MauMuller/@maumuller/valisk>
-
-  ```bash
-    Em breve...
+    npm i @libsdomau/valisk
   ```
 
   </details>
@@ -147,7 +128,7 @@ Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskC
   <dd>
 
 ```TSX
-  import { useMaskCPF, useMaskCNPJ } from "@maumuller/valisk";
+  import { useMaskCPF, useMaskCNPJ } from "@libsdomau/valisk";
 
   const App = () => {
     const configHooks = {
@@ -201,7 +182,7 @@ Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim um 
 
 ```TSX
   import { useId } from "react";
-  import { useMasks } from "@maumuller/valisk";
+  import { useMasks } from "@libsdomau/valisk";
 
   const passwordCondition = {
     numbers: [4],
@@ -308,7 +289,7 @@ Os principais conceitos são bem simples, básicamente `parâmetros` e `retornos
 Podemos ver abaixo de forma ilustrativa como que eles se moldam dentro do código:
 
 ```JS
-import { useMasks } from "@maumuller/valisk";
+import { useMasks } from "@libsdomau/valisk";
 
 // [values, setValues, isValid, setKey] - Valores de Retorno
 // { cpf: { inicialValue: '0452' } } - Valor de Parâmetro
@@ -354,7 +335,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskCPF } from "@maumuller/valisk";
+    import { useMaskCPF } from "@libsdomau/valisk";
 
     ...
 
@@ -426,7 +407,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskCNPJ } from "@maumuller/valisk";
+    import { useMaskCNPJ } from "@libsdomau/valisk";
 
     ...
 
@@ -498,7 +479,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskCEP } from "@maumuller/valisk";
+    import { useMaskCEP } from "@libsdomau/valisk";
 
     ...
 
@@ -570,7 +551,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskMoney } from "@maumuller/valisk";
+    import { useMaskMoney } from "@libsdomau/valisk";
 
     ...
 
@@ -685,7 +666,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskPhone } from "@maumuller/valisk";
+    import { useMaskPhone } from "@libsdomau/valisk";
 
     ...
 
@@ -762,7 +743,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMaskPassword } from "@maumuller/valisk";
+    import { useMaskPassword } from "@libsdomau/valisk";
 
     ...
 
@@ -893,7 +874,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
     <summary><b>Sintaxe</b></summary>
 
   ```Typescript
-    import { useMasks } from "@maumuller/valisk";
+    import { useMasks } from "@libsdomau/valisk";
 
     ...
 
@@ -974,7 +955,7 @@ Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrand
   Abaixo podemos ver um pequeno exemplo de como que seriam esses valores utilizados para campos de texto:
 
   ```TSX
-    import { useMasks } from "@maumuller/valisk";
+    import { useMasks } from "@libsdomau/valisk";
 
     ...
 

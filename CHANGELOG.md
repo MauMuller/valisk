@@ -3,6 +3,220 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **916add0ab6a7506bcfd61122ebccb031fe85c789**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/916add0ab6a7506bcfd61122ebccb031fe85c789)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    1.0.1
+	```
+
+<br />
+
+- **e6366bf1f58f6982e32299c465b56e8ddf555a96**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/e6366bf1f58f6982e32299c465b56e8ddf555a96)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🐛 (Utilização dos hooks): Adição dos hooks quando importado a lib
+    
+    Antes, quando tentei acessar os hooks, não consegui ver nada dentro, tanto que apontava até um erro, mas agora, criei um arquivo com todos os imports para os hooks, possibilitando ter o acesso a todos apenas importando a lib
+	```
+
+<br />
+
+- **d3b134dedd2b1e6f9612e0cb60a0b3080b5cdf78**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d3b134dedd2b1e6f9612e0cb60a0b3080b5cdf78)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🔨 (package.json): Ajuste de scripts, colocando o git apenas para o arquivo modificado
+    
+    Antes, toda vez que era digitado o script 'commit' e 'update', além de gerar/modificar os arquivos ele adicionava todos outros na lista de trackeamento, por conta disso, apenas colocar para adicionar o arquivo em específico que foi trackeado
+	```
+
+<br />
+
+- **953b33c50f65975522672a9d3eb38da8964cb671**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/953b33c50f65975522672a9d3eb38da8964cb671)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    📝 (README.md): Remoção do link 'github' no menu
+    
+    Básicamente como a postagem do pacote no github estava em conflito com a postagem no npm, preferi remover do github por ser algo que não estáva funcionando 100%
+	```
+
+<br />
+
+- **46621c951399bc44becc387fe5f96218e4dcfe90**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/46621c951399bc44becc387fe5f96218e4dcfe90)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🐛 (npmignore & readme]): Remoção de arquivos desnecessários como o main.tsx e ajuste do pacote no readme
+    
+    Basicamente junto com os arquivo da lib foi o arquivo main.tsx, algo que não é necssário pois apenas o hooks são importates para a lib, além disso, fiz a atualização de todos os comandos da lib dentro do readme, subsituindo o '@maumuller' por '@libsdomau'
+	```
+
+<br />
+
+- **c6e04b471b4c198899651b8eb93d949344354014**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/c6e04b471b4c198899651b8eb93d949344354014)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    publish & package.json
+	```
+
+<br />
+
+- **ebbcb228a778e3aa1a0dced7b9f07285bc8e229a**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/ebbcb228a778e3aa1a0dced7b9f07285bc8e229a)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update npm-unpublish.yml
+	```
+
+<br />
+
+- **2876ad69249658c137b9cc3a874ca9e33611812a**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2876ad69249658c137b9cc3a874ca9e33611812a)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update package.json
+	```
+
+<br />
+
+- **4133a43c143454893012d78efc31ab233c0ac85f**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/4133a43c143454893012d78efc31ab233c0ac85f)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update publish-package.yml
+	```
+
+<br />
+
+- **da319c0732465e7c3c90dde71c059f76ad3f0fdd**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/da319c0732465e7c3c90dde71c059f76ad3f0fdd)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update publish-package.yml
+	```
+
+<br />
+
+- **31478369fc8e07d08dff1445f3152786b48c88a9**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/31478369fc8e07d08dff1445f3152786b48c88a9)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Delete .npmrc
+	```
+
+<br />
+
+- **09dbdcd27db14c328fc410bddc453ec302def521**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/09dbdcd27db14c328fc410bddc453ec302def521)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update publish-package.yml
+	```
+
+<br />
+
+- **a241bc73fb1a87565a5d2f77f1cd66e535769caf**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/a241bc73fb1a87565a5d2f77f1cd66e535769caf)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update package.json
+	```
+
+<br />
+
+- **3a7b2ac2ef8456f5fb9561f0ad2411eb3f9933cf**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/3a7b2ac2ef8456f5fb9561f0ad2411eb3f9933cf)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update publish-package.yml
+	```
+
+<br />
+
+- **865dc7967dac0734922b758064e0d516da1b8717**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/865dc7967dac0734922b758064e0d516da1b8717)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update package.json
+	```
+
+<br />
+
+- **3fff1ec7e72aab0a6f701b304ec531e9b15e6f41**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/3fff1ec7e72aab0a6f701b304ec531e9b15e6f41)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update package.json
+	```
+
+<br />
+
+- **dd3bfb1f725548e021739ca758f62cb027678708**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/dd3bfb1f725548e021739ca758f62cb027678708)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Update publish-package.yml
+	```
+
+<br />
+
+- **b3e8f9e2affebc13c304e41b646a8d384daeb6d7**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b3e8f9e2affebc13c304e41b646a8d384daeb6d7)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Merge pull request #17 from MauMuller/development
+    
+    🐛 (create-release.yml): Erro ao path do template
+	```
+
+<br />
+
+- **ea119575c447e4abcde53a404144adfe41c4851c**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/ea119575c447e4abcde53a404144adfe41c4851c)
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+	Data: 04/01/2023
+	```
+    🐛 (create-release.yml): Erro ao path do template
+    
+    Básicamente ajustei o path de maneira correta até o template do RELEASE.md, o erro era básicamente a adição do 'template' no lugar do 'templates' dentro do .github
+	```
+
+<br />
+
+- **fa81947cdbcb125710201d83067800490746ec99**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/fa81947cdbcb125710201d83067800490746ec99)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Merge pull request #16 from MauMuller/development
+    
+    Primeira versão do projeto
+	```
+
+<br />
+
 - **84861e0388b12c1ae941e840b54d9194f527f5b7**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/84861e0388b12c1ae941e840b54d9194f527f5b7)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
@@ -37,6 +251,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 <br />
 
+- **89bface55cf8f84d825944895f64d9427c7ca13f**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/89bface55cf8f84d825944895f64d9427c7ca13f)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Merge pull request #15 from MauMuller/development
+    
+    README + PUBLISH PACKAGE
+	```
+
+<br />
+
 - **325e6fc94f951c0efb5413b29b5e954953e2b43c**
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/325e6fc94f951c0efb5413b29b5e954953e2b43c)
 	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
@@ -45,6 +271,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
     📝 (publish-package and readme): Adição de outro evento para o yml e ajuste no badge do readme
     
     Foi inserido dentro o 'publish-package.yml' um evento de disparar de maneira manual. E além disso, foi ajsutado obadge do readme
+	```
+
+<br />
+
+- **2cb44279666ee1e15e51f58461bebfc60c6da832**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2cb44279666ee1e15e51f58461bebfc60c6da832)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Merge pull request #14 from MauMuller/development
+    
+    DOCS + BUGS
 	```
 
 <br />
@@ -81,6 +319,18 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
     🐛 (publish-package.yml): Bug: Ajuste de dependencia do yml para publicação
     
     Foi removido um job a mais que existia nas dependencias do 'package_to_npm' aonde estavam apontando para um job que não existia mais
+	```
+
+<br />
+
+- **19dd5d7384fe9a180cbd1988632961cd98fdf8f5**
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/19dd5d7384fe9a180cbd1988632961cd98fdf8f5)
+	Autor: Mauricio - [https://github.com/Mauricio/](https://github.com/Mauricio/)
+	Data: 04/01/2023
+	```
+    Merge pull request #13 from MauMuller/development
+    
+    AUTOMATIZAÇÕES & CÓDIGO & DOCS
 	```
 
 <br />
