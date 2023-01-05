@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **193c3785f89dec839c27d26687f9653c22150b02**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/193c3785f89dec839c27d26687f9653c22150b02)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 05/01/2023
+
+	```
+    📦️ (package.json): adição da propriedade de 'types'
+    
+    Apenas adicionei o caminho para as tipagans que utilizei dentro do sistema
+	```
+
+<br />
+
 - **9b30a3042510a7b7eacec61d45375ec6e363403f**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/9b30a3042510a7b7eacec61d45375ec6e363403f)
