@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **5526821fc1901630d19348d3949562af52489441**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5526821fc1901630d19348d3949562af52489441)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 05/01/2023
+
+	```
+    📦️ (Aquivos para build de js e ts): Realizada um script para build do pro0jeot
+    
+    Com as configurações do vite e mais um plugin para converter ts em js, criei uma pasta apenas para fazer essa publição do pacote dentro do NPM
+	```
+
+<br />
+
 - **193c3785f89dec839c27d26687f9653c22150b02**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/193c3785f89dec839c27d26687f9653c22150b02)
