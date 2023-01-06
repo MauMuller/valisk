@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **104db0be50bdd5ace79e6add9bab2a6815a6fa4d**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/104db0be50bdd5ace79e6add9bab2a6815a6fa4d)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 06/01/2023
+
+	```
+    🔖 (package.json): Incremento da lib gitmoji como dependencia de desenvolvimento
+    
+    Básicamente a lib de forma global não estava funcionando e como é necessário apenas para o desenvolvimento, realizaei a instalação
+	```
+
+<br />
+
 - **a93522c66e3559071f267041001b6468f13f82ea**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/a93522c66e3559071f267041001b6468f13f82ea)
