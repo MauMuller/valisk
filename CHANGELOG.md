@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **a93522c66e3559071f267041001b6468f13f82ea**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/a93522c66e3559071f267041001b6468f13f82ea)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 06/01/2023
+
+	```
+    📝 (README.md & package.json): DOCS: incremento do YARN e PNPM
+    
+    Adição de novas formas de realizar a instalação da biblioteca
+	```
+
+<br />
+
 - **5526821fc1901630d19348d3949562af52489441**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5526821fc1901630d19348d3949562af52489441)
