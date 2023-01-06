@@ -3,6 +3,36 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **e4dbbd5a88d6a2a6f662d1a544b1930daf27aff0**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/e4dbbd5a88d6a2a6f662d1a544b1930daf27aff0)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 06/01/2023
+
+	```
+    1.0.2
+	```
+
+<br />
+
+- **662bd6d6153928256b886ec81c43b82f9c8283de**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/662bd6d6153928256b886ec81c43b82f9c8283de)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 06/01/2023
+
+	```
+    🐛 (publish_package.yml): Remoção de um evento
+    
+    Apenas remove o evento de disparar manualmente o evento de publicação do pacoote, visando a  automatização disso toda vez que ser lançada  uma nova release
+	```
+
+<br />
+
 - **104db0be50bdd5ace79e6add9bab2a6815a6fa4d**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/104db0be50bdd5ace79e6add9bab2a6815a6fa4d)
