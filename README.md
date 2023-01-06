@@ -81,33 +81,35 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
 
 - ### NPM
 
-  Através do gerenciador de pacotes mais utilizado entre o desenvolvimento, podendo assim, acessar o pacote no site oficial.
-
-  <details>
-  <summary>Instalação</summary>
-
-  <br />
-
-  <b>Repositório:</b>
+  **Link para a página oficial**
   <https://www.npmjs.com/package/@libsdomau/valisk>
 
-  ```bash
+  <br/>
+
+  ```shell
     npm i @libsdomau/valisk
   ```
 
-  </details>
-
 - ### Yarn
 
-  Também com YARN em breve.
-
-  <details>
-  <summary><b>Instalação</b></summary>
+  **Link para a página oficial**
+  <https://yarn.pm/@libsdomau/valisk>
 
   <br />
 
-  ```bash
-    Em breve...
+  ```shell
+    yarn add @libsdomau/valisk
+  ```
+
+- ### PNPM
+
+  **Link para a página oficial**
+  <https://www.npmjs.com/package/@libsdomau/valisk>
+
+  <br />
+
+  ```shell
+    pnpm add @libsdomau/valisk
   ```
 
 <br />

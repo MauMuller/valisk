@@ -111,17 +111,17 @@ exec("git log", (err, output) => {
         prev +
         "- **" +
         commit +
-        "**\n\tLink para o commit: [Ver modificações do commit](" +
+        "**\n\n\tLink para o commit: [Ver modificações do commit](" +
         linkCommit +
-        ")\n\tAutor: " +
+        ")\n\n\tAutor: " +
         author +
         " - [" +
         linkAuthor +
         "](" +
         linkAuthor +
-        ")\n\tData: " +
+        ")\n\n\tData: " +
         date +
-        "\n\t```" +
+        "\n\n\t```" +
         description +
         "\t```\n\n<br />\n\n"
       );
