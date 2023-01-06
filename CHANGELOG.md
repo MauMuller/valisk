@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **0a2266c4b83244257e51f28d088aa824c0a1b11a**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/0a2266c4b83244257e51f28d088aa824c0a1b11a)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 06/01/2023
+
+	```
+    💚 (publish-package.yml): Geração de arquivo de build quando o YML é executado para enviar para o NPM
+    
+    Foi apenas adicionado uma linha de build para gerar uma biblioteca minificada para o NPM
+	```
+
+<br />
+
 - **fc74da2bda74f5066619637ec6d34d80a328fb42**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/fc74da2bda74f5066619637ec6d34d80a328fb42)
