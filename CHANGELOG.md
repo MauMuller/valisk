@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **fc74da2bda74f5066619637ec6d34d80a328fb42**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/fc74da2bda74f5066619637ec6d34d80a328fb42)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 06/01/2023
+
+	```
+    🔖 (package.json): Incremento de versionamento
+    
+    Atualização do pacote para uma outra versão, essa especializada no build da lib, d possibilitando oa instalação através de PNPM e YARN
+	```
+
+<br />
+
 - **e4dbbd5a88d6a2a6f662d1a544b1930daf27aff0**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/e4dbbd5a88d6a2a6f662d1a544b1930daf27aff0)
