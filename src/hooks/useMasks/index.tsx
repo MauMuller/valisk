@@ -15,6 +15,7 @@ const useMasks = (objMasks: TypesMasks) => {
   const namesMasks = modulateObjectMask.map((obj) =>
     obj.maskName.toLowerCase()
   );
+
   const hookFiltered = filterByInputMasks(namesMasks);
 
   const values: Array<string | TypesPasswordValuesReturn> = [],
@@ -23,7 +24,7 @@ const useMasks = (objMasks: TypesMasks) => {
     setKeys: Array<Function | undefined> = [];
 
   hookFiltered.forEach((hooks) => {
-    const nameFunction = getNameFunctions(hooks, [7]);
+    const nameFunction = getNameFunctions(hooks);
     const maskObjectFiltred = modulateObjectMask.find(
       (obj) => obj.maskName === nameFunction
     );

@@ -6,6 +6,15 @@ import { useMaskMoney } from "../hooks/useMaskMoney";
 import { useMaskPassword } from "../hooks/useMaskPassword";
 import { useMaskPhone } from "../hooks/useMaskPhone";
 
+export default [
+  useMaskCPF,
+  useMaskCNPJ,
+  useMaskCEP,
+  useMaskMoney,
+  useMaskPhone,
+  useMaskPassword,
+];
+
 export {
   useMasks,
   useMaskCEP,
