@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **89fa235f254aa00d176e0a909c532b135933e185**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/89fa235f254aa00d176e0a909c532b135933e185)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 06/01/2023
+
+	```
+    🐛 (publish_package.yml): Mudança no evento para ativar workflow
+    
+    Foi incrementado o workflow_dispatch novamente para que seja executado de forma manual essa parte de publicação da biblioteca, já que a API do github não consegue acionar o evento de forma automática
+	```
+
+<br />
+
 - **0a2266c4b83244257e51f28d088aa824c0a1b11a**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/0a2266c4b83244257e51f28d088aa824c0a1b11a)

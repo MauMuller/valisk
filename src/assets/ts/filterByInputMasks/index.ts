@@ -25,7 +25,7 @@ const filterByInputMasks = (masksNames: string[]) => {
     })
   );
 
-  return reduceArraysToUniqueArray(functionsOrdened);
+  return functionsOrdened.reduce((prev, current) => [...prev, ...current], []);
 };
 
 export { filterByInputMasks };
