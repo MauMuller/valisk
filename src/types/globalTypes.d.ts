@@ -1,5 +1,14 @@
 type TypesFunction<K> = (value: K) => void;
 
+type TypesArrayWithReturns = Array<
+  TypesBasicsProperties | TypesPasswordMask | TypesPhoneMask
+>;
+
+type TypesArrayWithHooks = Array<{
+  maskName: string;
+  properties: TypesArrayWithReturns;
+}>;
+
 type TypesMaskReturn = [
   value: string,
   setValue: TypesFunction<string>,
@@ -106,11 +115,9 @@ interface TypesMaskObject {
 type TypesHooks = [
   value: string | TypesPasswordValuesReturn,
   setValue: Function,
-  isValid: boolean,
+  isValid: boolean | TypesDigits,
   setKey?: Function
 ];
-
-export {};
 
 export {
   TypesChangePasswordState,
@@ -134,4 +141,6 @@ export {
   TypesInicialWithoutKey,
   TypesChangeBoolean,
   TypesChangeObject,
+  TypesArrayWithHooks,
+  TypesArrayWithReturns,
 };

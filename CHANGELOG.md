@@ -3,6 +3,38 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **faa130f3d1080438afd75c88c2cac5e91365fc36**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/faa130f3d1080438afd75c88c2cac5e91365fc36)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/01/2023
+
+	```
+    ♻️ (UseMasks - Hook): Refactor: Realizei uma refatoração ao hook 'useMasks', fazendo o mesmo possuir todas as tipagaens de todos os hooks em um só, algo que ainda está gerando alguns erros, porém atualização das tipgaens nos arquivos foram concluidas com sucesso!
+    
+    Com essa refatoração, era esperado que o hook voltasse a funcionar, porém não foi o caso, por conta disso será necessário realizar mais teste e verificar qual é a causa de não pode realizar sua utilziação
+	```
+
+<br />
+
+- **89fa235f254aa00d176e0a909c532b135933e185**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/89fa235f254aa00d176e0a909c532b135933e185)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 06/01/2023
+
+	```
+    🐛 (publish_package.yml): Mudança no evento para ativar workflow
+    
+    Foi incrementado o workflow_dispatch novamente para que seja executado de forma manual essa parte de publicação da biblioteca, já que a API do github não consegue acionar o evento de forma automática
+	```
+
+<br />
+
 - **0a2266c4b83244257e51f28d088aa824c0a1b11a**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/0a2266c4b83244257e51f28d088aa824c0a1b11a)

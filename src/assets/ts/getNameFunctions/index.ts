@@ -1,15 +1,20 @@
-const getNameFunctions = (
-  functionValue: Function,
-  substring?: Array<number>
-) => {
-  const nameFunction = functionValue.name.toLowerCase();
+const getNameFunctions = (functionValue: Function) => {
+  const coreFunction = functionValue.toString();
+  const findedNameIntoArray = coreFunction.match(
+    /((?<=const\s\w\s=\s(.+)?")\w+(?="))/g
+  );
+  const nameFunction = findedNameIntoArray?.join("") ?? "";
+  let finalName = "";
 
-  const start = substring?.at(0) ?? 0;
-  const end = substring?.at(1) ?? nameFunction.length;
+  switch (nameFunction) {
+    case "phoneMovel":
+      finalName = nameFunction.replace(/(movel)/im, "");
+      break;
+    default:
+      finalName = nameFunction;
+  }
 
-  const cutName = nameFunction.substring(start, end);
-
-  return cutName;
+  return finalName;
 };
 
 export { getNameFunctions };

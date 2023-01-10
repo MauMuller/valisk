@@ -10,6 +10,7 @@ const App = () => {
     cnpj: { useExplictMask: true },
   };
 
+  console.log(useMasks({ cep: { useExplictMask: true } }));
   const [cpf, setCPF, isCPF, setKeyCPF] = useMaskCPF(configHooks.cpf);
   const [cnpj, setCNPJ, isCNPJ, setKeyCNPJ] = useMaskCNPJ(configHooks.cnpj);
 

@@ -6,28 +6,31 @@ import {
   TypesMasks,
   TypesHooks,
   TypesPasswordValuesReturn,
+  TypesDigits,
 } from "../../types/globalTypes";
 
 const useMasks = (objMasks: TypesMasks) => {
   const modulateObjectMask = modulateObjectToMask(objMasks);
+
   const namesMasks = modulateObjectMask.map((obj) =>
     obj.maskName.toLowerCase()
   );
+
   const hookFiltered = filterByInputMasks(namesMasks);
 
   const values: Array<string | TypesPasswordValuesReturn> = [],
     setValues: Function[] = [],
-    areValidValues: boolean[] = [],
+    areValidValues: Array<boolean | TypesDigits> = [],
     setKeys: Array<Function | undefined> = [];
 
   hookFiltered.forEach((hooks) => {
-    let nameFunction = getNameFunctions(hooks, [7]);
-    let maskObjectFiltred = modulateObjectMask.find(
+    const nameFunction = getNameFunctions(hooks);
+    const maskObjectFiltred = modulateObjectMask.find(
       (obj) => obj.maskName === nameFunction
     );
 
-    let properties = maskObjectFiltred?.properties ?? {};
-    let [value, setValue, isValid, setKey]: TypesHooks = hooks(properties);
+    const properties = maskObjectFiltred?.properties ?? {};
+    const [value, setValue, isValid, setKey]: TypesHooks = hooks(properties);
 
     values.push(value);
     setValues.push(setValue);
