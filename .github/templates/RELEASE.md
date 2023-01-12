@@ -1,5 +1,4 @@
-# v1.0.3
- - Atualização da Lib
+# Nova Versão
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu.
 
