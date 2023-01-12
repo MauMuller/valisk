@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **24b5d1f460adaf158716b1dd25030ced02efeda8**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/24b5d1f460adaf158716b1dd25030ced02efeda8)
+
+	Autor: maumuller - [https://github.com/maumuller/](https://github.com/maumuller/)
+
+	Data: 11/01/2023
+
+	```
+    :memo: Adição de link e mensagem com linguagens no README e ajuste no release de template
+    
+    No geral, coloquei o link do PNPM e uma mensagem dizendo a possibilidade de usar a lib em js e ts e um pequeno ajuste no release
+	```
+
+<br />
+
 - **d8d2af1cacf2f5ca5c40386287e70ff6239fa0ad**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d8d2af1cacf2f5ca5c40386287e70ff6239fa0ad)
