@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **b1d338842fa6b2c179389f56c546f7d3a5c46ede**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b1d338842fa6b2c179389f56c546f7d3a5c46ede)
+
+	Autor: maumuller - [https://github.com/maumuller/](https://github.com/maumuller/)
+
+	Data: 11/01/2023
+
+	```
+    🔨 (generateRelease.ts): Implementação de commits realizados dentro do release para upload de versão
+    
+    Realizei um script para mostrar apenas um link e a data de todas as alterações feitas dentro da lib
+	```
+
+<br />
+
 - **24b5d1f460adaf158716b1dd25030ced02efeda8**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/24b5d1f460adaf158716b1dd25030ced02efeda8)
