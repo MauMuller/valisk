@@ -20,7 +20,7 @@ export const maskWithHash = (template: string, value: string) => {
   const valueAsString = getValueAsArray.join("");
 
   const lengthToStartToRemove = valueAsString.length - value.length;
-  const valueWithMaskAsArray = valueAsString.split("");
+  const valueWithMaskAsArray = valueAsString.split("") ?? [""];
   const indexOfFirstNumber = valueWithMaskAsArray.findLastIndex((letter) =>
     /(\d)/g.test(letter)
   );

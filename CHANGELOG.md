@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **f85e290e5f2b470d46bb6ccc3e49cf628fed91d3**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f85e290e5f2b470d46bb6ccc3e49cf628fed91d3)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    ⚰️ (Arquivos Usados pela versão antiga): Realizei a exclusão de vários arquivos da antiga versão que ainda estavam presentes nessa
+    
+    A partir de uma exclusão de arquivo 'mortos' foi possivel diminuir ainda mais o tamanho da lib
+	```
+
+<br />
+
 - **4201d9a14073ab620ad6d59fd07cfb6b131c377b**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/4201d9a14073ab620ad6d59fd07cfb6b131c377b)

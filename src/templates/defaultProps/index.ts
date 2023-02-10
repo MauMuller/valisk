@@ -14,13 +14,19 @@ export const defaultProps = <T,>(keyMask: keyof MaskTypes<T>) => {
     explictMask,
     name,
   };
-  const moneyProps: MoneyProps<T> = { ...comumProps, explictSimbol: "R$" };
+  const moneyProps: MoneyProps<T> = {
+    ...comumProps,
+    typeMoney: "real",
+    explictMask: false,
+    explictSimbol: false,
+  };
   const passwordProps: PasswordProps<T> = { ...comumProps, hideValue: true };
 
   const phoneProps: PhoneProps<T> = {
     ...comumProps,
     showDDD: false,
     showPrefix: false,
+    explictMask: false,
     typePhone: "phoneMovel",
   };
 
