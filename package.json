@@ -5,7 +5,7 @@
   "description": "Mascaras UNCONTROLLED, CONTROLLED e integração com REACT-HOOK-FORMS",
   "main": "./dist/lib.umd.js",
   "module": "./dist/lib.es.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/lib/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/lib.es.js",

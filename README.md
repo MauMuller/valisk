@@ -123,167 +123,356 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
 
 ## Casos de uso
 
-Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a apresentação da lib com algumas ilustrações.
+Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresentação da lib com algumas ilustrações.
 
-<dl>
-  <dd>
-  <details>
-  <summary id="utilização-simples">Utilização Simples</summary>
+**Obeservação:** Todos exemplos abaixos conterão `typescript`, caso queira utilizar com javascript, basta remover as tipagens.
 
-Nesse exemplo será utilizado uma demonstração apenas com o `_masks`, `_getValues`, com a propriedade `cpf` e `money`.
+- **Uncontrolled**
 
-<dl>
-  <dt>Código:</dt>
-  <dd>
+    <details>
+    <summary id="utilização-simples">Iniciando com campos <b>uncontrolled</b></summary>
 
-```TSX
-  import { useMaskCPF, useMaskCNPJ } from "@libsdomau/valisk";
+  Nesse exemplo será utilizado uma demonstração apenas com o `_masks`, `_getValues`, com as propriedades `cpf` e `money`.
 
-  const App = () => {
-    const configHooks = {
-      cpf: { inicialValue: "55552" },
-      cnpj: { useExplictMask: true },
-    };
+  ```TSX
+  import { CSSProperties, FormEvent } from "react";
+  import { useValisk } from "@libsdomau/valisk";
 
-    const [cpf, setCPF, isCPF, setKeyCPF] = useMaskCPF(configHooks.cpf);
-    const [cnpj, setCNPJ, isCNPJ, setKeyCNPJ] = useMaskCNPJ(configHooks.cnpj);
-
-    return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-        <input
-          type="text"
-          value={cpf}
-          onChange={(evt) => setCPF(evt.target.value)}
-          onKeyDown={(evt) => setKeyCPF(evt.key)}
-        />
-
-        <input
-          type="text"
-          value={cnpj}
-          onChange={(evt) => setCNPJ(evt.target.value)}
-          onKeyDown={(evt) => setKeyCNPJ(evt.key)}
-        />
-      </div>
-    );
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    gap: "1rem",
+    color: "#fff",
   };
 
-  export { App };
-```
+  let renderCounter = 0;
 
-  </dd>
+  function App() {
+    console.log(`Renderizou ${++renderCounter}`);
 
-  <dt>Resultado:</dt>
-  <dd>
-    <img src="https://ik.imagekit.io/e6khzhxvx/image_3.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672402991950" width="300" />
-  </dd>
-</dl>
+    interface Inputs {
+      campo1: string;
+      campo2: string;
+    }
+
+    const { _masks, _getValues } = useValisk<Inputs>({
+      cpf: { name: "campo1" },
+      money: { name: "campo2", typeMoney: "real", explictMask: true },
+    });
+
+    const showValues = (evt: FormEvent<HTMLFormElement>) => {
+      evt.preventDefault();
+      console.log(_getValues());
+    };
+
+    return (
+      <form style={globalStyle} onSubmit={showValues}>
+        <input type="text" {..._masks("campo1")} />
+        <input type="text" {..._masks("campo2")} />
+        <button>Mostrar</button>
+      </form>
+    );
+  }
+
+  export default App;
+  ```
+
+  Output:
+
+  | 123.124.123-51 | 0,52 | Mostrar |
+  | :------------- | :--- | :------ |
+
+  Console:
+
+  ```SHELL
+    1 Renderização!
+    {campo1: '123.124.123-51', campo2: '0,52'}
+  ```
 
   </details>
 
-<details>
-  <summary id="utilização-complexa">Utilização Complexa</summary>
+  <details>
+  <summary id="utilização-simples">Utilizando o _forceUpdate para mostrar valor do password</summary>
 
-Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim um pouco do que dá para fazer com esse hook.
+  Neste caso, iremos alterar o valor do campo para mostrar o valor normal apenas com o método `_forceUpdate` e um estado do button, fazendo assim alterar de escondido para o valor normal, tudo de forma uncontrolled.
 
-<dl>
-  <dt>Código:</dt>
-  <dd>
+  ```TSX
+  import { CSSProperties, useEffect, useState } from "react";
+  import { useValisk } from "@libsdomau/valisk";
 
-```TSX
-  import { useId } from "react";
-  import { useMasks } from "@libsdomau/valisk";
-
-  const passwordCondition = {
-    numbers: [4],
-    specialChars: [2, "*"],
-    words: [4],
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
   };
 
-  const templateMasks = [
-    { type: "cnpj", inicialValue: "21523554" },
-    { type: "cpf", useExplictMask: true },
-    { type: "cep" },
-    { type: "phone", incrementDDDAndPrefix: true, useExplictMask: true },
-    { type: "money", useExplictMask: true },
-    { type: "password", passwordPontenciality: passwordCondition },
-  ];
+  let renderCounter = 0;
 
   function App() {
-    const id = useId();
-    const globalStyle = { display: "flex", gap: "0.5rem" };
+    console.log(`${++renderCounter} Renderização`);
+    const [hideValue, setHideValue] = useState(true);
 
-    const configMask = templateMasks.reduce((prev, current) => {
-      const {
-        type,
-        inicialValue,
-        useExplictMask,
-        passwordPontenciality,
-        incrementDDDAndPrefix,
-      } = current;
+    interface Inputs {
+      passwordInput: string;
+    }
 
-      const objectToType = {
-        inicialValue,
-        useExplictMask,
-        passwordPontenciality,
-        incrementDDDAndPrefix,
-      };
+    const { _masks, _forceUpdate } = useValisk<Inputs>({
+      password: { name: "passwordInput", hideValue: hideValue },
+    });
 
-      return { ...prev, [type]: objectToType };
-    }, {});
+    const textButton = hideValue ? "Mostrar" : "Esconder";
 
-    const { values, setValues, areValidValues, setKeys } = useMasks(configMask);
+    useEffect(() => {
+      _forceUpdate({ inputName: "passwordInput", inputType: "uncontrolled" });
+    }, [hideValue]);
 
-    const inputs = templateMasks.map((object, indexByObject) => {
-      const { type } = object;
-      const isPasswordType = type === "password";
+    return (
+      <form style={globalStyle} onSubmit={(evt) => evt.preventDefault()}>
+        <input type="text" {..._masks("passwordInput")} />
+        <button onClick={() => setHideValue(!hideValue)}>{textButton}</button>
+      </form>
+    );
+  }
 
-      const [valueInput, sourceValue] = values[indexByObject];
-      const value = isPasswordType ? valueInput : values[indexByObject];
+  export default App;
 
-      const setValue = setValues[indexByObject];
-      const isValid = areValidValues[indexByObject];
-      const setKey = setKeys.at(indexByObject);
+  ```
 
-      const idConect = `${id}-${type}`;
-      const nameLabel = type[0].toUpperCase() + type.substring(1);
+  Output:
 
-      return (
-        <div key={indexByObject} style={{ ...globalStyle, flexDirection: "row" }}>
-          <label htmlFor={idConect}>{nameLabel}</label>
+  | 123456789 | Esconder |
+  | :-------- | :------- |
 
-          <div style={{ ...globalStyle, flexDirection: "column" }}>
-            <input
-              id={idConect}
-              type="tel"
-              value={value}
-              onChange={(evt) => setValue(evt.target.value)}
-              onKeyDown={(evt) => setKey?.(evt.key)}
-            />
-            {isPasswordType ? <>{sourceValue}</> : ""}
-          </div>
-          <p style={{ width: "10rem" }}>
-            Validação do campo: {JSON.stringify(isValid)}
-          </p>
-        </div>
-      );
+  Console:
+
+  ```SHELL
+    1 Renderização!
+    2 Renderização!
+  ```
+
+  </details>
+
+<br/>
+
+- **Controlled**
+
+  <details>
+  <summary>Iniciando com campos <b>controlled</b></summary>
+
+  Aqui foi utilizado apenas o `_masks` e a propriedade `phone`, com renderização no campo para alterar a lista.
+
+  ```TSX
+  import { CSSProperties, useState } from "react";
+  import { useValisk } from "@libsdomau/valisk";
+
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
+  };
+
+  let renderCounter = 0;
+
+  function App() {
+    console.log(`${++renderCounter} Renderização!`);
+
+    interface Inputs {
+      phoneInput: string;
+    }
+
+    const randomNumbers = [...Array(10)].map(
+      () => `+${Math.round(Math.random() * 100000000)}`
+    );
+
+    const [data] = useState(randomNumbers);
+    const [phoneInput, setPhoneInput] = useState("");
+
+    const filtredPhones = data.filter((number) => number.includes(phoneInput));
+
+    const { _masks } = useValisk<Inputs>({
+      phone: { name: "phoneInput", typePhone: "phoneMovel", showDDD: true },
     });
 
     return (
-      <div style={{ ...globalStyle, flexDirection: "column" }}>{inputs}</div>
+      <div style={globalStyle}>
+        <form>
+          <input
+            type="text"
+            id="cnpj1"
+            value={phoneInput}
+            onChange={(evt) => setPhoneInput(evt.target.value)}
+            {..._masks("phoneInput")}
+          />
+        </form>
+
+        <ul>
+          {filtredPhones.map((numbers, indNumbers) => (
+            <li key={indNumbers}>{numbers}</li>
+          ))}
+        </ul>
+      </div>
     );
   }
-```
 
-  </dd>
-  
-  <dt>Resultado:</dt>
-  <dd>
-    <img src="https://ik.imagekit.io/e6khzhxvx/image_2.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672402787301" width="700" />
-  </dd>
-</dl>
+  export default App;
+  ```
+
+  Output:
+
+  | +64 |
+  | :-- |
+
+  - +64044127
+  - +64203623
+
+  Console:
+
+  ```SHELL
+  1 Renderização!
+  2 Renderização!
+  3 Renderização!
+  ```
+
   </details>
-  </dd>
-</dl>
+
+  <details>
+  <summary>Utilizando multiplos campos com o mesmo tipo de máscara</summary>
+
+  Aqui foi utilizado o `_masks` e as propriedades `cep` e `cnpj`, possibilidando utilizar múltiplas vezes o mesmo tipo de valor.
+
+  ```TSX
+  import { CSSProperties, useState } from "react";
+  import { useValisk } from "@libsdomau/valisk";
+
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
+  };
+
+  let renderCounter = 0;
+
+  function App() {
+    console.log(`${++renderCounter} Renderização`);
+
+    interface Inputs {
+      cnpj1: string;
+      cnpj2: string;
+      cep1: string;
+      cep2: string;
+    }
+
+    const [inputs, setInputs] = useState([
+      { id: "cnpj1", value: "" },
+      { id: "cnpj2", value: "" },
+      { id: "cep1", value: "" },
+      { id: "cep2", value: "" },
+    ]);
+
+    const { _masks } = useValisk<Inputs>({
+      cnpj: [{ name: "cnpj1", explictMask: true }, { name: "cnpj2" }],
+      cep: [{ name: "cep1", explictMask: true }, { name: "cep2" }],
+    });
+
+    const objectInput = (id: keyof Inputs) => inputs.find((obj) => obj.id === id);
+    const changeInputValue = (value: string, id: keyof Inputs) => {
+      setInputs((prev) =>
+        prev.map((obj) => (obj.id === id ? { ...obj, value } : obj))
+      );
+    };
+
+    return (
+      <form style={globalStyle}>
+        <label htmlFor="cnpj1">cnpj1</label>
+        <input
+          type="text"
+          id="cnpj1"
+          value={objectInput("cnpj1")?.value}
+          onChange={(evt) => changeInputValue(evt.target.value, "cnpj1")}
+          {..._masks("cnpj1")}
+        />
+
+        <label htmlFor="cnpj1">cnpj2</label>
+        <input
+          type="text"
+          id="cnpj2"
+          value={objectInput("cnpj2")?.value}
+          onChange={(evt) => changeInputValue(evt.target.value, "cnpj2")}
+          {..._masks("cnpj2")}
+        />
+
+        <label htmlFor="cep1">cep1</label>
+        <input
+          type="text"
+          id="cep1"
+          value={objectInput("cep1")?.value}
+          onChange={(evt) => changeInputValue(evt.target.value, "cep1")}
+          {..._masks("cep1")}
+        />
+
+        <label htmlFor="cep1">cep2</label>
+        <input
+          type="text"
+          id="cep2"
+          value={objectInput("cep2")?.value}
+          onChange={(evt) => changeInputValue(evt.target.value, "cep2")}
+          {..._masks("cep2")}
+        />
+      </form>
+    );
+  }
+
+  export default App;
+  ```
+
+  Output:
+
+  | cnpj1                    | cnpj2     | cep1         | cep2    |
+  | :----------------------- | :-------- | :----------- | :------ |
+  | 12.\_\_.\_\_/\_\_\_-\_\_ | 12.341.23 | 67786-\_\_\_ | 23334-5 |
+
+  Console:
+
+  ```SHELL
+    1 Renderização
+    2 Renderização
+    3 Renderização
+    ...
+    10 Renderização
+    12 Renderização
+    ...
+    22 Renderização
+  ```
+
+  </details>
+
+<br />
+
+- **React-Hook-Form**
+
+  a
 
 <br />
 

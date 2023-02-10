@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **a1cef837811778cd747e758e0694216f95828805**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/a1cef837811778cd747e758e0694216f95828805)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    🔧 (TSCONFIG & README): Alteração na configuração dos TSCONFIG + README
+    
+    Foi necessário colocar para o builder do ts a versão mais atual do navegador para que seja possível aceitar alguns metodos novos já incrementados no javascript
+	```
+
+<br />
+
 - **42bd5c0a71c0c4717994c42d56b61500a6a19e20**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/42bd5c0a71c0c4717994c42d56b61500a6a19e20)
