@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **4201d9a14073ab620ad6d59fd07cfb6b131c377b**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/4201d9a14073ab620ad6d59fd07cfb6b131c377b)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    🚩 (changelog.md & release.md): Resolvido conflitos de merge
+    
+    Básicamente, linkei o que existia no remoto com o local
+	```
+
+<br />
+
 - **08b54d30b3ce63493f09a995945d431880b87d29**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/08b54d30b3ce63493f09a995945d431880b87d29)
@@ -45,6 +61,54 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
     ✨ ((All files)): Criação de uma nova versão para a lib, agora, renovando completamente o conceito e a regra de negócios | REACT-HOOK-FORMS INTEGRATION...
     
     Após começar a realização de vários testes com a biblioteca, percebi que ela não era uma boa opção para vários cenários atuais da programação, principalmente com a integração de outras bibliotecas, isso pois ela se limitada a ser um hook que renderizava toda vez que digitado. Por conta disso e com todos os testes, resolvi dar um tempo de realizar commmits, focando principalmente na funcionalidade, ou seja, refiz toda a biblioteca com uma ideia diferente do convencional. Agora, ela possui o poder de trabalhar com UNCONTROLLED e CONTROLLED, além de uma integração FOD* COM O REACT-HOOK-FORMS.
+	```
+
+<br />
+
+- **1bd405a6f1a28f1ab26fa2cded45272dfec41b1c**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/1bd405a6f1a28f1ab26fa2cded45272dfec41b1c)
+
+	Autor: maumuller - [https://github.com/maumuller/](https://github.com/maumuller/)
+
+	Data: 11/01/2023
+
+	```
+    💡 (Markdown Templates): Incremento de templates prontos para automatização
+    
+    apenas estou upando o conteúdo anterior que não foi trakeado
+	```
+
+<br />
+
+- **b1d338842fa6b2c179389f56c546f7d3a5c46ede**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b1d338842fa6b2c179389f56c546f7d3a5c46ede)
+
+	Autor: maumuller - [https://github.com/maumuller/](https://github.com/maumuller/)
+
+	Data: 11/01/2023
+
+	```
+    🔨 (generateRelease.ts): Implementação de commits realizados dentro do release para upload de versão
+    
+    Realizei um script para mostrar apenas um link e a data de todas as alterações feitas dentro da lib
+	```
+
+<br />
+
+- **24b5d1f460adaf158716b1dd25030ced02efeda8**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/24b5d1f460adaf158716b1dd25030ced02efeda8)
+
+	Autor: maumuller - [https://github.com/maumuller/](https://github.com/maumuller/)
+
+	Data: 11/01/2023
+
+	```
+    :memo: Adição de link e mensagem com linguagens no README e ajuste no release de template
+    
+    No geral, coloquei o link do PNPM e uma mensagem dizendo a possibilidade de usar a lib em js e ts e um pequeno ajuste no release
 	```
 
 <br />

@@ -2,7 +2,7 @@
 
 # Valisk
 
-Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validações para os campos de texto, tudo por meio de `HOOKS`, visando as tipagens e variadas opções para personalização.
+É uma biblioteca feita para campos UNCONTROLLED e CONTROLLED, incluindo várias máscaras para serem utilizadas de uma maneira muito fácil e performática. `DICA: Integrada ao REACT-HOOK-FORM, ela chega no seu ápice!`
 
 <br />
 
@@ -28,11 +28,13 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 
 <div align="center">
 
-> A biblioteca foi projetada especialmente para servir como um `hook` do `react`.
+> A biblioteca foi projetada para ser integrada com a lib `REACT-HOOK-FORM`, porém pode ser utilizada de forma `CONTROLLED` e `UNCONTROLLED`.
 >
-> Ela possui suporte a **JAVASCRIPT** e **TYPESCRIPT**, podendo ser utilizada com ambas linguagens.
+> Ela possui suporte a **JAVASCRIPT** e **TYPESCRIPT**.
 >
 > Além disso, é possível fazer a integração com qualquer framework ou biblioteca da atualidade.
+
+**IMPORTANTE:** As versões anteriores da biblioteca utilizam um outro sistema, algo completamente diferente de utilização, tanto para o desenvolvedor quanto por baixo dos panos, por isso é recomendado **FORTEMENTE REALIZAR A ATUALIZAÇÃO** devido a todas melhorias. Abaixo deixarei um link para migração da versão antiga para nova.
 
 </div>
 
@@ -42,9 +44,9 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 
 A ideia da construção da biblioteca já existia a muito tempo, porém, apenas depois de adquirir conhecimento das técnologias da modernidade que fui capaz de realiza-lá.
 
-**Valisk** trabalha com `hooks`, ou seja, funcionalidades que realizam algumas tarefas para facilitar o dia a dia do desenvolvedor, esses hooks são a essencia do React funcional, aqui está um link para entender melhor sobre o funcionamento -> [React Hooks](https://pt-br.reactjs.org/docs/hooks-reference.html#gatsby-focus-wrapper).
+**Valisk** trabalha com campos `CONTROLLED` e `UNCONTROLLED`, ou seja, te dando a possiblidade de controllar a renderização sem se precoupar com a `usabilidade do usuário`, essa `responsabilidade` é da `lib`.
 
-A biblioteca disponibiliza _métodos_, _hooks_ e _valores_ iniciais para deixar bem completo o desenvolvimento. Qualquer dúvida, basta navegar até a sessão -> [API de Referência](#api-de-referência) e procurar pela questão em especial ou ainda, mandar uma issue.
+A biblitoeca disponibiliza _métodos_ e _tipos_, apenas o necessário para o desenvolvimento. Qualquer dúvida, basta navegar até a sessão -> [API de Referência](#api-de-referência) e procurar pela questão em especial ou ainda, mandar uma issue.
 
 Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
@@ -53,7 +55,7 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 - [Instalação](#instalação)
 
   - [NPM](#npm)
-  - [Yarn](#yarn)
+  - [YARN](#yarn)
   - [PNPM](#pnpm)
 
 - [Casos de Uso](#casos-de-uso)
@@ -76,7 +78,7 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
   - [Dúvidas no uso da lib?](#duvidas-uso-da-lib)
   - [Encontrou algum problema?](#encontrou-algum-problema)
   - [Tem algumas ideias para contribuir?](#ideais-para-contribuir)
-  - [Ta asim de contribuir codando?](#contribuir-codando)
+  - [Ta afim de contribuir codando?](#contribuir-codando)
 
 <br />
 
@@ -121,14 +123,14 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
 
 ## Casos de uso
 
-Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a apresentação do hook.
+Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a apresentação da lib com algumas ilustrações.
 
 <dl>
   <dd>
   <details>
   <summary id="utilização-simples">Utilização Simples</summary>
 
-Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskCNPJ`.
+Nesse exemplo será utilizado uma demonstração apenas com o `_masks`, `_getValues`, com a propriedade `cpf` e `money`.
 
 <dl>
   <dt>Código:</dt>
