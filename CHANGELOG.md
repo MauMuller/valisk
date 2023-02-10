@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **08b54d30b3ce63493f09a995945d431880b87d29**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/08b54d30b3ce63493f09a995945d431880b87d29)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    🧱 (packeage.json & release.md): Atualização no script + nova versão no RELEASE
+    
+    Tentei incrementar as 'aspas simples' para realizar o commit invés das 'aspas invetidas', além disso, nova versão disponivel no realease
+	```
+
+<br />
+
 - **f4a87788889fe152140e3af4b607cc36f770637a**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f4a87788889fe152140e3af4b607cc36f770637a)

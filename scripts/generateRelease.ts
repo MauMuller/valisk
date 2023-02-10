@@ -1,48 +1,112 @@
 import { writeFile } from "fs";
 import { exec } from "child_process";
 
-exec("npm pkg get version", (err, output) => {
-  if (err) return Error("Erro ao atualizar/criar a RELEASE\n");
+interface ObjectType {
+  commit: string;
+  linkCommit: string;
+  author: string;
+  date: string;
+  description: string;
+}
 
-  const version = output.replaceAll('"', "");
+exec("cat ./.github/templates/RELEASE.md", (err, releaseTemplate) => {
+  if (err) return Error("Erro ao capturar a RELEASE\n");
 
-  const body = `# v${version} - Atualização da Lib
+  exec("git log main..development", (err, comandOutput) => {
+    if (err) return Error("Erro ao capturar o log\n");
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu.
+    const inicialString = releaseTemplate ?? "";
+    const firstCommit = inicialString.search(/(\-\s\*\*\[\w+\])/gim);
 
-## Enredo
+    const removedOldCommits =
+      firstCommit != -1
+        ? inicialString.substring(0, firstCommit)
+        : inicialString;
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu. Aenean lectus tellus, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultricies. Mauris lacinia at metus pulvinar tempor.
+    const outputResponse = comandOutput.replaceAll(
+      /commit(?=\s(\w*\d+))/g,
+      "Commit:"
+    );
+    const commitsArr = outputResponse.match(/((?<=Commit:\s)\w*(?=\n))/g);
 
-## Atualizações
+    const linkToCommitsArr =
+      commitsArr?.map((commit) => {
+        return `https://github.com/MauMuller/valisk/commit/${commit}`;
+      }) ?? [];
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor lobortis massa, nec consectetur lectus ultricies eu. Aenean lectus tellus, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultricies. Mauris lacinia at metus pulvinar tempor.
+    const authorsArr = outputResponse.match(/((?<=Author:\s)\w+(?=\s))/g) ?? [];
+    const datesArr = outputResponse.match(/(?<=Date:\s+).+(?=\n)/g) ?? [];
+    const descriptionArr =
+      outputResponse.match(/(?!\d)\n+\s+.+\n?\s+.+\n((?=\nCommit:)|$)/g) ?? [];
 
-### Lista de Atualizações
+    const timeOfDate = datesArr.map(
+      (data) => data.match(/(\d{2}:\d{2}:\d{2})/g)?.join("") ?? ""
+    );
+    const dayOfDate = datesArr.map(
+      (data) => data.match(/(?<=\s)(\d{2}|\d{1})(?=\s)/g)?.join("") ?? ""
+    );
+    const monthOfDate = datesArr.map(
+      (data) => data.match(/(?<=\s)[a-zA-Z]+(?=\s)/g)?.at(-1) ?? ""
+    );
+    const yearOfDate = datesArr.map(
+      (data) => data.match(/(?<=\s)\d{4}(?=\s)/g)?.join("") ?? ""
+    );
 
-- Lorem ipsum dolor sit amet:
+    const datesFormated = dayOfDate.map((day, indexDay) => {
+      const month = monthOfDate[indexDay];
+      const year = yearOfDate[indexDay];
+      const time = timeOfDate[indexDay];
 
-  aaaaaaaa
+      const date: Date = new Date(`${month} ${day}, ${year} ${time}`);
+      return `${date.toLocaleDateString()}`;
+    });
 
-- Lorem ipsum dolor sit amet:
+    const removeOneBreakLineDescription = descriptionArr.map((desc) =>
+      desc.replace("\n", "")
+    );
 
-  bbbbbbbb
+    const arrayWithProperties =
+      commitsArr?.reduce(
+        (prev: Array<ObjectType>, current: string, index: number) => {
+          const commit = { commit: current };
+          const link = { linkCommit: linkToCommitsArr[index] };
+          const author = { author: authorsArr[index] };
+          const date = { date: datesFormated[index] };
+          const description = {
+            description: removeOneBreakLineDescription[index],
+          };
 
-- Lorem ipsum dolor sit amet:
+          return [
+            ...prev,
+            { ...commit, ...link, ...author, ...date, ...description },
+          ];
+        },
+        []
+      ) ?? [];
 
-  cccccccc
+    const finalBody = arrayWithProperties.reduce(
+      (prev: string, current: ObjectType) => {
+        const { author, commit, date, description, linkCommit } = current;
+        // const linkAuthor = `https://github.com/${author}/`;
 
-## Bugs Corrigidos
+        return (
+          prev +
+          "- **[" +
+          commit +
+          "](" +
+          linkCommit +
+          ")**\n\n\tData: " +
+          date +
+          "\n\n<br />\n\n"
+        );
+      },
+      removedOldCommits
+    );
 
-us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultrici
-
-## Considerações Finais
-
-us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lobortis. Curabitur gravida, dui nec finibus aliquam, est nisi maximus libero, sed euismod diam turpis fringilla purus. Fusce vehicula tellus non urna tempus elementum. Aliquam non velit fermentum, gravida leo at, interdum sem. Maecenas sagittis diam non pharetra ultrici`;
-
-  writeFile("./.github/templates/RELEASE.md", body, "utf8", (err) =>
-    err
-      ? console.log("Ocorreu um erro ao criar/modificar a RELEASE.md\n")
-      : console.log("RELEASE.md criada/modificada com sucesso!\n")
-  );
+    writeFile("./.github/templates/RELEASE.md", finalBody, "utf8", (err) =>
+      err
+        ? console.log("Ocorreu um erro ao criar/modificar a RELEASE.md\n")
+        : console.log("RELEASE.md criada/modificada com sucesso!\n")
+    );
+  });
 });

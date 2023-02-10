@@ -28,7 +28,11 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 
 <div align="center">
 
-> Essa é uma biblioteca feita em **REACT** e **TYPESCRIPT**, porém pode ser integrada com qualquer outra lib/framework, isso porque assim como os `hooks` do REACT, VALISK apenas utiliza `hooks` para controlar o campo de texto.
+> A biblioteca foi projetada especialmente para servir como um `hook` do `react`.
+>
+> Ela possui suporte a **JAVASCRIPT** e **TYPESCRIPT**, podendo ser utilizada com ambas linguagens.
+>
+> Além disso, é possível fazer a integração com qualquer framework ou biblioteca da atualidade.
 
 </div>
 
@@ -50,6 +54,7 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
   - [NPM](#npm)
   - [Yarn](#yarn)
+  - [PNPM](#pnpm)
 
 - [Casos de Uso](#casos-de-uso)
 
