@@ -43,7 +43,7 @@
     "downgrade": "npm version 0.0.0",
     "log": "ts-node-esm ./scripts/generateLog.ts",
     "release": "ts-node-esm ./scripts/generateRelease.ts",
-    "update": "ts-node-esm ./scripts/updatePackage.ts && ts-node-esm ./scripts/generateRelease.ts && git add ./.github/templates/RELEASE.md && git commit -m '(RELEASE.md)Docs:Incremento de versão na RELEASE\n\nNova versão disponivel no header'",
+    "update": "ts-node-esm ./scripts/updatePackage.ts && ts-node-esm ./scripts/generateRelease.ts && git add ./.github/templates/RELEASE.md && git commit -m '(RELEASE.md) Nova versao disponivel.'",
     "commit": "ts-node-esm ./scripts/generateLog.ts && git add CHANGELOG.md && gitmoji -c"
   },
   "dependencies": {

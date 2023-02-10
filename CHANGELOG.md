@@ -3,6 +3,36 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **f4a87788889fe152140e3af4b607cc36f770637a**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f4a87788889fe152140e3af4b607cc36f770637a)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    1.0.4
+	```
+
+<br />
+
+- **b5eaceb81812beeb9e18d5bca039d4a03bb11e75**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b5eaceb81812beeb9e18d5bca039d4a03bb11e75)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    ✨ ((All files)): Criação de uma nova versão para a lib, agora, renovando completamente o conceito e a regra de negócios | REACT-HOOK-FORMS INTEGRATION...
+    
+    Após começar a realização de vários testes com a biblioteca, percebi que ela não era uma boa opção para vários cenários atuais da programação, principalmente com a integração de outras bibliotecas, isso pois ela se limitada a ser um hook que renderizava toda vez que digitado. Por conta disso e com todos os testes, resolvi dar um tempo de realizar commmits, focando principalmente na funcionalidade, ou seja, refiz toda a biblioteca com uma ideia diferente do convencional. Agora, ela possui o poder de trabalhar com UNCONTROLLED e CONTROLLED, além de uma integração FOD* COM O REACT-HOOK-FORMS.
+	```
+
+<br />
+
 - **d8d2af1cacf2f5ca5c40386287e70ff6239fa0ad**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d8d2af1cacf2f5ca5c40386287e70ff6239fa0ad)
