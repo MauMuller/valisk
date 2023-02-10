@@ -3,6 +3,50 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **d8d2af1cacf2f5ca5c40386287e70ff6239fa0ad**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d8d2af1cacf2f5ca5c40386287e70ff6239fa0ad)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/01/2023
+
+	```
+    (RELEASE.md)Script: Ajuste no script para realizar o commit do RELEASE
+	```
+
+<br />
+
+- **2ba5112e3dddfbbaa1e521d41e2f47680302154e**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2ba5112e3dddfbbaa1e521d41e2f47680302154e)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/01/2023
+
+	```
+    1.0.3
+	```
+
+<br />
+
+- **cdbd8a1eb7c51c3266cf1893f904eefd4c7d3c44**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/cdbd8a1eb7c51c3266cf1893f904eefd4c7d3c44)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/01/2023
+
+	```
+    ♻️ (useMasks): Refatoração: Arrumado o hook useMasks, agora contando com a tipagem de ponta a ponta e 100% de funcionanmento
+    
+    Esse hook me fez perder muito tempo, principalmente pra descrobrir qual era o problema dele não funcionar, já que o typescript não apontava nenhum erro de sintaxe e muito menos de tipagens, além de funcionar de forma normal quando importado a biblioteca no mesmo projeto.\n\nEsses detalhes me fizeram refatorar toda a parte de construção, o que me fez entender que o real problema estava no build.\nIsso acontece porque o vite acaba mudando o nome de todas as váriaveis e funções, e como eu dependia dos nomes, ele nunca conseguia encontrar o hook certo, retornando um array vazio sempre.\n\nPara resolver, precisei pegar um dado dentro da função, o lugar aonde eu declaro qual será o tipo de mascará, fazendo assim, ele sempre pegar todas as mascarás, sem eu precisar incrementar um array a mais nisso.
+	```
+
+<br />
+
 - **faa130f3d1080438afd75c88c2cac5e91365fc36**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/faa130f3d1080438afd75c88c2cac5e91365fc36)
