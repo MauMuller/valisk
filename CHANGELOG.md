@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **42bd5c0a71c0c4717994c42d56b61500a6a19e20**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/42bd5c0a71c0c4717994c42d56b61500a6a19e20)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    ♻️ (many .tsx file): Realizei a mudança da extensão de vários arquivos
+    
+    Apenas ajustei algumas tipagens que estavam incorretas e troquei a extensão de alguns arquivos na qual não precisavam estar em tsx
+	```
+
+<br />
+
 - **f85e290e5f2b470d46bb6ccc3e49cf628fed91d3**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f85e290e5f2b470d46bb6ccc3e49cf628fed91d3)
