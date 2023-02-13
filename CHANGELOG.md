@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **9676d327ac762a2d75c3662d92c5e2ec2bc84989**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/9676d327ac762a2d75c3662d92c5e2ec2bc84989)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (README): TÓPICO DE ENTRADA + PARAMETROS + INICIO DO RETORNO
+    
+    Nessa atualização, foi finalizado o tópico de parametros e entrada com typescript.Ambos ficaram extremamente completos e fáceis de serem entendidos, com ilustrações práticas.\nAgora, estou dando andamento para o tópico de retorno, já iniciado com os dois principais métodos,faltando ainda: _getValues e _cleanValues
+	```
+
+<br />
+
 - **d384aa36c26d2f128067b27b393fbb77171ce1f7**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d384aa36c26d2f128067b27b393fbb77171ce1f7)

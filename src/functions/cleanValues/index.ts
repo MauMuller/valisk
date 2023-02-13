@@ -12,17 +12,25 @@ interface ObjectInput {
 export const cleanValues = <T>(nameInputAndTypeMaskArr: Props<T>, props: T) => {
   const InputsObject: ObjectInput = {};
 
-  for (const [key, value] of Object.entries(props as ObjectInput)) {
-    type objMask = {
-      mask: keyof Omit<MaskTypes<T>, "phone">;
-      inputName: keyof T;
-    };
+  type objMask =
+    | {
+        mask: keyof Omit<MaskTypes<T>, "phone">;
+        inputName: keyof T;
+      }
+    | undefined;
 
-    const { mask } = nameInputAndTypeMaskArr.find(
+  for (const [key, value] of Object.entries(props as ObjectInput)) {
+    const objectWithMask = nameInputAndTypeMaskArr.find(
       (obj) => obj.inputName === key
     ) as objMask;
 
-    const regexToRemove = mask === "password" ? "" : /([^\d])/gim;
+    const regexToRemove =
+      objectWithMask != undefined
+        ? objectWithMask.mask === "password"
+          ? ""
+          : /([^\d])/gim
+        : "";
+
     const formatedValue = value.replaceAll(regexToRemove, "");
 
     InputsObject[key] = formatedValue ?? value;

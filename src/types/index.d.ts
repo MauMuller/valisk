@@ -51,11 +51,17 @@ export interface ForceObject<T> {
 
 export type ForceUpdateParams<T> = ArrayWithMinTwoItens<ForceObject<T>>;
 
+export type GetValuesEvent<T> = (
+  func: (data: T) => void
+) => (
+  evt: React.FormEvent<HTMLFormElement>
+) => React.FormEvent<HTMLFormElement>;
+
 export type ReturnType<T> = {
   _masks: (key: keyof T) => DetailsHTML;
   _forceUpdate: (props: ForceUpdateParams<T>) => void;
   _cleanVal: (props: T) => T;
-  _getValues: () => T;
+  _getValues: GetValuesEvent<T>;
 };
 
 interface InputParams<T> {
