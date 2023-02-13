@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **62540c1307e976a34f35a04e9882bdfec96b75b6**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/62540c1307e976a34f35a04e9882bdfec96b75b6)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (readme): atualização da maneira de utilização do '_getValues'
+    
+    Básicamente, foi modificado na documentação para manter o getValues igualmente o handleSubmit do 'react-hook-form.
+	```
+
+<br />
+
 - **eb497c61263af75abdb90614ddd34158d135084e**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/eb497c61263af75abdb90614ddd34158d135084e)

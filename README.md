@@ -1443,8 +1443,8 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
   - [x] Mostra todos os valores em forma de objeto da mesma maneira que foram declarados;
   - [x] Necessita receber os dados e realiza a conversão deles para dados sem máscaras, apenas em formato de números e letras;
-  - [x] Retorna o valor que foi inserido porém com valores formatados;
-  - [x] Pode ser usado com o `data` do `react-hook-form` para mostrar tudo sem máscara.
+  - [x] Todos valores que não foram configurados para possuirem máscara serão retornados sem alteração;
+  - [x] Pode ser usado com o `handleSubmit` do `react-hook-form` para mostrar tudo sem máscara.
 
   <dl>
     <dt>Definições:<dt>
@@ -1456,46 +1456,32 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
   Este é método que limpa o valor de todos as propriedades do objeto que possuem algum tipo de máscara e foram indicados nas configurações da lib, ele apenas remove tudo o que não seja letra ou número do valor.
 
+  Já os campos que não possuem a configuração, são retornados igualmente, porém, sem nenhum tipo de remoção.
+
     </details>
 
     <details>
     <summary><b>Sintaxe</b></summary>
 
   ```TSX
-    import { useEffect } from "react";
     import { useValisk } from "@libsdomau/valisk";
-    import { useForm } from "react-hook-form";
+
     ...
 
     interface Campos {
       campo1: string;
-      campo2: string;
     }
 
-    const [hideValue, setHideValue] = useState(false);
-    const { register, setValue } = useForm<Campos>();
-    const { _masks _forceUpdate } = useValisk<Campos>({...});
+    const showValues: Inputs = (data) => {
+      console.log(_cleanVal(data));
+    };
 
-    useEffect(() => {
-      _forceUpdate({
-        inputName: "campo2"
-        inputType: "uncontrolled"
-      })
-    }, []);
-
-    useEffect(() => {
-      _forceUpdate({
-        inputName: "campo1"
-        inputType: "react-hook-form",
-        dispatchSetValue: setValue,
-      })
-    }, [hideValue]);
-
+    const { _masks, _cleanValues, _getValues } = useValisk<Campos>({...});
 
     return (
-      <>
-        <input type="text" {...register("campo1")} {...masks("campo1")}/>
-      </>
+      <form onSubmit={_getValues(showValues)}>
+        <input type="text" {...masks("campo1")}/>
+      </form>
     );
 
   ```
@@ -1506,10 +1492,10 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
     <summary><b>Funcionalidades</b></summary>
     <br />
 
-  | Opções      | Tipo                                                                                                                       | Descrição                                                                                                                                                                                                                                                                           |
-  | :---------- | :------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | Propriedade | { inputName: keyof \<Campos>, inputType: "controlled" \| "uncontrolled" \| "react-hook-form", dispatchSetValue: Function } | Aqui é preciso informar de forma exata os campos que serão atualizados, mesmo que não cause uma renderização, é importante colocar apenas aquele que necessitam de uma alguma atualização de valor. Lembrando que é possível inserir um array de objetos, além de apenas um objeto. |
-  | Retorno     | void                                                                                                                       | Esse método não retorna nenhum tipo de valor, apenas realiza seus processos.                                                                                                                                                                                                        |
+  | Opções      | Tipo                  | Descrição                                                                                                                                                                                                  |
+  | :---------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Propriedade | \<Campos>             | Aqui é preciso informar a data obtida através do `onSubmit`, sendo pelo `_getValues` ou pelo `handleSubmit`                                                                                                |
+  | Retorno     | \<Campos> (Formatado) | O retorno desse método é básicamente o mesmo objeto passado porém, com remoções de máscaras caso algum campo tenha sido registrado no hook, caso o contrário, apenas é retornado da maneira que é passado. |
 
     </details>
 
