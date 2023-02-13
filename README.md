@@ -472,42 +472,315 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
 - **React-Hook-Form**
 
-  a
+  <details>
+  <summary>Integração + Valores iniciais</summary>
+
+  Nesse exemplo, iremos apenas integrar a lib com o `react-hook-form` colocando um valor inicial.
+
+  ```TSX
+  import { CSSProperties, useEffect } from "react";
+  import { useValisk } from "@libsdomau/valisk";
+  import { useForm } from "react-hook-form";
+
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
+  };
+
+  let renderCounter = 0;
+
+  function App() {
+    console.log(`${++renderCounter} Renderização`);
+
+    interface Inputs {
+      firstInput: string;
+      secondInput: string;
+    }
+
+    const { register, setValue } = useForm<Inputs>({
+      defaultValues: { firstInput: "123", secondInput: "456" },
+    });
+
+    const { _masks, _forceUpdate } = useValisk<Inputs>({
+      phone: [
+        {
+          name: "firstInput",
+          typePhone: "phoneFixo",
+          explictMask: true,
+          showDDD: true,
+        },
+        {
+          name: "secondInput",
+          typePhone: "phoneMovel",
+          showDDD: true,
+          showPrefix: true,
+        },
+      ],
+    });
+
+    useEffect(() => {
+      _forceUpdate([
+        {
+          inputName: "firstInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+        {
+          inputName: "secondInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+      ]);
+    }, []);
+
+    return (
+      <form style={globalStyle} onSubmit={(evt) => evt.preventDefault()}>
+        <input
+          type="text"
+          {...register("firstInput")}
+          {..._masks("firstInput")}
+        />
+
+        <input
+          type="text"
+          {...register("secondInput")}
+          {..._masks("secondInput")}
+        />
+      </form>
+    );
+  }
+
+  export default App;
+  ```
+
+  Output:
+
+  | +12 3\_\_\_-\_\_\_\_ | +45 6 |
+  | :------------------- | :---- |
+
+  Console:
+
+  ```SHELL
+  1 Renderização
+  ```
+
+  </details>
+
+  <details>
+  <summary>Utilização do método _cleanVal e todas outras variações dos campos</summary>
+
+  ```JSX
+  import { CSSProperties, useEffect, useState } from "react";
+  import { useValisk } from "@libsdomau/valisk";
+  import { useForm, SubmitHandler } from "react-hook-form";
+
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
+  };
+
+  const formStyle: CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
+  };
+
+  let renderCounter = 0;
+
+  function App() {
+    console.log(`${++renderCounter} Renderização`);
+    const [hideValue, setHideValue] = useState(false);
+
+    interface Inputs {
+      firstInput: string;
+      secondInput: string;
+      thirtyInput: string;
+      fourtyInput: string;
+      fiftyInput: string;
+    }
+
+    const { register, setValue, handleSubmit } = useForm<Inputs>({
+      defaultValues: { firstInput: "123", secondInput: "456" },
+    });
+
+    const { _masks, _forceUpdate, _cleanVal } = useValisk<Inputs>({
+      phone: [
+        {
+          name: "firstInput",
+          typePhone: "phoneFixo",
+          explictMask: true,
+          showDDD: true,
+        },
+        {
+          name: "secondInput",
+          typePhone: "phoneMovel",
+          showDDD: true,
+          showPrefix: true,
+        },
+      ],
+      password: {
+        name: "thirtyInput",
+        hideValue: hideValue,
+      },
+      money: [
+        {
+          name: "fourtyInput",
+          typeMoney: "real",
+          explictMask: true,
+          explictSimbol: true,
+        },
+        {
+          name: "fiftyInput",
+          typeMoney: "dollar",
+          explictMask: true,
+          explictSimbol: false,
+        },
+      ],
+    });
+
+    const showValues: SubmitHandler<Inputs> = (data) => {
+      console.log(data);
+      console.log(_cleanVal(data));
+    };
+
+    useEffect(() => {
+      _forceUpdate([
+        {
+          inputName: "firstInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+        {
+          inputName: "secondInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+        {
+          inputName: "fourtyInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+        {
+          inputName: "fiftyInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+      ]);
+    }, []);
+
+    useEffect(() => {
+      _forceUpdate({
+        inputName: "thirtyInput",
+        inputType: "react_hook_form",
+        dispatchSetValue: setValue,
+      });
+    }, [hideValue]);
+
+    return (
+      <div style={globalStyle}>
+        <form onSubmit={handleSubmit(showValues)} style={formStyle}>
+          <input
+            type="text"
+            {...register("firstInput")}
+            {..._masks("firstInput")}
+          />
+
+          <input
+            type="text"
+            {...register("secondInput")}
+            {..._masks("secondInput")}
+          />
+
+          <input
+            type="text"
+            {...register("thirtyInput")}
+            {..._masks("thirtyInput")}
+          />
+
+          <input
+            type="text"
+            {...register("fourtyInput")}
+            {..._masks("fourtyInput")}
+          />
+
+          <input
+            type="text"
+            {...register("fiftyInput")}
+            {..._masks("fiftyInput")}
+          />
+
+          <button>Mostrar Valores</button>
+        </form>
+
+        <button onClick={() => setHideValue(!hideValue)}>
+          {hideValue ? "Mostrar" : "Ocultar"} Senha
+        </button>
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+
+  Output:
+
+  | +12 3323-444\_ | +45 61 2 | •••••••••• | R$ 0,00 | 1,234.12 | Mostrar Valores | Mostrar Senha |
+  | :------------- | :------- | :--------- | :------ | :------- | :-------------- | ------------- |
+
+  Console:
+
+  ```SHELL
+  1 Renderização
+  2 Renderização
+
+  {
+    fiftyInput: "1,234.12",
+    firstInput: "+12 3323-444_",
+    fourtyInput: "R$ 44,55",
+    secondInput: "+45 61 2",
+    thirtyInput: "1255555563"
+  }
+
+  {
+    fiftyInput: "123412",
+    firstInput: "123323444",
+    fourtyInput: "4455",
+    secondInput: "45612",
+    thirtyInput: "1255555563"
+  }
+  ```
+
+  </details>
 
 <br />
 
 ## API de Referência
 
-Nessa sessão você poderá tirar todas suas dúvidas quanto a parametros ou retornos dos hooks, assim como ententer os tipos e até mesmo verificar a sintaxe de utilização para variados casos de uso.
+Nessa sessão você poderá tirar todas suas dúvidas quanto a parametros ou retornos dos métodos, assim como ententer os tipos e até mesmo verificar a sintaxe de utilização para variados casos de uso.
 
-Antes de olhar a documentação, é necessário ter em mente como que funciona de forma prática os principais conceitos da biblioteca.
+Antes de continuar com a referência, lembre-se que é possível trabalhar de diversas formas com a lib, isso para atender aos mais variados casos de uso, porém, ela foi projetada para ser `integrada ao react-hook-form`, isso pois essa lib já resolve de forma muito eficiênte validações e controle sobre os campos, por isso, **valisk** realmente brilha com a sua utilização em conjunto.
 
-Os principais conceitos são bem simples, básicamente `parâmetros` e `retornos`, eles são, respectivamente, valores de entrada e de saída.
+Mesmo, a lib sendo incrivelmente poderosa com o react-hook-forms, ela pode ser utilizada sozinha da mesma forma, um exemplo disso é o método `_getValues`, na qual faz a mesma coisa que o onSubmit do `react-hook-form`, justamente para ser utilizado em conjunto com o `_cleanValues`, obtendo assim, todos os valores de forma limpa.
 
-Podemos ver abaixo de forma ilustrativa como que eles se moldam dentro do código:
+Por baixo dos panos, a lib realiza de forma uncontrolled a colocação da mascára nos campos, utilizando evento padrões do Javascript e eficiêntes códigos para gerar as máscarás.
 
-```JS
-import { useMasks } from "@libsdomau/valisk";
-
-// [values, setValues, isValid, setKey] - Valores de Retorno
-// { cpf: { inicialValue: '0452' } } - Valor de Parâmetro
-
-const [values, setValues, isValid, setKey] = useMasks({
-  cpf: {
-    inicialValue: '0452'
-  }
-});
-```
-
-Assim como desmonstrado no código acima, os valores de `retorno` são aqueles que são `desestruturados` a partir de um `array` \_(Caso não saiba do que se trata a **"Desestruturação do ECMAScript"** -> [Desestruturação de Valores](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment))
-
-Já os valores de `parâmetro`, são aqueles passados através do `objeto` dentro da chamada do `hook`, a partir dele é posível saber quais propriedades são esperadas para cada mascará selecionada.
+Agora, vamos para os métodos.
 
 ---
-
-Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrando um pouco das suas propriedades, retornos e possibilidades dentro do desenvolvimento:
-
-<br />
 
 - ## useMaskCPF
 

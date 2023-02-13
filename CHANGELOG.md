@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **64e2a1ea4074287addd0040ff117d46bd3ad9e03**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/64e2a1ea4074287addd0040ff117d46bd3ad9e03)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    📝 (readme): Atualização dos casos de uso e Introdução
+    
+    Apenas realizei mais exemplos para o caso de uso da biblioteca, atualizando todos os conceitos novamente, porém, só incluindo o a introdução por enquanto
+	```
+
+<br />
+
 - **a1cef837811778cd747e758e0694216f95828805**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/a1cef837811778cd747e758e0694216f95828805)
