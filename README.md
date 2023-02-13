@@ -166,13 +166,13 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
       money: { name: "campo2", typeMoney: "real", explictMask: true },
     });
 
-    const showValues = (evt: FormEvent<HTMLFormElement>) => {
+    const showValues = (data: Inputs) => {
       evt.preventDefault();
-      console.log(_getValues());
+      console.log(data);
     };
 
     return (
-      <form style={globalStyle} onSubmit={showValues}>
+      <form style={globalStyle} onSubmit={_getValues(showValues)}>
         <input type="text" {..._masks("campo1")} />
         <input type="text" {..._masks("campo2")} />
         <button>Mostrar</button>
@@ -1376,6 +1376,85 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
   Esse método possui a função de atualizar o valor de todos os campo inseridos, ele faz isso por meio de eventos e funcionalidades internas do campo, ou seja, `ele não causa nenhuma renderização`, para mudar o valor de forma defitiva é necessário carregar o componente novamente com as propriedades já alteradas, por conta disso, ele é normalmente utilizado com o `useEffect` do react, pois, assim que o componente é carregado novamente, ele captura todos os valores alterados e `realiza as mudaças` sem precisar realizar uma nova renderização.
 
   Em seus parametros é necessário indicar algumas `props`, para que a lib possa fazer a atualização do campo `sem causar uma nova renderização`.
+
+    </details>
+
+    <details>
+    <summary><b>Sintaxe</b></summary>
+
+  ```TSX
+    import { useEffect } from "react";
+    import { useValisk } from "@libsdomau/valisk";
+    import { useForm } from "react-hook-form";
+    ...
+
+    interface Campos {
+      campo1: string;
+      campo2: string;
+    }
+
+    const [hideValue, setHideValue] = useState(false);
+    const { register, setValue } = useForm<Campos>();
+    const { _masks _forceUpdate } = useValisk<Campos>({...});
+
+    useEffect(() => {
+      _forceUpdate({
+        inputName: "campo2"
+        inputType: "uncontrolled"
+      })
+    }, []);
+
+    useEffect(() => {
+      _forceUpdate({
+        inputName: "campo1"
+        inputType: "react-hook-form",
+        dispatchSetValue: setValue,
+      })
+    }, [hideValue]);
+
+
+    return (
+      <>
+        <input type="text" {...register("campo1")} {...masks("campo1")}/>
+      </>
+    );
+
+  ```
+
+    </details>
+
+    <details>
+    <summary><b>Funcionalidades</b></summary>
+    <br />
+
+  | Opções      | Tipo                                                                                                                       | Descrição                                                                                                                                                                                                                                                                           |
+  | :---------- | :------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Propriedade | { inputName: keyof \<Campos>, inputType: "controlled" \| "uncontrolled" \| "react-hook-form", dispatchSetValue: Function } | Aqui é preciso informar de forma exata os campos que serão atualizados, mesmo que não cause uma renderização, é importante colocar apenas aquele que necessitam de uma alguma atualização de valor. Lembrando que é possível inserir um array de objetos, além de apenas um objeto. |
+  | Retorno     | void                                                                                                                       | Esse método não retorna nenhum tipo de valor, apenas realiza seus processos.                                                                                                                                                                                                        |
+
+    </details>
+
+    </dd>
+  </dl>
+
+<br/>
+
+- ### \_cleanVal
+
+  - [x] Mostra todos os valores em forma de objeto da mesma maneira que foram declarados;
+  - [x] Necessita receber os dados e realiza a conversão deles para dados sem máscaras, apenas em formato de números e letras;
+  - [x] Retorna o valor que foi inserido porém com valores formatados;
+  - [x] Pode ser usado com o `data` do `react-hook-form` para mostrar tudo sem máscara.
+
+  <dl>
+    <dt>Definições:<dt>
+    <dd>
+
+    <details>
+    <summary><b>Sobre</b></summary>
+    <br />
+
+  Este é método que limpa o valor de todos as propriedades do objeto que possuem algum tipo de máscara e foram indicados nas configurações da lib, ele apenas remove tudo o que não seja letra ou número do valor.
 
     </details>
 

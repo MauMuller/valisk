@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **eb497c61263af75abdb90614ddd34158d135084e**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/eb497c61263af75abdb90614ddd34158d135084e)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    ♻️ (_cleanValues & _getValues): REFATORAMENTO PARA AMBOS MÉTODOS, PEGANDO VALORES FORA DA MÁSCARA
+    
+    Nesse refatoramento, tive que refazer a maneira de funcionamento do _getValues, isso pois eu não havia percebido que antes, caso fosse informado algum campo que não possuisse o '_masks', ele não mostrava quando houvesse a resposta do evento. Por conta disso, resolvi adotar a  maneira que o próprio react-hook-form faz para capturar os dados, criando assim um auxiliar entre a função que o usuário for passar e o evento, da mesma maneira que o 'handleSubmit', assim, retornando o próprio tipo dos inputs informados.\n\nJá em relaxação ao '_cleanValues', precisei alterar o retorno, pois, antes, ele tentava sempre procurar pela mascará que foi informado nas configurações do hook, coisa que gerava um erro caso fosse declaro algum input que não houve o método '_masks' da mesma forma que o anterior. Coisa que agora foi resolvido e todos os campos que não forem declarados no hook, ele não faz remoção de caracteres
+	```
+
+<br />
+
 - **9676d327ac762a2d75c3662d92c5e2ec2bc84989**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/9676d327ac762a2d75c3662d92c5e2ec2bc84989)
