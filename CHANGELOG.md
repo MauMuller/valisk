@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **492e35819821bbd206a9bbc97a43bd23f7f45a53**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/492e35819821bbd206a9bbc97a43bd23f7f45a53)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (readme.md): Finalização dos casos de uso e inicio da API de REFERENCIA
+    
+    Terminei os principais casos de uso para os três tipos de uso da lib, realizando exemplo simples e complexos para demonstração, além de começar a realização da API de Referencia
+	```
+
+<br />
+
 - **64e2a1ea4074287addd0040ff117d46bd3ad9e03**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/64e2a1ea4074287addd0040ff117d46bd3ad9e03)
