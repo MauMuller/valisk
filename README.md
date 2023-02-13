@@ -2,9 +2,9 @@
 
 # Valisk
 
-É uma biblioteca feita para campos UNCONTROLLED e CONTROLLED, incluindo várias máscaras para serem utilizadas de uma maneira muito fácil e performática.
+É uma biblioteca feita para campos **UNCONTROLLED** e **CONTROLLED**, incluindo várias máscaras para serem utilizadas de uma maneira muito fácil e performática.
 
-> EXTRA: Quando integrada ao `react-hook-form`, ela consegue trabalhar da melhor forma possivel, misturando as validações e controles dos campos a máscaras com personalização e sem renderizações.
+> EXTRA: Quando integrada ao `react-hook-form`, ela consegue trabalhar da melhor forma possivel, misturando as validações e controles dos campos, ás máscaras com personalização e sem renderizações desnecessárias.
 
 <br />
 
@@ -797,6 +797,35 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
 
 <br/>
 
+### Entrada
+
+---
+
+Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será apenas importante para `typescript`. Agora, caso seja este o caso, é importante enter a funcionalidade abaixo.
+
+- ### useValisk\<campos>
+
+  Essa declaração é necessária para que o typescript possa utilizar os nomes dos campo de texto e assim, deixar de maneira explicita qual será o campo a possuir a máscara.
+
+  Sintaxe:
+
+  ```TSX
+  interface Inputs {
+    teste1: string;
+    teste2: string;
+  }
+
+  const { ... } = useValisk /* Aqui -> */<Inputs>(...)
+  ```
+
+  Assim como o `react-hook-form`, o **Valisk** também precisa desses de entrada, ou seja, é possivel utilizar essa mesma tipagem para ambas bibliotecas.
+
+  Após colocar como entrada do hook a tipagem dos campos, você já irá notar que todos os parâmetros e propriedades que precisam do nome do campo, irão retornar todos os campos, facilitando o processo de escolher qual nome do campo que precisa de tal máscara.
+
+  Sabendo disso, apenas informe sempre os tipos dos campos e deixe que o typescript e o valisk façam esse trabalho por você!
+
+<br/>
+
 ### Parâmetros
 
 ---
@@ -854,7 +883,7 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
     </details>
 
     <details>
-    <summary><b>Propridades</b></summary>
+    <summary><b>Propriedades</b></summary>
     <br />
 
   | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
@@ -922,7 +951,7 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
     </details>
 
     <details>
-    <summary><b>Propridades</b></summary>
+    <summary><b>Propriedades</b></summary>
     <br />
 
   | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
@@ -990,7 +1019,7 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
     </details>
 
     <details>
-    <summary><b>Propridades</b></summary>
+    <summary><b>Propriedades</b></summary>
     <br />
 
   | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
@@ -1071,7 +1100,7 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
     </details>
 
     <details>
-    <summary><b>Propridades</b></summary>
+    <summary><b>Propriedades</b></summary>
     <br />
 
   | Propriedades    | Tipos                        | Valores Padrões | Obrigatório | Descrição                                            |
@@ -1172,7 +1201,7 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
     </details>
 
     <details>
-    <summary><b>Propridades</b></summary>
+    <summary><b>Propriedades</b></summary>
     <br />
 
   | Propriedades  | Tipos                       | Valores Padrões | Obrigatório | Descrição                                 |
@@ -1245,7 +1274,7 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
     </details>
 
     <details>
-    <summary><b>Propridades</b></summary>
+    <summary><b>Propriedades</b></summary>
     <br />
 
   | Propriedades | Tipos                 | Valores Padrões | Obrigatório | Descrição                            |
@@ -1260,9 +1289,155 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
 
 <br />
 
-### Parâmetros
+### Retornos
 
 ---
+
+- ### \_masks
+
+  - [x] Utilizado por todos campos;
+  - [x] Necessario ser usado de forma única em cada campo;
+  - [x] Não causa uma renderização por sua utilização`;
+  - [x] Insere de forma automática a tag name caso não o elemento não possua;
+
+  <dl>
+    <dt>Definições:<dt>
+    <dd>
+
+    <details>
+    <summary><b>Sobre</b></summary>
+    <br />
+
+  Este é sem sombra de dúvidas o método mais importante da biblioteca, sendo ele o responsavel por gerar a máscara para cada um dos campos, por isso é necessário utilizar do `operador rest` para funcionar as máscaras.
+
+  Além disso, assim como o `register` do `react-hook-form`, o `_masks` também precisa receber o nome do campo que irá receber a máscara configurada no hook.
+
+  Assim facilitando muito o aprendizado para quem já utilizava a outra biblioteca.
+
+    </details>
+
+    <details>
+    <summary><b>Sintaxe</b></summary>
+
+  ```TSX
+    import { useValisk } from "@libsdomau/valisk";
+
+    ...
+    interface Campos {
+      campo1: string;
+      campo2: string;
+    }
+
+
+    const { _masks } = useValisk<Campos>({...});
+
+    return (
+      <>
+        <input type="text" {...masks("campo1")}/>
+      </>
+    );
+
+  ```
+
+    </details>
+
+    <details>
+    <summary><b>Funcionalidades</b></summary>
+    <br />
+
+  | Opções      | Tipo            | Descrição                                                                        |
+  | :---------- | :-------------- | :------------------------------------------------------------------------------- |
+  | Propriedade | keyof \<Campos> | Sendo preciso escolher somente um para cada \_masks                              |
+  | Retorno     | DetailsHTML     | Propriedades do elemento Input, utilizando assim algumas tag do próprio elemento |
+
+    </details>
+
+    </dd>
+  </dl>
+
+<br/>
+
+- ### \_forceUpdate
+
+  - [x] Os campos que precisam desse efeito, precisam ser declaros de forma clara;
+  - [x] Pode ser usados quantas vezes forem necessárias com diversos campo em uma atualização ou apenas um;
+  - [x] Não causa uma renderização por sua utilização;
+  - [x] É usado na maioria da vezes em conjunto com o **useEffect** nativo do react.
+  - [x] Usado para trocar o valor da senha ou para carregar todas os campos com máscara como valor inicial.
+
+  <dl>
+    <dt>Definições:<dt>
+    <dd>
+
+    <details>
+    <summary><b>Sobre</b></summary>
+    <br />
+
+  Esse método possui a função de atualizar o valor de todos os campo inseridos, ele faz isso por meio de eventos e funcionalidades internas do campo, ou seja, `ele não causa nenhuma renderização`, para mudar o valor de forma defitiva é necessário carregar o componente novamente com as propriedades já alteradas, por conta disso, ele é normalmente utilizado com o `useEffect` do react, pois, assim que o componente é carregado novamente, ele captura todos os valores alterados e `realiza as mudaças` sem precisar realizar uma nova renderização.
+
+  Em seus parametros é necessário indicar algumas `props`, para que a lib possa fazer a atualização do campo `sem causar uma nova renderização`.
+
+    </details>
+
+    <details>
+    <summary><b>Sintaxe</b></summary>
+
+  ```TSX
+    import { useEffect } from "react";
+    import { useValisk } from "@libsdomau/valisk";
+    import { useForm } from "react-hook-form";
+    ...
+
+    interface Campos {
+      campo1: string;
+      campo2: string;
+    }
+
+    const [hideValue, setHideValue] = useState(false);
+    const { register, setValue } = useForm<Campos>();
+    const { _masks _forceUpdate } = useValisk<Campos>({...});
+
+    useEffect(() => {
+      _forceUpdate({
+        inputName: "campo2"
+        inputType: "uncontrolled"
+      })
+    }, []);
+
+    useEffect(() => {
+      _forceUpdate({
+        inputName: "campo1"
+        inputType: "react-hook-form",
+        dispatchSetValue: setValue,
+      })
+    }, [hideValue]);
+
+
+    return (
+      <>
+        <input type="text" {...register("campo1")} {...masks("campo1")}/>
+      </>
+    );
+
+  ```
+
+    </details>
+
+    <details>
+    <summary><b>Funcionalidades</b></summary>
+    <br />
+
+  | Opções      | Tipo                                                                                                                       | Descrição                                                                                                                                                                                                                                                                           |
+  | :---------- | :------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Propriedade | { inputName: keyof \<Campos>, inputType: "controlled" \| "uncontrolled" \| "react-hook-form", dispatchSetValue: Function } | Aqui é preciso informar de forma exata os campos que serão atualizados, mesmo que não cause uma renderização, é importante colocar apenas aquele que necessitam de uma alguma atualização de valor. Lembrando que é possível inserir um array de objetos, além de apenas um objeto. |
+  | Retorno     | void                                                                                                                       | Esse método não retorna nenhum tipo de valor, apenas realiza seus processos.                                                                                                                                                                                                        |
+
+    </details>
+
+    </dd>
+  </dl>
+
+<br/>
 
 ## Dúvidas
 

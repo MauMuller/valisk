@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **d384aa36c26d2f128067b27b393fbb77171ce1f7**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d384aa36c26d2f128067b27b393fbb77171ce1f7)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (readme): API de referencia
+    
+    Incremento de todos os parametros utilizados dentro da lib, completando mais um tópico, agora restando apenas os retornos e o mapa
+	```
+
+<br />
+
 - **492e35819821bbd206a9bbc97a43bd23f7f45a53**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/492e35819821bbd206a9bbc97a43bd23f7f45a53)
