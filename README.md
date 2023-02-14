@@ -60,13 +60,23 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
   - [YARN](#yarn)
   - [PNPM](#pnpm)
 
+  <br />
+
 - [Casos de Uso](#casos-de-uso)
+
+  - [Uncontrolled](#uncontrolled)
+  - [Controlled](#controlled)
+  - [React Hook Form](#react-hook-form)
+
+  <br />
 
 - [API de Referência](#api-de-referência)
 
   - [Entrada](#entrada)
 
     - [useValisk\<Campos>](#usevaliskcampos)
+
+  <br />
 
   - [Parâmetros](#parâmetros)
 
@@ -77,11 +87,15 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
     - [PHONE](#phone)
     - [PASSWORD](#password)
 
+  <br />
+
   - [Retornos](#retornos)
     - [\_masks](#_masks)
     - [\_forceUpdate](#_forceupdate)
     - [\_cleanValues](#_cleanvalues)
     - [\_getValues](#_getvalues)
+
+  <br />
 
 - [Dúvidas](#dúvidas)
 
@@ -137,7 +151,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
 **Obeservação:** Todos exemplos abaixos conterão `typescript`, caso queira utilizar com javascript, basta remover as tipagens.
 
-- **Uncontrolled**
+- ##### Uncontrolled
 
     <details>
     <summary id="utilização-simples">Iniciando com campos <b>uncontrolled</b></summary>
@@ -274,7 +288,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
 <br/>
 
-- **Controlled**
+- ##### Controlled
 
   <details>
   <summary>Iniciando com campos <b>controlled</b></summary>
@@ -480,7 +494,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
 <br />
 
-- **React-Hook-Form**
+- ##### React-Hook-Form
 
   <details>
   <summary>Integração + Valores iniciais</summary>
@@ -1303,6 +1317,8 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
 
   ***
 
+  Métodos que serão desestruturados para serem utilizados para diversas funcionalidades.
+
   - ### \_masks
 
     - [x] Utilizado por todos campos;
@@ -1510,72 +1526,72 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
 
   - ### \_getValues
 
-  - [x] Captura o valor de todos os campos dentro do form.
-  - [x] Os campos não precisam possuir o `_masks`, porém precisam estar declarados no [Tipo de Entrada](#entrada);
-  - [x] Ele retorna um objeto com todos o valores dos campos, essa tipagem é a mesma de entrada no hook;
-  - [x] Funciona igual o `handleSubmit` do `react-hook-form`, precisando passar um função dentro e ela possuirá os valores retornados.
+    - [x] Captura o valor de todos os campos dentro do form.
+    - [x] Os campos não precisam possuir o `_masks`, porém precisam estar declarados no [Tipo de Entrada](#entrada);
+    - [x] Ele retorna um objeto com todos o valores dos campos, essa tipagem é a mesma de entrada no hook;
+    - [x] Funciona igual o `handleSubmit` do `react-hook-form`, precisando passar um função dentro e ela possuirá os valores retornados.
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-    <details>
-    <summary><b>Sobre</b></summary>
+      <details>
+      <summary><b>Sobre</b></summary>
 
-  Este método funciona como um auxiliar, uma função que captura todos valores dos campos que são **exclusivamente** filhos do Form. Após pegar os valores, ela converte eles em um objeto utilizando o nome do campo como **key** e o valor como **value**.
+    Este método funciona como um auxiliar, uma função que captura todos valores dos campos que são **exclusivamente** filhos do Form. Após pegar os valores, ela converte eles em um objeto utilizando o nome do campo como **key** e o valor como **value**.
 
-  É necessário passar uma outra função para dentro desse método, ela que irá receber o valor dos campos em formato de objeto atráves do parâmetro.
+    É necessário passar uma outra função para dentro desse método, ela que irá receber o valor dos campos em formato de objeto atráves do parâmetro.
 
-  Caso você tenha utilizado o `react-hook-form`, ela funciona igual o `handleSubmit`.
+    Caso você tenha utilizado o `react-hook-form`, ela funciona igual o `handleSubmit`.
 
-    </details>
+      </details>
 
-    <details>
-    <summary><b>Sintaxe</b></summary>
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-  ```TSX
-    import { useValisk } from "@libsdomau/valisk";
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
 
-    ...
+      ...
 
-    interface Campos {
-      campo1: string;
-    }
+      interface Campos {
+        campo1: string;
+      }
 
 
-    const { _masks, _getValues } = useValisk<Campos>({...});
-    const showValues: Campos = (data) => console.log(data);
+      const { _masks, _getValues } = useValisk<Campos>({...});
+      const showValues: Campos = (data) => console.log(data);
 
-    return (
-      <form onSubmit={_getValues(showValues)}>
-        <input type="text" {...masks("campo1")}/>
-      </form>
-    );
+      return (
+        <form onSubmit={_getValues(showValues)}>
+          <input type="text" {...masks("campo1")}/>
+        </form>
+      );
 
-    <!-- Ou -->
+      <!-- Ou -->
 
-    return (
-      <form onSubmit={_getValues((data) => console.log(data))}>
-        <input type="text" {...masks("campo1")}/>
-      </form>
-    );
+      return (
+        <form onSubmit={_getValues((data) => console.log(data))}>
+          <input type="text" {...masks("campo1")}/>
+        </form>
+      );
 
-  ```
+    ```
 
-    </details>
+      </details>
 
-    <details>
-    <summary><b>Funcionalidades</b></summary>
+      <details>
+      <summary><b>Funcionalidades</b></summary>
 
-  | Opções      | Tipo                       | Descrição                                                                                                                                                |
-  | :---------- | :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | Propriedade | Função                     | Essa função será executada recebendo por parâmetro o objeto com todos os valores dos campos, ela precisa ser do tipo **void**, ou seja, **sem retorno**. |
-  | Retorno     | FormEvent<HTMLFormElement> | É retornado o evento para que seja possível capturar o evento do submit.                                                                                 |
+    | Opções      | Tipo                       | Descrição                                                                                                                                                |
+    | :---------- | :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Propriedade | Função                     | Essa função será executada recebendo por parâmetro o objeto com todos os valores dos campos, ela precisa ser do tipo **void**, ou seja, **sem retorno**. |
+    | Retorno     | FormEvent<HTMLFormElement> | É retornado o evento para que seja possível capturar o evento do submit.                                                                                 |
 
-    </details>
+      </details>
 
-    </dd>
-  </dl>
+      </dd>
+    </dl>
 
 <br/>
 

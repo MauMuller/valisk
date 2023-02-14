@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **6b52b6a56af80fe946d428d8e17cf9b08c6a1d9b**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6b52b6a56af80fe946d428d8e17cf9b08c6a1d9b)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Ajuste na formatação + Links para o mapa
+    
+    Realizei uma formatação melhorada para os tópicos dentro do @useValisk, agora estão todos  aninhados.\n\nAlém disso, Ainda removi dois itens dos mapas por não fazerem sentido.
+	```
+
+<br />
+
 - **314abdd70de1468a8c61c9a44d13af5172a0c149**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/314abdd70de1468a8c61c9a44d13af5172a0c149)
