@@ -2,7 +2,9 @@
 
 # Valisk
 
-Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validações para os campos de texto, tudo por meio de `HOOKS`, visando as tipagens e variadas opções para personalização.
+É uma biblioteca feita para campos **UNCONTROLLED** e **CONTROLLED**, incluindo várias máscaras para serem utilizadas de uma maneira muito fácil e performática.
+
+> EXTRA: Quando integrada ao `react-hook-form`, ela consegue trabalhar da melhor forma possivel, misturando as validações e controles dos campos, ás máscaras com personalização e sem renderizações desnecessárias.
 
 <br />
 
@@ -20,7 +22,7 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 
 <div align="center">
 
-[<img width="500" src="https://ik.imagekit.io/e6khzhxvx/valisk-preview.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672165728023"/>]()
+[<img width="500" src="https://ik.imagekit.io/e6khzhxvx/Principal.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676373284854"/>]()
 
 </div>
 
@@ -28,7 +30,9 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 
 <div align="center">
 
-> Essa é uma biblioteca feita em **REACT** e **TYPESCRIPT**, porém pode ser integrada com qualquer outra lib/framework, isso porque assim como os `hooks` do REACT, VALISK apenas utiliza `hooks` para controlar o campo de texto.
+✅ Documentação completa com vários exemplos ilustrados, api de refência e casos de uso.<br/>
+✅ Integração com outras libs/frameworks de maneira fácil.<br/>
+✅ Suporte a JAVASCRIPT e TYPESCRIPT.<br/>
 
 </div>
 
@@ -38,9 +42,9 @@ Trata-se de uma biblioteca com a finalidade de proporcionar máscaras e validaç
 
 A ideia da construção da biblioteca já existia a muito tempo, porém, apenas depois de adquirir conhecimento das técnologias da modernidade que fui capaz de realiza-lá.
 
-**Valisk** trabalha com `hooks`, ou seja, funcionalidades que realizam algumas tarefas para facilitar o dia a dia do desenvolvedor, esses hooks são a essencia do React funcional, aqui está um link para entender melhor sobre o funcionamento -> [React Hooks](https://pt-br.reactjs.org/docs/hooks-reference.html#gatsby-focus-wrapper).
+**Valisk** trabalha com campos `CONTROLLED` e `UNCONTROLLED`, ou seja, te dando a possiblidade de controllar a renderização sem se precoupar com a `usabilidade do usuário`, essa `responsabilidade` é da `lib`.
 
-A biblioteca disponibiliza _métodos_, _hooks_ e _valores_ iniciais para deixar bem completo o desenvolvimento. Qualquer dúvida, basta navegar até a sessão -> [API de Referência](#api-de-referência) e procurar pela questão em especial ou ainda, mandar uma issue.
+A biblitoeca disponibiliza _métodos_ e _tipos_, apenas o necessário para o desenvolvimento. Qualquer dúvida, basta navegar até a sessão -> [API de Referência](#api-de-referência) e procurar pela questão em especial ou ainda, mandar uma issue.
 
 Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
@@ -49,29 +53,48 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 - [Instalação](#instalação)
 
   - [NPM](#npm)
-  - [Yarn](#yarn)
+  - [YARN](#yarn)
+  - [PNPM](#pnpm)
+
+  <br />
 
 - [Casos de Uso](#casos-de-uso)
 
-  - [Uso Simples](#utilização-simples)
-  - [Uso Complexo](#utilização-complexa)
+  - [Uncontrolled](#uncontrolled)
+  - [Controlled](#controlled)
+  - [React Hook Form](#react-hook-form)
+
+  <br />
 
 - [API de Referência](#api-de-referência)
 
-  - [**useMaskCPF**](#usemaskcpf)
-  - [**useMaskCNPJ**](#usemaskcnpj)
-  - [**useMaskCEP**](#usemaskcep)
-  - [**useMaskMoney**](#usemaskmoney)
-  - [**useMaskPhone**](#usemaskphone)
-  - [**useMaskPassword**](#usemaskpassword)
-  - [**useMasks** _(Principal)_](#usemasks-principal)
+  - [Entrada](#entrada)
+
+    - [useValisk\<Campos>](#usevaliskcampos)
+
+  - [Parâmetros](#parâmetros)
+
+    - [CPF](#cpf)
+    - [CNPJ](#cnpj)
+    - [CEP](#cep)
+    - [MONEY](#money)
+    - [PHONE](#phone)
+    - [PASSWORD](#password)
+
+  - [Retornos](#retornos)
+    - [\_masks](#_masks)
+    - [\_forceUpdate](#_forceupdate)
+    - [\_cleanValues](#_cleanvalues)
+    - [\_getValues](#_getvalues)
+
+  <br />
 
 - [Dúvidas](#dúvidas)
 
   - [Dúvidas no uso da lib?](#duvidas-uso-da-lib)
   - [Encontrou algum problema?](#encontrou-algum-problema)
   - [Tem algumas ideias para contribuir?](#ideais-para-contribuir)
-  - [Ta asim de contribuir codando?](#contribuir-codando)
+  - [Ta afim de contribuir codando?](#contribuir-codando)
 
 <br />
 
@@ -116,896 +139,1453 @@ Para sua utilização é necessário a instalação do pacote, para isso existem
 
 ## Casos de uso
 
-Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas o a apresentação do hook.
+Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresentação da lib com algumas ilustrações.
 
-<dl>
-  <dd>
-  <details>
-  <summary id="utilização-simples">Utilização Simples</summary>
+**Obeservação:** Todos exemplos abaixos conterão `typescript`, caso queira utilizar com javascript, basta remover as tipagens.
 
-Nesse exemplo, será utilizado de forma bem simples o `useMaskCPF` e o `useMaskCNPJ`.
+- #### Uncontrolled
 
-<dl>
-  <dt>Código:</dt>
-  <dd>
+    <details>
+    <summary id="utilização-simples">Iniciando com campos <b>uncontrolled</b></summary>
 
-```TSX
-  import { useMaskCPF, useMaskCNPJ } from "@libsdomau/valisk";
+  Nesse exemplo será utilizado uma demonstração apenas com o `_masks`, `_getValues`, com as propriedades `cpf` e `money`.
 
-  const App = () => {
-    const configHooks = {
-      cpf: { inicialValue: "55552" },
-      cnpj: { useExplictMask: true },
-    };
+  ```TSX
+  import { CSSProperties, FormEvent } from "react";
+  import { useValisk } from "@libsdomau/valisk";
 
-    const [cpf, setCPF, isCPF, setKeyCPF] = useMaskCPF(configHooks.cpf);
-    const [cnpj, setCNPJ, isCNPJ, setKeyCNPJ] = useMaskCNPJ(configHooks.cnpj);
-
-    return (
-      <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-        <input
-          type="text"
-          value={cpf}
-          onChange={(evt) => setCPF(evt.target.value)}
-          onKeyDown={(evt) => setKeyCPF(evt.key)}
-        />
-
-        <input
-          type="text"
-          value={cnpj}
-          onChange={(evt) => setCNPJ(evt.target.value)}
-          onKeyDown={(evt) => setKeyCNPJ(evt.key)}
-        />
-      </div>
-    );
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    gap: "1rem",
+    color: "#fff",
   };
 
-  export { App };
-```
+  let renderCounter = 0;
 
-  </dd>
+  function App() {
+    console.log(`Renderizou ${++renderCounter}`);
 
-  <dt>Resultado:</dt>
-  <dd>
-    <img src="https://ik.imagekit.io/e6khzhxvx/image_3.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672402991950" width="300" />
-  </dd>
-</dl>
+    interface Inputs {
+      campo1: string;
+      campo2: string;
+    }
+
+    const { _masks, _getValues } = useValisk<Inputs>({
+      cpf: { name: "campo1" },
+      money: { name: "campo2", typeMoney: "real", explictMask: true },
+    });
+
+    const showValues = (data: Inputs) => {
+      evt.preventDefault();
+      console.log(data);
+    };
+
+    return (
+      <form style={globalStyle} onSubmit={_getValues(showValues)}>
+        <input type="text" {..._masks("campo1")} />
+        <input type="text" {..._masks("campo2")} />
+        <button>Mostrar</button>
+      </form>
+    );
+  }
+
+  export default App;
+  ```
+
+  Output:
+
+  | 123.124.123-51 | 0,52 | Mostrar |
+  | :------------- | :--- | :------ |
+
+  Console:
+
+  ```SHELL
+    1 Renderização!
+    {campo1: '123.124.123-51', campo2: '0,52'}
+  ```
 
   </details>
 
-<details>
-  <summary id="utilização-complexa">Utilização Complexa</summary>
+  <details>
+  <summary id="utilização-simples">Utilizando o _forceUpdate para mostrar valor do password</summary>
 
-Já nesse exemplo, será utilizado apenas o hook `useMasks`, mostrando assim um pouco do que dá para fazer com esse hook.
+  Neste caso, iremos alterar o valor do campo para mostrar o valor normal apenas com o método `_forceUpdate` e um estado do button, fazendo assim alterar de escondido para o valor normal, tudo de forma uncontrolled.
 
-<dl>
-  <dt>Código:</dt>
-  <dd>
+  ```TSX
+  import { CSSProperties, useEffect, useState } from "react";
+  import { useValisk } from "@libsdomau/valisk";
 
-```TSX
-  import { useId } from "react";
-  import { useMasks } from "@libsdomau/valisk";
-
-  const passwordCondition = {
-    numbers: [4],
-    specialChars: [2, "*"],
-    words: [4],
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
   };
 
-  const templateMasks = [
-    { type: "cnpj", inicialValue: "21523554" },
-    { type: "cpf", useExplictMask: true },
-    { type: "cep" },
-    { type: "phone", incrementDDDAndPrefix: true, useExplictMask: true },
-    { type: "money", useExplictMask: true },
-    { type: "password", passwordPontenciality: passwordCondition },
-  ];
+  let renderCounter = 0;
 
   function App() {
-    const id = useId();
-    const globalStyle = { display: "flex", gap: "0.5rem" };
+    console.log(`${++renderCounter} Renderização`);
+    const [hideValue, setHideValue] = useState(true);
 
-    const configMask = templateMasks.reduce((prev, current) => {
-      const {
-        type,
-        inicialValue,
-        useExplictMask,
-        passwordPontenciality,
-        incrementDDDAndPrefix,
-      } = current;
+    interface Inputs {
+      passwordInput: string;
+    }
 
-      const objectToType = {
-        inicialValue,
-        useExplictMask,
-        passwordPontenciality,
-        incrementDDDAndPrefix,
-      };
+    const { _masks, _forceUpdate } = useValisk<Inputs>({
+      password: { name: "passwordInput", hideValue: hideValue },
+    });
 
-      return { ...prev, [type]: objectToType };
-    }, {});
+    const textButton = hideValue ? "Mostrar" : "Esconder";
 
-    const { values, setValues, areValidValues, setKeys } = useMasks(configMask);
+    useEffect(() => {
+      _forceUpdate({ inputName: "passwordInput", inputType: "uncontrolled" });
+    }, [hideValue]);
 
-    const inputs = templateMasks.map((object, indexByObject) => {
-      const { type } = object;
-      const isPasswordType = type === "password";
+    return (
+      <form style={globalStyle} onSubmit={(evt) => evt.preventDefault()}>
+        <input type="text" {..._masks("passwordInput")} />
+        <button onClick={() => setHideValue(!hideValue)}>{textButton}</button>
+      </form>
+    );
+  }
 
-      const [valueInput, sourceValue] = values[indexByObject];
-      const value = isPasswordType ? valueInput : values[indexByObject];
+  export default App;
 
-      const setValue = setValues[indexByObject];
-      const isValid = areValidValues[indexByObject];
-      const setKey = setKeys.at(indexByObject);
+  ```
 
-      const idConect = `${id}-${type}`;
-      const nameLabel = type[0].toUpperCase() + type.substring(1);
+  Output:
 
-      return (
-        <div key={indexByObject} style={{ ...globalStyle, flexDirection: "row" }}>
-          <label htmlFor={idConect}>{nameLabel}</label>
+  | 123456789 | Esconder |
+  | :-------- | :------- |
 
-          <div style={{ ...globalStyle, flexDirection: "column" }}>
-            <input
-              id={idConect}
-              type="tel"
-              value={value}
-              onChange={(evt) => setValue(evt.target.value)}
-              onKeyDown={(evt) => setKey?.(evt.key)}
-            />
-            {isPasswordType ? <>{sourceValue}</> : ""}
-          </div>
-          <p style={{ width: "10rem" }}>
-            Validação do campo: {JSON.stringify(isValid)}
-          </p>
-        </div>
-      );
+  Console:
+
+  ```SHELL
+    1 Renderização!
+    2 Renderização!
+  ```
+
+  </details>
+
+<br/>
+
+- #### Controlled
+
+  <details>
+  <summary>Iniciando com campos <b>controlled</b></summary>
+
+  Aqui foi utilizado apenas o `_masks` e a propriedade `phone`, com renderização no campo para alterar a lista.
+
+  ```TSX
+  import { CSSProperties, useState } from "react";
+  import { useValisk } from "@libsdomau/valisk";
+
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
+  };
+
+  let renderCounter = 0;
+
+  function App() {
+    console.log(`${++renderCounter} Renderização!`);
+
+    interface Inputs {
+      phoneInput: string;
+    }
+
+    const randomNumbers = [...Array(10)].map(
+      () => `+${Math.round(Math.random() * 100000000)}`
+    );
+
+    const [data] = useState(randomNumbers);
+    const [phoneInput, setPhoneInput] = useState("");
+
+    const filtredPhones = data.filter((number) => number.includes(phoneInput));
+
+    const { _masks } = useValisk<Inputs>({
+      phone: { name: "phoneInput", typePhone: "phoneMovel", showDDD: true },
     });
 
     return (
-      <div style={{ ...globalStyle, flexDirection: "column" }}>{inputs}</div>
+      <div style={globalStyle}>
+        <form>
+          <input
+            type="text"
+            id="cnpj1"
+            value={phoneInput}
+            onChange={(evt) => setPhoneInput(evt.target.value)}
+            {..._masks("phoneInput")}
+          />
+        </form>
+
+        <ul>
+          {filtredPhones.map((numbers, indNumbers) => (
+            <li key={indNumbers}>{numbers}</li>
+          ))}
+        </ul>
+      </div>
     );
   }
-```
 
-  </dd>
-  
-  <dt>Resultado:</dt>
-  <dd>
-    <img src="https://ik.imagekit.io/e6khzhxvx/image_2.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1672402787301" width="700" />
-  </dd>
-</dl>
+  export default App;
+  ```
+
+  Output:
+
+  | +64 |
+  | :-- |
+
+  - +64044127
+  - +64203623
+
+  Console:
+
+  ```SHELL
+  1 Renderização!
+  2 Renderização!
+  3 Renderização!
+  ```
+
   </details>
-  </dd>
-</dl>
+
+  <details>
+  <summary>Utilizando multiplos campos com o mesmo tipo de máscara</summary>
+
+  Aqui foi utilizado o `_masks` e as propriedades `cep` e `cnpj`, possibilidando utilizar múltiplas vezes o mesmo tipo de valor.
+
+  ```TSX
+  import { CSSProperties, useState } from "react";
+  import { useValisk } from "@libsdomau/valisk";
+
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
+  };
+
+  let renderCounter = 0;
+
+  function App() {
+    console.log(`${++renderCounter} Renderização`);
+
+    interface Inputs {
+      cnpj1: string;
+      cnpj2: string;
+      cep1: string;
+      cep2: string;
+    }
+
+    const [inputs, setInputs] = useState([
+      { id: "cnpj1", value: "" },
+      { id: "cnpj2", value: "" },
+      { id: "cep1", value: "" },
+      { id: "cep2", value: "" },
+    ]);
+
+    const { _masks } = useValisk<Inputs>({
+      cnpj: [{ name: "cnpj1", explictMask: true }, { name: "cnpj2" }],
+      cep: [{ name: "cep1", explictMask: true }, { name: "cep2" }],
+    });
+
+    const objectInput = (id: keyof Inputs) => inputs.find((obj) => obj.id === id);
+    const changeInputValue = (value: string, id: keyof Inputs) => {
+      setInputs((prev) =>
+        prev.map((obj) => (obj.id === id ? { ...obj, value } : obj))
+      );
+    };
+
+    return (
+      <form style={globalStyle}>
+        <label htmlFor="cnpj1">cnpj1</label>
+        <input
+          type="text"
+          id="cnpj1"
+          value={objectInput("cnpj1")?.value}
+          onChange={(evt) => changeInputValue(evt.target.value, "cnpj1")}
+          {..._masks("cnpj1")}
+        />
+
+        <label htmlFor="cnpj1">cnpj2</label>
+        <input
+          type="text"
+          id="cnpj2"
+          value={objectInput("cnpj2")?.value}
+          onChange={(evt) => changeInputValue(evt.target.value, "cnpj2")}
+          {..._masks("cnpj2")}
+        />
+
+        <label htmlFor="cep1">cep1</label>
+        <input
+          type="text"
+          id="cep1"
+          value={objectInput("cep1")?.value}
+          onChange={(evt) => changeInputValue(evt.target.value, "cep1")}
+          {..._masks("cep1")}
+        />
+
+        <label htmlFor="cep1">cep2</label>
+        <input
+          type="text"
+          id="cep2"
+          value={objectInput("cep2")?.value}
+          onChange={(evt) => changeInputValue(evt.target.value, "cep2")}
+          {..._masks("cep2")}
+        />
+      </form>
+    );
+  }
+
+  export default App;
+  ```
+
+  Output:
+
+  | cnpj1                    | cnpj2     | cep1         | cep2    |
+  | :----------------------- | :-------- | :----------- | :------ |
+  | 12.\_\_.\_\_/\_\_\_-\_\_ | 12.341.23 | 67786-\_\_\_ | 23334-5 |
+
+  Console:
+
+  ```SHELL
+    1 Renderização
+    2 Renderização
+    3 Renderização
+    ...
+    10 Renderização
+    12 Renderização
+    ...
+    22 Renderização
+  ```
+
+  </details>
+
+<br />
+
+- #### React-Hook-Form
+
+  <details>
+  <summary>Integração + Valores iniciais</summary>
+
+  Nesse exemplo, iremos apenas integrar a lib com o `react-hook-form` colocando um valor inicial.
+
+  ```TSX
+  import { CSSProperties, useEffect } from "react";
+  import { useValisk } from "@libsdomau/valisk";
+  import { useForm } from "react-hook-form";
+
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
+  };
+
+  let renderCounter = 0;
+
+  function App() {
+    console.log(`${++renderCounter} Renderização`);
+
+    interface Inputs {
+      firstInput: string;
+      secondInput: string;
+    }
+
+    const { register, setValue } = useForm<Inputs>({
+      defaultValues: { firstInput: "123", secondInput: "456" },
+    });
+
+    const { _masks, _forceUpdate } = useValisk<Inputs>({
+      phone: [
+        {
+          name: "firstInput",
+          typePhone: "phoneFixo",
+          explictMask: true,
+          showDDD: true,
+        },
+        {
+          name: "secondInput",
+          typePhone: "phoneMovel",
+          showDDD: true,
+          showPrefix: true,
+        },
+      ],
+    });
+
+    useEffect(() => {
+      _forceUpdate([
+        {
+          inputName: "firstInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+        {
+          inputName: "secondInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+      ]);
+    }, []);
+
+    return (
+      <form style={globalStyle} onSubmit={(evt) => evt.preventDefault()}>
+        <input
+          type="text"
+          {...register("firstInput")}
+          {..._masks("firstInput")}
+        />
+
+        <input
+          type="text"
+          {...register("secondInput")}
+          {..._masks("secondInput")}
+        />
+      </form>
+    );
+  }
+
+  export default App;
+  ```
+
+  Output:
+
+  | +12 3\_\_\_-\_\_\_\_ | +45 6 |
+  | :------------------- | :---- |
+
+  Console:
+
+  ```SHELL
+  1 Renderização
+  ```
+
+  </details>
+
+  <details>
+  <summary>Utilização do método _cleanVal e todas outras variações dos campos</summary>
+
+  ```JSX
+  import { CSSProperties, useEffect, useState } from "react";
+  import { useValisk } from "@libsdomau/valisk";
+  import { useForm, SubmitHandler } from "react-hook-form";
+
+  const globalStyle: CSSProperties = {
+    display: "flex",
+    width: "100%",
+    height: "100vh",
+    margin: "0",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "1rem",
+    color: "#fff",
+  };
+
+  const formStyle: CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
+  };
+
+  let renderCounter = 0;
+
+  function App() {
+    console.log(`${++renderCounter} Renderização`);
+    const [hideValue, setHideValue] = useState(false);
+
+    interface Inputs {
+      firstInput: string;
+      secondInput: string;
+      thirtyInput: string;
+      fourtyInput: string;
+      fiftyInput: string;
+    }
+
+    const { register, setValue, handleSubmit } = useForm<Inputs>({
+      defaultValues: { firstInput: "123", secondInput: "456" },
+    });
+
+    const { _masks, _forceUpdate, _cleanVal } = useValisk<Inputs>({
+      phone: [
+        {
+          name: "firstInput",
+          typePhone: "phoneFixo",
+          explictMask: true,
+          showDDD: true,
+        },
+        {
+          name: "secondInput",
+          typePhone: "phoneMovel",
+          showDDD: true,
+          showPrefix: true,
+        },
+      ],
+      password: {
+        name: "thirtyInput",
+        hideValue: hideValue,
+      },
+      money: [
+        {
+          name: "fourtyInput",
+          typeMoney: "real",
+          explictMask: true,
+          explictSimbol: true,
+        },
+        {
+          name: "fiftyInput",
+          typeMoney: "dollar",
+          explictMask: true,
+          explictSimbol: false,
+        },
+      ],
+    });
+
+    const showValues: SubmitHandler<Inputs> = (data) => {
+      console.log(data);
+      console.log(_cleanVal(data));
+    };
+
+    useEffect(() => {
+      _forceUpdate([
+        {
+          inputName: "firstInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+        {
+          inputName: "secondInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+        {
+          inputName: "fourtyInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+        {
+          inputName: "fiftyInput",
+          inputType: "react_hook_form",
+          dispatchSetValue: setValue,
+        },
+      ]);
+    }, []);
+
+    useEffect(() => {
+      _forceUpdate({
+        inputName: "thirtyInput",
+        inputType: "react_hook_form",
+        dispatchSetValue: setValue,
+      });
+    }, [hideValue]);
+
+    return (
+      <div style={globalStyle}>
+        <form onSubmit={handleSubmit(showValues)} style={formStyle}>
+          <input
+            type="text"
+            {...register("firstInput")}
+            {..._masks("firstInput")}
+          />
+
+          <input
+            type="text"
+            {...register("secondInput")}
+            {..._masks("secondInput")}
+          />
+
+          <input
+            type="text"
+            {...register("thirtyInput")}
+            {..._masks("thirtyInput")}
+          />
+
+          <input
+            type="text"
+            {...register("fourtyInput")}
+            {..._masks("fourtyInput")}
+          />
+
+          <input
+            type="text"
+            {...register("fiftyInput")}
+            {..._masks("fiftyInput")}
+          />
+
+          <button>Mostrar Valores</button>
+        </form>
+
+        <button onClick={() => setHideValue(!hideValue)}>
+          {hideValue ? "Mostrar" : "Ocultar"} Senha
+        </button>
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+
+  Output:
+
+  | +12 3323-444\_ | +45 61 2 | •••••••••• | R$ 0,00 | 1,234.12 | Mostrar Valores | Mostrar Senha |
+  | :------------- | :------- | :--------- | :------ | :------- | :-------------- | ------------- |
+
+  Console:
+
+  ```SHELL
+  1 Renderização
+  2 Renderização
+
+  {
+    fiftyInput: "1,234.12",
+    firstInput: "+12 3323-444_",
+    fourtyInput: "R$ 44,55",
+    secondInput: "+45 61 2",
+    thirtyInput: "1255555563"
+  }
+
+  {
+    fiftyInput: "123412",
+    firstInput: "123323444",
+    fourtyInput: "4455",
+    secondInput: "45612",
+    thirtyInput: "1255555563"
+  }
+  ```
+
+  </details>
 
 <br />
 
 ## API de Referência
 
-Nessa sessão você poderá tirar todas suas dúvidas quanto a parametros ou retornos dos hooks, assim como ententer os tipos e até mesmo verificar a sintaxe de utilização para variados casos de uso.
+Nessa sessão você poderá tirar todas suas dúvidas quanto a parametros ou retornos dos métodos, assim como ententer os tipos e até mesmo verificar a sintaxe de utilização para variados casos de uso.
 
-Antes de olhar a documentação, é necessário ter em mente como que funciona de forma prática os principais conceitos da biblioteca.
+Antes de continuar com a referência, lembre-se que é possível trabalhar de diversas formas com a lib, isso para atender aos mais variados casos de uso, porém, ela foi projetada para ser `integrada ao react-hook-form`, isso pois essa lib já resolve de forma muito eficiênte validações e controle sobre os campos, por isso, **valisk** realmente brilha com a sua utilização em conjunto.
 
-Os principais conceitos são bem simples, básicamente `parâmetros` e `retornos`, eles são, respectivamente, valores de entrada e de saída.
+Mesmo, a lib sendo incrivelmente poderosa com o react-hook-forms, ela pode ser utilizada sozinha da mesma forma, um exemplo disso é o método `_getValues`, na qual faz a mesma coisa que o onSubmit do `react-hook-form`, justamente para ser utilizado em conjunto com o `_cleanValues`, obtendo assim, todos os valores de forma limpa.
 
-Podemos ver abaixo de forma ilustrativa como que eles se moldam dentro do código:
+Por baixo dos panos, a lib realiza de forma uncontrolled a colocação da mascára nos campos, utilizando evento padrões do Javascript e eficiêntes códigos para gerar as máscarás.
 
-```JS
-import { useMasks } from "@libsdomau/valisk";
-
-// [values, setValues, isValid, setKey] - Valores de Retorno
-// { cpf: { inicialValue: '0452' } } - Valor de Parâmetro
-
-const [values, setValues, isValid, setKey] = useMasks({
-  cpf: {
-    inicialValue: '0452'
-  }
-});
-```
-
-Assim como desmonstrado no código acima, os valores de `retorno` são aqueles que são `desestruturados` a partir de um `array` \_(Caso não saiba do que se trata a **"Desestruturação do ECMAScript"** -> [Desestruturação de Valores](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment))
-
-Já os valores de `parâmetro`, são aqueles passados através do `objeto` dentro da chamada do `hook`, a partir dele é posível saber quais propriedades são esperadas para cada mascará selecionada.
+Agora, vamos para os métodos.
 
 ---
 
-Com essa breve explicação, vamos aos tópicos de `cada um dos hooks`, mostrando um pouco das suas propriedades, retornos e possibilidades dentro do desenvolvimento:
+## @ Types
 
-<br />
+| Nomes                      | Valor de tipagam                                                                     | Visual do Tipo                                               |
+| :------------------------- | :----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| ForceUpdateParams\<Campos> | { inputName: '...', inputType: "controlled", dispatchSetValue: function }            | {...} \| [{...}, {...}, ...]                                 |
+| MaskTypes\<Campos>         | { cep: {...}, cpf: {...}, cnpj: {...}, password: {...}, money: {...}, phone: {...} } | {[\name_mask]: [{...}, {...}, ...]} \| {[\name_mask]: {...}} |
 
-- ## useMaskCPF
+## @ useValisk
 
-  - [x] Máscara Válida;
-  - [x] Válidação ao completar a máscara;
-  - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+Hook que será utilizado para informar quais serão as máscaras e quais métodos de retorno serão necessários.
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+<br/>
 
-    <details>
-    <summary><b>Template</b></a></summary>
+- ### Entrada
 
-  ```TS
-    //000.000.000-00
-  ```
+  ***
 
-    </details>
+  Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será apenas importante para `typescript`. Agora, caso seja este o caso, é importante enter a funcionalidade abaixo.
 
-    <details>
-    <summary><b>Sintaxe</b></summary>
+  - ### useValisk\<campos>
 
-  ```Typescript
-    import { useMaskCPF } from "@libsdomau/valisk";
+  Essa declaração é necessária para que o typescript possa utilizar os nomes dos campo de texto e assim, deixar de maneira explicita qual será o campo a possuir a máscara.
 
-    ...
-
-    const [value, setValue, isValid, setKey] = useMaskCPF({
-      inicialValue: "4823",
-      useExplictMask: true
-    });
-
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Parâmetros</b></summary>
-    <br />
-
-  > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
-
-  | Propriedades     | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
-  | :--------------- | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
-  | `{}`             | object                | {}              | Sim         | Objeto Vázio.                            |
-  | `inicialValue`   | string _/_ undefined  | ""              | Não         | Valor inicial para o campo de texto.     |
-  | `useExplictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
-
-    </details>
-
-    <details>
-    <summary><b>Retornos</b></summary>
-    <br />
-
-  > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
-
-  | Retornos   | Tipos             | Eventos   | Descrição                                                                                                 |
-  | :--------- | :---------------- | :-------- | :-------------------------------------------------------------------------------------------------------- |
-  | `[]`       | array             | nenhum    | array para desestruturação dos valores.                                                                   |
-  | `value`    | string            | nenhum    | Valor para o campo de texto.                                                                              |
-  | `setValue` | function<string\> | onChange  | Função para atualizar o valor dentro do estado do hook.                                                   |
-  | `isValid`  | boolean           | nenhum    | Verifica se o valor em específico satisfaz a máscara.                                                     |
-  | `setKey`   | function<string\> | onKeyDown | Função para capturar a tecla digitada e apagar a máscara quando a propriedades `useExplictMask` é `true`. |
-
-    </details>
-
-    </dd>
-  </dl>
-
-  <br />
-
-- ## useMaskCNPJ
-
-  - [x] Máscara Válida;
-  - [x] Válidação ao completar a máscara;
-  - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
-
-    <details>
-    <summary><b>Template</b></a></summary>
-
-  ```TS
-    //00.000.000/0000-00
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```Typescript
-    import { useMaskCNPJ } from "@libsdomau/valisk";
-
-    ...
-
-    const [value, setValue, isValid, setKey] = useMaskCNPJ({
-      inicialValue: "4823",
-      useExplictMask: true
-    });
-
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Parâmetros</b></summary>
-    <br />
-
-  > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
-
-  | Propriedades     | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
-  | :--------------- | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
-  | `{}`             | object                | {}              | Sim         | Objeto Vázio.                            |
-  | `inicialValue`   | string _/_ undefined  | ""              | Não         | Valor inicial para o campo de texto.     |
-  | `useExplictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
-
-    </details>
-
-    <details>
-    <summary><b>Retornos</b></summary>
-    <br />
-
-  > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
-
-  | Retornos   | Tipos             | Eventos   | Descrição                                                                                                 |
-  | :--------- | :---------------- | :-------- | :-------------------------------------------------------------------------------------------------------- |
-  | `[]`       | array             | nenhum    | array para desestruturação dos valores.                                                                   |
-  | `value`    | string            | nenhum    | Valor para o campo de texto.                                                                              |
-  | `setValue` | function<string\> | onChange  | Função para atualizar o valor dentro do estado do hook.                                                   |
-  | `isValid`  | boolean           | nenhum    | Verifica se o valor em específico satisfaz a máscara.                                                     |
-  | `setKey`   | function<string\> | onKeyDown | Função para capturar a tecla digitada e apagar a máscara quando a propriedades `useExplictMask` é `true`. |
-
-    </details>
-
-    </dd>
-  </dl>
-
-  <br />
-
-- ## useMaskCEP
-
-  - [x] Máscara Válida;
-  - [x] Válidação ao completar a máscara;
-  - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
-
-    <details>
-    <summary><b>Template</b></a></summary>
-
-  ```TS
-    //00000-000
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```Typescript
-    import { useMaskCEP } from "@libsdomau/valisk";
-
-    ...
-
-    const [value, setValue, isValid, setKey] = useMaskCEP({
-      inicialValue: "4823",
-      useExplictMask: true
-    });
-
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Parâmetros</b></summary>
-    <br />
-
-  > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
-
-  | Propriedades     | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
-  | :--------------- | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
-  | `{}`             | object                | {}              | Sim         | Objeto Vázio.                            |
-  | `inicialValue`   | string _/_ undefined  | ""              | Não         | Valor inicial para o campo de texto.     |
-  | `useExplictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
-
-    </details>
-
-    <details>
-    <summary><b>Retornos</b></summary>
-    <br />
-
-  > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
-
-  | Retornos   | Tipos             | Eventos   | Descrição                                                                                                 |
-  | :--------- | :---------------- | :-------- | :-------------------------------------------------------------------------------------------------------- |
-  | `[]`       | array             | nenhum    | array para desestruturação dos valores.                                                                   |
-  | `value`    | string            | nenhum    | Valor para o campo de texto.                                                                              |
-  | `setValue` | function<string\> | onChange  | Função para atualizar o valor dentro do estado do hook.                                                   |
-  | `isValid`  | boolean           | nenhum    | Verifica se o valor em específico satisfaz a máscara.                                                     |
-  | `setKey`   | function<string\> | onKeyDown | Função para capturar a tecla digitada e apagar a máscara quando a propriedades `useExplictMask` é `true`. |
-
-    </details>
-
-    </dd>
-  </dl>
-
-  <br />
-
-- ## useMaskMoney
-
-  - [x] Máscara Válida;
-  - [ ] Válidação ao completar a máscara;
-  - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
-
-    <details>
-    <summary><b>Template</b></a></summary>
-
-  ```TS
-    //R$ 0,00
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```Typescript
-    import { useMaskMoney } from "@libsdomau/valisk";
-
-    ...
-
-    const [value, setValue, isValid] = useMaskMoney({
-      inicialValue: "4823",
-      useExplictMask: true
-    });
-
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Parâmetros</b></summary>
-    <br />
-
-  > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
-
-  | Propriedades     | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
-  | :--------------- | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
-  | `{}`             | object                | {}              | Sim         | Objeto Vázio.                            |
-  | `inicialValue`   | string _/_ undefined  | ""              | Não         | Valor inicial para o campo de texto.     |
-  | `useExplictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
-
-    </details>
-
-    <details>
-    <summary><b>Retornos</b></summary>
-    <br />
-
-  > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
-
-  | Retornos   | Tipos                     | Eventos  | Descrição                                               |
-  | :--------- | :------------------------ | :------- | :------------------------------------------------------ |
-  | `[]`       | array                     | nenhum   | array para desestruturação dos valores.                 |
-  | `value`    | string                    | nenhum   | Valor para o campo de texto.                            |
-  | `setValue` | function<string\>         | onChange | Função para atualizar o valor dentro do estado do hook. |
-  | `isValid`  | true (Ainda indísponivel) | nenhum   | Verifica se o valor em específico satisfaz a máscara.   |
-
-    </details>
-
-    <details>
-    <summary>
-      <s>Em breve</s>
-    </summary>
-    <br />
-
-  > OBS: Essa sessão ainda está em desenvolvimento, **nenhuma das funcionalidades citadas aqui estão disponivéis para uso!**
-
-  No futuro, pretendo adicionar dois incrementos dentro do hook, ambos relacionados aos `parâmetros`.
-  A ideia seria justamente dar mais personalização e funcionalidade para a validação e máscara.
-
-  1. Primeira ideia seria realizar o incremento de uma propriedades chamada `explictCipher` do tipo `boolean`, servindo básicamente como forma de mostrar ou retirar o cifrão no campo.
-
-     ```TSX
-       const [value, setValue, isValid] = useMaskMoney({
-         inicialValue: "",
-         useExplictMask: true,
-         explictCipher: true // <- Dessa maneira!
-       });
-     ```
-
-  2. Já a segunda ideia seria realizar algo parecido com o que existe atualmente no hook `useMaskPassword`, podendo inserir uma validação personalizada, seja por um número mínimo ou número máximo. Sendo assim, `minValue` e `maxValue`, ambos do tipo `Númber`.
-
-     ```TSX
-       const [value, setValue, isValid] = useMaskMoney({
-         inicialValue: "",
-         useExplictMask: true,
-         minValue: '30', //R$ 30,00 <- Sendo assim, o valor informado sempre o valor antes das casas decimais
-         maxValue: '100' //R$ 100,00 <- Igualmente aqui, porém, sendo o o valor máximo
-       });
-     ```
-
-    </details>
-
-    </dd>
-  </dl>
-
-  <br />
-
-- ## useMaskPhone
-
-  - [x] Máscara Válida;
-  - [x] Válidação ao completar a máscara;
-  - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
-
-    <details>
-    <summary><b>Template</b></a></summary>
-
-  ```TS
-    //Celular completo
-    //+00 (00) 0 0000-0000
-
-    //Celular parcial
-    //0 0000-0000
-
-    //Telefone completo
-    //+00 (00) 0000-0000
-
-    //Telefone parcial
-    //0000-0000
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```Typescript
-    import { useMaskPhone } from "@libsdomau/valisk";
-
-    ...
-
-    const [value, setValue, isValid, setKey] = useMaskPhone({
-      inicialValue: "4823",
-      useExplictMask: true,
-      incrementDDDAndPrefix: true,
-      typePhone: "phoneFixo",
-    });
-
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Parâmetros</b></summary>
-    <br />
-
-  > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
-
-  | Propriedades            | Tipos                                  | Valores Padrões | Obrigatório | Descrição                                         |
-  | :---------------------- | :------------------------------------- | :-------------- | :---------- | :------------------------------------------------ |
-  | `{}`                    | object                                 | {}              | Sim         | Objeto Vázio.                                     |
-  | `inicialValue`          | string _/_ undefined                   | ""              | Não         | Valor inicial para o campo de texto.              |
-  | `useExplictMask`        | boolean _/_ undefined                  | false           | Não         | Utilização da máscara de forma explicita.         |
-  | `incrementDDDAndPrefix` | boolean _/_ undefined                  | false           | Não         | Tem o papel de incrementar o _DDD_ e o _prefixo_. |
-  | `typePhone`             | phoneFixo _/_ phoneMovel _/_ undefined | "PhoneMovel"    | Não         | Direciona qual tipo de fone deverá ter no campo.  |
-
-    </details>
-
-    <details>
-    <summary><b>Retornos</b></summary>
-    <br />
-
-  > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
-
-  | Retornos   | Tipos             | Eventos   | Descrição                                                                                                 |
-  | :--------- | :---------------- | :-------- | :-------------------------------------------------------------------------------------------------------- |
-  | `[]`       | array             | nenhum    | Array para desestruturação dos valores.                                                                   |
-  | `value`    | string            | nenhum    | Valor para o campo de texto.                                                                              |
-  | `setValue` | function<string\> | onChange  | Função para atualizar o valor dentro do estado do hook.                                                   |
-  | `isValid`  | boolean           | nenhum    | Verifica se o valor em específico satisfaz a máscara.                                                     |
-  | `setKey`   | function<string\> | onKeyDown | Função para capturar a tecla digitada e apagar a máscara quando a propriedades `useExplictMask` é `true`. |
-
-    </details>
-
-    </dd>
-  </dl>
-
-  <br />
-
-- ## useMaskPassword
-
-  - [x] Máscara Válida;
-  - [x] Válidação ao completar a máscara;
-  - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
-
-    <details>
-    <summary><b>Template</b></a></summary>
-
-  ```TS
-    //Valor escondido
-    //******
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```Typescript
-    import { useMaskPassword } from "@libsdomau/valisk";
-
-    ...
-
-    const [values, setValue, isValid] = useMaskPassword({
-      inicialValue: "4823",
-      hideValue: true,
-      passwordPontenciality: {
-        numbers: [2, "123"],
-        specialChars: [1],
-        words: [3, 'abcde'],
-      },
-    });
-
-    const [value, sourceValue] = values;
-
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Parâmetros</b></summary>
-    <br />
-
-  > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
-
-  | Propriedades            | Tipos                 | Valores Padrões | Obrigatório                                                                                                 | Descrição                                                                                          |
-  | :---------------------- | :-------------------- | :-------------- | :---------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------- |
-  | `{}`                    | object                | {}              | Sim                                                                                                         | Objeto Vázio.                                                                                      |
-  | `inicialValue`          | string _/_ undefined  | ""              | Não                                                                                                         | Valor inicial para o campo de texto.                                                               |
-  | `hideValue`             | boolean _/_ undefined | true            | Não                                                                                                         | Esconde ou mostra o valor dentro do campo.                                                         |
-  | `passwordPontenciality` | object _/_ undefined  | {}              | Não/Sim (Caso haja propriedadess algumas propriedadess `numbers`, `specialChars` ou `words`, é necessário). | A partir daqui que é possível realizar uma validação de senha a partir das propriedadess a seguir. |
-
-  **Dentro do `passwordPontenciality`**
-
-  | Propriedades   | Tipos               | Valores Padrões | Obrigatório | Descrição                                                                                                  |
-  | :------------- | :------------------ | :-------------- | :---------- | :--------------------------------------------------------------------------------------------------------- |
-  | `numbers`      | array _/_ undefined | []              | Não         | A propriedades deverá receber um array para apoás, receber outras duas propriedadess (`number`, `string`). |
-  | `specialChars` | array _/_ undefined | []              | Não         | " "                                                                                                        |
-  | `words`        | array _/_ undefined | []              | Não         | " "                                                                                                        |
-
-  **Dentro do `numbers`,`specialChars` e `words`**
-
-  | Propriedades                | Tipos  | Valores Padrões | Obrigatório                                                                      | Descrição                                                                                                                                                                                                                              |
-  | :-------------------------- | :----- | :-------------- | :------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | `minValueToValidate`        | number | 0               | Sim (Porém, só será obrigartório se uma das propriedadess acima serem chamadas). | Aqui será colocado o menor valor para a validação dessa propriedades. (Ex: caso seja indicado `numbers: [1]`, o campo deverá ter pelo menos 1 número digitado para retornar `true`).                                                   |
-  | `especificValuesToValidate` | string | ""              | Não                                                                              | Nessa posição deverá ser inserido os valores em específico que devem ter pelo menos uma vez dentro do campo. (Ex: caso seja inserido `specialChars: [2, '@']`, o campo deverá ter pelo menos dois `@` digitados para retornar `true`). |
-
-    </details>
-
-    <details>
-    <summary><b>Retornos</b></summary>
-    <br />
-
-  > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
-
-  | Retornos   | Tipos             | Eventos  | Descrição                                                          |
-  | :--------- | :---------------- | :------- | :----------------------------------------------------------------- |
-  | `[]`       | array             | nenhum   | Array para desestruturação dos valores.                            |
-  | `values`   | array             | nenhum   | Array com dois valores do campo de texto (`value`, `sourceValue`). |
-  | `setValue` | function<string\> | onChange | Função para atualizar o valor dentro do estado do hook.            |
-  | `isValid`  | boolean           | nenhum   | Verifica se o valor em específico satisfaz a máscara.              |
-
-  **Dentro do `values`**
-
-  | Retornos      | Tipos  | Eventos | Descrição                                                                    |
-  | :------------ | :----- | :------ | :--------------------------------------------------------------------------- |
-  | `value`       | string | nenhum  | Este é o valor na qual está no campo de texto, seja com ou sem os `*`.       |
-  | `sourceValue` | string | nenhum  | Já esse retorna o valor por padrão digitado, ou seja, completamente sem `*`. |
-
-    </details>
-
-    </dd>
-  </dl>
-
-<br />
-
-- ## useMasks _(Principal)_
-
-  - [x] Máscara Válida;
-  - [x] Válidação ao completar a máscara;
-  - [x] Funciona em conjunto com o `Auto-Complete do navegador`;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-  - [x] Contém todos outros hooks juntamente com suas propriedadess;
-
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
-
-    <details>
-    <summary><b>Template</b></a></summary>
-
-  ```TS
-    //Todos os anteriores
-
-    //cpf
-    //000.000.000-00
-
-    //cnpj
-    //00.000.000/0000-00
-
-    //cep
-    //00000-000
-
-    //money
-    //R$ 0,00
-
-    //phones
-      //Celular completo
-      //+00 (00) 0 0000-0000
-
-      //Celular parcial
-      //0 0000-0000
-
-      //Telefone completo
-      //+00 (00) 0000-0000
-
-      //Telefone parcial
-      //0000-0000
-
-    //password
-    //******
-
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```Typescript
-    import { useMasks } from "@libsdomau/valisk";
-
-    ...
-
-    const { values, setValues, areValidValues, setKeys } = useMasks({
-      cep: {},
-      cnpj: {},
-      money: {},
-      cpf: {},
-      password: {},
-      phone: {},
-    });
-
-    const [cep, cnpj, money, cpf, password, phone] = values;
-    const [setCEP, setCNPJ, setMoney, setCPF, setPassword, setPhone] = setValues;
-    const [isCEP, isCNPJ, isMoney, isCPF, isPassword, isPhone] = areValidValues;
-    const [isCEP, isCNPJ, isMoney, isCPF, isPassword, isPhone] = setKeys;
-    const [setKeyCEP, setKeyCNPJ, noNeed, setKeyCPF, noNeed, setKeyPhone] = setKeys;
-
-    //É preciso entender que a ordem inserida no objeto pelo `Parâmetro` do hook,
-    //será a ordem de desestruturação dos valores igualmente mostrado acima!
-
-    //`noNeed` significa que esses valores não precisariam da função `setKey`,
-    //porém como estão antes de valores que precisam, seria uma conveção colcoar,
-    //um nome para não utilizar esses.
-
-    //O recomendado é deixar todas as propriedadess que não possuem `setKey` para o final!
-
-  ```
-
-    </details>
-
-    <details>
-    <summary><b>Parâmetros</b></summary>
-    <br />
-
-  > OBS: É necessário passar um objeto inicial, mesmo que seja vázio.
-
-  > A ordem das propriedades pode ser alterada a vontade, porém, é importante ficar em alerta pois a **ordem de entrada** sempre será a **ordem de saída**.
-
-  | Propriedades | Tipos                | Obrigatório | Descrição                                                                               |
-  | :----------- | :------------------- | :---------- | :-------------------------------------------------------------------------------------- |
-  | `{}`         | object               | Sim         | Objeto Vázio.                                                                           |
-  | `cpf`        | object _/_ undefined | Não         | Aqui será passado um objeto para ter acesso as propriedadess do hook `useMaskCPF`.      |
-  | `cnpj`       | object _/_ undefined | Não         | Aqui será passado um objeto para ter acesso as propriedadess do hook `useMaskCNPJ`.     |
-  | `cep`        | object _/_ undefined | Não         | Aqui será passado um objeto para ter acesso as propriedadess do hook `useMaskCEP`.      |
-  | `money`      | object _/_ undefined | Não         | Aqui será passado um objeto para ter acesso as propriedadess do hook `useMaskMoney`.    |
-  | `phone`      | object _/_ undefined | Não         | Aqui será passado um objeto para ter acesso as propriedadess do hook `useMaskPhone`.    |
-  | `password`   | object _/_ undefined | Não         | Aqui será passado um objeto para ter acesso as propriedadess do hook `useMaskPassword`. |
-
-  É possível, atráves das tipagens, verificar todas as propriedades que cada um desses objetos recebem, porém, são as mesmas que cada hook precisa.
-
-  É importante entender que esse hook é básicamente, o conjunto de todos outros, ele serve justamente para `suprir a necessidade de ficar desestruturando cada um` dos hooks, possibilitando realizações de operações muito mais complexas utilizando apenas um hook.
-
-  Por conta dessas complexidades, é necessário entender o funcionamento único do hook. A `ordem de entrada` será sempre a `ordem de saída`.
-
-  Essa lógica é interessante pois com ela, criar campos de texto com código limpo através do map acaba sendo muito simples e satisfatório de utilizar.
-
-  Caso deseja ver essas lógicas mais complexas, segue o link [Utilização complexa do `useMasks`](#utilização-complexa)
-
-    </details>
-
-    <details>
-    <summary><b>Retornos</b></summary>
-    <br />
-
-  > OBS: Os nomes das váriaveis são apenas uma convenção, mude se necessário.
-
-  | Retornos         | Tipos                   | Eventos   | Descrição                                                                                                           |
-  | :--------------- | :---------------------- | :-------- | ------------------------------------------------------------------------------------------------------------------- |
-  | `{}`             | object                  | nenhum    | Objeto vázio para receber as determinadas propriedades abaixo, a partir da `ordem dos parâmetros` inserida no hook. |
-  | `values`         | array<string \ object>  | nenhum    | Array com todos os valores retornados a partir das propriedades.                                                    |
-  | `setValues`      | array<function<string>> | onChange  | Array com as funções para inserir o valor do campo.                                                                 |
-  | `areValidValues` | array<boolean \ object> | nenhum    | Array com as validações de acordo com o que foi digitado no campo.                                                  |
-  | `setKeys`        | array<function<string>> | onKeyDown | Array com funções para inserir keys de cada um dos campos, essa key é o nome da tecla pressionada.                  |
-
-  Cada um desses valores possuem um array na qual é ordenado pelo `objeto` do `parâmetro`.
-
-  Abaixo podemos ver um pequeno exemplo de como que seriam esses valores utilizados para campos de texto:
+  Sintaxe:
 
   ```TSX
-    import { useMasks } from "@libsdomau/valisk";
+  interface Inputs {
+    teste1: string;
+    teste2: string;
+  }
 
-    ...
-
-    const { values, setValues, areValidValues, setKeys } = useMasks({
-      phone: {
-        inicialValue: "482362345",
-        useExplictMask: true,
-        incrementDDDAndPrefix: true,
-        typePhone: "phoneMovel",
-      },
-
-      money: {
-        inicialValue: '2456',
-        useExplictMask: true
-      }
-    });
-
-    const [phone, money] = values;
-    const [setPhone, setMoney] = setValues;
-    const [keyPhone] = setKeys;
-
-    console.log(phone) //+48 (23) 6 2345-____
-    console.log(money) //R$ 24,56
-
-    return (<>
-      <input
-        type="text"
-        onChange={evt => setMoney(evt.target.value)}
-        value={money}
-      />
-
-      <input
-        type="text"
-        onKeyDown={evt => keyPhone(evt.key)}
-        onChange={evt => setPhone(evt.target.value)}
-        value={phone}
-      />
-    </>);
-
-
+  const { ... } = useValisk /* Aqui -> */<Inputs>(...)
   ```
 
-    </details>
+  Assim como o `react-hook-form`, o **Valisk** também precisa desses de entrada, ou seja, é possivel utilizar essa mesma tipagem para ambas bibliotecas.
 
-    </dd>
-  </dl>
+  Após colocar como entrada do hook a tipagem dos campos, você já irá notar que todos os parâmetros e propriedades que precisam do nome do campo, irão retornar todos os campos, facilitando o processo de escolher qual nome do campo que precisa de tal máscara.
+
+  Sabendo disso, apenas informe sempre os tipos dos campos e deixe que o typescript e o valisk façam esse trabalho por você!
+
+<br/>
+
+- ### Parâmetros
+
+  ***
+
+  Aqui estára todas as possibilidades de máscaras para serem inseridas, em breve terão mais outras para serem incluidas.
+
+  - ### CPF
+
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Template</b></a></summary>
+
+    ```TS
+    //000.000.000-00
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
+
+      ...
+
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        cpf: {
+          name: "...", //nome do campo
+          explictMask: false
+        },
+
+        // ou
+
+        cpf: [
+          {
+            name: "...",
+            explictMask: false
+          },
+          {
+            name: "...",
+            explictMask: false
+          }
+        ]
+      });
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
+    | :------------ | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
+    | `name`        | Campos                | ""              | Sim         | Nome do campo                            |
+    | `explictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
+
+      </details>
+
+      </dd>
+    </dl>
+
+    <br />
+
+  - ### CNPJ
+
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Template</b></a></summary>
+
+    ```TS
+    //00.000.000/0000-00
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
+
+      ...
+
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        cnpj: {
+          name: "...", //nome do campo
+          explictMask: false
+        },
+
+        // ou
+
+        cnpj: [
+          {
+            name: "...",
+            explictMask: false
+          },
+          {
+            name: "...",
+            explictMask: false
+          }
+        ]
+      });
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
+    | :------------ | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
+    | `name`        | Campos                | ""              | Sim         | Nome do campo                            |
+    | `explictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
+
+      </details>
+
+      </dd>
+    </dl>
+
+    <br />
+
+  - ### CEP
+
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Template</b></a></summary>
+
+    ```TS
+    //00000-000
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
+
+      ...
+
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        cep: {
+          name: "...", //nome do campo
+          explictMask: false
+        },
+
+        // ou
+
+        cep: [
+          {
+            name: "...",
+            explictMask: false
+          },
+          {
+            name: "...",
+            explictMask: false
+          }
+        ]
+      });
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
+    | :------------ | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
+    | `name`        | Campos                | ""              | Sim         | Nome do campo                            |
+    | `explictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
+
+      </details>
+
+      </dd>
+    </dl>
+
+    <br />
+
+  - ### MONEY
+
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Template</b></a></summary>
+
+    ```TS
+    //R$ 0,00 - Com Simbolo
+    //0,00
+
+    //US$ 0.00 - Com Simbolo
+    //0.00
+
+    //€ 0.00 - Com Simbolo
+    //0.00
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
+
+      ...
+
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        money: {
+          name: "...", //nome do campo
+          typeMoney: "real",
+          explictMask: true,
+          explictSimbol: true,
+        },
+
+        // ou
+
+        cep: [
+          {
+            name: "...",
+            typeMoney: "real",
+            explictMask: true,
+            explictSimbol: true,
+          },
+          {
+            name: "...",
+            typeMoney: "real",
+            explictMask: true,
+            explictSimbol: true,
+          },
+        ]
+      });
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades    | Tipos                        | Valores Padrões | Obrigatório | Descrição                                            |
+    | :-------------- | :--------------------------- | :-------------- | :---------- | :--------------------------------------------------- |
+    | `name`          | Campos                       | ""              | Sim         | Nome do campo                                        |
+    | `typeMoney`     | "real" \| "dollar" \| "euro" | "real"          | Sim         | Tipo de moeda para máscara                           |
+    | `explictMask`   | boolean _/_ undefined        | false           | Não         | Utilização da máscara de forma explicita             |
+    | `explictSimbol` | boolean _/_ undefined        | false           | Não         | Mostra o simbolo da moeda escolhida ao lado esquerdo |
+
+      </details>
+
+      </dd>
+    </dl>
+
+    <br />
+
+  - ### PHONE
+
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Template</b></a></summary>
+
+    ```TS
+    //Celular Completo
+    //+00 (00) 0 0000-0000
+
+    //Celular Com Prefixo
+    //(00) 0 0000-0000
+
+    //Celular Com DDD
+    //+00 0 0000-0000
+
+    //Celular
+    //0 0000-0000
+
+    //Telefone Completo
+    //+00 (00) 0000-0000
+
+    //Telefone Com Prefixo
+    //(00) 0000-0000
+
+    //Telefone Com DDD
+    //+00 0000-0000
+
+    //Telefone
+    //0000-0000
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
+
+      ...
+
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        phone: {
+          name: "...", //nome do campo
+          typePhone: "phoneMovel",
+          explictMask: false,
+          showDDD: false,
+          showPrefix: false
+        },
+
+        // ou
+
+        phone: [
+          {
+            name: "...", //nome do campo
+            typePhone: "phoneMovel",
+            explictMask: false,
+            showDDD: false,
+            showPrefix: false
+          },
+          {
+            name: "...", //nome do campo
+            typePhone: "phoneMovel",
+            explictMask: false,
+            showDDD: false,
+            showPrefix: false
+          },
+        ]
+      });
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades  | Tipos                       | Valores Padrões | Obrigatório | Descrição                                 |
+    | :------------ | :-------------------------- | :-------------- | :---------- | :---------------------------------------- |
+    | `name`        | Campos                      | ""              | Sim         | Nome do campo                             |
+    | `typePhone`   | "phoneMovel" \| "phoneFixo" | "phoneMovel"    | Sim         | Seleciona o tipo de fone que será o campo |
+    | `explictMask` | boolean _/_ undefined       | false           | Não         | Utilização da máscara de forma explicita  |
+    | `showDDD`     | boolean _/_ undefined       | false           | Não         | Fará o papel de mostrar ou esconder o DDD |
+    | `showPrefix`  | boolean _/_ undefined       | false           | Não         | Mostra ou esconde o Prefixo do campo      |
+
+      </details>
+
+      </dd>
+    </dl>
+
+    <br />
+
+  - ### PASSWORD
+
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Template</b></a></summary>
+
+    ```TS
+    //••••••••••••
+    //ou
+    //123241231254
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
+
+      ...
+
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        password: {
+          name: "...", //nome do campo
+          hideValue: true
+        },
+
+        // ou
+
+        password: [
+          {
+            name: "...", //nome do campo
+            hideValue: true
+          },
+          {
+            name: "...", //nome do campo
+            hideValue: true
+          },
+        ]
+      });
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades | Tipos                 | Valores Padrões | Obrigatório | Descrição                            |
+    | :----------- | :-------------------- | :-------------- | :---------- | :----------------------------------- |
+    | `name`       | Campos                | ""              | Sim         | Nome do campo                        |
+    | `hideValue`  | boolean _/_ undefined | true            | Não         | Opção de mostrar ou esconder o valor |
+
+      </details>
+
+      </dd>
+    </dl>
 
 <br />
+
+- ### Retornos
+
+  ***
+
+  Métodos que serão desestruturados para serem utilizados para diversas funcionalidades.
+
+  - ### \_masks
+
+    - [x] Utilizado por todos campos;
+    - [x] Necessario ser usado de forma única em cada campo;
+    - [x] Não causa uma renderização por sua utilização`;
+    - [x] Insere de forma automática a tag name caso não o elemento não possua;
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Sobre</b></summary>
+
+    Este é sem sombra de dúvidas o método mais importante da biblioteca, sendo ele o responsavel por gerar a máscara para cada um dos campos, por isso é necessário utilizar do `operador rest` para funcionar as máscaras.
+
+    Além disso, assim como o `register` do `react-hook-form`, o `_masks` também precisa receber o nome do campo que irá receber a máscara configurada no hook.
+
+    Assim facilitando muito o aprendizado para quem já utilizava a outra biblioteca.
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
+
+      ...
+      interface Campos {
+        campo1: string;
+        campo2: string;
+      }
+
+
+      const { _masks } = useValisk<Campos>({...});
+
+      return (
+        <>
+          <input type="text" {...masks("campo1")}/>
+        </>
+      );
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Funcionalidades</b></summary>
+
+    | Opções      | Tipo            | Descrição                                                                        |
+    | :---------- | :-------------- | :------------------------------------------------------------------------------- |
+    | Propriedade | keyof \<Campos> | Sendo preciso escolher somente um para cada \_masks                              |
+    | Retorno     | DetailsHTML     | Propriedades do elemento Input, utilizando assim algumas tag do próprio elemento |
+
+      </details>
+
+      </dd>
+    </dl>
+
+  <br/>
+
+  - ### \_forceUpdate
+
+    - [x] Os campos que precisam desse efeito, precisam ser declaros de forma clara;
+    - [x] Pode ser usados quantas vezes forem necessárias com diversos campo em uma atualização ou apenas um;
+    - [x] Não causa uma renderização por sua utilização;
+    - [x] É usado na maioria da vezes em conjunto com o **useEffect** nativo do react.
+    - [x] Usado para trocar o valor da senha ou para carregar todas os campos com máscara como valor inicial.
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Sobre</b></summary>
+
+    Esse método possui a função de atualizar o valor de todos os campo inseridos, ele faz isso por meio de eventos e funcionalidades internas do campo, ou seja, `ele não causa nenhuma renderização`, para mudar o valor de forma defitiva é necessário carregar o componente novamente com as propriedades já alteradas, por conta disso, ele é normalmente utilizado com o `useEffect` do react, pois, assim que o componente é carregado novamente, ele captura todos os valores alterados e `realiza as mudaças` sem precisar realizar uma nova renderização.
+
+    Em seus parametros é necessário indicar algumas `props`, para que a lib possa fazer a atualização do campo `sem causar uma nova renderização`.
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useEffect } from "react";
+      import { useValisk } from "@libsdomau/valisk";
+      import { useForm } from "react-hook-form";
+      ...
+
+      interface Campos {
+        campo1: string;
+        campo2: string;
+      }
+
+      const [hideValue, setHideValue] = useState(false);
+      const { register, setValue } = useForm<Campos>();
+      const { _masks _forceUpdate } = useValisk<Campos>({...});
+
+      useEffect(() => {
+        _forceUpdate({
+          inputName: "campo2"
+          inputType: "uncontrolled"
+        })
+      }, []);
+
+      useEffect(() => {
+        _forceUpdate({
+          inputName: "campo1"
+          inputType: "react-hook-form",
+          dispatchSetValue: setValue,
+        })
+      }, [hideValue]);
+
+
+      return (
+        <>
+          <input type="text" {...register("campo1")} {...masks("campo1")}/>
+        </>
+      );
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Funcionalidades</b></summary>
+
+    | Opções      | Tipo                                                                                                                       | Descrição                                                                                                                                                                                                                                                                           |
+    | :---------- | :------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Propriedade | { inputName: keyof \<Campos>, inputType: "controlled" \| "uncontrolled" \| "react-hook-form", dispatchSetValue: Function } | Aqui é preciso informar de forma exata os campos que serão atualizados, mesmo que não cause uma renderização, é importante colocar apenas aquele que necessitam de uma alguma atualização de valor. Lembrando que é possível inserir um array de objetos, além de apenas um objeto. |
+    | Retorno     | void                                                                                                                       | Esse método não retorna nenhum tipo de valor, apenas realiza seus processos.                                                                                                                                                                                                        |
+
+      </details>
+
+      </dd>
+    </dl>
+
+  <br/>
+
+  - ### \_cleanValues
+
+    - [x] Mostra todos os valores em forma de objeto da mesma maneira que foram declarados;
+    - [x] Necessita receber os dados e realiza a conversão deles para dados sem máscaras, apenas em formato de números e letras;
+    - [x] Todos valores que não foram configurados para possuirem máscara serão retornados sem alteração;
+    - [x] Pode ser usado com o `handleSubmit` do `react-hook-form` para mostrar tudo sem máscara.
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Sobre</b></summary>
+
+    Este é método que limpa o valor de todos as propriedades do objeto que possuem algum tipo de máscara e foram indicados nas configurações da lib, ele apenas remove tudo o que não seja letra ou número do valor.
+
+    Já os campos que não possuem a configuração, são retornados igualmente, porém, sem nenhum tipo de remoção.
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
+
+      ...
+
+      interface Campos {
+        campo1: string;
+      }
+
+      const showValues: Campos = (data) => {
+        console.log(_cleanVal(data));
+      };
+
+      const { _masks, _cleanValues, _getValues } = useValisk<Campos>({...});
+
+      return (
+        <form onSubmit={_getValues(showValues)}>
+          <input type="text" {...masks("campo1")}/>
+        </form>
+      );
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Funcionalidades</b></summary>
+
+    | Opções      | Tipo                  | Descrição                                                                                                                                                                                                  |
+    | :---------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Propriedade | \<Campos>             | Aqui é preciso informar a data obtida através do `onSubmit`, sendo pelo `_getValues` ou pelo `handleSubmit`                                                                                                |
+    | Retorno     | \<Campos> (Formatado) | O retorno desse método é básicamente o mesmo objeto passado porém, com remoções de máscaras caso algum campo tenha sido registrado no hook, caso o contrário, apenas é retornado da maneira que é passado. |
+
+      </details>
+
+      </dd>
+    </dl>
+
+  <br/>
+
+  - ### \_getValues
+
+    - [x] Captura o valor de todos os campos dentro do form.
+    - [x] Os campos não precisam possuir o `_masks`, porém precisam estar declarados no [Tipo de Entrada](#entrada);
+    - [x] Ele retorna um objeto com todos o valores dos campos, essa tipagem é a mesma de entrada no hook;
+    - [x] Funciona igual o `handleSubmit` do `react-hook-form`, precisando passar um função dentro e ela possuirá os valores retornados.
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Sobre</b></summary>
+
+    Este método funciona como um auxiliar, uma função que captura todos valores dos campos que são **exclusivamente** filhos do Form. Após pegar os valores, ela converte eles em um objeto utilizando o nome do campo como **key** e o valor como **value**.
+
+    É necessário passar uma outra função para dentro desse método, ela que irá receber o valor dos campos em formato de objeto atráves do parâmetro.
+
+    Caso você tenha utilizado o `react-hook-form`, ela funciona igual o `handleSubmit`.
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
+
+      ...
+
+      interface Campos {
+        campo1: string;
+      }
+
+
+      const { _masks, _getValues } = useValisk<Campos>({...});
+      const showValues: Campos = (data) => console.log(data);
+
+      return (
+        <form onSubmit={_getValues(showValues)}>
+          <input type="text" {...masks("campo1")}/>
+        </form>
+      );
+
+      <!-- Ou -->
+
+      return (
+        <form onSubmit={_getValues((data) => console.log(data))}>
+          <input type="text" {...masks("campo1")}/>
+        </form>
+      );
+
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Funcionalidades</b></summary>
+
+    | Opções      | Tipo                       | Descrição                                                                                                                                                |
+    | :---------- | :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Propriedade | Função                     | Essa função será executada recebendo por parâmetro o objeto com todos os valores dos campos, ela precisa ser do tipo **void**, ou seja, **sem retorno**. |
+    | Retorno     | FormEvent<HTMLFormElement> | É retornado o evento para que seja possível capturar o evento do submit.                                                                                 |
+
+      </details>
+
+      </dd>
+    </dl>
+
+<br/>
 
 ## Dúvidas
 

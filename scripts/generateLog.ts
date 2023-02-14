@@ -73,35 +73,6 @@ exec("git log", (err, output) => {
 
   const templateBodyMarkdown = `## CHANGELOG\nAqui estão todos os commits realizados até o momento, acompanhe todos eles na lista abaixo!\n\n**Commits:**\n\n`;
 
-  // const getPromisesAndReturnArray = async (
-  //   arrayWithPromises: Array<Promise<Response>>
-  // ) => {
-  //   const response = [];
-
-  //   for (const obj of arrayWithPromises) {
-  //     response.push(await obj);
-  //     console.log(response);
-  //   }
-
-  //   return response;
-  // };
-
-  // (async function () {
-  //   const arrayWithPromises = arrayWithProperties.map((obj) =>
-  //     fetch(
-  //       `https://api.github.com/repos/maumuller/valisk/commits/${obj.commit}`
-  //     )
-  //   );
-
-  //   const arrayData = await getPromisesAndReturnArray(arrayWithPromises);
-
-  //   console.log(arrayData);
-
-  // const statusFromURLs = arrayData.map((data) => data.status);
-
-  // console.log(statusFromURLs);
-  // })();
-
   const finalBody = arrayWithProperties.reduce(
     (prev: string, current: ObjectType) => {
       const { author, commit, date, description, linkCommit } = current;

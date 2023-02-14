@@ -1,15 +1,15 @@
 {
   "name": "@libsdomau/valisk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT License",
-  "description": "Validações e máscaras para seus dados, e o melhor, tudo em forma de Hooks!",
-  "main": "./dist/my-lib.umd.js",
-  "module": "./dist/my-lib.es.js",
-  "types": "./dist/index.d.ts",
+  "description": "Mascaras UNCONTROLLED, CONTROLLED e integração com REACT-HOOK-FORMS",
+  "main": "./dist/lib.umd.js",
+  "module": "./dist/lib.es.js",
+  "types": "./dist/lib/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/my-lib.es.js",
-      "require": "./dist/my-lib.umd.js"
+      "import": "./dist/lib.es.js",
+      "require": "./dist/lib.umd.js"
     }
   },
   "type": "module",
@@ -21,7 +21,10 @@
     "react",
     "valisk",
     "mask-for-inputs",
-    "validation-for-inputs"
+    "integration-with-react-hook-form",
+    "uncontrolled-mask",
+    "controlled-mask",
+    "react-hook-form-mask"
   ],
   "author": {
     "name": "Mauricio Muller dos Santos",
@@ -30,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MauMuller/react-valisk"
+    "url": "https://github.com/MauMuller/valisk"
   },
   "scripts": {
     "dev": "vite",
@@ -40,23 +43,23 @@
     "downgrade": "npm version 0.0.0",
     "log": "ts-node-esm ./scripts/generateLog.ts",
     "release": "ts-node-esm ./scripts/generateRelease.ts",
-    "update": "ts-node-esm ./scripts/updatePackage.ts && ts-node-esm ./scripts/generateRelease.ts && git add ./.github/templates/RELEASE.md && git commit -m `(RELEASE.md)Docs:Incremento de versão na RELEASE\n\nNova versão disponivel no header`",
-    "commit": "ts-node-esm ./scripts/generateLog.ts && git add CHANGELOG.md && gitmoji -c",
-    "PR": "ts-node-esm ./scripts/generatePR.ts && git add ./.github/PULL_REQUEST_TEMPLATE.md"
+    "update": "ts-node-esm ./scripts/updatePackage.ts && ts-node-esm ./scripts/generateRelease.ts && git add ./.github/templates/RELEASE.md && git commit -m '(RELEASE.md) Nova versao disponivel.'",
+    "commit": "ts-node-esm ./scripts/generateLog.ts && git add CHANGELOG.md && gitmoji -c"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "^18.11.18",
-    "@types/react": "^18.0.24",
-    "@types/react-dom": "^18.0.8",
-    "@vitejs/plugin-react": "^2.2.0",
-    "gitmoji-cli": "^7.0.3",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "gitmoji-cli": "^7.1.0",
     "ts-node": "^10.9.1",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.3",
-    "vite-plugin-dts": "^1.7.1"
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vite-plugin-dts": "^1.7.2"
   }
 }

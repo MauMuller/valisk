@@ -3,6 +3,448 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **98ecb7e0563518c85180f2041860fbb482750aac**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/98ecb7e0563518c85180f2041860fbb482750aac)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): incremento de uma tag br
+    
+    Atualização do menu, novamente, agora para incremento da tag
+	```
+
+<br />
+
+- **388b34d0e6480ab693914861fa6896ec109884eb**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/388b34d0e6480ab693914861fa6896ec109884eb)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Remoção de tags
+    
+    Apenas removi alguns tags br do mapa
+	```
+
+<br />
+
+- **42f684c05e5fbb7e3ef7b6cfa00eab20e9acf150**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/42f684c05e5fbb7e3ef7b6cfa00eab20e9acf150)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    🔥 (markdown.lint): Removido arquivo sem utilidade
+    
+    Foi removido esse arquivo por falta de importancia dentro do código
+	```
+
+<br />
+
+- **7dcb0526d41e1d26ffbc3b2fc8450c70f29119c5**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/7dcb0526d41e1d26ffbc3b2fc8450c70f29119c5)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Ajuste na formatação das frases iniciais da lib
+    
+    Incremento de um icone no lugar do mark do github, além de um br no final da frase
+	```
+
+<br />
+
+- **99b1ec8d1e091b1941176b30f7b909f6f70674b5**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/99b1ec8d1e091b1941176b30f7b909f6f70674b5)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Marketing da lib em forma de lista + Aumento nas tags
+    
+    Quando estava conferindo, percebi que a documentação  estava repetindo várias coisas, por isso decidi fazer uma listinha com observações mais importates sobre a lib. Além disso, ainda aumentei as tag dos casos de uso pois no github ficavam muito pequenas
+	```
+
+<br />
+
+- **87852801177c3b86a3791d77f6b8d543176bfb93**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/87852801177c3b86a3791d77f6b8d543176bfb93)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (README): Incremento dos casos de uso no mapa + formatação
+    
+    Adicionei as tags de título dentro dos casos de uso para que seja possível navegar direto em algum caso de uso. Além de colocar uma separação no menu de links
+	```
+
+<br />
+
+- **6b52b6a56af80fe946d428d8e17cf9b08c6a1d9b**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6b52b6a56af80fe946d428d8e17cf9b08c6a1d9b)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Ajuste na formatação + Links para o mapa
+    
+    Realizei uma formatação melhorada para os tópicos dentro do @useValisk, agora estão todos  aninhados.\n\nAlém disso, Ainda removi dois itens dos mapas por não fazerem sentido.
+	```
+
+<br />
+
+- **314abdd70de1468a8c61c9a44d13af5172a0c149**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/314abdd70de1468a8c61c9a44d13af5172a0c149)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Finalizado os tópicos de 'retorno' e 'mapa da documentação'
+    
+    Foi então finalizado ambos tópicos citados no título, com ajustes na formatação da documentação, agora a ideia é realizar teste e o upload para o main
+	```
+
+<br />
+
+- **2bab172578627c2d1c0438a8fcb9e5c74f2f06b9**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2bab172578627c2d1c0438a8fcb9e5c74f2f06b9)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (readme): Incremento do _clearValues
+    
+    Apenas finalizado mais um tópico após uma pequena refatoração dentro da lib
+	```
+
+<br />
+
+- **62540c1307e976a34f35a04e9882bdfec96b75b6**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/62540c1307e976a34f35a04e9882bdfec96b75b6)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (readme): atualização da maneira de utilização do '_getValues'
+    
+    Básicamente, foi modificado na documentação para manter o getValues igualmente o handleSubmit do 'react-hook-form.
+	```
+
+<br />
+
+- **eb497c61263af75abdb90614ddd34158d135084e**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/eb497c61263af75abdb90614ddd34158d135084e)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    ♻️ (_cleanValues & _getValues): REFATORAMENTO PARA AMBOS MÉTODOS, PEGANDO VALORES FORA DA MÁSCARA
+    
+    Nesse refatoramento, tive que refazer a maneira de funcionamento do _getValues, isso pois eu não havia percebido que antes, caso fosse informado algum campo que não possuisse o '_masks', ele não mostrava quando houvesse a resposta do evento. Por conta disso, resolvi adotar a  maneira que o próprio react-hook-form faz para capturar os dados, criando assim um auxiliar entre a função que o usuário for passar e o evento, da mesma maneira que o 'handleSubmit', assim, retornando o próprio tipo dos inputs informados.\n\nJá em relaxação ao '_cleanValues', precisei alterar o retorno, pois, antes, ele tentava sempre procurar pela mascará que foi informado nas configurações do hook, coisa que gerava um erro caso fosse declaro algum input que não houve o método '_masks' da mesma forma que o anterior. Coisa que agora foi resolvido e todos os campos que não forem declarados no hook, ele não faz remoção de caracteres
+	```
+
+<br />
+
+- **9676d327ac762a2d75c3662d92c5e2ec2bc84989**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/9676d327ac762a2d75c3662d92c5e2ec2bc84989)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (README): TÓPICO DE ENTRADA + PARAMETROS + INICIO DO RETORNO
+    
+    Nessa atualização, foi finalizado o tópico de parametros e entrada com typescript.Ambos ficaram extremamente completos e fáceis de serem entendidos, com ilustrações práticas.\nAgora, estou dando andamento para o tópico de retorno, já iniciado com os dois principais métodos,faltando ainda: _getValues e _cleanValues
+	```
+
+<br />
+
+- **d384aa36c26d2f128067b27b393fbb77171ce1f7**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d384aa36c26d2f128067b27b393fbb77171ce1f7)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (readme): API de referencia
+    
+    Incremento de todos os parametros utilizados dentro da lib, completando mais um tópico, agora restando apenas os retornos e o mapa
+	```
+
+<br />
+
+- **492e35819821bbd206a9bbc97a43bd23f7f45a53**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/492e35819821bbd206a9bbc97a43bd23f7f45a53)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (readme.md): Finalização dos casos de uso e inicio da API de REFERENCIA
+    
+    Terminei os principais casos de uso para os três tipos de uso da lib, realizando exemplo simples e complexos para demonstração, além de começar a realização da API de Referencia
+	```
+
+<br />
+
+- **64e2a1ea4074287addd0040ff117d46bd3ad9e03**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/64e2a1ea4074287addd0040ff117d46bd3ad9e03)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    📝 (readme): Atualização dos casos de uso e Introdução
+    
+    Apenas realizei mais exemplos para o caso de uso da biblioteca, atualizando todos os conceitos novamente, porém, só incluindo o a introdução por enquanto
+	```
+
+<br />
+
+- **a1cef837811778cd747e758e0694216f95828805**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/a1cef837811778cd747e758e0694216f95828805)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    🔧 (TSCONFIG & README): Alteração na configuração dos TSCONFIG + README
+    
+    Foi necessário colocar para o builder do ts a versão mais atual do navegador para que seja possível aceitar alguns metodos novos já incrementados no javascript
+	```
+
+<br />
+
+- **42bd5c0a71c0c4717994c42d56b61500a6a19e20**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/42bd5c0a71c0c4717994c42d56b61500a6a19e20)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    ♻️ (many .tsx file): Realizei a mudança da extensão de vários arquivos
+    
+    Apenas ajustei algumas tipagens que estavam incorretas e troquei a extensão de alguns arquivos na qual não precisavam estar em tsx
+	```
+
+<br />
+
+- **f85e290e5f2b470d46bb6ccc3e49cf628fed91d3**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f85e290e5f2b470d46bb6ccc3e49cf628fed91d3)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    ⚰️ (Arquivos Usados pela versão antiga): Realizei a exclusão de vários arquivos da antiga versão que ainda estavam presentes nessa
+    
+    A partir de uma exclusão de arquivo 'mortos' foi possivel diminuir ainda mais o tamanho da lib
+	```
+
+<br />
+
+- **4201d9a14073ab620ad6d59fd07cfb6b131c377b**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/4201d9a14073ab620ad6d59fd07cfb6b131c377b)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    🚩 (changelog.md & release.md): Resolvido conflitos de merge
+    
+    Básicamente, linkei o que existia no remoto com o local
+	```
+
+<br />
+
+- **08b54d30b3ce63493f09a995945d431880b87d29**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/08b54d30b3ce63493f09a995945d431880b87d29)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    🧱 (packeage.json & release.md): Atualização no script + nova versão no RELEASE
+    
+    Tentei incrementar as 'aspas simples' para realizar o commit invés das 'aspas invetidas', além disso, nova versão disponivel no realease
+	```
+
+<br />
+
+- **f4a87788889fe152140e3af4b607cc36f770637a**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f4a87788889fe152140e3af4b607cc36f770637a)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    1.0.4
+	```
+
+<br />
+
+- **b5eaceb81812beeb9e18d5bca039d4a03bb11e75**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b5eaceb81812beeb9e18d5bca039d4a03bb11e75)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/02/2023
+
+	```
+    ✨ ((All files)): Criação de uma nova versão para a lib, agora, renovando completamente o conceito e a regra de negócios | REACT-HOOK-FORMS INTEGRATION...
+    
+    Após começar a realização de vários testes com a biblioteca, percebi que ela não era uma boa opção para vários cenários atuais da programação, principalmente com a integração de outras bibliotecas, isso pois ela se limitada a ser um hook que renderizava toda vez que digitado. Por conta disso e com todos os testes, resolvi dar um tempo de realizar commmits, focando principalmente na funcionalidade, ou seja, refiz toda a biblioteca com uma ideia diferente do convencional. Agora, ela possui o poder de trabalhar com UNCONTROLLED e CONTROLLED, além de uma integração FOD* COM O REACT-HOOK-FORMS.
+	```
+
+<br />
+
+- **1bd405a6f1a28f1ab26fa2cded45272dfec41b1c**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/1bd405a6f1a28f1ab26fa2cded45272dfec41b1c)
+
+	Autor: maumuller - [https://github.com/maumuller/](https://github.com/maumuller/)
+
+	Data: 11/01/2023
+
+	```
+    💡 (Markdown Templates): Incremento de templates prontos para automatização
+    
+    apenas estou upando o conteúdo anterior que não foi trakeado
+	```
+
+<br />
+
+- **b1d338842fa6b2c179389f56c546f7d3a5c46ede**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/b1d338842fa6b2c179389f56c546f7d3a5c46ede)
+
+	Autor: maumuller - [https://github.com/maumuller/](https://github.com/maumuller/)
+
+	Data: 11/01/2023
+
+	```
+    🔨 (generateRelease.ts): Implementação de commits realizados dentro do release para upload de versão
+    
+    Realizei um script para mostrar apenas um link e a data de todas as alterações feitas dentro da lib
+	```
+
+<br />
+
+- **24b5d1f460adaf158716b1dd25030ced02efeda8**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/24b5d1f460adaf158716b1dd25030ced02efeda8)
+
+	Autor: maumuller - [https://github.com/maumuller/](https://github.com/maumuller/)
+
+	Data: 11/01/2023
+
+	```
+    :memo: Adição de link e mensagem com linguagens no README e ajuste no release de template
+    
+    No geral, coloquei o link do PNPM e uma mensagem dizendo a possibilidade de usar a lib em js e ts e um pequeno ajuste no release
+	```
+
+<br />
+
+- **d8d2af1cacf2f5ca5c40386287e70ff6239fa0ad**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/d8d2af1cacf2f5ca5c40386287e70ff6239fa0ad)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/01/2023
+
+	```
+    (RELEASE.md)Script: Ajuste no script para realizar o commit do RELEASE
+	```
+
+<br />
+
+- **2ba5112e3dddfbbaa1e521d41e2f47680302154e**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2ba5112e3dddfbbaa1e521d41e2f47680302154e)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/01/2023
+
+	```
+    1.0.3
+	```
+
+<br />
+
+- **cdbd8a1eb7c51c3266cf1893f904eefd4c7d3c44**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/cdbd8a1eb7c51c3266cf1893f904eefd4c7d3c44)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 10/01/2023
+
+	```
+    ♻️ (useMasks): Refatoração: Arrumado o hook useMasks, agora contando com a tipagem de ponta a ponta e 100% de funcionanmento
+    
+    Esse hook me fez perder muito tempo, principalmente pra descrobrir qual era o problema dele não funcionar, já que o typescript não apontava nenhum erro de sintaxe e muito menos de tipagens, além de funcionar de forma normal quando importado a biblioteca no mesmo projeto.\n\nEsses detalhes me fizeram refatorar toda a parte de construção, o que me fez entender que o real problema estava no build.\nIsso acontece porque o vite acaba mudando o nome de todas as váriaveis e funções, e como eu dependia dos nomes, ele nunca conseguia encontrar o hook certo, retornando um array vazio sempre.\n\nPara resolver, precisei pegar um dado dentro da função, o lugar aonde eu declaro qual será o tipo de mascará, fazendo assim, ele sempre pegar todas as mascarás, sem eu precisar incrementar um array a mais nisso.
+	```
+
+<br />
+
 - **faa130f3d1080438afd75c88c2cac5e91365fc36**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/faa130f3d1080438afd75c88c2cac5e91365fc36)
