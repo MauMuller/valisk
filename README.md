@@ -64,28 +64,24 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 - [API de Referência](#api-de-referência)
 
-  - [@Types](#types)
+  - [Entrada](#entrada)
 
-  - [@useValisk](#usevalisk)
+    - [useValisk\<Campos>](#usevaliskcampos)
 
-    - [Entrada](#entrada)
+  - [Parâmetros](#parâmetros)
 
-      - [useValisk\<Campos>](#usevaliskcampos)
+    - [CPF](#cpf)
+    - [CNPJ](#cnpj)
+    - [CEP](#cep)
+    - [MONEY](#money)
+    - [PHONE](#phone)
+    - [PASSWORD](#password)
 
-    - [Parâmetros](#parâmetros)
-
-      - [CPF](#cpf)
-      - [CNPJ](#cnpj)
-      - [CEP](#cep)
-      - [MONEY](#money)
-      - [PHONE](#phone)
-      - [PASSWORD](#password)
-
-    - [Retornos](#retornos)
-      - [\_masks](#_masks)
-      - [\_forceUpdate](#_forceupdate)
-      - [\_cleanValues](#_cleanvalues)
-      - [\_getValues](#_getvalues)
+  - [Retornos](#retornos)
+    - [\_masks](#_masks)
+    - [\_forceUpdate](#_forceupdate)
+    - [\_cleanValues](#_cleanvalues)
+    - [\_getValues](#_getvalues)
 
 - [Dúvidas](#dúvidas)
 
@@ -798,10 +794,10 @@ Agora, vamos para os métodos.
 
 ## @ Types
 
-| Nomes                      | Valor de tipagam                                                                     | Visual do Tipo                                                                                                                                                                                                                             |
-| :------------------------- | :----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ForceUpdateParams\<Campos> | { inputName: '...', inputType: "controlled", dispatchSetValue: function }            | {...} \|\| [{...}, {...}, ...]                                                                                                                                                                                                             |
-| MaskTypes\<Campos>         | { cep: {...}, cpf: {...}, cnpj: {...}, password: {...}, money: {...}, phone: {...} } | { cep: {...} \|\| [{...}, {...}, ...], cpf: {...} \|\| [{...}, {...}, ...], cnpj: {...} \|\| [{...}, {...}, ...], password: {...} \|\| [{...}, {...}, ...], money: {...} \|\| [{...}, {...}, ...], phone: {...} \|\| [{...}, {...}, ...] } |
+| Nomes                      | Valor de tipagam                                                                     | Visual do Tipo                                               |
+| :------------------------- | :----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| ForceUpdateParams\<Campos> | { inputName: '...', inputType: "controlled", dispatchSetValue: function }            | {...} \| [{...}, {...}, ...]                                 |
+| MaskTypes\<Campos>         | { cep: {...}, cpf: {...}, cnpj: {...}, password: {...}, money: {...}, phone: {...} } | {[\name_mask]: [{...}, {...}, ...]} \| {[\name_mask]: {...}} |
 
 ## @ useValisk
 
@@ -809,13 +805,13 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
 
 <br/>
 
-### Entrada
+- ### Entrada
 
----
+  ***
 
-Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será apenas importante para `typescript`. Agora, caso seja este o caso, é importante enter a funcionalidade abaixo.
+  Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será apenas importante para `typescript`. Agora, caso seja este o caso, é importante enter a funcionalidade abaixo.
 
-- ### useValisk\<campos>
+  - ### useValisk\<campos>
 
   Essa declaração é necessária para que o typescript possa utilizar os nomes dos campo de texto e assim, deixar de maneira explicita qual será o campo a possuir a máscara.
 
@@ -838,400 +834,402 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
 <br/>
 
-### Parâmetros
+- ### Parâmetros
 
----
+  ***
 
-- ### CPF
+  Aqui estára todas as possibilidades de máscaras para serem inseridas, em breve terão mais outras para serem incluidas.
 
-  - [x] Máscara Válida;
-  - [x] Possibilidade de personalização;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-  - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+  - ### CPF
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
 
-    <details>
-    <summary><b>Template</b></a></summary>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-  ```TS
-  //000.000.000-00
-  ```
+      <details>
+      <summary><b>Template</b></a></summary>
 
-    </details>
+    ```TS
+    //000.000.000-00
+    ```
 
-    <details>
-    <summary><b>Sintaxe</b></summary>
+      </details>
 
-  ```TSX
-    import { useValisk } from "@libsdomau/valisk";
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-    ...
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
 
-    const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
-      cpf: {
-        name: "...", //nome do campo
-        explictMask: false
-      },
+      ...
 
-      // ou
-
-      cpf: [
-        {
-          name: "...",
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        cpf: {
+          name: "...", //nome do campo
           explictMask: false
         },
-        {
-          name: "...",
-          explictMask: false
-        }
-      ]
-    });
 
-  ```
+        // ou
 
-    </details>
+        cpf: [
+          {
+            name: "...",
+            explictMask: false
+          },
+          {
+            name: "...",
+            explictMask: false
+          }
+        ]
+      });
 
-    <details>
-    <summary><b>Propriedades</b></summary>
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
+    | :------------ | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
+    | `name`        | Campos                | ""              | Sim         | Nome do campo                            |
+    | `explictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
+
+      </details>
+
+      </dd>
+    </dl>
+
     <br />
 
-  | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
-  | :------------ | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
-  | `name`        | Campos                | ""              | Sim         | Nome do campo                            |
-  | `explictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
+  - ### CNPJ
 
-    </details>
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
 
-    </dd>
-  </dl>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-  <br />
+      <details>
+      <summary><b>Template</b></a></summary>
 
-- ### CNPJ
+    ```TS
+    //00.000.000/0000-00
+    ```
 
-  - [x] Máscara Válida;
-  - [x] Possibilidade de personalização;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-  - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+      </details>
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-    <details>
-    <summary><b>Template</b></a></summary>
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
 
-  ```TS
-  //00.000.000/0000-00
-  ```
+      ...
 
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```TSX
-    import { useValisk } from "@libsdomau/valisk";
-
-    ...
-
-    const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
-      cnpj: {
-        name: "...", //nome do campo
-        explictMask: false
-      },
-
-      // ou
-
-      cnpj: [
-        {
-          name: "...",
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        cnpj: {
+          name: "...", //nome do campo
           explictMask: false
         },
-        {
-          name: "...",
-          explictMask: false
-        }
-      ]
-    });
 
-  ```
+        // ou
 
-    </details>
+        cnpj: [
+          {
+            name: "...",
+            explictMask: false
+          },
+          {
+            name: "...",
+            explictMask: false
+          }
+        ]
+      });
 
-    <details>
-    <summary><b>Propriedades</b></summary>
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
+    | :------------ | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
+    | `name`        | Campos                | ""              | Sim         | Nome do campo                            |
+    | `explictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
+
+      </details>
+
+      </dd>
+    </dl>
+
     <br />
 
-  | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
-  | :------------ | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
-  | `name`        | Campos                | ""              | Sim         | Nome do campo                            |
-  | `explictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
+  - ### CEP
 
-    </details>
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
 
-    </dd>
-  </dl>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-  <br />
+      <details>
+      <summary><b>Template</b></a></summary>
 
-- ### CEP
+    ```TS
+    //00000-000
+    ```
 
-  - [x] Máscara Válida;
-  - [x] Possibilidade de personalização;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-  - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+      </details>
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-    <details>
-    <summary><b>Template</b></a></summary>
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
 
-  ```TS
-  //00000-000
-  ```
+      ...
 
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```TSX
-    import { useValisk } from "@libsdomau/valisk";
-
-    ...
-
-    const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
-      cep: {
-        name: "...", //nome do campo
-        explictMask: false
-      },
-
-      // ou
-
-      cep: [
-        {
-          name: "...",
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        cep: {
+          name: "...", //nome do campo
           explictMask: false
         },
-        {
-          name: "...",
-          explictMask: false
-        }
-      ]
-    });
 
-  ```
+        // ou
 
-    </details>
+        cep: [
+          {
+            name: "...",
+            explictMask: false
+          },
+          {
+            name: "...",
+            explictMask: false
+          }
+        ]
+      });
 
-    <details>
-    <summary><b>Propriedades</b></summary>
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
+    | :------------ | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
+    | `name`        | Campos                | ""              | Sim         | Nome do campo                            |
+    | `explictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
+
+      </details>
+
+      </dd>
+    </dl>
+
     <br />
 
-  | Propriedades  | Tipos                 | Valores Padrões | Obrigatório | Descrição                                |
-  | :------------ | :-------------------- | :-------------- | :---------- | :--------------------------------------- |
-  | `name`        | Campos                | ""              | Sim         | Nome do campo                            |
-  | `explictMask` | boolean _/_ undefined | false           | Não         | Utilização da máscara de forma explicita |
+  - ### MONEY
 
-    </details>
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
 
-    </dd>
-  </dl>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-  <br />
+      <details>
+      <summary><b>Template</b></a></summary>
 
-- ### MONEY
+    ```TS
+    //R$ 0,00 - Com Simbolo
+    //0,00
 
-  - [x] Máscara Válida;
-  - [x] Possibilidade de personalização;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-  - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+    //US$ 0.00 - Com Simbolo
+    //0.00
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+    //€ 0.00 - Com Simbolo
+    //0.00
+    ```
 
-    <details>
-    <summary><b>Template</b></a></summary>
+      </details>
 
-  ```TS
-  //R$ 0,00 - Com Simbolo
-  //0,00
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-  //US$ 0.00 - Com Simbolo
-  //0.00
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
 
-  //€ 0.00 - Com Simbolo
-  //0.00
-  ```
+      ...
 
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```TSX
-    import { useValisk } from "@libsdomau/valisk";
-
-    ...
-
-    const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
-      money: {
-        name: "...", //nome do campo
-        typeMoney: "real",
-        explictMask: true,
-        explictSimbol: true,
-      },
-
-      // ou
-
-      cep: [
-        {
-          name: "...",
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        money: {
+          name: "...", //nome do campo
           typeMoney: "real",
           explictMask: true,
           explictSimbol: true,
         },
-        {
-          name: "...",
-          typeMoney: "real",
-          explictMask: true,
-          explictSimbol: true,
-        },
-      ]
-    });
 
-  ```
+        // ou
 
-    </details>
+        cep: [
+          {
+            name: "...",
+            typeMoney: "real",
+            explictMask: true,
+            explictSimbol: true,
+          },
+          {
+            name: "...",
+            typeMoney: "real",
+            explictMask: true,
+            explictSimbol: true,
+          },
+        ]
+      });
 
-    <details>
-    <summary><b>Propriedades</b></summary>
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades    | Tipos                        | Valores Padrões | Obrigatório | Descrição                                            |
+    | :-------------- | :--------------------------- | :-------------- | :---------- | :--------------------------------------------------- |
+    | `name`          | Campos                       | ""              | Sim         | Nome do campo                                        |
+    | `typeMoney`     | "real" \| "dollar" \| "euro" | "real"          | Sim         | Tipo de moeda para máscara                           |
+    | `explictMask`   | boolean _/_ undefined        | false           | Não         | Utilização da máscara de forma explicita             |
+    | `explictSimbol` | boolean _/_ undefined        | false           | Não         | Mostra o simbolo da moeda escolhida ao lado esquerdo |
+
+      </details>
+
+      </dd>
+    </dl>
+
     <br />
 
-  | Propriedades    | Tipos                        | Valores Padrões | Obrigatório | Descrição                                            |
-  | :-------------- | :--------------------------- | :-------------- | :---------- | :--------------------------------------------------- |
-  | `name`          | Campos                       | ""              | Sim         | Nome do campo                                        |
-  | `typeMoney`     | "real" \| "dollar" \| "euro" | "real"          | Sim         | Tipo de moeda para máscara                           |
-  | `explictMask`   | boolean _/_ undefined        | false           | Não         | Utilização da máscara de forma explicita             |
-  | `explictSimbol` | boolean _/_ undefined        | false           | Não         | Mostra o simbolo da moeda escolhida ao lado esquerdo |
+  - ### PHONE
 
-    </details>
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
 
-    </dd>
-  </dl>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-  <br />
+      <details>
+      <summary><b>Template</b></a></summary>
 
-- ### PHONE
+    ```TS
+    //Celular Completo
+    //+00 (00) 0 0000-0000
 
-  - [x] Máscara Válida;
-  - [x] Possibilidade de personalização;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-  - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+    //Celular Com Prefixo
+    //(00) 0 0000-0000
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+    //Celular Com DDD
+    //+00 0 0000-0000
 
-    <details>
-    <summary><b>Template</b></a></summary>
+    //Celular
+    //0 0000-0000
 
-  ```TS
-  //Celular Completo
-  //+00 (00) 0 0000-0000
+    //Telefone Completo
+    //+00 (00) 0000-0000
 
-  //Celular Com Prefixo
-  //(00) 0 0000-0000
+    //Telefone Com Prefixo
+    //(00) 0000-0000
 
-  //Celular Com DDD
-  //+00 0 0000-0000
+    //Telefone Com DDD
+    //+00 0000-0000
 
-  //Celular
-  //0 0000-0000
+    //Telefone
+    //0000-0000
+    ```
 
-  //Telefone Completo
-  //+00 (00) 0000-0000
+      </details>
 
-  //Telefone Com Prefixo
-  //(00) 0000-0000
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-  //Telefone Com DDD
-  //+00 0000-0000
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
 
-  //Telefone
-  //0000-0000
-  ```
+      ...
 
-    </details>
-
-    <details>
-    <summary><b>Sintaxe</b></summary>
-
-  ```TSX
-    import { useValisk } from "@libsdomau/valisk";
-
-    ...
-
-    const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
-      phone: {
-        name: "...", //nome do campo
-        typePhone: "phoneMovel",
-        explictMask: false,
-        showDDD: false,
-        showPrefix: false
-      },
-
-      // ou
-
-      phone: [
-        {
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        phone: {
           name: "...", //nome do campo
           typePhone: "phoneMovel",
           explictMask: false,
           showDDD: false,
           showPrefix: false
         },
-        {
-          name: "...", //nome do campo
-          typePhone: "phoneMovel",
-          explictMask: false,
-          showDDD: false,
-          showPrefix: false
-        },
-      ]
-    });
 
-  ```
+        // ou
 
-    </details>
+        phone: [
+          {
+            name: "...", //nome do campo
+            typePhone: "phoneMovel",
+            explictMask: false,
+            showDDD: false,
+            showPrefix: false
+          },
+          {
+            name: "...", //nome do campo
+            typePhone: "phoneMovel",
+            explictMask: false,
+            showDDD: false,
+            showPrefix: false
+          },
+        ]
+      });
 
-    <details>
-    <summary><b>Propriedades</b></summary>
+    ```
+
+      </details>
+
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
+
+    | Propriedades  | Tipos                       | Valores Padrões | Obrigatório | Descrição                                 |
+    | :------------ | :-------------------------- | :-------------- | :---------- | :---------------------------------------- |
+    | `name`        | Campos                      | ""              | Sim         | Nome do campo                             |
+    | `typePhone`   | "phoneMovel" \| "phoneFixo" | "phoneMovel"    | Sim         | Seleciona o tipo de fone que será o campo |
+    | `explictMask` | boolean _/_ undefined       | false           | Não         | Utilização da máscara de forma explicita  |
+    | `showDDD`     | boolean _/_ undefined       | false           | Não         | Fará o papel de mostrar ou esconder o DDD |
+    | `showPrefix`  | boolean _/_ undefined       | false           | Não         | Mostra ou esconde o Prefixo do campo      |
+
+      </details>
+
+      </dd>
+    </dl>
+
     <br />
 
-  | Propriedades  | Tipos                       | Valores Padrões | Obrigatório | Descrição                                 |
-  | :------------ | :-------------------------- | :-------------- | :---------- | :---------------------------------------- |
-  | `name`        | Campos                      | ""              | Sim         | Nome do campo                             |
-  | `typePhone`   | "phoneMovel" \| "phoneFixo" | "phoneMovel"    | Sim         | Seleciona o tipo de fone que será o campo |
-  | `explictMask` | boolean _/_ undefined       | false           | Não         | Utilização da máscara de forma explicita  |
-  | `showDDD`     | boolean _/_ undefined       | false           | Não         | Fará o papel de mostrar ou esconder o DDD |
-  | `showPrefix`  | boolean _/_ undefined       | false           | Não         | Mostra ou esconde o Prefixo do campo      |
-
-    </details>
-
-    </dd>
-  </dl>
-
-  <br />
-
-- ### PASSWORD
+  - ### PASSWORD
 
   - [x] Máscara Válida;
   - [x] Possibilidade de personalização;
@@ -1301,216 +1299,216 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
 <br />
 
-### Retornos
+- ### Retornos
 
----
+  ***
 
-- ### \_masks
+  - ### \_masks
 
-  - [x] Utilizado por todos campos;
-  - [x] Necessario ser usado de forma única em cada campo;
-  - [x] Não causa uma renderização por sua utilização`;
-  - [x] Insere de forma automática a tag name caso não o elemento não possua;
+    - [x] Utilizado por todos campos;
+    - [x] Necessario ser usado de forma única em cada campo;
+    - [x] Não causa uma renderização por sua utilização`;
+    - [x] Insere de forma automática a tag name caso não o elemento não possua;
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-    <details>
-    <summary><b>Sobre</b></summary>
+      <details>
+      <summary><b>Sobre</b></summary>
 
-  Este é sem sombra de dúvidas o método mais importante da biblioteca, sendo ele o responsavel por gerar a máscara para cada um dos campos, por isso é necessário utilizar do `operador rest` para funcionar as máscaras.
+    Este é sem sombra de dúvidas o método mais importante da biblioteca, sendo ele o responsavel por gerar a máscara para cada um dos campos, por isso é necessário utilizar do `operador rest` para funcionar as máscaras.
 
-  Além disso, assim como o `register` do `react-hook-form`, o `_masks` também precisa receber o nome do campo que irá receber a máscara configurada no hook.
+    Além disso, assim como o `register` do `react-hook-form`, o `_masks` também precisa receber o nome do campo que irá receber a máscara configurada no hook.
 
-  Assim facilitando muito o aprendizado para quem já utilizava a outra biblioteca.
+    Assim facilitando muito o aprendizado para quem já utilizava a outra biblioteca.
 
-    </details>
+      </details>
 
-    <details>
-    <summary><b>Sintaxe</b></summary>
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-  ```TSX
-    import { useValisk } from "@libsdomau/valisk";
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
 
-    ...
-    interface Campos {
-      campo1: string;
-      campo2: string;
-    }
+      ...
+      interface Campos {
+        campo1: string;
+        campo2: string;
+      }
 
 
-    const { _masks } = useValisk<Campos>({...});
+      const { _masks } = useValisk<Campos>({...});
 
-    return (
-      <>
-        <input type="text" {...masks("campo1")}/>
-      </>
-    );
+      return (
+        <>
+          <input type="text" {...masks("campo1")}/>
+        </>
+      );
 
-  ```
+    ```
 
-    </details>
+      </details>
 
-    <details>
-    <summary><b>Funcionalidades</b></summary>
+      <details>
+      <summary><b>Funcionalidades</b></summary>
 
-  | Opções      | Tipo            | Descrição                                                                        |
-  | :---------- | :-------------- | :------------------------------------------------------------------------------- |
-  | Propriedade | keyof \<Campos> | Sendo preciso escolher somente um para cada \_masks                              |
-  | Retorno     | DetailsHTML     | Propriedades do elemento Input, utilizando assim algumas tag do próprio elemento |
+    | Opções      | Tipo            | Descrição                                                                        |
+    | :---------- | :-------------- | :------------------------------------------------------------------------------- |
+    | Propriedade | keyof \<Campos> | Sendo preciso escolher somente um para cada \_masks                              |
+    | Retorno     | DetailsHTML     | Propriedades do elemento Input, utilizando assim algumas tag do próprio elemento |
 
-    </details>
+      </details>
 
-    </dd>
-  </dl>
+      </dd>
+    </dl>
 
-<br/>
+  <br/>
 
-- ### \_forceUpdate
+  - ### \_forceUpdate
 
-  - [x] Os campos que precisam desse efeito, precisam ser declaros de forma clara;
-  - [x] Pode ser usados quantas vezes forem necessárias com diversos campo em uma atualização ou apenas um;
-  - [x] Não causa uma renderização por sua utilização;
-  - [x] É usado na maioria da vezes em conjunto com o **useEffect** nativo do react.
-  - [x] Usado para trocar o valor da senha ou para carregar todas os campos com máscara como valor inicial.
+    - [x] Os campos que precisam desse efeito, precisam ser declaros de forma clara;
+    - [x] Pode ser usados quantas vezes forem necessárias com diversos campo em uma atualização ou apenas um;
+    - [x] Não causa uma renderização por sua utilização;
+    - [x] É usado na maioria da vezes em conjunto com o **useEffect** nativo do react.
+    - [x] Usado para trocar o valor da senha ou para carregar todas os campos com máscara como valor inicial.
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-    <details>
-    <summary><b>Sobre</b></summary>
+      <details>
+      <summary><b>Sobre</b></summary>
 
-  Esse método possui a função de atualizar o valor de todos os campo inseridos, ele faz isso por meio de eventos e funcionalidades internas do campo, ou seja, `ele não causa nenhuma renderização`, para mudar o valor de forma defitiva é necessário carregar o componente novamente com as propriedades já alteradas, por conta disso, ele é normalmente utilizado com o `useEffect` do react, pois, assim que o componente é carregado novamente, ele captura todos os valores alterados e `realiza as mudaças` sem precisar realizar uma nova renderização.
+    Esse método possui a função de atualizar o valor de todos os campo inseridos, ele faz isso por meio de eventos e funcionalidades internas do campo, ou seja, `ele não causa nenhuma renderização`, para mudar o valor de forma defitiva é necessário carregar o componente novamente com as propriedades já alteradas, por conta disso, ele é normalmente utilizado com o `useEffect` do react, pois, assim que o componente é carregado novamente, ele captura todos os valores alterados e `realiza as mudaças` sem precisar realizar uma nova renderização.
 
-  Em seus parametros é necessário indicar algumas `props`, para que a lib possa fazer a atualização do campo `sem causar uma nova renderização`.
+    Em seus parametros é necessário indicar algumas `props`, para que a lib possa fazer a atualização do campo `sem causar uma nova renderização`.
 
-    </details>
+      </details>
 
-    <details>
-    <summary><b>Sintaxe</b></summary>
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-  ```TSX
-    import { useEffect } from "react";
-    import { useValisk } from "@libsdomau/valisk";
-    import { useForm } from "react-hook-form";
-    ...
+    ```TSX
+      import { useEffect } from "react";
+      import { useValisk } from "@libsdomau/valisk";
+      import { useForm } from "react-hook-form";
+      ...
 
-    interface Campos {
-      campo1: string;
-      campo2: string;
-    }
+      interface Campos {
+        campo1: string;
+        campo2: string;
+      }
 
-    const [hideValue, setHideValue] = useState(false);
-    const { register, setValue } = useForm<Campos>();
-    const { _masks _forceUpdate } = useValisk<Campos>({...});
+      const [hideValue, setHideValue] = useState(false);
+      const { register, setValue } = useForm<Campos>();
+      const { _masks _forceUpdate } = useValisk<Campos>({...});
 
-    useEffect(() => {
-      _forceUpdate({
-        inputName: "campo2"
-        inputType: "uncontrolled"
-      })
-    }, []);
+      useEffect(() => {
+        _forceUpdate({
+          inputName: "campo2"
+          inputType: "uncontrolled"
+        })
+      }, []);
 
-    useEffect(() => {
-      _forceUpdate({
-        inputName: "campo1"
-        inputType: "react-hook-form",
-        dispatchSetValue: setValue,
-      })
-    }, [hideValue]);
+      useEffect(() => {
+        _forceUpdate({
+          inputName: "campo1"
+          inputType: "react-hook-form",
+          dispatchSetValue: setValue,
+        })
+      }, [hideValue]);
 
 
-    return (
-      <>
-        <input type="text" {...register("campo1")} {...masks("campo1")}/>
-      </>
-    );
+      return (
+        <>
+          <input type="text" {...register("campo1")} {...masks("campo1")}/>
+        </>
+      );
 
-  ```
+    ```
 
-    </details>
+      </details>
 
-    <details>
-    <summary><b>Funcionalidades</b></summary>
+      <details>
+      <summary><b>Funcionalidades</b></summary>
 
-  | Opções      | Tipo                                                                                                                       | Descrição                                                                                                                                                                                                                                                                           |
-  | :---------- | :------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | Propriedade | { inputName: keyof \<Campos>, inputType: "controlled" \| "uncontrolled" \| "react-hook-form", dispatchSetValue: Function } | Aqui é preciso informar de forma exata os campos que serão atualizados, mesmo que não cause uma renderização, é importante colocar apenas aquele que necessitam de uma alguma atualização de valor. Lembrando que é possível inserir um array de objetos, além de apenas um objeto. |
-  | Retorno     | void                                                                                                                       | Esse método não retorna nenhum tipo de valor, apenas realiza seus processos.                                                                                                                                                                                                        |
+    | Opções      | Tipo                                                                                                                       | Descrição                                                                                                                                                                                                                                                                           |
+    | :---------- | :------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Propriedade | { inputName: keyof \<Campos>, inputType: "controlled" \| "uncontrolled" \| "react-hook-form", dispatchSetValue: Function } | Aqui é preciso informar de forma exata os campos que serão atualizados, mesmo que não cause uma renderização, é importante colocar apenas aquele que necessitam de uma alguma atualização de valor. Lembrando que é possível inserir um array de objetos, além de apenas um objeto. |
+    | Retorno     | void                                                                                                                       | Esse método não retorna nenhum tipo de valor, apenas realiza seus processos.                                                                                                                                                                                                        |
 
-    </details>
+      </details>
 
-    </dd>
-  </dl>
+      </dd>
+    </dl>
 
-<br/>
+  <br/>
 
-- ### \_cleanValues
+  - ### \_cleanValues
 
-  - [x] Mostra todos os valores em forma de objeto da mesma maneira que foram declarados;
-  - [x] Necessita receber os dados e realiza a conversão deles para dados sem máscaras, apenas em formato de números e letras;
-  - [x] Todos valores que não foram configurados para possuirem máscara serão retornados sem alteração;
-  - [x] Pode ser usado com o `handleSubmit` do `react-hook-form` para mostrar tudo sem máscara.
+    - [x] Mostra todos os valores em forma de objeto da mesma maneira que foram declarados;
+    - [x] Necessita receber os dados e realiza a conversão deles para dados sem máscaras, apenas em formato de números e letras;
+    - [x] Todos valores que não foram configurados para possuirem máscara serão retornados sem alteração;
+    - [x] Pode ser usado com o `handleSubmit` do `react-hook-form` para mostrar tudo sem máscara.
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-    <details>
-    <summary><b>Sobre</b></summary>
+      <details>
+      <summary><b>Sobre</b></summary>
 
-  Este é método que limpa o valor de todos as propriedades do objeto que possuem algum tipo de máscara e foram indicados nas configurações da lib, ele apenas remove tudo o que não seja letra ou número do valor.
+    Este é método que limpa o valor de todos as propriedades do objeto que possuem algum tipo de máscara e foram indicados nas configurações da lib, ele apenas remove tudo o que não seja letra ou número do valor.
 
-  Já os campos que não possuem a configuração, são retornados igualmente, porém, sem nenhum tipo de remoção.
+    Já os campos que não possuem a configuração, são retornados igualmente, porém, sem nenhum tipo de remoção.
 
-    </details>
+      </details>
 
-    <details>
-    <summary><b>Sintaxe</b></summary>
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-  ```TSX
-    import { useValisk } from "@libsdomau/valisk";
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
 
-    ...
+      ...
 
-    interface Campos {
-      campo1: string;
-    }
+      interface Campos {
+        campo1: string;
+      }
 
-    const showValues: Campos = (data) => {
-      console.log(_cleanVal(data));
-    };
+      const showValues: Campos = (data) => {
+        console.log(_cleanVal(data));
+      };
 
-    const { _masks, _cleanValues, _getValues } = useValisk<Campos>({...});
+      const { _masks, _cleanValues, _getValues } = useValisk<Campos>({...});
 
-    return (
-      <form onSubmit={_getValues(showValues)}>
-        <input type="text" {...masks("campo1")}/>
-      </form>
-    );
+      return (
+        <form onSubmit={_getValues(showValues)}>
+          <input type="text" {...masks("campo1")}/>
+        </form>
+      );
 
-  ```
+    ```
 
-    </details>
+      </details>
 
-    <details>
-    <summary><b>Funcionalidades</b></summary>
+      <details>
+      <summary><b>Funcionalidades</b></summary>
 
-  | Opções      | Tipo                  | Descrição                                                                                                                                                                                                  |
-  | :---------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | Propriedade | \<Campos>             | Aqui é preciso informar a data obtida através do `onSubmit`, sendo pelo `_getValues` ou pelo `handleSubmit`                                                                                                |
-  | Retorno     | \<Campos> (Formatado) | O retorno desse método é básicamente o mesmo objeto passado porém, com remoções de máscaras caso algum campo tenha sido registrado no hook, caso o contrário, apenas é retornado da maneira que é passado. |
+    | Opções      | Tipo                  | Descrição                                                                                                                                                                                                  |
+    | :---------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Propriedade | \<Campos>             | Aqui é preciso informar a data obtida através do `onSubmit`, sendo pelo `_getValues` ou pelo `handleSubmit`                                                                                                |
+    | Retorno     | \<Campos> (Formatado) | O retorno desse método é básicamente o mesmo objeto passado porém, com remoções de máscaras caso algum campo tenha sido registrado no hook, caso o contrário, apenas é retornado da maneira que é passado. |
 
-    </details>
+      </details>
 
-    </dd>
-  </dl>
+      </dd>
+    </dl>
 
-<br/>
+  <br/>
 
-- ### \_getValues
+  - ### \_getValues
 
   - [x] Captura o valor de todos os campos dentro do form.
   - [x] Os campos não precisam possuir o `_masks`, porém precisam estar declarados no [Tipo de Entrada](#entrada);

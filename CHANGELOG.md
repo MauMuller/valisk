@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **314abdd70de1468a8c61c9a44d13af5172a0c149**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/314abdd70de1468a8c61c9a44d13af5172a0c149)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Finalizado os tópicos de 'retorno' e 'mapa da documentação'
+    
+    Foi então finalizado ambos tópicos citados no título, com ajustes na formatação da documentação, agora a ideia é realizar teste e o upload para o main
+	```
+
+<br />
+
 - **2bab172578627c2d1c0438a8fcb9e5c74f2f06b9**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2bab172578627c2d1c0438a8fcb9e5c74f2f06b9)
