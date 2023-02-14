@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **42f684c05e5fbb7e3ef7b6cfa00eab20e9acf150**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/42f684c05e5fbb7e3ef7b6cfa00eab20e9acf150)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    🔥 (markdown.lint): Removido arquivo sem utilidade
+    
+    Foi removido esse arquivo por falta de importancia dentro do código
+	```
+
+<br />
+
 - **7dcb0526d41e1d26ffbc3b2fc8450c70f29119c5**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/7dcb0526d41e1d26ffbc3b2fc8450c70f29119c5)
