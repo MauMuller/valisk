@@ -22,7 +22,7 @@
 
 <div align="center">
 
-[<img width="500" src="https://ik.imagekit.io/e6khzhxvx/valisk-preview.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672165728023"/>]()
+[<img width="500" src="https://ik.imagekit.io/e6khzhxvx/Principal.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676373284854"/>]()
 
 </div>
 
@@ -62,18 +62,30 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 - [Casos de Uso](#casos-de-uso)
 
-  - [Uso Simples](#utilização-simples)
-  - [Uso Complexo](#utilização-complexa)
-
 - [API de Referência](#api-de-referência)
 
-  - [**useMaskCPF**](#usemaskcpf)
-  - [**useMaskCNPJ**](#usemaskcnpj)
-  - [**useMaskCEP**](#usemaskcep)
-  - [**useMaskMoney**](#usemaskmoney)
-  - [**useMaskPhone**](#usemaskphone)
-  - [**useMaskPassword**](#usemaskpassword)
-  - [**useMasks** _(Principal)_](#usemasks-principal)
+  - [@Types](#types)
+
+  - [@useValisk](#usevalisk)
+
+    - [Entrada](#entrada)
+
+      - [useValisk\<Campos>](#usevaliskcampos)
+
+    - [Parâmetros](#parâmetros)
+
+      - [CPF](#cpf)
+      - [CNPJ](#cnpj)
+      - [CEP](#cep)
+      - [MONEY](#money)
+      - [PHONE](#phone)
+      - [PASSWORD](#password)
+
+    - [Retornos](#retornos)
+      - [\_masks](#_masks)
+      - [\_forceUpdate](#_forceupdate)
+      - [\_cleanValues](#_cleanvalues)
+      - [\_getValues](#_getvalues)
 
 - [Dúvidas](#dúvidas)
 
@@ -1306,7 +1318,6 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
     <details>
     <summary><b>Sobre</b></summary>
-    <br />
 
   Este é sem sombra de dúvidas o método mais importante da biblioteca, sendo ele o responsavel por gerar a máscara para cada um dos campos, por isso é necessário utilizar do `operador rest` para funcionar as máscaras.
 
@@ -1343,7 +1354,6 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
     <details>
     <summary><b>Funcionalidades</b></summary>
-    <br />
 
   | Opções      | Tipo            | Descrição                                                                        |
   | :---------- | :-------------- | :------------------------------------------------------------------------------- |
@@ -1371,7 +1381,6 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
     <details>
     <summary><b>Sobre</b></summary>
-    <br />
 
   Esse método possui a função de atualizar o valor de todos os campo inseridos, ele faz isso por meio de eventos e funcionalidades internas do campo, ou seja, `ele não causa nenhuma renderização`, para mudar o valor de forma defitiva é necessário carregar o componente novamente com as propriedades já alteradas, por conta disso, ele é normalmente utilizado com o `useEffect` do react, pois, assim que o componente é carregado novamente, ele captura todos os valores alterados e `realiza as mudaças` sem precisar realizar uma nova renderização.
 
@@ -1425,7 +1434,6 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
     <details>
     <summary><b>Funcionalidades</b></summary>
-    <br />
 
   | Opções      | Tipo                                                                                                                       | Descrição                                                                                                                                                                                                                                                                           |
   | :---------- | :------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1439,7 +1447,7 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
 <br/>
 
-- ### \_cleanVal
+- ### \_cleanValues
 
   - [x] Mostra todos os valores em forma de objeto da mesma maneira que foram declarados;
   - [x] Necessita receber os dados e realiza a conversão deles para dados sem máscaras, apenas em formato de números e letras;
@@ -1452,7 +1460,6 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
     <details>
     <summary><b>Sobre</b></summary>
-    <br />
 
   Este é método que limpa o valor de todos as propriedades do objeto que possuem algum tipo de máscara e foram indicados nas configurações da lib, ele apenas remove tudo o que não seja letra ou número do valor.
 
@@ -1472,7 +1479,7 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
       campo1: string;
     }
 
-    const showValues: Inputs = (data) => {
+    const showValues: Campos = (data) => {
       console.log(_cleanVal(data));
     };
 
@@ -1490,12 +1497,82 @@ Caso você esteja utilizando `javascript`, pode ignorar essa parte, ela será ap
 
     <details>
     <summary><b>Funcionalidades</b></summary>
-    <br />
 
   | Opções      | Tipo                  | Descrição                                                                                                                                                                                                  |
   | :---------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
   | Propriedade | \<Campos>             | Aqui é preciso informar a data obtida através do `onSubmit`, sendo pelo `_getValues` ou pelo `handleSubmit`                                                                                                |
   | Retorno     | \<Campos> (Formatado) | O retorno desse método é básicamente o mesmo objeto passado porém, com remoções de máscaras caso algum campo tenha sido registrado no hook, caso o contrário, apenas é retornado da maneira que é passado. |
+
+    </details>
+
+    </dd>
+  </dl>
+
+<br/>
+
+- ### \_getValues
+
+  - [x] Captura o valor de todos os campos dentro do form.
+  - [x] Os campos não precisam possuir o `_masks`, porém precisam estar declarados no [Tipo de Entrada](#entrada);
+  - [x] Ele retorna um objeto com todos o valores dos campos, essa tipagem é a mesma de entrada no hook;
+  - [x] Funciona igual o `handleSubmit` do `react-hook-form`, precisando passar um função dentro e ela possuirá os valores retornados.
+
+  <dl>
+    <dt>Definições:<dt>
+    <dd>
+
+    <details>
+    <summary><b>Sobre</b></summary>
+
+  Este método funciona como um auxiliar, uma função que captura todos valores dos campos que são **exclusivamente** filhos do Form. Após pegar os valores, ela converte eles em um objeto utilizando o nome do campo como **key** e o valor como **value**.
+
+  É necessário passar uma outra função para dentro desse método, ela que irá receber o valor dos campos em formato de objeto atráves do parâmetro.
+
+  Caso você tenha utilizado o `react-hook-form`, ela funciona igual o `handleSubmit`.
+
+    </details>
+
+    <details>
+    <summary><b>Sintaxe</b></summary>
+
+  ```TSX
+    import { useValisk } from "@libsdomau/valisk";
+
+    ...
+
+    interface Campos {
+      campo1: string;
+    }
+
+
+    const { _masks, _getValues } = useValisk<Campos>({...});
+    const showValues: Campos = (data) => console.log(data);
+
+    return (
+      <form onSubmit={_getValues(showValues)}>
+        <input type="text" {...masks("campo1")}/>
+      </form>
+    );
+
+    <!-- Ou -->
+
+    return (
+      <form onSubmit={_getValues((data) => console.log(data))}>
+        <input type="text" {...masks("campo1")}/>
+      </form>
+    );
+
+  ```
+
+    </details>
+
+    <details>
+    <summary><b>Funcionalidades</b></summary>
+
+  | Opções      | Tipo                       | Descrição                                                                                                                                                |
+  | :---------- | :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Propriedade | Função                     | Essa função será executada recebendo por parâmetro o objeto com todos os valores dos campos, ela precisa ser do tipo **void**, ou seja, **sem retorno**. |
+  | Retorno     | FormEvent<HTMLFormElement> | É retornado o evento para que seja possível capturar o evento do submit.                                                                                 |
 
     </details>
 

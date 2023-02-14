@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **2bab172578627c2d1c0438a8fcb9e5c74f2f06b9**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2bab172578627c2d1c0438a8fcb9e5c74f2f06b9)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 13/02/2023
+
+	```
+    📝 (readme): Incremento do _clearValues
+    
+    Apenas finalizado mais um tópico após uma pequena refatoração dentro da lib
+	```
+
+<br />
+
 - **62540c1307e976a34f35a04e9882bdfec96b75b6**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/62540c1307e976a34f35a04e9882bdfec96b75b6)
