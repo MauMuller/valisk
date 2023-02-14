@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **99b1ec8d1e091b1941176b30f7b909f6f70674b5**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/99b1ec8d1e091b1941176b30f7b909f6f70674b5)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Marketing da lib em forma de lista + Aumento nas tags
+    
+    Quando estava conferindo, percebi que a documentação  estava repetindo várias coisas, por isso decidi fazer uma listinha com observações mais importates sobre a lib. Além disso, ainda aumentei as tag dos casos de uso pois no github ficavam muito pequenas
+	```
+
+<br />
+
 - **87852801177c3b86a3791d77f6b8d543176bfb93**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/87852801177c3b86a3791d77f6b8d543176bfb93)

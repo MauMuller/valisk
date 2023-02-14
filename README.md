@@ -30,14 +30,9 @@
 
 <div align="center">
 
-**Documentação Completa**
-Sim, com vários exemplo ilustrados, api de referencia e apto a receber ajuda da comunidade.
-
-**Integração com outras libs/frameworks**
-Sim, contando que seja em React, é possível fazer a integração com qualquer uma.
-
-**Suporte as Linguagens**
-JAVASCRIPT e TYPESCRIPT.
+✅ Documentação completa com vários exemplos ilustrados, api de refência e casos de uso.<br/>
+✅ Integração com outras libs/frameworks de maneira fácil.<br/>
+✅ Suporte a JAVASCRIPT e TYPESCRIPT.<br/>
 
 </div>
 
