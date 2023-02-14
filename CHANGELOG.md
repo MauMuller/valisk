@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **7dcb0526d41e1d26ffbc3b2fc8450c70f29119c5**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/7dcb0526d41e1d26ffbc3b2fc8450c70f29119c5)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Ajuste na formatação das frases iniciais da lib
+    
+    Incremento de um icone no lugar do mark do github, além de um br no final da frase
+	```
+
+<br />
+
 - **99b1ec8d1e091b1941176b30f7b909f6f70674b5**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/99b1ec8d1e091b1941176b30f7b909f6f70674b5)
