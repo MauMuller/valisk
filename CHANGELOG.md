@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **87852801177c3b86a3791d77f6b8d543176bfb93**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/87852801177c3b86a3791d77f6b8d543176bfb93)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (README): Incremento dos casos de uso no mapa + formatação
+    
+    Adicionei as tags de título dentro dos casos de uso para que seja possível navegar direto em algum caso de uso. Além de colocar uma separação no menu de links
+	```
+
+<br />
+
 - **6b52b6a56af80fe946d428d8e17cf9b08c6a1d9b**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6b52b6a56af80fe946d428d8e17cf9b08c6a1d9b)

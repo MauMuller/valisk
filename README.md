@@ -30,13 +30,14 @@
 
 <div align="center">
 
-> A biblioteca foi projetada para ser integrada com a lib `REACT-HOOK-FORM`, porém pode ser utilizada de forma `CONTROLLED` e `UNCONTROLLED`.
->
-> Ela possui suporte a **JAVASCRIPT** e **TYPESCRIPT**.
->
-> Além disso, é possível fazer a integração com qualquer framework ou biblioteca da atualidade.
+**Documentação Completa**
+Sim, com vários exemplo ilustrados, api de referencia e apto a receber ajuda da comunidade.
 
-**IMPORTANTE:** As versões anteriores da biblioteca utilizam um outro sistema, algo completamente diferente de utilização, tanto para o desenvolvedor quanto por baixo dos panos, por isso é recomendado **FORTEMENTE REALIZAR A ATUALIZAÇÃO** devido a todas melhorias. Abaixo deixarei um link para migração da versão antiga para nova.
+**Integração com outras libs/frameworks**
+Sim, contando que seja em React, é possível fazer a integração com qualquer uma.
+
+**Suporte as Linguagens**
+JAVASCRIPT e TYPESCRIPT.
 
 </div>
 
@@ -151,7 +152,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
 **Obeservação:** Todos exemplos abaixos conterão `typescript`, caso queira utilizar com javascript, basta remover as tipagens.
 
-- ##### Uncontrolled
+- #### Uncontrolled
 
     <details>
     <summary id="utilização-simples">Iniciando com campos <b>uncontrolled</b></summary>
@@ -288,7 +289,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
 <br/>
 
-- ##### Controlled
+- #### Controlled
 
   <details>
   <summary>Iniciando com campos <b>controlled</b></summary>
@@ -494,7 +495,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
 <br />
 
-- ##### React-Hook-Form
+- #### React-Hook-Form
 
   <details>
   <summary>Integração + Valores iniciais</summary>
@@ -1245,71 +1246,71 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
 
   - ### PASSWORD
 
-  - [x] Máscara Válida;
-  - [x] Possibilidade de personalização;
-  - [x] `CTRL-C / CTRL-V` com ou sem máscara;
-  - [x] Incremento mesmo com `Autocomplete dos navegadores`;
+    - [x] Máscara Válida;
+    - [x] Possibilidade de personalização;
+    - [x] `CTRL-C / CTRL-V` com ou sem máscara;
+    - [x] Incremento mesmo com `Autocomplete dos navegadores`;
 
-  <dl>
-    <dt>Definições:<dt>
-    <dd>
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
 
-    <details>
-    <summary><b>Template</b></a></summary>
+      <details>
+      <summary><b>Template</b></a></summary>
 
-  ```TS
-  //••••••••••••
-  //ou
-  //123241231254
-  ```
+    ```TS
+    //••••••••••••
+    //ou
+    //123241231254
+    ```
 
-    </details>
+      </details>
 
-    <details>
-    <summary><b>Sintaxe</b></summary>
+      <details>
+      <summary><b>Sintaxe</b></summary>
 
-  ```TSX
-    import { useValisk } from "@libsdomau/valisk";
+    ```TSX
+      import { useValisk } from "@libsdomau/valisk";
 
-    ...
+      ...
 
-    const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
-      password: {
-        name: "...", //nome do campo
-        hideValue: true
-      },
-
-      // ou
-
-      password: [
-        {
+      const { _masks, _forceUpdate, _cleanVal, _getValues } = useValisk({
+        password: {
           name: "...", //nome do campo
           hideValue: true
         },
-        {
-          name: "...", //nome do campo
-          hideValue: true
-        },
-      ]
-    });
 
-  ```
+        // ou
 
-    </details>
+        password: [
+          {
+            name: "...", //nome do campo
+            hideValue: true
+          },
+          {
+            name: "...", //nome do campo
+            hideValue: true
+          },
+        ]
+      });
 
-    <details>
-    <summary><b>Propriedades</b></summary>
-    <br />
+    ```
 
-  | Propriedades | Tipos                 | Valores Padrões | Obrigatório | Descrição                            |
-  | :----------- | :-------------------- | :-------------- | :---------- | :----------------------------------- |
-  | `name`       | Campos                | ""              | Sim         | Nome do campo                        |
-  | `hideValue`  | boolean _/_ undefined | true            | Não         | Opção de mostrar ou esconder o valor |
+      </details>
 
-    </details>
+      <details>
+      <summary><b>Propriedades</b></summary>
+      <br />
 
-    </dd>
-  </dl>
+    | Propriedades | Tipos                 | Valores Padrões | Obrigatório | Descrição                            |
+    | :----------- | :-------------------- | :-------------- | :---------- | :----------------------------------- |
+    | `name`       | Campos                | ""              | Sim         | Nome do campo                        |
+    | `hideValue`  | boolean _/_ undefined | true            | Não         | Opção de mostrar ou esconder o valor |
+
+      </details>
+
+      </dd>
+    </dl>
 
 <br />
 
