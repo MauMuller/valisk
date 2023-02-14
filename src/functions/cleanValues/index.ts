@@ -1,8 +1,8 @@
-import { MaskTypes, PhoneTypes } from "../../types";
+import { MaskTypesParams, PhoneTypes } from "../../types";
 
 type Props<T> = {
   mask: PhoneTypes | Omit<keyof T, "phone">;
-  inputName: MaskTypes<T>;
+  inputName: MaskTypesParams<T>;
 }[];
 
 interface ObjectInput {
@@ -14,7 +14,7 @@ export const cleanValues = <T>(nameInputAndTypeMaskArr: Props<T>, props: T) => {
 
   type objMask =
     | {
-        mask: keyof Omit<MaskTypes<T>, "phone">;
+        mask: keyof Omit<MaskTypesParams<T>, "phone">;
         inputName: keyof T;
       }
     | undefined;

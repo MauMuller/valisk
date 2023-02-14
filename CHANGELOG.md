@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **2340630891b4b36cdc8f8367577329e59b90bf5d**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2340630891b4b36cdc8f8367577329e59b90bf5d)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): incremento do br
+    
+    Adição da tag no lugar certo agora
+	```
+
+<br />
+
 - **98ecb7e0563518c85180f2041860fbb482750aac**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/98ecb7e0563518c85180f2041860fbb482750aac)

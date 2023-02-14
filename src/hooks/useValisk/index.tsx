@@ -1,13 +1,13 @@
 import React from "react";
 
 import {
-  MaskTypes,
+  MaskTypesParams,
   DetailsHTML,
-  ReturnType,
+  ReturnValisk,
   ForceUpdateParams,
   ForceObject,
   PhoneTypes,
-  GetValuesEvent,
+  GetValuesValisk,
 } from "../../types";
 
 import { defaultProps } from "../../templates/defaultProps";
@@ -16,11 +16,11 @@ import { cleanValues } from "../../functions/cleanValues";
 import { masks } from "../../options/masks";
 import { typeInput } from "../../options/typeInput";
 
-function useValisk<T>(maskValidation: MaskTypes<T>): ReturnType<T> {
+function useValisk<T>(maskValidation: MaskTypesParams<T>): ReturnValisk<T> {
   const keysMask = Object.keys(maskValidation);
 
   const formatedMaskValidation = keysMask.flatMap((key) => {
-    const keyMask = key as keyof MaskTypes<T>;
+    const keyMask = key as keyof MaskTypesParams<T>;
     const arrayByKey = [maskValidation[keyMask]].flat();
 
     return arrayByKey?.map((obj) => {
@@ -51,7 +51,7 @@ function useValisk<T>(maskValidation: MaskTypes<T>): ReturnType<T> {
     };
   };
 
-  const _getValues: GetValuesEvent<T> = (func) => (evt) => {
+  const _getValues: GetValuesValisk<T> = (func) => (evt) => {
     evt.preventDefault();
 
     const allInputs = [...(evt.target as HTMLFormElement).children].filter(
@@ -67,13 +67,13 @@ function useValisk<T>(maskValidation: MaskTypes<T>): ReturnType<T> {
     return evt;
   };
 
-  const _cleanVal = (props: T) => {
+  const _cleanValues = (props: T) => {
     const nameInputAndTypeMaskArr = formatedMaskValidation.map((obj: any) => ({
       mask:
         obj.key === "phone"
           ? (obj.typePhone as PhoneTypes)
           : (obj.key as Omit<keyof T, "phone">),
-      inputName: obj.name as MaskTypes<T>,
+      inputName: obj.name as MaskTypesParams<T>,
     }));
 
     return cleanValues<T>(nameInputAndTypeMaskArr, props) as T;
@@ -105,7 +105,7 @@ function useValisk<T>(maskValidation: MaskTypes<T>): ReturnType<T> {
     });
   };
 
-  return { _masks, _forceUpdate, _getValues, _cleanVal };
+  return { _masks, _forceUpdate, _getValues, _cleanValues };
 }
 
 export { useValisk };

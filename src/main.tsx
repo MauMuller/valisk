@@ -1,7 +1,12 @@
 import { CSSProperties, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 
-import { useValisk, MaskTypes, ForceUpdateParams } from "./lib/index";
+import {
+  useValisk,
+  MaskTypesParams,
+  ForceUpdateParams,
+  EspecifMaskType,
+} from "./lib/index";
 
 let cont = 0;
 
@@ -23,7 +28,11 @@ const App = () => {
     inputTest: string;
   };
 
-  const { _masks, _forceUpdate, _getValues, _cleanVal } = useValisk<Inputs>({
+  const teste: EspecifMaskType<Inputs> = [
+    { name: "inputTest", type: "cep", props: {} },
+  ];
+
+  const { _masks, _forceUpdate, _getValues, _cleanValues } = useValisk<Inputs>({
     cnpj: { name: "comunTeste", explictMask: false },
     money: {
       name: "comunTeste2",
@@ -50,7 +59,7 @@ const App = () => {
 
   const show = (data: Inputs) => {
     console.log(data);
-    console.log(_cleanVal(data));
+    console.log(_cleanValues(data));
   };
 
   return (
