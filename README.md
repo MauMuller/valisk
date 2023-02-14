@@ -81,13 +81,13 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
     - [PHONE](#phone)
     - [PASSWORD](#password)
 
-  <br />
-
   - [Retornos](#retornos)
     - [\_masks](#_masks)
     - [\_forceUpdate](#_forceupdate)
     - [\_cleanValues](#_cleanvalues)
     - [\_getValues](#_getvalues)
+
+  <br />
 
 - [Dúvidas](#dúvidas)
 
