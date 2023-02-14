@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **388b34d0e6480ab693914861fa6896ec109884eb**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/388b34d0e6480ab693914861fa6896ec109884eb)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): Remoção de tags
+    
+    Apenas removi alguns tags br do mapa
+	```
+
+<br />
+
 - **42f684c05e5fbb7e3ef7b6cfa00eab20e9acf150**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/42f684c05e5fbb7e3ef7b6cfa00eab20e9acf150)
