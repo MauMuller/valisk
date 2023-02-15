@@ -15,7 +15,7 @@ const deepArray = (array: Array<any>) => {
   return array;
 };
 
-export const configEntry = <T>(data: any) => {
+export const useConfigEntry = <T>(data: any) => {
   const isArray = Array.isArray(data);
   const arrayWithAllNames: Array<keyof T> = [];
   const arrayAux: Array<ObjectWithNameAndListProps<T>> = (

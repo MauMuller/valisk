@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **9b68e0b826a48349a8e8216617d30e640b8337c6**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/9b68e0b826a48349a8e8216617d30e640b8337c6)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 15/02/2023
+
+	```
+    ✨ (configEntry & types): Nova funcionalidade para lib e novas tipagens disponiveis
+    
+    Nessa atualização, foi criado uma funcionalidade de utilidade, o "configEntry" faz o papel de criar um novo estilo de estrutura de entrada para as configurações da lib, algo que serve para quem deseja separar todos os dados dos código, criando assim uma máscara para cada dado sem específicar o name dela diretamente dentro das máscaras. Isso será feito fora.\n\nEsse formato serve para criar campos que podem ou não ter máscaras, assim, gerando uma configuração do mesmo jeito, porém com um visual, para o densenvolvedor, de uma maneira muito mais simples de configurar.\n\nAlém disso, Ainda foram incrementados alguns tipos novos e renomeados outros, entre eles: MaskTypesParams, ForceUpdateParams, ObjectWithNameAndListProps e etc...
+	```
+
+<br />
+
 - **2c859eb5f4c4774aa97bbb8080d4d69a8e5a0f43**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2c859eb5f4c4774aa97bbb8080d4d69a8e5a0f43)

@@ -1,5 +1,5 @@
 export { useValisk } from "../hooks/useValisk";
-export { configEntry } from "../hooks/configEntry";
+export { useConfigEntry } from "../hooks/useConfigEntry";
 
 export type {
   MaskTypesParams,

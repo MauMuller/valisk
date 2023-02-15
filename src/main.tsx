@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import {
   useValisk,
-  configEntry,
+  useConfigEntry,
   ObjectWithNameAndListProps,
 } from "./lib/index";
 
@@ -27,27 +27,12 @@ const App = () => {
     inputTest: string;
   };
 
-  const teste: Array<Array<Array<ObjectWithNameAndListProps<Inputs>>>> = [
-    [
-      [
-        { name: "inputTest", props: { cpf: { explictMask: true } } },
-        { name: "inputTest", props: { cpf: { explictMask: false } } },
-        {
-          name: "comunTeste",
-          props: {
-            money: {
-              typeMoney: "real",
-              explictMask: true,
-              explictSimbol: true,
-            },
-          },
-        },
-        { name: "comunTeste3" },
-      ],
-    ],
-  ];
+  const teste: ObjectWithNameAndListProps<Inputs> = {
+    name: "inputTest",
+    props: { cpf: { explictMask: true } },
+  };
 
-  const configMasks = configEntry<Inputs>(teste);
+  const configMasks = useConfigEntry<Inputs>(teste);
 
   const { _masks, _forceUpdate, _getValues, _cleanValues } = useValisk<Inputs>(
     configMasks /* {
@@ -69,11 +54,13 @@ const App = () => {
   );
 
   useEffect(() => {
-    _forceUpdate([
-      { inputName: "comunTeste", inputType: "uncontrolled" },
+    _forceUpdate(
+      /* [ */
+      // { inputName: "comunTeste", inputType: "uncontrolled" },
       //    { inputName: "comunTeste2", inputType: "uncontrolled" },
-      { inputName: "inputTest", inputType: "uncontrolled" },
-    ]);
+      { inputName: "inputTest", inputType: "uncontrolled" }
+      /* ] */
+    );
   }, []);
 
   const show = (data: Inputs) => {
@@ -84,9 +71,9 @@ const App = () => {
   return (
     <form onSubmit={_getValues(show)}>
       <input {..._masks("comunTeste")} defaultValue={"aaa234132"} />
+      <input {..._masks("inputTest")}></input>
       <input defaultValue={""} />
       <input defaultValue={"2"} />
-      <input {..._masks("inputTest")}></input>
 
       <button>Mostrar Valor</button>
     </form>
