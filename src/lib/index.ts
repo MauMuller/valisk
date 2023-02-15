@@ -1,4 +1,6 @@
 export { useValisk } from "../hooks/useValisk";
+export { configEntry } from "../hooks/configEntry";
+
 export type {
   MaskTypesParams,
   ForceUpdateParams,
@@ -6,5 +8,5 @@ export type {
   CleanValuesValisk,
   GetValuesValisk,
   MasksValisk,
-  EspecifMaskType,
+  ObjectWithNameAndListProps,
 } from "../types";

@@ -43,7 +43,7 @@ export interface MaskTypesParams<T> {
   phone?: ArrayWithMinTwoItens<PhoneProps<T>>;
 }
 
-interface EspecifList<T> {
+interface ListWithoutNameProp<T> {
   cpf?: Omit<ComumProps<T>, "name">;
   cnpj?: Omit<ComumProps<T>, "name">;
   cep?: Omit<ComumProps<T>, "name">;
@@ -51,14 +51,10 @@ interface EspecifList<T> {
   password?: Omit<PasswordProps<T>, "name">;
   phone?: Omit<PhoneProps<T>, "name">;
 }
-
-interface EspecifObject<T> {
+export interface ObjectWithNameAndListProps<T> {
   name: keyof T;
-  type: keyof EspecifList<T>;
-  props: EspecifList<T>[EspecifObject<T>["type"]];
+  props?: ListWithoutNameProp<T>;
 }
-
-export type EspecifMaskType<T> = Array<EspecifObject<T>>;
 
 export interface ForceObject<T> {
   inputName: keyof T;
@@ -111,8 +107,6 @@ export type MaskFormated<T> = {
   MoneyProps<T> &
   PasswordProps<T> &
   PhoneProps<T>;
-
-type TypesMasks = "cpf" | "cnpj" | "cep" | "password" | "phone" | "money";
 
 export interface GlobalVariables {
   password: Array<GlobalObject>;

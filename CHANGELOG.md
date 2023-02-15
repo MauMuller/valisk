@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **2c859eb5f4c4774aa97bbb8080d4d69a8e5a0f43**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2c859eb5f4c4774aa97bbb8080d4d69a8e5a0f43)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    🏷️ (funtiction & hooks & lib & & templates & types): Incremento de novos tipos para serem utilizados
+    
+    Foi criado alguns tipos novos para ajudarem os desenvolvedores a possuirem mais liberdade de criação quando forem utilizar a lib, além da mudança de alguns nomes para facilitar o entendimento
+	```
+
+<br />
+
 - **2340630891b4b36cdc8f8367577329e59b90bf5d**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2340630891b4b36cdc8f8367577329e59b90bf5d)

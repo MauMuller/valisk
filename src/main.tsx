@@ -1,11 +1,10 @@
-import { CSSProperties, useEffect, useState } from "react";
+import { CSSProperties, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 
 import {
   useValisk,
-  MaskTypesParams,
-  ForceUpdateParams,
-  EspecifMaskType,
+  configEntry,
+  ObjectWithNameAndListProps,
 } from "./lib/index";
 
 let cont = 0;
@@ -28,11 +27,30 @@ const App = () => {
     inputTest: string;
   };
 
-  const teste: EspecifMaskType<Inputs> = [
-    { name: "inputTest", type: "cep", props: {} },
+  const teste: Array<Array<Array<ObjectWithNameAndListProps<Inputs>>>> = [
+    [
+      [
+        { name: "inputTest", props: { cpf: { explictMask: true } } },
+        { name: "inputTest", props: { cpf: { explictMask: false } } },
+        {
+          name: "comunTeste",
+          props: {
+            money: {
+              typeMoney: "real",
+              explictMask: true,
+              explictSimbol: true,
+            },
+          },
+        },
+        { name: "comunTeste3" },
+      ],
+    ],
   ];
 
-  const { _masks, _forceUpdate, _getValues, _cleanValues } = useValisk<Inputs>({
+  const configMasks = configEntry<Inputs>(teste);
+
+  const { _masks, _forceUpdate, _getValues, _cleanValues } = useValisk<Inputs>(
+    configMasks /* {
     cnpj: { name: "comunTeste", explictMask: false },
     money: {
       name: "comunTeste2",
@@ -47,13 +65,14 @@ const App = () => {
       showPrefix: true,
       explictMask: true,
     },
-  });
+  } */
+  );
 
   useEffect(() => {
     _forceUpdate([
       { inputName: "comunTeste", inputType: "uncontrolled" },
-      { inputName: "comunTeste2", inputType: "uncontrolled" },
-      { inputName: "comunTeste3", inputType: "uncontrolled" },
+      //    { inputName: "comunTeste2", inputType: "uncontrolled" },
+      { inputName: "inputTest", inputType: "uncontrolled" },
     ]);
   }, []);
 
@@ -65,9 +84,9 @@ const App = () => {
   return (
     <form onSubmit={_getValues(show)}>
       <input {..._masks("comunTeste")} defaultValue={"aaa234132"} />
-      <input {..._masks("comunTeste2")} defaultValue={""} />
-      <input {..._masks("comunTeste3")} defaultValue={"2"} />
-      <input name="inputTest"></input>
+      <input defaultValue={""} />
+      <input defaultValue={"2"} />
+      <input {..._masks("inputTest")}></input>
 
       <button>Mostrar Valor</button>
     </form>
