@@ -40,6 +40,8 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
         const valueInput = evt.currentTarget.value;
         const elementInput = evt.currentTarget;
 
+        if (!objectToInput) return;
+
         elementInput
           ? masks[objectToInput.key]<T>({
               ...objectToInput,
@@ -101,7 +103,7 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
         dispatchSetValue,
       };
 
-      typeInput<T>()[inputType](updateInputConfig);
+      if (objectToInput) typeInput<T>()[inputType](updateInputConfig);
     });
   };
 

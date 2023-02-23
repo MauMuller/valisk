@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **5b3d8144fa07375da607e958b63a0e7a32d079e6**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5b3d8144fa07375da607e958b63a0e7a32d079e6)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 23/02/2023
+
+	```
+    ✏️ (Geral): Ajuste das tipagens com nomes alterados em diversos arquivos
+    
+    Foi ajustado as tipagens para os arquivos que ainda estavam com os nomes antigos das tipagens alteradas no commit anterior, agora, com tudo funcionando.
+	```
+
+<br />
+
 - **fff3124bde9c523d4a0ed595616d5036ec57b93c**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/fff3124bde9c523d4a0ed595616d5036ec57b93c)
