@@ -1,13 +1,12 @@
-import { CSSProperties, useEffect } from "react";
+import { CSSProperties, ReactNode, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 
 import {
+  ValiskProvider,
   useValisk,
   useConfigEntry,
+  useValiskContext,
   ConfigEntryType,
-  ValiskEntryType,
-  ForceUpdateEntryType,
-  CleanValuesType,
 } from "./lib/index";
 
 let cont = 0;
@@ -20,31 +19,33 @@ const style: CSSProperties = {
   justifyContent: "center",
 };
 
+type Inputs = {
+  comunTeste: string;
+  comunTeste2: string;
+  comunTeste3: string;
+  inputTest: string;
+};
+
 const App = () => {
   console.log(`Renderizou ${(cont += 1)} ${cont > 1 ? "vezes" : "vez"}`);
 
-  type Inputs = {
-    comunTeste: string;
-    comunTeste2: string;
-    comunTeste3: string;
-    inputTest: string;
-  };
-
-  const teste: Array<ConfigEntryType<Inputs>> = [
+  const configMasksTemplate: Array<ConfigEntryType<Inputs>> = [
     {
       name: "inputTest",
-      props: { cpf: { explictMask: true }, cep: { explictMask: false } },
+      props: { cpf: { explictMask: true } },
+    },
+    {
+      name: "comunTeste3",
+      props: {
+        phone: { typePhone: "phoneMovel", showDDD: true, explictMask: true },
+      },
     },
   ];
 
-  const teste2: ValiskEntryType<Inputs> = {
-    cep: { name: "comunTeste", explictMask: true },
-  };
+  const configMasks = useConfigEntry<Inputs>(configMasksTemplate);
 
-  const configMasks = useConfigEntry<Inputs>(teste);
-
-  const { _masks, _forceUpdate, _getValues, _cleanValues } =
-    useValisk<Inputs>(configMasks);
+  const methodsValisk = useValisk<Inputs>(configMasks);
+  const { _masks, _forceUpdate, _getValues, _cleanValues } = methodsValisk;
 
   useEffect(() => {
     _forceUpdate({ inputName: "inputTest", inputType: "uncontrolled" });
@@ -56,16 +57,28 @@ const App = () => {
   };
 
   return (
-    <form onSubmit={_getValues(show)}>
-      <input defaultValue={"aaa234132"} />
-      <input {..._masks("inputTest")} />
-      <input defaultValue={""} />
-      <input defaultValue={"2"} />
+    <ValiskProvider {...methodsValisk}>
+      <form onSubmit={_getValues(show)}>
+        <input defaultValue={"aaa234132"} />
+        <input {..._masks("inputTest")} />
 
-      <button>Mostrar Valor</button>
-    </form>
+        <InputTeste name="comunTeste3" />
+
+        <button>Mostrar Valor</button>
+      </form>
+    </ValiskProvider>
   );
 };
+
+function InputTeste({ name }: { name: keyof Inputs }) {
+  const { _masks, _forceUpdate } = useValiskContext<Inputs>();
+
+  useEffect(() => {
+    _forceUpdate({ inputName: name, inputType: "uncontrolled" });
+  }, []);
+
+  return <input {..._masks(name)} />;
+}
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <div style={style}>{<App />}</div>

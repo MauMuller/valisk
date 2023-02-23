@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **c05e4e0fc7d4a77d3b42867c74ac04b54897301c**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/c05e4e0fc7d4a77d3b42867c74ac04b54897301c)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 23/02/2023
+
+	```
+    🐛 (useValisk): Adição de uma condição para não gerar erro
+    
+    Foi preciso adicionar uma condição dentro dos métodos 'masks' e 'forceUpdate' para que caso sejam informados em campos que não possuem configuração, apenas não executam nenhuma máscara, mas não retornaram erro algum, isso é útil para deixar dados em componentes e assim não precisar fazer condições desnecessárias para ter máscaras apenas em campos que foram cadastrados
+	```
+
+<br />
+
 - **5b3d8144fa07375da607e958b63a0e7a32d079e6**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5b3d8144fa07375da607e958b63a0e7a32d079e6)
