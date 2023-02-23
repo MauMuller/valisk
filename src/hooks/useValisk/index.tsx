@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   ValiskEntryType,
-  DetailsHTML,
   ReturnValisk,
   MasksType,
   ForceUpdateEntryType,
@@ -74,7 +73,7 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
         obj.key === "phone"
           ? (obj.typePhone as PhoneTypes)
           : (obj.key as Omit<keyof T, "phone">),
-      inputName: obj.name as ValiskEntryType<T>,
+      inputName: obj.name as keyof T,
     }));
 
     return cleanValues<T>(nameInputAndTypeMaskArr, props) as T;

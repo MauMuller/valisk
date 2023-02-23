@@ -3,10 +3,10 @@ import {
   PasswordProps,
   PhoneProps,
   ComumProps,
-  MaskTypesParams,
+  ValiskEntryType,
 } from "../../types";
 
-export const defaultProps = <T>(keyMask: keyof MaskTypesParams<T>) => {
+export const defaultProps = <T>(keyMask: keyof ValiskEntryType<T>) => {
   const explictMask = false;
   const name = "" as keyof T;
 

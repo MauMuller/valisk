@@ -58,7 +58,7 @@ const App = () => {
   return (
     <form onSubmit={_getValues(show)}>
       <input defaultValue={"aaa234132"} />
-      <input {..._masks("inputTest")}></input>
+      <input {..._masks("inputTest")} />
       <input defaultValue={""} />
       <input defaultValue={"2"} />
 

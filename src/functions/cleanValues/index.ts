@@ -1,8 +1,8 @@
-import { MaskTypesParams, PhoneTypes } from "../../types";
+import { ValiskEntryType, PhoneTypes } from "../../types";
 
 type Props<T> = {
   mask: PhoneTypes | Omit<keyof T, "phone">;
-  inputName: MaskTypesParams<T>;
+  inputName: keyof T;
 }[];
 
 interface ObjectInput {
@@ -14,14 +14,16 @@ export const cleanValues = <T>(nameInputAndTypeMaskArr: Props<T>, props: T) => {
 
   type objMask =
     | {
-        mask: keyof Omit<MaskTypesParams<T>, "phone">;
+        mask: keyof Omit<ValiskEntryType<T>, "phone">;
         inputName: keyof T;
       }
     | undefined;
 
   for (const [key, value] of Object.entries(props as ObjectInput)) {
+    const keyMask = key as keyof Omit<ValiskEntryType<T>, "phone">;
+
     const objectWithMask = nameInputAndTypeMaskArr.find(
-      (obj) => obj.inputName === key
+      (obj) => obj.inputName === keyMask
     ) as objMask;
 
     const regexToRemove =

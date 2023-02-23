@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **fff3124bde9c523d4a0ed595616d5036ec57b93c**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/fff3124bde9c523d4a0ed595616d5036ec57b93c)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 23/02/2023
+
+	```
+    🏷️ ((Nomes das tipagens)): Melhoria no nome das tipagens, deixando de uma forma mais intuitiva
+    
+    Ajustei os nome de todas as tipagens que estão, atualmente, disponiveis para utilização, mantendo elas de uma forma mais intuitiva, declarando as funções com o seu nome + 'type' e os parametros com o incremento do 'entry'
+	```
+
+<br />
+
 - **6fbbf90665380ed89fd2b652f828dba74385937a**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6fbbf90665380ed89fd2b652f828dba74385937a)
