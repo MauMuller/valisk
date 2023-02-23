@@ -34,7 +34,7 @@ export interface PhoneProps<T> extends ComumProps<T> {
 
 type ArrayWithMinTwoItens<T> = T | [T, T, ...T[]];
 
-export interface MaskTypesParams<T> {
+export interface ValiskEntryType<T> {
   cpf?: ArrayWithMinTwoItens<ComumProps<T>>;
   cnpj?: ArrayWithMinTwoItens<ComumProps<T>>;
   cep?: ArrayWithMinTwoItens<ComumProps<T>>;
@@ -51,7 +51,7 @@ interface ListWithoutNameProp<T> {
   password?: Omit<PasswordProps<T>, "name">;
   phone?: Omit<PhoneProps<T>, "name">;
 }
-export interface ObjectWithNameAndListProps<T> {
+export interface ConfigEntryType<T> {
   name: keyof T;
   props?: ListWithoutNameProp<T>;
 }
@@ -62,23 +62,23 @@ export interface ForceObject<T> {
   dispatchSetValue?: any;
 }
 
-export type ForceUpdateParams<T> = ArrayWithMinTwoItens<ForceObject<T>>;
+export type ForceUpdateEntryType<T> = ArrayWithMinTwoItens<ForceObject<T>>;
 
-export type GetValuesValisk<T> = (
+export type GetValuesType<T> = (
   func: (data: T) => void
 ) => (
   evt: React.FormEvent<HTMLFormElement>
 ) => React.FormEvent<HTMLFormElement>;
 
-export type MasksValisk<T> = (key: keyof T) => DetailsHTML;
-export type ForceUpdateValisk<T> = (props: ForceUpdateParams<T>) => void;
-export type CleanValuesValisk<T> = (props: T) => T;
+export type MasksType<T> = (key: keyof T) => DetailsHTML;
+export type ForceUpdateType<T> = (props: ForceUpdateEntryType<T>) => void;
+export type CleanValuesType<T> = (props: T) => T;
 
 export type ReturnValisk<T> = {
-  _masks: MasksValisk<T>;
-  _forceUpdate: ForceUpdateValisk<T>;
-  _cleanValues: CleanValuesValisk<T>;
-  _getValues: GetValuesValisk<T>;
+  _masks: MasksType<T>;
+  _forceUpdate: ForceUpdateType<T>;
+  _cleanValues: CleanValuesType<T>;
+  _getValues: GetValuesType<T>;
 };
 
 interface InputParams<T> {
@@ -102,7 +102,7 @@ export interface GlobalObject {
 }
 
 export type MaskFormated<T> = {
-  key: keyof MaskTypesParams<T>;
+  key: keyof ValiskEntryType<T>;
 } & ComumProps<T> &
   MoneyProps<T> &
   PasswordProps<T> &

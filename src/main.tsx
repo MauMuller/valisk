@@ -4,7 +4,10 @@ import ReactDOM from "react-dom/client";
 import {
   useValisk,
   useConfigEntry,
-  ObjectWithNameAndListProps,
+  ConfigEntryType,
+  ValiskEntryType,
+  ForceUpdateEntryType,
+  CleanValuesType,
 } from "./lib/index";
 
 let cont = 0;
@@ -27,40 +30,24 @@ const App = () => {
     inputTest: string;
   };
 
-  const teste: ObjectWithNameAndListProps<Inputs> = {
-    name: "inputTest",
-    props: { cpf: { explictMask: true } },
+  const teste: Array<ConfigEntryType<Inputs>> = [
+    {
+      name: "inputTest",
+      props: { cpf: { explictMask: true }, cep: { explictMask: false } },
+    },
+  ];
+
+  const teste2: ValiskEntryType<Inputs> = {
+    cep: { name: "comunTeste", explictMask: true },
   };
 
   const configMasks = useConfigEntry<Inputs>(teste);
 
-  const { _masks, _forceUpdate, _getValues, _cleanValues } = useValisk<Inputs>(
-    configMasks /* {
-    cnpj: { name: "comunTeste", explictMask: false },
-    money: {
-      name: "comunTeste2",
-      explictMask: true,
-      explictSimbol: true,
-      typeMoney: "dollar",
-    },
-    phone: {
-      name: "comunTeste3",
-      typePhone: "phoneFixo",
-      showDDD: true,
-      showPrefix: true,
-      explictMask: true,
-    },
-  } */
-  );
+  const { _masks, _forceUpdate, _getValues, _cleanValues } =
+    useValisk<Inputs>(configMasks);
 
   useEffect(() => {
-    _forceUpdate(
-      /* [ */
-      // { inputName: "comunTeste", inputType: "uncontrolled" },
-      //    { inputName: "comunTeste2", inputType: "uncontrolled" },
-      { inputName: "inputTest", inputType: "uncontrolled" }
-      /* ] */
-    );
+    _forceUpdate({ inputName: "inputTest", inputType: "uncontrolled" });
   }, []);
 
   const show = (data: Inputs) => {
@@ -70,7 +57,7 @@ const App = () => {
 
   return (
     <form onSubmit={_getValues(show)}>
-      <input {..._masks("comunTeste")} defaultValue={"aaa234132"} />
+      <input defaultValue={"aaa234132"} />
       <input {..._masks("inputTest")}></input>
       <input defaultValue={""} />
       <input defaultValue={"2"} />

@@ -1,13 +1,14 @@
 import React from "react";
 
 import {
-  MaskTypesParams,
+  ValiskEntryType,
   DetailsHTML,
   ReturnValisk,
-  ForceUpdateParams,
+  MasksType,
+  ForceUpdateEntryType,
   ForceObject,
   PhoneTypes,
-  GetValuesValisk,
+  GetValuesType,
 } from "../../types";
 
 import { defaultProps } from "../../templates/defaultProps";
@@ -16,11 +17,11 @@ import { cleanValues } from "../../functions/cleanValues";
 import { masks } from "../../options/masks";
 import { typeInput } from "../../options/typeInput";
 
-function useValisk<T>(maskValidation: MaskTypesParams<T>): ReturnValisk<T> {
+function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
   const keysMask = Object.keys(maskValidation);
 
   const formatedMaskValidation = keysMask.flatMap((key) => {
-    const keyMask = key as keyof MaskTypesParams<T>;
+    const keyMask = key as keyof ValiskEntryType<T>;
     const arrayByKey = [maskValidation[keyMask]].flat();
 
     return arrayByKey?.map((obj) => {
@@ -29,7 +30,7 @@ function useValisk<T>(maskValidation: MaskTypesParams<T>): ReturnValisk<T> {
     });
   });
 
-  const _masks = (nameInput: keyof T): DetailsHTML => {
+  const _masks: MasksType<T> = (nameInput: keyof T) => {
     const objectToInput = getObjectToInput<T>(
       formatedMaskValidation,
       nameInput
@@ -51,7 +52,7 @@ function useValisk<T>(maskValidation: MaskTypesParams<T>): ReturnValisk<T> {
     };
   };
 
-  const _getValues: GetValuesValisk<T> = (func) => (evt) => {
+  const _getValues: GetValuesType<T> = (func) => (evt) => {
     evt.preventDefault();
 
     const allInputs = [...(evt.target as HTMLFormElement).children].filter(
@@ -73,13 +74,13 @@ function useValisk<T>(maskValidation: MaskTypesParams<T>): ReturnValisk<T> {
         obj.key === "phone"
           ? (obj.typePhone as PhoneTypes)
           : (obj.key as Omit<keyof T, "phone">),
-      inputName: obj.name as MaskTypesParams<T>,
+      inputName: obj.name as ValiskEntryType<T>,
     }));
 
     return cleanValues<T>(nameInputAndTypeMaskArr, props) as T;
   };
 
-  const _forceUpdate = (props: ForceUpdateParams<T>): void => {
+  const _forceUpdate = (props: ForceUpdateEntryType<T>): void => {
     const arrayWithUpdates: Array<ForceObject<T>> = [props].flat();
 
     arrayWithUpdates.forEach((obj) => {

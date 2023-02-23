@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **6fbbf90665380ed89fd2b652f828dba74385937a**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6fbbf90665380ed89fd2b652f828dba74385937a)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 15/02/2023
+
+	```
+    ♻️ (configEntry): Mudança no nome da funcionalidade, adotando o padrão dos hooks modernos, com o "use"
+    
+    Mudanças no padrão de nome da nova funcionalidade criada, com ela, sendo assim possível identificar o hook
+	```
+
+<br />
+
 - **9b68e0b826a48349a8e8216617d30e640b8337c6**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/9b68e0b826a48349a8e8216617d30e640b8337c6)
