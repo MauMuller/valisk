@@ -1,112 +1,98 @@
-import { writeFile } from "fs";
+import { readFile, writeFile } from "fs/promises";
 import { exec } from "child_process";
 
-interface ObjectType {
-  commit: string;
-  linkCommit: string;
-  author: string;
-  date: string;
-  description: string;
+import { promisify } from "node:util";
+const execComand = promisify(exec);
+
+interface ObjectStructed {
+  Commit: string;
+  Author: string;
+  Message: string;
+  Merge?: string;
+  Date: string;
 }
 
-exec("cat ./.github/templates/RELEASE.md", (err, releaseTemplate) => {
-  if (err) return Error("Erro ao capturar a RELEASE\n");
+try {
+  const propsRegex = /(^[A-Z][a-z]+(?=\:))/;
+  const valuesRegex = /(^[A-Z][a-z]+\:)/;
+  const pathRelease = ".github/templates/RELEASE.md";
 
-  exec("git log main..development", (err, comandOutput) => {
-    if (err) return Error("Erro ao capturar o log\n");
+  const release = await readFile(pathRelease, {
+    encoding: "utf-8",
+  });
 
-    const inicialString = releaseTemplate ?? "";
-    const firstCommit = inicialString.search(/(\-\s\*\*\[\w+\])/gim);
+  const { stderr, stdout } = await execComand("git log");
+  if (stderr != "") throw stderr;
 
-    const removedOldCommits =
-      firstCommit != -1
-        ? inicialString.substring(0, firstCommit)
-        : inicialString;
+  const logArrayStrings = stdout.split(/commit(?=\s\w+\n(Merge|Author))/);
+  const arrayWithoutEmptyAndAuthorValues = logArrayStrings
+    .filter((value) => !/Author(?!.+)/i.test(value))
+    .filter((value) => value != "");
 
-    const outputResponse = comandOutput.replaceAll(
-      /commit(?=\s(\w*\d+))/g,
-      "Commit:"
-    );
-    const commitsArr = outputResponse.match(/((?<=Commit:\s)\w*(?=\n))/g);
+  const incrementCommitMessageOnHash = arrayWithoutEmptyAndAuthorValues.map(
+    (value) => (/^\s\w+/i.test(value) ? `Commit:${value}` : value)
+  );
 
-    const linkToCommitsArr =
-      commitsArr?.map((commit) => {
-        return `https://github.com/MauMuller/valisk/commit/${commit}`;
-      }) ?? [];
+  const formatedPropertiesToArray = incrementCommitMessageOnHash.map((item) => {
+    const properties = item.split("\n");
+    let messageFormated = "Message: ";
 
-    const authorsArr = outputResponse.match(/((?<=Author:\s)\w+(?=\s))/g) ?? [];
-    const datesArr = outputResponse.match(/(?<=Date:\s+).+(?=\n)/g) ?? [];
-    const descriptionArr =
-      outputResponse.match(/(?!\d)\n+\s+.+\n?\s+.+\n((?=\nCommit:)|$)/g) ?? [];
-
-    const timeOfDate = datesArr.map(
-      (data) => data.match(/(\d{2}:\d{2}:\d{2})/g)?.join("") ?? ""
-    );
-    const dayOfDate = datesArr.map(
-      (data) => data.match(/(?<=\s)(\d{2}|\d{1})(?=\s)/g)?.join("") ?? ""
-    );
-    const monthOfDate = datesArr.map(
-      (data) => data.match(/(?<=\s)[a-zA-Z]+(?=\s)/g)?.at(-1) ?? ""
-    );
-    const yearOfDate = datesArr.map(
-      (data) => data.match(/(?<=\s)\d{4}(?=\s)/g)?.join("") ?? ""
-    );
-
-    const datesFormated = dayOfDate.map((day, indexDay) => {
-      const month = monthOfDate[indexDay];
-      const year = yearOfDate[indexDay];
-      const time = timeOfDate[indexDay];
-
-      const date: Date = new Date(`${month} ${day}, ${year} ${time}`);
-      return `${date.toLocaleDateString()}`;
+    properties.forEach((valueString) => {
+      if (!propsRegex.test(valueString) && /(\S+)/.test(valueString))
+        messageFormated += `${valueString}\n\n`;
     });
 
-    const removeOneBreakLineDescription = descriptionArr.map((desc) =>
-      desc.replace("\n", "")
+    const formedProperties = properties.filter((valueString) =>
+      propsRegex.test(valueString)
     );
 
-    const arrayWithProperties =
-      commitsArr?.reduce(
-        (prev: Array<ObjectType>, current: string, index: number) => {
-          const commit = { commit: current };
-          const link = { linkCommit: linkToCommitsArr[index] };
-          const author = { author: authorsArr[index] };
-          const date = { date: datesFormated[index] };
-          const description = {
-            description: removeOneBreakLineDescription[index],
-          };
-
-          return [
-            ...prev,
-            { ...commit, ...link, ...author, ...date, ...description },
-          ];
-        },
-        []
-      ) ?? [];
-
-    const finalBody = arrayWithProperties.reduce(
-      (prev: string, current: ObjectType) => {
-        const { author, commit, date, description, linkCommit } = current;
-        // const linkAuthor = `https://github.com/${author}/`;
-
-        return (
-          prev +
-          "- **[" +
-          commit +
-          "](" +
-          linkCommit +
-          ")**\n\n\tData: " +
-          date +
-          "\n\n<br />\n\n"
-        );
-      },
-      removedOldCommits
-    );
-
-    writeFile("./.github/templates/RELEASE.md", finalBody, "utf8", (err) =>
-      err
-        ? console.log("Ocorreu um erro ao criar/modificar a RELEASE.md\n")
-        : console.log("RELEASE.md criada/modificada com sucesso!\n")
-    );
+    return [...formedProperties, messageFormated];
   });
-});
+
+  const structedArrayWithCommitProperties: Array<ObjectStructed> =
+    formatedPropertiesToArray.map(
+      (arrayWithProperties) =>
+        arrayWithProperties.reduce((prev, current) => {
+          const key =
+            current.match(new RegExp(propsRegex, "g"))?.join("") ?? "NoExist";
+
+          const value = current.replaceAll(new RegExp(valuesRegex, "g"), "");
+          const noFirstSpaceValue = value.replace(/\s+/, "");
+
+          return { ...prev, [key]: noFirstSpaceValue };
+        }, {}) as ObjectStructed
+    );
+
+  const cutValue = "<!--CutCommit-->";
+  const previusCommitsIndex = release.indexOf(cutValue);
+  const cuttedRelease = release.substring(
+    0,
+    previusCommitsIndex + cutValue.length
+  );
+
+  let formatedRelease = `${cuttedRelease}\n`;
+  const lastVersionObjects = [];
+
+  for (let structedObject of structedArrayWithCommitProperties) {
+    if (/(^(\d\.\d\.\d)(?!\S+))/.test(structedObject.Message)) break;
+    lastVersionObjects.push(structedObject);
+  }
+
+  lastVersionObjects.forEach((obj) => {
+    const { Author, Commit, Date, Message, Merge } = obj;
+    const linkCommit = `https://github.com/MauMuller/valisk/commit/${Commit}`;
+
+    const existMerge = Merge ? `**Merge**: ${Merge}\n\t` : "";
+    const existDate = Date ? `**Date**: ${Date}\n\t` : "";
+    const existAuthor = Author ? `**Author**: ${Author}\n\t` : "";
+    const existMessage = Message ? `**Message**: ${Message}` : "";
+
+    const template = `\n- **[${Commit}](${linkCommit})**\n\n\t${existAuthor}${existDate}${existMerge}${existMessage}<br />\n`;
+    formatedRelease += Commit ? template : "";
+  });
+
+  await writeFile(pathRelease, formatedRelease, "utf8");
+  console.log("Arquivo criado/alterado com sucesso!");
+} catch (err) {
+  console.log(`Erro: ${err}`);
+}

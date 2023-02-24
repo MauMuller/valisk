@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **2ba087d0be986fc6f5262a7d4e4c8a49de8b0de7**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2ba087d0be986fc6f5262a7d4e4c8a49de8b0de7)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 23/02/2023
+
+	```
+    ✨ (useValiskContext & ValiskProvider): Adição de contexto para os componentes da lib
+    
+    Foi incrementado duas funcionalidades novas, elas são usadas em conjunto, algo parecido com a funcionalidade de contexto do react-hook-form. Ela servirá para reutilização de métodos através de componentes, ou seja, é possivel trabalhar com os dados em arquivos separados e reutilizar esses métodos da biblioteca para atráves dos filhos e compoentes, fazendo a declaração do useValisk apenas no componente pai.
+	```
+
+<br />
+
 - **c05e4e0fc7d4a77d3b42867c74ac04b54897301c**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/c05e4e0fc7d4a77d3b42867c74ac04b54897301c)
