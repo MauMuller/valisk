@@ -82,9 +82,9 @@ try {
     const { Author, Commit, Date, Message, Merge } = obj;
     const linkCommit = `https://github.com/MauMuller/valisk/commit/${Commit}`;
 
-    const existMerge = Merge ? `**Merge**: ${Merge}\n\t` : "";
-    const existDate = Date ? `**Date**: ${Date}\n\t` : "";
-    const existAuthor = Author ? `**Author**: ${Author}\n\t` : "";
+    const existMerge = Merge ? `**Merge**: ${Merge} <br/>\n\t` : "";
+    const existDate = Date ? `**Date**: ${Date} <br/>\n\t` : "";
+    const existAuthor = Author ? `**Author**: ${Author} <br/>\n\t` : "";
     const existMessage = Message ? `**Message**: ${Message}` : "";
 
     const template = `\n- **[${Commit}](${linkCommit})**\n\n\t${existAuthor}${existDate}${existMerge}${existMessage}<br />\n`;

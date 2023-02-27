@@ -68,11 +68,9 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 - [API de Referência](#api-de-referência)
 
-  - [useValisk](#usevalisk)
+  - [**useValisk**](#-usevalisk)
 
-    - [Entrada](#entrada)
-
-    - [Parâmetros](#parâmetros)
+    - Parâmetros
 
       - [CPF](#cpf)
       - [CNPJ](#cnpj)
@@ -81,7 +79,7 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
       - [PHONE](#phone)
       - [PASSWORD](#password)
 
-    - [Retornos](#retornos)
+    - Retornos
       - [\_masks](#_masks)
       - [\_forceUpdate](#_forceupdate)
       - [\_cleanValues](#_cleanvalues)
@@ -89,32 +87,11 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
   <br />
 
-  - [useConfigEntry](#useconfigentry-novo)
+  - [**useConfigEntry**](#-useconfigentry-novo)
 
-    - [Entrada](#entrada-1)
+  - [**ValiskProvider**](#-valiskprovider-novo)
 
-    - [Parâmetros](#parc3a2metros-2)
-
-      - [Any](#any)
-
-    - [Retornos](#retornos)
-      - [ValiskEntryType](#valiskentrytype)
-
-  <br />
-
-  - [ValiskProvider](#valiskprovider-novo)
-
-    - [Parâmetros](#parc3a2metros-3)
-
-  <br />
-
-  - [useValiskContext](#usevaliskcontext-novo)
-
-    - [Entrada](#entrada-2)
-
-    - [Retornos](#retornos-2)
-
-  <br />
+  - [**useValiskContext**](#-usevaliskcontext-novo)
 
 - [Dúvidas](#dúvidas)
 
