@@ -3,6 +3,210 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **6b437fe8534d7685820096f24571d11c92822d77**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6b437fe8534d7685820096f24571d11c92822d77)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    📝 (README.md): Incremento de br para os casos de uso
+    
+    Apenas adicionei um separamento do título 'console' com o 'output'  para melhorar a visibilidade
+	```
+
+<br />
+
+- **7b24b148cdab0d81b395731f39b1e41ab0aeb82c**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/7b24b148cdab0d81b395731f39b1e41ab0aeb82c)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    1.0.5
+	```
+
+<br />
+
+- **5131823d79110dfb91a5627f859f86c2e6d64c90**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5131823d79110dfb91a5627f859f86c2e6d64c90)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    'release'
+	```
+
+<br />
+
+- **3e9b2111150bcc1b8942f9b8341895ac7ffada5d**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/3e9b2111150bcc1b8942f9b8341895ac7ffada5d)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    📝 (README.md): Atualização da documentação
+    
+    Adicionado novas features na documentação, com tags de 'novo', além de exemplificar com a sintaxe e descrição dos métodos
+	```
+
+<br />
+
+- **1a59bf78cc4bfff3496b53396249811524811849**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/1a59bf78cc4bfff3496b53396249811524811849)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 24/02/2023
+
+	```
+    🔨 (generateRelease.ts & release.md): Refatoração do gerador de commits + release melhorada
+    
+    Precisei refatorar o código que havia feito com o generateRelease, agora usando async await com incremento de todos os commit feitos na versão atualizada, mostrando o link, commit, autor, data e mensagem realizada no commit, facilitando a maneira de localizar cada uma das features caso seja necessário
+	```
+
+<br />
+
+- **2ba087d0be986fc6f5262a7d4e4c8a49de8b0de7**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2ba087d0be986fc6f5262a7d4e4c8a49de8b0de7)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 23/02/2023
+
+	```
+    ✨ (useValiskContext & ValiskProvider): Adição de contexto para os componentes da lib
+    
+    Foi incrementado duas funcionalidades novas, elas são usadas em conjunto, algo parecido com a funcionalidade de contexto do react-hook-form. Ela servirá para reutilização de métodos através de componentes, ou seja, é possivel trabalhar com os dados em arquivos separados e reutilizar esses métodos da biblioteca para atráves dos filhos e compoentes, fazendo a declaração do useValisk apenas no componente pai.
+	```
+
+<br />
+
+- **c05e4e0fc7d4a77d3b42867c74ac04b54897301c**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/c05e4e0fc7d4a77d3b42867c74ac04b54897301c)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 23/02/2023
+
+	```
+    🐛 (useValisk): Adição de uma condição para não gerar erro
+    
+    Foi preciso adicionar uma condição dentro dos métodos 'masks' e 'forceUpdate' para que caso sejam informados em campos que não possuem configuração, apenas não executam nenhuma máscara, mas não retornaram erro algum, isso é útil para deixar dados em componentes e assim não precisar fazer condições desnecessárias para ter máscaras apenas em campos que foram cadastrados
+	```
+
+<br />
+
+- **5b3d8144fa07375da607e958b63a0e7a32d079e6**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5b3d8144fa07375da607e958b63a0e7a32d079e6)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 23/02/2023
+
+	```
+    ✏️ (Geral): Ajuste das tipagens com nomes alterados em diversos arquivos
+    
+    Foi ajustado as tipagens para os arquivos que ainda estavam com os nomes antigos das tipagens alteradas no commit anterior, agora, com tudo funcionando.
+	```
+
+<br />
+
+- **fff3124bde9c523d4a0ed595616d5036ec57b93c**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/fff3124bde9c523d4a0ed595616d5036ec57b93c)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 23/02/2023
+
+	```
+    🏷️ ((Nomes das tipagens)): Melhoria no nome das tipagens, deixando de uma forma mais intuitiva
+    
+    Ajustei os nome de todas as tipagens que estão, atualmente, disponiveis para utilização, mantendo elas de uma forma mais intuitiva, declarando as funções com o seu nome + 'type' e os parametros com o incremento do 'entry'
+	```
+
+<br />
+
+- **6fbbf90665380ed89fd2b652f828dba74385937a**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6fbbf90665380ed89fd2b652f828dba74385937a)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 15/02/2023
+
+	```
+    ♻️ (configEntry): Mudança no nome da funcionalidade, adotando o padrão dos hooks modernos, com o "use"
+    
+    Mudanças no padrão de nome da nova funcionalidade criada, com ela, sendo assim possível identificar o hook
+	```
+
+<br />
+
+- **9b68e0b826a48349a8e8216617d30e640b8337c6**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/9b68e0b826a48349a8e8216617d30e640b8337c6)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 15/02/2023
+
+	```
+    ✨ (configEntry & types): Nova funcionalidade para lib e novas tipagens disponiveis
+    
+    Nessa atualização, foi criado uma funcionalidade de utilidade, o "configEntry" faz o papel de criar um novo estilo de estrutura de entrada para as configurações da lib, algo que serve para quem deseja separar todos os dados dos código, criando assim uma máscara para cada dado sem específicar o name dela diretamente dentro das máscaras. Isso será feito fora.\n\nEsse formato serve para criar campos que podem ou não ter máscaras, assim, gerando uma configuração do mesmo jeito, porém com um visual, para o densenvolvedor, de uma maneira muito mais simples de configurar.\n\nAlém disso, Ainda foram incrementados alguns tipos novos e renomeados outros, entre eles: MaskTypesParams, ForceUpdateParams, ObjectWithNameAndListProps e etc...
+	```
+
+<br />
+
+- **2c859eb5f4c4774aa97bbb8080d4d69a8e5a0f43**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2c859eb5f4c4774aa97bbb8080d4d69a8e5a0f43)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    🏷️ (funtiction & hooks & lib & & templates & types): Incremento de novos tipos para serem utilizados
+    
+    Foi criado alguns tipos novos para ajudarem os desenvolvedores a possuirem mais liberdade de criação quando forem utilizar a lib, além da mudança de alguns nomes para facilitar o entendimento
+	```
+
+<br />
+
+- **2340630891b4b36cdc8f8367577329e59b90bf5d**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2340630891b4b36cdc8f8367577329e59b90bf5d)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 14/02/2023
+
+	```
+    📝 (readme): incremento do br
+    
+    Adição da tag no lugar certo agora
+	```
+
+<br />
+
 - **98ecb7e0563518c85180f2041860fbb482750aac**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/98ecb7e0563518c85180f2041860fbb482750aac)

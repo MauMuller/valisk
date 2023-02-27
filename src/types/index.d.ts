@@ -34,7 +34,7 @@ export interface PhoneProps<T> extends ComumProps<T> {
 
 type ArrayWithMinTwoItens<T> = T | [T, T, ...T[]];
 
-export interface MaskTypes<T> {
+export interface ValiskEntryType<T> {
   cpf?: ArrayWithMinTwoItens<ComumProps<T>>;
   cnpj?: ArrayWithMinTwoItens<ComumProps<T>>;
   cep?: ArrayWithMinTwoItens<ComumProps<T>>;
@@ -43,25 +43,42 @@ export interface MaskTypes<T> {
   phone?: ArrayWithMinTwoItens<PhoneProps<T>>;
 }
 
+interface ListWithoutNameProp<T> {
+  cpf?: Omit<ComumProps<T>, "name">;
+  cnpj?: Omit<ComumProps<T>, "name">;
+  cep?: Omit<ComumProps<T>, "name">;
+  money?: Omit<MoneyProps<T>, "name">;
+  password?: Omit<PasswordProps<T>, "name">;
+  phone?: Omit<PhoneProps<T>, "name">;
+}
+export interface ConfigEntryType<T> {
+  name: keyof T;
+  props?: ListWithoutNameProp<T>;
+}
+
 export interface ForceObject<T> {
   inputName: keyof T;
   inputType: DefaultTypes | "react_hook_form";
   dispatchSetValue?: any;
 }
 
-export type ForceUpdateParams<T> = ArrayWithMinTwoItens<ForceObject<T>>;
+export type ForceUpdateEntryType<T> = ArrayWithMinTwoItens<ForceObject<T>>;
 
-export type GetValuesEvent<T> = (
+export type GetValuesType<T> = (
   func: (data: T) => void
 ) => (
   evt: React.FormEvent<HTMLFormElement>
 ) => React.FormEvent<HTMLFormElement>;
 
-export type ReturnType<T> = {
-  _masks: (key: keyof T) => DetailsHTML;
-  _forceUpdate: (props: ForceUpdateParams<T>) => void;
-  _cleanVal: (props: T) => T;
-  _getValues: GetValuesEvent<T>;
+export type MasksType<T> = (key: keyof T) => DetailsHTML;
+export type ForceUpdateType<T> = (props: ForceUpdateEntryType<T>) => void;
+export type CleanValuesType<T> = (props: T) => T;
+
+export type ReturnValisk<T> = {
+  _masks: MasksType<T>;
+  _forceUpdate: ForceUpdateType<T>;
+  _cleanValues: CleanValuesType<T>;
+  _getValues: GetValuesType<T>;
 };
 
 interface InputParams<T> {
@@ -84,12 +101,12 @@ export interface GlobalObject {
   value?: string;
 }
 
-export type MaskFormated<T> = { key: keyof MaskTypes<T> } & ComumProps<T> &
+export type MaskFormated<T> = {
+  key: keyof ValiskEntryType<T>;
+} & ComumProps<T> &
   MoneyProps<T> &
   PasswordProps<T> &
   PhoneProps<T>;
-
-type TypesMasks = "cpf" | "cnpj" | "cep" | "password" | "phone" | "money";
 
 export interface GlobalVariables {
   password: Array<GlobalObject>;

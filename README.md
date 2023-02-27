@@ -68,24 +68,51 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
 - [API de Referência](#api-de-referência)
 
-  - [Entrada](#entrada)
+  - [useValisk](#usevalisk)
 
-    - [useValisk\<Campos>](#usevaliskcampos)
+    - [Entrada](#entrada)
 
-  - [Parâmetros](#parâmetros)
+    - [Parâmetros](#parâmetros)
 
-    - [CPF](#cpf)
-    - [CNPJ](#cnpj)
-    - [CEP](#cep)
-    - [MONEY](#money)
-    - [PHONE](#phone)
-    - [PASSWORD](#password)
+      - [CPF](#cpf)
+      - [CNPJ](#cnpj)
+      - [CEP](#cep)
+      - [MONEY](#money)
+      - [PHONE](#phone)
+      - [PASSWORD](#password)
 
-  - [Retornos](#retornos)
-    - [\_masks](#_masks)
-    - [\_forceUpdate](#_forceupdate)
-    - [\_cleanValues](#_cleanvalues)
-    - [\_getValues](#_getvalues)
+    - [Retornos](#retornos)
+      - [\_masks](#_masks)
+      - [\_forceUpdate](#_forceupdate)
+      - [\_cleanValues](#_cleanvalues)
+      - [\_getValues](#_getvalues)
+
+  <br />
+
+  - [useConfigEntry](#useconfigentry-novo)
+
+    - [Entrada](#entrada-1)
+
+    - [Parâmetros](#parc3a2metros-2)
+
+      - [Any](#any)
+
+    - [Retornos](#retornos)
+      - [ValiskEntryType](#valiskentrytype)
+
+  <br />
+
+  - [ValiskProvider](#valiskprovider-novo)
+
+    - [Parâmetros](#parc3a2metros-3)
+
+  <br />
+
+  - [useValiskContext](#usevaliskcontext-novo)
+
+    - [Entrada](#entrada-2)
+
+    - [Retornos](#retornos-2)
 
   <br />
 
@@ -202,6 +229,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
   | 123.124.123-51 | 0,52 | Mostrar |
   | :------------- | :--- | :------ |
 
+  <br />
+
   Console:
 
   ```SHELL
@@ -268,6 +297,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
   | 123456789 | Esconder |
   | :-------- | :------- |
+
+  <br />
 
   Console:
 
@@ -356,6 +387,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
   - +64044127
   - +64203623
+
+  <br />
 
   Console:
 
@@ -469,6 +502,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
   | :----------------------- | :-------- | :----------- | :------ |
   | 12.\_\_.\_\_/\_\_\_-\_\_ | 12.341.23 | 67786-\_\_\_ | 23334-5 |
 
+  <br />
+
   Console:
 
   ```SHELL
@@ -580,6 +615,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
   | +12 3\_\_\_-\_\_\_\_ | +45 6 |
   | :------------------- | :---- |
+
+  <br />
 
   Console:
 
@@ -757,6 +794,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
   | +12 3323-444\_ | +45 61 2 | •••••••••• | R$ 0,00 | 1,234.12 | Mostrar Valores | Mostrar Senha |
   | :------------- | :------- | :--------- | :------ | :------- | :-------------- | ------------- |
 
+  <br />
+
   Console:
 
   ```SHELL
@@ -800,16 +839,30 @@ Agora, vamos para os métodos.
 
 ## @ Types
 
-| Nomes                      | Valor de tipagam                                                                     | Visual do Tipo                                               |
-| :------------------------- | :----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| ForceUpdateParams\<Campos> | { inputName: '...', inputType: "controlled", dispatchSetValue: function }            | {...} \| [{...}, {...}, ...]                                 |
-| MaskTypes\<Campos>         | { cep: {...}, cpf: {...}, cnpj: {...}, password: {...}, money: {...}, phone: {...} } | {[\name_mask]: [{...}, {...}, ...]} \| {[\name_mask]: {...}} |
+Aqui você poderá encontrar a finalidade e retorno dos tipos, mas é importante saber que os nomes foram colocados de forma intuitiva para lembrarmos justamente disso.
+
+- ### Parâmetros
+
+  | Nomes                         | Valor do tipo                                                                                        |
+  | :---------------------------- | :--------------------------------------------------------------------------------------------------- |
+  | ValiskEntryType\<Campos>      | `Array<...> \| { cep: {...}, cpf: {...}, cnpj: {...}, password: {...}, money: {...}, phone: {...} }` |
+  | ConfigEntryType\<Campos>      | `{ name: keyof Campos, props?: ListWithoutNameProp<Campos> }`                                        |
+  | ForceUpdateEntryType\<Campos> | `Array<...> \| { inputName: '...', inputType: "controlled", dispatchSetValue: function }`            |
+
+- ### Métodos
+
+  | Nomes                    | Valor do tipo                                                                                                    |
+  | :----------------------- | :--------------------------------------------------------------------------------------------------------------- |
+  | CleanValuesType\<Campos> | `(props: Campos) => Campos`                                                                                      |
+  | ForceUpdateType\<Campos> | `(props: ForceUpdateEntryType<Campos>) => void;`                                                                 |
+  | GetValuesType\<Campos>   | `(func: (data: Campos) => void) => (evt: React.FormEvent<HTMLFormElement>) => React.FormEvent<HTMLFormElement>;` |
+  | MasksType\<Campos>       | `(key: keyof Campos) => DetailsHTML;`                                                                            |
+
+<br/>
 
 ## @ useValisk
 
 Hook que será utilizado para informar quais serão as máscaras e quais métodos de retorno serão necessários.
-
-<br/>
 
 - ### Entrada
 
@@ -1585,6 +1638,233 @@ Hook que será utilizado para informar quais serão as máscaras e quais método
       </dd>
     </dl>
 
+<br/>
+
+## @ useConfigEntry `novo`
+
+Este hook fará o trabalho pesado para você, caso precise organizar os dados dos campos de uma maneira diferente da forma que o `useValisk` pede, é só utilizar este hook, a finalidade dele é organizar, independente da estrutura as máscaras para os campo corretos.
+
+> OBSERVAÇÃO: É necessário utilizar o tipo <ConfigEntryType\> no lugar onde será declarado a máscara e o nome do campo, porém é possivel criar todas outras estruturas ao redor da maneira que achar melhor.
+
+- ### Entrada
+
+  ***
+
+  Essa declaração é necessária para que o typescript possa utilizar os nomes dos campo de texto e assim, deixar de maneira explicita qual será o campo a possuir a máscara.
+
+  Sintaxe:
+
+  ```TSX
+  interface Inputs {
+    teste1: string;
+    teste2: string;
+  }
+
+  const { ... } = useConfigEntry /* Aqui -> */<Inputs>(...)
+  ```
+
+<br/>
+
+- ### Parâmetros
+
+  ***
+
+  Aqui estára todas as possibilidades de máscaras para serem inseridas, em breve terão mais outras para serem incluidas.
+
+  - ### Any
+
+    - [x] Fará a conversão de uma estrutura de dados para outra;
+    - [x] Não altera nenhum dado;
+
+    <dl>
+      <dt>Definições:<dt>
+      <dd>
+
+      <details>
+      <summary><b>Observações</b></a></summary>
+
+    O principal motivo desse método receber any é porque ele literalmente aceita qualquer estutura de dados.
+
+    Desde um array com vários arrays dentro, até apenas um único objeto. Todas essa possibilidades fazem o método ser muito versatil.
+
+    Porém é **necessário a utilização** do tipo **ConfigEntryType** caso não crie o objeto diretamente no parâmetro.
+
+    Isso porque a ideia principal desse hook é converter a estrutura de dados que será utilizado como fonte para o hook `useValisk` para algo que o próprio possa aceitar, ou seja, você acaba tendo liberdade para criar vários tipos de estruturas, mas com a obrigação de incluir um objeto do tipo **ConfigEntryType**.
+
+      </details>
+
+      <details>
+      <summary><b>Sintaxe</b></summary>
+
+    Vamos ao exemplo da sua utilização, nela existe uma estrutura de uma array com um array e assim o nosso objeto que precisamos, assim declaramos e como podemos ver, a opção `props` não é obrigatória, isso funciona muito bem pois o valisk não irá gerar erro mesmo que não exista uma configuração de mascará para um nome de campo, ele apenas irá colocar o name no campo e não irá informar erro algum.
+
+    ```TSX
+      import { useValisk, useConfigEntry, ConfigEntryType } from "@libsdomau/valisk";
+
+      ...
+
+      interface Inputs {
+        campo1: string;
+        campo2: string;
+        campo3: string;
+      }
+
+      type Dados = Array<
+        Array<React.HTMLAttributes<HTMLInputElement> & /* Aqui é usado --> */ConfigEntryType<Inputs>>
+      >;
+
+      const dados: Dados = [
+        [
+          {
+            name: "campo1",
+            id: "campo1",
+            defaultValue: "aaaa",
+            props: { money: { typeMoney: "real", explictMask: true }, cpf: { explictMask: true } /* <-- Isso aqui não irá funcionar, ele pega apenas o primeiro  */ },
+          },
+          {
+            name: "campo2",
+            placeholder: "teste1",
+          },
+        ],
+        [
+          {
+            name: "campo3",
+            props: { cnpj: { explictMask: true } },
+          },
+        ],
+      ];
+
+      const configMasks = useConfigEntry<Inputs>(dados);
+      const methodsValisk = useValisk<Inputs>(configMasks);
+
+    ```
+
+      </details>
+
+      </dd>
+    </dl>
+
+<br />
+
+- ### Retornos
+
+  ***
+
+  Métodos que serão desestruturados para serem utilizados para diversas funcionalidades.
+
+  - ### ValiskEntryType
+
+    O retorno do hook será sempre o parâmetro de entrada do `useValisk`, isso porque ele serve de auxiliar para uma estrutura diferente de dados.
+
+    Usando o mesmo exemplo anteriores teriamos a seguinte resposta:
+
+    ```TSX
+      const configMasks = useConfigEntry<Inputs>(dados);
+      const methodsValisk = useValisk<Inputs>(configMasks);
+
+      console.log(configMasks);
+
+      /*
+          cnpj:{
+              "name": "campo3",
+              "explictMask": true
+          },
+
+          money:{
+              "name": "campo1",
+              "typeMoney": "real",
+              "explictMask": true
+          }
+       */
+    ```
+
+<br/>
+
+## @ ValiskProvider `novo`
+
+Inspirado no `FormProvider` do `react-hook-form`, o **ValiskProvider** tem a funcionalidade de reutilização dos métodos do **useValisk**. É necessário apenas envolver esse componente entorno dos campos que precisam utilizar os métodos.
+
+- ### Parâmetros
+
+  ***
+
+  Ao utilizar o componente, é necessário passar um valor, esse é obtido através da utilização do método **useValisk**, assim, basta passar o valor retornado para dentro do componente pela destruturação.
+
+  <br/>
+
+  - Sintaxe:
+
+    ```TSX
+    const methodsValisk = useValisk<Inputs>(...);
+    const { _masks, _forceUpdate, _getValues, _cleanValues } = methodsValisk;
+
+    <ValiskProvider {...methodsValisk}>
+      ...
+    </ValiskProvider>
+    ```
+
+<br />
+
+## @ useValiskContext `novo`
+
+Usado em conjuto com o **ValiskProvider** e inspirado no `useFormContext`, essa é uma funcionalidade que realiza o consumo do valor passado para o Provider, ou seja, ele possui os mesmo métodos que o **useValisk**, usando eles como forma de apenas uma instância.
+
+- ### Entrada
+
+  ***
+
+  Essa declaração é necessária para que o typescript possa utilizar os nomes dos campo de texto e assim, deixar de maneira explicita qual será o campo a possuir a máscara.
+
+  Sintaxe:
+
+  ```TSX
+  interface Inputs {
+    teste1: string;
+    teste2: string;
+  }
+
+  const { ... } = useValiskContext /* Aqui -> */<Inputs>()
+  ```
+
+<br/>
+
+- ### Retornos
+
+  ***
+
+  Todos os métodos que são retornados serão a partir do valor do `ValiskProvider`, ou seja, serão os mesmo métodos do hook `useValisk`.
+
+  <br />
+
+  - Sintaxe:
+
+    ```TSX
+    ...
+
+    type Inputs = {
+      campo1: string;
+      campo2: string;
+      campo3: string;
+      campo4: string;
+    }
+
+    ...
+
+    return (
+      <ValiskProvider {...methodsValisk}>
+        <InputComponent />
+      </ValiskProvider>
+    );
+
+
+    const InputComponent = () => {
+      const { _masks, _forceUpdate, _cleanValues, _getValues } = useValiskContext<Inputs>();
+      return <input {..._masks('...')}/>
+    }
+
+    ```
+
+<br/>
 <br/>
 
 ## Dúvidas
