@@ -1,6 +1,6 @@
 {
   "name": "@libsdomau/valisk",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT License",
   "description": "Mascaras UNCONTROLLED, CONTROLLED e integração com REACT-HOOK-FORMS",
   "main": "./dist/lib.umd.js",
