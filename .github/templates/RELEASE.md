@@ -36,6 +36,26 @@ us, rhoncus at est ut, rutrum vulputate neque. Ut ultricies semper turpis at lob
 
 <!--CutCommit-->
 
+- **[3e9b2111150bcc1b8942f9b8341895ac7ffada5d](https://github.com/MauMuller/valisk/commit/3e9b2111150bcc1b8942f9b8341895ac7ffada5d)**
+
+	**Author**: MauMuller <82516932+MauMuller@users.noreply.github.com>
+	**Date**: Mon Feb 27 09:16:34 2023 -0300
+	**Message**: 📝 (README.md): Atualização da documentação
+
+    Adicionado novas features na documentação, com tags de 'novo', além de exemplificar com a sintaxe e descrição dos métodos
+
+<br />
+
+- **[1a59bf78cc4bfff3496b53396249811524811849](https://github.com/MauMuller/valisk/commit/1a59bf78cc4bfff3496b53396249811524811849)**
+
+	**Author**: MauMuller <82516932+MauMuller@users.noreply.github.com>
+	**Date**: Fri Feb 24 15:37:04 2023 -0300
+	**Message**: 🔨 (generateRelease.ts & release.md): Refatoração do gerador de commits + release melhorada
+
+    Precisei refatorar o código que havia feito com o generateRelease, agora usando async await com incremento de todos os commit feitos na versão atualizada, mostrando o link, commit, autor, data e mensagem realizada no commit, facilitando a maneira de localizar cada uma das features caso seja necessário
+
+<br />
+
 - **[2ba087d0be986fc6f5262a7d4e4c8a49de8b0de7](https://github.com/MauMuller/valisk/commit/2ba087d0be986fc6f5262a7d4e4c8a49de8b0de7)**
 
 	**Author**: MauMuller <82516932+MauMuller@users.noreply.github.com>
