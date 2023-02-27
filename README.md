@@ -384,6 +384,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
   - +64044127
   - +64203623
 
+  <br />
+
   Console:
 
   ```SHELL
@@ -496,6 +498,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
   | :----------------------- | :-------- | :----------- | :------ |
   | 12.\_\_.\_\_/\_\_\_-\_\_ | 12.341.23 | 67786-\_\_\_ | 23334-5 |
 
+  <br />
+
   Console:
 
   ```SHELL
@@ -607,6 +611,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
   | +12 3\_\_\_-\_\_\_\_ | +45 6 |
   | :------------------- | :---- |
+
+  <br />
 
   Console:
 
@@ -783,6 +789,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
   | +12 3323-444\_ | +45 61 2 | •••••••••• | R$ 0,00 | 1,234.12 | Mostrar Valores | Mostrar Senha |
   | :------------- | :------- | :--------- | :------ | :------- | :-------------- | ------------- |
+
+  <br />
 
   Console:
 

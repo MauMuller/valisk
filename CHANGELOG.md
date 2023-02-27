@@ -3,6 +3,50 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **7b24b148cdab0d81b395731f39b1e41ab0aeb82c**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/7b24b148cdab0d81b395731f39b1e41ab0aeb82c)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    1.0.5
+	```
+
+<br />
+
+- **5131823d79110dfb91a5627f859f86c2e6d64c90**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/5131823d79110dfb91a5627f859f86c2e6d64c90)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    'release'
+	```
+
+<br />
+
+- **3e9b2111150bcc1b8942f9b8341895ac7ffada5d**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/3e9b2111150bcc1b8942f9b8341895ac7ffada5d)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    📝 (README.md): Atualização da documentação
+    
+    Adicionado novas features na documentação, com tags de 'novo', além de exemplificar com a sintaxe e descrição dos métodos
+	```
+
+<br />
+
 - **1a59bf78cc4bfff3496b53396249811524811849**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/1a59bf78cc4bfff3496b53396249811524811849)
