@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **39b0374ee61b6e52dcbd82002c477e63c97c8e9e**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/39b0374ee61b6e52dcbd82002c477e63c97c8e9e)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    📝 (readme): adição de mais tags
+    
+    esqueci de colocar mais umas tags, agora finalizadas
+	```
+
+<br />
+
 - **6b437fe8534d7685820096f24571d11c92822d77**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6b437fe8534d7685820096f24571d11c92822d77)
