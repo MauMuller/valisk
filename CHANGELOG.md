@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **1a59bf78cc4bfff3496b53396249811524811849**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/1a59bf78cc4bfff3496b53396249811524811849)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 24/02/2023
+
+	```
+    🔨 (generateRelease.ts & release.md): Refatoração do gerador de commits + release melhorada
+    
+    Precisei refatorar o código que havia feito com o generateRelease, agora usando async await com incremento de todos os commit feitos na versão atualizada, mostrando o link, commit, autor, data e mensagem realizada no commit, facilitando a maneira de localizar cada uma das features caso seja necessário
+	```
+
+<br />
+
 - **2ba087d0be986fc6f5262a7d4e4c8a49de8b0de7**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/2ba087d0be986fc6f5262a7d4e4c8a49de8b0de7)

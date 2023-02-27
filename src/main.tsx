@@ -1,12 +1,18 @@
-import { CSSProperties, ReactNode, useEffect } from "react";
+import { CSSProperties, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 
 import {
-  ValiskProvider,
   useValisk,
   useConfigEntry,
   useValiskContext,
+  ValiskProvider,
+  ValiskEntryType,
   ConfigEntryType,
+  ForceUpdateEntryType,
+  CleanValuesType,
+  ForceUpdateType,
+  GetValuesType,
+  MasksType,
 } from "./lib/index";
 
 let cont = 0;
@@ -20,36 +26,45 @@ const style: CSSProperties = {
 };
 
 type Inputs = {
-  comunTeste: string;
-  comunTeste2: string;
-  comunTeste3: string;
-  inputTest: string;
+  campo1: string;
+  campo2: string;
+  campo3: string;
 };
 
 const App = () => {
   console.log(`Renderizou ${(cont += 1)} ${cont > 1 ? "vezes" : "vez"}`);
 
-  const configMasksTemplate: Array<ConfigEntryType<Inputs>> = [
-    {
-      name: "inputTest",
-      props: { cpf: { explictMask: true } },
-    },
-    {
-      name: "comunTeste3",
-      props: {
-        phone: { typePhone: "phoneMovel", showDDD: true, explictMask: true },
+  type Dados = Array<
+    Array<React.HTMLAttributes<HTMLInputElement> & ConfigEntryType<Inputs>>
+  >;
+
+  const dados: Dados = [
+    [
+      {
+        name: "campo1",
+        id: "campo1",
+        defaultValue: "aaaa",
+        props: { money: { typeMoney: "real", explictMask: true } },
       },
-    },
+      {
+        name: "campo2",
+        placeholder: "teste1",
+      },
+    ],
+    [
+      {
+        name: "campo3",
+        props: { cnpj: { explictMask: true } },
+      },
+    ],
   ];
 
-  const configMasks = useConfigEntry<Inputs>(configMasksTemplate);
+  const configMasks = useConfigEntry<Inputs>(dados);
+  console.log(configMasks);
 
   const methodsValisk = useValisk<Inputs>(configMasks);
-  const { _masks, _forceUpdate, _getValues, _cleanValues } = methodsValisk;
 
-  useEffect(() => {
-    _forceUpdate({ inputName: "inputTest", inputType: "uncontrolled" });
-  }, []);
+  const { _masks, _forceUpdate, _getValues, _cleanValues } = methodsValisk;
 
   const show = (data: Inputs) => {
     console.log(data);
@@ -59,10 +74,9 @@ const App = () => {
   return (
     <ValiskProvider {...methodsValisk}>
       <form onSubmit={_getValues(show)}>
-        <input defaultValue={"aaa234132"} />
-        <input {..._masks("inputTest")} />
-
-        <InputTeste name="comunTeste3" />
+        {dados.flat().map((obj) => {
+          return <InputTeste {...obj} />;
+        })}
 
         <button>Mostrar Valor</button>
       </form>
@@ -70,14 +84,19 @@ const App = () => {
   );
 };
 
-function InputTeste({ name }: { name: keyof Inputs }) {
-  const { _masks, _forceUpdate } = useValiskContext<Inputs>();
+interface InputTesteType extends React.HTMLAttributes<HTMLInputElement> {
+  name: keyof Inputs;
+}
+
+function InputTeste({ name, ...rest }: InputTesteType) {
+  const { _masks, _forceUpdate, _cleanValues, _getValues } =
+    useValiskContext<Inputs>();
 
   useEffect(() => {
     _forceUpdate({ inputName: name, inputType: "uncontrolled" });
   }, []);
 
-  return <input {..._masks(name)} />;
+  return <input {..._masks(name)} {...rest} />;
 }
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
