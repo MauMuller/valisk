@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **6b437fe8534d7685820096f24571d11c92822d77**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/6b437fe8534d7685820096f24571d11c92822d77)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    📝 (README.md): Incremento de br para os casos de uso
+    
+    Apenas adicionei um separamento do título 'console' com o 'output'  para melhorar a visibilidade
+	```
+
+<br />
+
 - **7b24b148cdab0d81b395731f39b1e41ab0aeb82c**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/7b24b148cdab0d81b395731f39b1e41ab0aeb82c)

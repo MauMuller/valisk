@@ -229,6 +229,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
   | 123.124.123-51 | 0,52 | Mostrar |
   | :------------- | :--- | :------ |
 
+  <br />
+
   Console:
 
   ```SHELL
@@ -295,6 +297,8 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
 
   | 123456789 | Esconder |
   | :-------- | :------- |
+
+  <br />
 
   Console:
 
