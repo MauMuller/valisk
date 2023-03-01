@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **f59af5da163a6e267dc986a824fb4426dff90bca**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f59af5da163a6e267dc986a824fb4426dff90bca)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 01/03/2023
+
+	```
+    ♻️ (useValiskContext - hook): Foi preciso realizar vários testes e mudanças na estrutura de arquivo para esse hook
+    
+    Após diversos testes, percebi que o useValiskContext não estava funcionando corretamente, e por conta disso, precisei refatorar a estrutura de pastas e arquivos do hook, porém, já está estável novamente
+	```
+
+<br />
+
 - **4132359baa32259516b67fcf82e30dc82664036e**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/4132359baa32259516b67fcf82e30dc82664036e)
