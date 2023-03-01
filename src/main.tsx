@@ -62,7 +62,14 @@ const App = () => {
   const configMasks = useConfigEntry<Inputs>(dados);
   console.log(configMasks);
 
-  const methodsValisk = useValisk<Inputs>(configMasks);
+  const methodsValisk = useValisk<Inputs>({
+    phone: {
+      name: "campo1",
+      typePhone: "phoneMovel",
+      explictMask: true,
+      showDDD: true,
+    },
+  });
 
   const { _masks, _forceUpdate, _getValues, _cleanValues } = methodsValisk;
 
@@ -74,9 +81,11 @@ const App = () => {
   return (
     <ValiskProvider {...methodsValisk}>
       <form onSubmit={_getValues(show)}>
-        {dados.flat().map((obj) => {
+        {/* {dados.flat().map((obj) => {
           return <InputTeste {...obj} />;
-        })}
+        })} */}
+
+        <InputTeste name="campo1" />
 
         <button>Mostrar Valor</button>
       </form>
@@ -89,8 +98,7 @@ interface InputTesteType extends React.HTMLAttributes<HTMLInputElement> {
 }
 
 function InputTeste({ name, ...rest }: InputTesteType) {
-  const { _masks, _forceUpdate, _cleanValues, _getValues } =
-    useValiskContext<Inputs>();
+  const { _masks, _forceUpdate } = useValiskContext<Inputs>();
 
   useEffect(() => {
     _forceUpdate({ inputName: name, inputType: "uncontrolled" });

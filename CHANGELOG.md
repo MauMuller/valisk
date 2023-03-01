@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **4132359baa32259516b67fcf82e30dc82664036e**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/4132359baa32259516b67fcf82e30dc82664036e)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 01/03/2023
+
+	```
+    🔧 (vite.config.ts): Extração das dependencias para melhor desempenho
+    
+    Incrementei nas configurações do vite uma extração das dependencias que eu não quero que sejam renderizadas juntamente com o bunlde, ou seja, agora a lib está mais leve do que antes
+	```
+
+<br />
+
 - **92300bd0773965ba620ee3e6ad61611181b44780**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/92300bd0773965ba620ee3e6ad61611181b44780)

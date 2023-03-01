@@ -1,7 +1,9 @@
-export type DetailsHTML = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
->;
+import React from "react";
+
+export type MaskMethods<T> = {
+  onInput: (evt: React.FormEvent<HTMLInputElement>) => void;
+  name: string;
+};
 
 type DefaultTypes = "controlled" | "uncontrolled";
 
@@ -70,7 +72,7 @@ export type GetValuesType<T> = (
   evt: React.FormEvent<HTMLFormElement>
 ) => React.FormEvent<HTMLFormElement>;
 
-export type MasksType<T> = (key: keyof T) => DetailsHTML;
+export type MasksType<T> = (key: keyof T) => MaskMethods<T>;
 export type ForceUpdateType<T> = (props: ForceUpdateEntryType<T>) => void;
 export type CleanValuesType<T> = (props: T) => T;
 

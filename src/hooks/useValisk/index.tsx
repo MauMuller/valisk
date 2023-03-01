@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   ValiskEntryType,
   ReturnValisk,
@@ -36,9 +34,18 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
     );
 
     return {
-      onInput: (evt: React.FormEvent<HTMLInputElement>) => {
-        const valueInput = evt.currentTarget.value;
+      onInput: (evt) => {
         const elementInput = evt.currentTarget;
+
+        const getElementName = elementInput.tagName.toLowerCase();
+        const { value: valueInput } = elementInput;
+
+        const errorMessage = `\n\nTipo de elemento: ${getElementName}\nValor do elemento: ${valueInput}\n\nEste elemento não é um campo de texto. Verifique se o elemento que está recebendo o método '_masks(...)' realmente é um campo de texto!\n\nOBS: Para saber quais elemento estão utilizando o 'Valisk', basta procurar por 'v-check' no body da página.\n\n`;
+
+        if (valueInput === undefined) {
+          console.warn(errorMessage);
+          return;
+        }
 
         if (!objectToInput) return;
 
@@ -50,6 +57,7 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
           : valueInput;
       },
       name: String(nameInput) ?? "",
+      _: "v-check",
     };
   };
 
