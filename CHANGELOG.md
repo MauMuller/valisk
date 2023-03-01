@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **92300bd0773965ba620ee3e6ad61611181b44780**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/92300bd0773965ba620ee3e6ad61611181b44780)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    📝 (readme): Melhora no menu para navegação
+    
+    Ajuste dos link que não funcionavam na documentação e foco dos links para manter mais centralizado as buscas
+	```
+
+<br />
+
 - **39b0374ee61b6e52dcbd82002c477e63c97c8e9e**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/39b0374ee61b6e52dcbd82002c477e63c97c8e9e)
