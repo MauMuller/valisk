@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **63d5c18ef86aa2302453cd59c4e4d992f9b23d70**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/63d5c18ef86aa2302453cd59c4e4d992f9b23d70)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 01/03/2023
+
+	```
+    📝 (readme): sessão de erros + v-check
+    
+    Dentro do useValisk foi adicionado uma funcionalidade que insere uma propriedade no elemento que o _masks(...) é inserido, isso devido a identificação de erros relacionados a esse método. Agora, caso algum elemento que não seja um input receber a função _masks(...), irá gerar um uma mensagem de erro no console informando qual é o tipo de elemento e o seu valor, além de encaminhar uma possivel solução logo abaixo.\n\nV-check apenas serve para identificar dentro da página quais são os elementos que possuem uma máscara e caso algum não seja um input, mostrar no console.\n\nAlém disso, também foi adicionado duas novas sessões dentro do readme, a primeira sobre v-check, como toda explicação acima. E a segunda com 'Erros comuns', para deixar mais fácil a descoberta de erros casos aconteça tenha uma possivel solução.\n\nPor fim, ainda foi adicionado mais um exemplo nos casos de uso, agora com a lib MUI, mostrando como fazer para usar a máscara nesse componente disponibilizado.
+	```
+
+<br />
+
 - **f59af5da163a6e267dc986a824fb4426dff90bca**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f59af5da163a6e267dc986a824fb4426dff90bca)

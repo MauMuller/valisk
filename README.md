@@ -868,7 +868,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
             label="teste"
             defaultValue="bah"
             InputProps={{
-              inputProps: { .._masks("campo1") },
+              inputProps: { ..._masks("campo1") },
               endAdornment: (
                 <IconButton onClick={() => setHideValue(!hideValue)}> O </IconButton>
               ),
@@ -912,6 +912,8 @@ Sua criação é justamente para previr qualquer tipo de inserção em algum ele
 Então, caso a máscara não esteja funcionando do campo de texto em específico, recomendo que verifique se o **v-check** está incluido nesse input, caso não esteja, provavelmente seu componente possui algum elemento superior.
 
 Mas não fique precoupado, será informado no **console caso o elemento que possui o `_masks("...")` não seja um campo de texto**, por isso, fique de olho no console.
+
+<br />
 
 ## API de Referência
 
