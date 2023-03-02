@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **638c43dc1a453b488021d160568f2e8317378c0e**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/638c43dc1a453b488021d160568f2e8317378c0e)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 02/03/2023
+
+	```
+    🚚 (Tipos & ConfigEntryProps): Renomeação dos tipos e propriedades do useConfigEntry
+    
+    Realizei a altração dos nomes dos tipos para facilitar ainda mais, removendo a redundancia 'type' de todos os tipos, além de trocar os 'entry' por 'props' para facilitar a utilização
+	```
+
+<br />
+
 - **206f39eb7cab9cff367713a5f8b2b484a75cd389**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/206f39eb7cab9cff367713a5f8b2b484a75cd389)

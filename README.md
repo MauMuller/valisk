@@ -913,6 +913,8 @@ Então, caso a máscara não esteja funcionando do campo de texto em específico
 
 Mas não fique precoupado, será informado no **console caso o elemento que possui o `_masks("...")` não seja um campo de texto**, por isso, fique de olho no console.
 
+![Error](./imgs_readme/error_message_lib.png)
+
 <br />
 
 ## API de Referência
