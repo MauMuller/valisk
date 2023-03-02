@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **206f39eb7cab9cff367713a5f8b2b484a75cd389**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/206f39eb7cab9cff367713a5f8b2b484a75cd389)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 01/03/2023
+
+	```
+    🐛 (README.md): Ajustes de formatação na documentação
+    
+    Incremento de um '.' no exemplo com a lib Material UI e adição de espaçamento dentre títulos
+	```
+
+<br />
+
 - **63d5c18ef86aa2302453cd59c4e4d992f9b23d70**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/63d5c18ef86aa2302453cd59c4e4d992f9b23d70)

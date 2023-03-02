@@ -6,13 +6,13 @@ import {
   useConfigEntry,
   useValiskContext,
   ValiskProvider,
-  ValiskEntryType,
-  ConfigEntryType,
-  ForceUpdateEntryType,
-  CleanValuesType,
-  ForceUpdateType,
-  GetValuesType,
-  MasksType,
+  ValiskProps,
+  ConfigEntryProps,
+  ForceUpdateProps,
+  CleanValues,
+  ForceUpdate,
+  GetValues,
+  Masks,
 } from "./lib/index";
 
 let cont = 0;
@@ -35,26 +35,26 @@ const App = () => {
   console.log(`Renderizou ${(cont += 1)} ${cont > 1 ? "vezes" : "vez"}`);
 
   type Dados = Array<
-    Array<React.HTMLAttributes<HTMLInputElement> & ConfigEntryType<Inputs>>
+    Array<React.HTMLAttributes<HTMLInputElement> & ConfigEntryProps<Inputs>>
   >;
 
   const dados: Dados = [
     [
       {
-        name: "campo1",
+        nameInput: "campo1",
         id: "campo1",
         defaultValue: "aaaa",
-        props: { money: { typeMoney: "real", explictMask: true } },
+        maskConfig: { money: { typeMoney: "real", explictMask: true } },
       },
       {
-        name: "campo2",
+        nameInput: "campo2",
         placeholder: "teste1",
       },
     ],
     [
       {
-        name: "campo3",
-        props: { cnpj: { explictMask: true } },
+        nameInput: "campo3",
+        maskConfig: { cnpj: { explictMask: true } },
       },
     ],
   ];

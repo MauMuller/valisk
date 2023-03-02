@@ -1,11 +1,11 @@
 import {
-  ValiskEntryType,
+  ValiskProps,
   ReturnValisk,
-  MasksType,
-  ForceUpdateEntryType,
+  Masks,
+  ForceUpdateProps,
   ForceObject,
   PhoneTypes,
-  GetValuesType,
+  GetValues,
 } from "../../types";
 
 import { defaultProps } from "../../templates/defaultProps";
@@ -14,11 +14,11 @@ import { cleanValues } from "../../functions/cleanValues";
 import { masks } from "../../options/masks";
 import { typeInput } from "../../options/typeInput";
 
-function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
+function useValisk<T>(maskValidation: ValiskProps<T>): ReturnValisk<T> {
   const keysMask = Object.keys(maskValidation);
 
   const formatedMaskValidation = keysMask.flatMap((key) => {
-    const keyMask = key as keyof ValiskEntryType<T>;
+    const keyMask = key as keyof ValiskProps<T>;
     const arrayByKey = [maskValidation[keyMask]].flat();
 
     return arrayByKey?.map((obj) => {
@@ -27,7 +27,7 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
     });
   });
 
-  const _masks: MasksType<T> = (nameInput: keyof T) => {
+  const _masks: Masks<T> = (nameInput: keyof T) => {
     const objectToInput = getObjectToInput<T>(
       formatedMaskValidation,
       nameInput
@@ -61,7 +61,7 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
     };
   };
 
-  const _getValues: GetValuesType<T> = (func) => (evt) => {
+  const _getValues: GetValues<T> = (func) => (evt) => {
     evt.preventDefault();
 
     const allInputs = [...(evt.target as HTMLFormElement).children].filter(
@@ -89,7 +89,7 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
     return cleanValues<T>(nameInputAndTypeMaskArr, props) as T;
   };
 
-  const _forceUpdate = (props: ForceUpdateEntryType<T>): void => {
+  const _forceUpdate = (props: ForceUpdateProps<T>): void => {
     const arrayWithUpdates: Array<ForceObject<T>> = [props].flat();
 
     arrayWithUpdates.forEach((obj) => {

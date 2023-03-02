@@ -1,7 +1,7 @@
 import {
   ListWithoutNameProp,
-  ValiskEntryType,
-  ConfigEntryType,
+  ValiskProps,
+  ConfigEntryProps,
 } from "../../types/index";
 
 const deepArray = (array: Array<any>) => {
@@ -18,34 +18,34 @@ const deepArray = (array: Array<any>) => {
 export const useConfigEntry = <T>(data: any) => {
   const isArray = Array.isArray(data);
   const arrayWithAllNames: Array<keyof T> = [];
-  const arrayAux: Array<ConfigEntryType<T>> = (
+  const arrayAux: Array<ConfigEntryProps<T>> = (
     isArray ? [...deepArray(data)] : [data]
   ).flat();
 
-  const reducerObject: ValiskEntryType<T> = arrayAux.reduce((prev, curr) => {
-    const { name, props } = curr;
-    const prevValue = prev as ValiskEntryType<T>;
-    let formatedObject: ValiskEntryType<T> = {};
+  const reducerObject: ValiskProps<T> = arrayAux.reduce((prev, curr) => {
+    const { nameInput, maskConfig } = curr;
+    const prevValue = prev as ValiskProps<T>;
+    let formatedObject: ValiskProps<T> = {};
 
-    if (!curr?.props) return { ...prev, ...formatedObject };
+    if (!curr?.maskConfig) return { ...prev, ...formatedObject };
 
     for (const [key, value] of Object.entries(
-      props as ListWithoutNameProp<T>
+      maskConfig as ListWithoutNameProp<T>
     )) {
-      const keyMasks = key as keyof ValiskEntryType<T>;
+      const keyMasks = key as keyof ValiskProps<T>;
       const valueMasks = value as any;
       const existMoreSameKeys = Object.hasOwn(prevValue, keyMasks);
 
-      const existNameObject = arrayWithAllNames.includes(name);
+      const existNameObject = arrayWithAllNames.includes(nameInput);
 
-      const uniqueProps = { name, ...valueMasks };
+      const uniqueProps = { nameInput, ...valueMasks };
       const arrayWithMoreProps = [
         { ...prevValue[keyMasks] },
-        { name, ...valueMasks },
+        { nameInput, ...valueMasks },
       ];
 
       if (!existNameObject) {
-        arrayWithAllNames.push(name);
+        arrayWithAllNames.push(nameInput);
 
         formatedObject = {
           [keyMasks]: existMoreSameKeys ? arrayWithMoreProps : uniqueProps,
