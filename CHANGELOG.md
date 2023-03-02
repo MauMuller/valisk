@@ -3,6 +3,22 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **feee2864056ca76e5866545052801fe7c50f6176**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/feee2864056ca76e5866545052801fe7c50f6176)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 02/03/2023
+
+	```
+    📝 (readme & imgs_readme): Incremento de ilustração e criação de uma pasta para imagens
+    
+    Resolvi criar uma pasta com todas as imagens que pretendo utilizar na documentação daqui em diante, facilitando até a busca. Além disso, incrementei uma imagem ilustativa na sessão `v-check` para mostrar qual é o erro que irá aparecer caso haja um problema.
+	```
+
+<br />
+
 - **638c43dc1a453b488021d160568f2e8317378c0e**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/638c43dc1a453b488021d160568f2e8317378c0e)

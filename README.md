@@ -30,9 +30,12 @@
 
 <div align="center">
 
-✅ Documentação completa com vários exemplos ilustrados, api de refência e casos de uso.<br/>
-✅ Integração com outras libs/frameworks de maneira fácil.<br/>
-✅ Suporte a JAVASCRIPT e TYPESCRIPT.<br/>
+  Tipos de uso <br />
+ `UNCONTROLLED` | `CONTROLLED` | `REACT-HOOK-FORMS`<br/>
+
+  Linguagens <br />
+ `JAVASCRIPT` | `TYPESCRIPT` <br/>
+
 
 </div>
 
