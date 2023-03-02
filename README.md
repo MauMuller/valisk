@@ -30,9 +30,12 @@
 
 <div align="center">
 
-✅ Documentação completa com vários exemplos ilustrados, api de refência e casos de uso.<br/>
-✅ Integração com outras libs/frameworks de maneira fácil.<br/>
-✅ Suporte a JAVASCRIPT e TYPESCRIPT.<br/>
+  Tipos de uso <br />
+ `UNCONTROLLED` | `CONTROLLED` | `REACT-HOOK-FORMS`<br/>
+
+  Linguagens <br />
+ `JAVASCRIPT` | `TYPESCRIPT` <br/>
+
 
 </div>
 
@@ -63,6 +66,11 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
   - [Uncontrolled](#uncontrolled)
   - [Controlled](#controlled)
   - [React Hook Form](#react-hook-form)
+  - [Outros Exemplos `novo`](#outros-exemplos-novo)
+
+  <br />
+
+- [V-Check | Checagem de Elemento `nova sessão`](#v-check--checagem-de-elemento-nova-sessão)
 
   <br />
 
@@ -87,11 +95,19 @@ Agora segue abaixo o menu para um **roadmap** de refencia sobre a Lib:
 
   <br />
 
-  - [**useConfigEntry**](#-useconfigentry-novo)
+  - [**useConfigEntry `novo`**](#-useconfigentry-novo)
 
-  - [**ValiskProvider**](#-valiskprovider-novo)
+  - [**ValiskProvider `novo`**](#-valiskprovider-novo)
 
-  - [**useValiskContext**](#-usevaliskcontext-novo)
+  - [**useValiskContext `novo`**](#-usevaliskcontext-novo)
+
+  <br />
+
+- [Erros Comuns `nova sessão`](#erros-comuns-nova-sessão)
+
+  - [Utilizei o_masks(...), porém a máscara não está sendo inserida.](#utilizei-o-masks-porem-a-mascara-nao-esta-sendo-inserida)
+
+  <br />
 
 - [Dúvidas](#dúvidas)
 
@@ -606,7 +622,7 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
   <details>
   <summary>Utilização do método _cleanVal e todas outras variações dos campos</summary>
 
-  ```JSX
+  ```TSX
   import { CSSProperties, useEffect, useState } from "react";
   import { useValisk } from "@libsdomau/valisk";
   import { useForm, SubmitHandler } from "react-hook-form";
@@ -797,6 +813,110 @@ Aqui iremos entrar em alguns exemplos de uso, porém o foco é apenas a apresent
   ```
 
   </details>
+
+<br />
+
+- #### Outros Exemplos `novo`
+
+  <details>
+  <summary>MUI - Material UI</summary>
+
+  Aqui será usado apenas o componente **TextField** do `Material UI`, porém o mesmo vale para todos outros.
+
+  > OBS: Caso você tenha percebido, ao utilizar o componente do MUI, é necessário passar o **\_masks** da seguinte forma:
+  >
+  > **InputProps: { inputsProps: { ...\_masks(...) } }**
+  >
+  > Isso é necessário pois caso passe o \_masks apenas para o primeiro **inputProps**, não acontecerá nada em tela, mas no console você verá a mensagem de erro da sessão abaixo.
+  >
+  > Mensagem de erro + V-check
+  >
+  > O motivo disso é devido a tipo de elemento na qual o masks está sendo colocado, nesse caso, seria uma **Div**, invés de um **Input**, por conta disso é necessário essa utilização redundante.
+
+  ```TSX
+  import { useEffect, useState, FC, ReactNode } from "react";
+  import { TextField, IconButton } from "@mui/material";
+  import { useValisk } from "@libsdomau/valisk";
+
+  const Form: FC<ReactNode> = (children) => {
+    return <>{children}</>
+  }
+
+  function App() {
+    const [hideValue, setHideValue] = useState(true);
+
+    type Inputs = {
+      campo1: string;
+    };
+
+    const methodsValisk = useValisk<Inputs>({
+      password: { name: "campo1", hideValue },
+    });
+
+    console.log("1 Renderização");
+
+    const { _masks, _cleanValues, _forceUpdate, _getValues } = methodsValisk;
+
+    useEffect(() => {
+      _forceUpdate({
+        inputName: "campo1",
+        inputType: "uncontrolled",
+      });
+    }, [hideValue]);
+
+    return (
+      <div className="border border-red-600 h-screen items-center justify-center flex">
+        <Form>
+          <TextField
+            label="teste"
+            defaultValue="bah"
+            InputProps={{
+              inputProps: { ..._masks("campo1") },
+              endAdornment: (
+                <IconButton onClick={() => setHideValue(!hideValue)}> O </IconButton>
+              ),
+            }}
+          />
+        </Form>
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+
+  Output:
+
+  | \*\*\* | O   |
+  | :----- | :-- |
+
+  <br />
+
+  Console:
+
+  ```SHELL
+  1 Renderização
+  ```
+
+  </details>
+
+<br />
+
+## V-Check | Checagem de Elemento `nova sessão`
+
+Antes de partir para as referências, é importante entender do que se trata esse atributo.
+
+**\_:"v-check"** é um atributo encontrado em todos os elementos que receberam o `_masks("...")`, ele serve como uma **identificação** dentro do body da página.
+
+Ele não possui nenhuma outra utilidade, apenas serve para mostrar quais elementos receberam o método mencionado acima.
+
+Sua criação é justamente para previr qualquer tipo de inserção em algum elemento que não seja um campo de texto.
+
+Então, caso a máscara não esteja funcionando do campo de texto em específico, recomendo que verifique se o **v-check** está incluido nesse input, caso não esteja, provavelmente seu componente possui algum elemento superior.
+
+Mas não fique precoupado, será informado no **console caso o elemento que possui o `_masks("...")` não seja um campo de texto**, por isso, fique de olho no console.
+
+![Error](./imgs_readme/error_message_lib.png)
 
 <br />
 
@@ -1784,8 +1904,6 @@ Inspirado no `FormProvider` do `react-hook-form`, o **ValiskProvider** tem a fun
 
 ## @ useValiskContext `novo`
 
-Usado em conjuto com o **ValiskProvider** e inspirado no `useFormContext`, essa é uma funcionalidade que realiza o consumo do valor passado para o Provider, ou seja, ele possui os mesmo métodos que o **useValisk**, usando eles como forma de apenas uma instância.
-
 - ### Entrada
 
   ***
@@ -1842,7 +1960,27 @@ Usado em conjuto com o **ValiskProvider** e inspirado no `useFormContext`, essa 
     ```
 
 <br/>
-<br/>
+
+## Erros Comuns `nova sessão`
+
+Essa sessão foi criada para mostrar todos os erros comuns que podem acontecer com o uso da biblioteca, porém, **caso sua dúvida não esteja aqui, faça uma issue**, agradeço.
+
+  <details>
+    <summary id="utilizei-o-masks-porem-a-mascara-nao-esta-sendo-inserida">Utilizei o <code>_masks(...)</code>, porém a máscara não está sendo inserida.</summary>
+
+  <br />
+
+Existe uma grande chance de, neste caso, o problema estar no elemento superior, isso acontece normalmente com componentes que possuem algum campo de texto.
+
+O problema aqui é que o elemento que está recebendo o método `_masks(...)` não é o campo de texto, mas sim algum outro elemento dentro do componente (caso seja um componente).
+
+Para identificar isso, basta procurar pelos elemento que possuem o atributo `v-check` dentro do inspecionar da página, caso algum elemento não seja um campo de texto, ele não funcionará.
+
+Nesse caso, também haverá uma mensagem no console falando qual elemento está recebendo o método em específico.
+
+  </details>
+
+<br />
 
 ## Dúvidas
 

@@ -14,5 +14,15 @@ export default defineConfig({
       formats: ["es", "umd"],
       fileName: (format) => `lib.${format}.js`,
     },
+    rollupOptions: {
+      external: ["react", "react-dom", "uuid"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+          uuid: "uuid",
+        },
+      },
+    },
   },
 });

@@ -1,14 +1,13 @@
 export { useValisk } from "../hooks/useValisk";
 export { useConfigEntry } from "../hooks/useConfigEntry";
-export { useValiskContext } from "../hooks/useValiskContext";
-export { ValiskProvider } from "../hooks/ValiskProvider";
+export { ValiskProvider, useValiskContext } from "../hooks/ValiskContext";
 
 export type {
-  ValiskEntryType,
-  ConfigEntryType,
-  ForceUpdateEntryType,
-  CleanValuesType,
-  ForceUpdateType,
-  GetValuesType,
-  MasksType,
+  ValiskProps,
+  ConfigEntryProps,
+  ForceUpdateProps,
+  CleanValues,
+  ForceUpdate,
+  GetValues,
+  Masks,
 } from "../types";

@@ -16,7 +16,7 @@ type PhonePropsMask<T> = PhoneProps<T> & InputToMasks;
 type MoneyPropsMask<T> = MoneyProps<T> & InputToMasks;
 
 export const masks = {
-  cep: <T,>({ explictMask, element }: ComumPropsMask<T>) => {
+  cep: <T>({ explictMask, element }: ComumPropsMask<T>) => {
     const template = masksTemplate["cep"];
     const value = element.value;
 
@@ -29,7 +29,7 @@ export const masks = {
     return finalValue;
   },
 
-  cpf: <T,>({ explictMask, element }: ComumPropsMask<T>) => {
+  cpf: <T>({ explictMask, element }: ComumPropsMask<T>) => {
     const template = masksTemplate["cpf"];
     const value = element.value;
 
@@ -42,7 +42,7 @@ export const masks = {
     return finalValue;
   },
 
-  cnpj: <T,>({ explictMask, element }: ComumPropsMask<T>) => {
+  cnpj: <T>({ explictMask, element }: ComumPropsMask<T>) => {
     const template = masksTemplate["cnpj"];
     const value = element.value;
 
@@ -55,12 +55,12 @@ export const masks = {
     return finalValue;
   },
 
-  password: <T,>({ hideValue, element }: PasswordPropsMask<T>) => {
+  password: <T>({ hideValue, element }: PasswordPropsMask<T>) => {
     element.type = hideValue ? "password" : "text";
     return element.value;
   },
 
-  phone: <T,>({
+  phone: <T>({
     showDDD,
     showPrefix,
     typePhone,
@@ -82,7 +82,7 @@ export const masks = {
     return finalValue;
   },
 
-  money: <T,>({
+  money: <T>({
     explictMask,
     explictSimbol,
     typeMoney,

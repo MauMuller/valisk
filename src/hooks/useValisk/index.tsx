@@ -1,13 +1,11 @@
-import React from "react";
-
 import {
-  ValiskEntryType,
+  ValiskProps,
   ReturnValisk,
-  MasksType,
-  ForceUpdateEntryType,
+  Masks,
+  ForceUpdateProps,
   ForceObject,
   PhoneTypes,
-  GetValuesType,
+  GetValues,
 } from "../../types";
 
 import { defaultProps } from "../../templates/defaultProps";
@@ -16,11 +14,11 @@ import { cleanValues } from "../../functions/cleanValues";
 import { masks } from "../../options/masks";
 import { typeInput } from "../../options/typeInput";
 
-function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
+function useValisk<T>(maskValidation: ValiskProps<T>): ReturnValisk<T> {
   const keysMask = Object.keys(maskValidation);
 
   const formatedMaskValidation = keysMask.flatMap((key) => {
-    const keyMask = key as keyof ValiskEntryType<T>;
+    const keyMask = key as keyof ValiskProps<T>;
     const arrayByKey = [maskValidation[keyMask]].flat();
 
     return arrayByKey?.map((obj) => {
@@ -29,16 +27,25 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
     });
   });
 
-  const _masks: MasksType<T> = (nameInput: keyof T) => {
+  const _masks: Masks<T> = (nameInput: keyof T) => {
     const objectToInput = getObjectToInput<T>(
       formatedMaskValidation,
       nameInput
     );
 
     return {
-      onInput: (evt: React.FormEvent<HTMLInputElement>) => {
-        const valueInput = evt.currentTarget.value;
+      onInput: (evt) => {
         const elementInput = evt.currentTarget;
+
+        const getElementName = elementInput.tagName.toLowerCase();
+        const { value: valueInput } = elementInput;
+
+        const errorMessage = `\n\nTipo de elemento: ${getElementName}\nValor do elemento: ${valueInput}\n\nEste elemento não é um campo de texto. Verifique se o elemento que está recebendo o método '_masks(...)' realmente é um campo de texto!\n\nOBS: Para saber quais elemento estão utilizando o 'Valisk', basta procurar por 'v-check' no body da página.\n\n`;
+
+        if (valueInput === undefined) {
+          console.warn(errorMessage);
+          return;
+        }
 
         if (!objectToInput) return;
 
@@ -50,10 +57,11 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
           : valueInput;
       },
       name: String(nameInput) ?? "",
+      _: "v-check",
     };
   };
 
-  const _getValues: GetValuesType<T> = (func) => (evt) => {
+  const _getValues: GetValues<T> = (func) => (evt) => {
     evt.preventDefault();
 
     const allInputs = [...(evt.target as HTMLFormElement).children].filter(
@@ -81,7 +89,7 @@ function useValisk<T>(maskValidation: ValiskEntryType<T>): ReturnValisk<T> {
     return cleanValues<T>(nameInputAndTypeMaskArr, props) as T;
   };
 
-  const _forceUpdate = (props: ForceUpdateEntryType<T>): void => {
+  const _forceUpdate = (props: ForceUpdateProps<T>): void => {
     const arrayWithUpdates: Array<ForceObject<T>> = [props].flat();
 
     arrayWithUpdates.forEach((obj) => {

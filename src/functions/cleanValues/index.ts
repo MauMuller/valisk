@@ -1,4 +1,4 @@
-import { ValiskEntryType, PhoneTypes } from "../../types";
+import { ValiskProps, PhoneTypes } from "../../types";
 
 type Props<T> = {
   mask: PhoneTypes | Omit<keyof T, "phone">;
@@ -14,13 +14,13 @@ export const cleanValues = <T>(nameInputAndTypeMaskArr: Props<T>, props: T) => {
 
   type objMask =
     | {
-        mask: keyof Omit<ValiskEntryType<T>, "phone">;
+        mask: keyof Omit<ValiskProps<T>, "phone">;
         inputName: keyof T;
       }
     | undefined;
 
   for (const [key, value] of Object.entries(props as ObjectInput)) {
-    const keyMask = key as keyof Omit<ValiskEntryType<T>, "phone">;
+    const keyMask = key as keyof Omit<ValiskProps<T>, "phone">;
 
     const objectWithMask = nameInputAndTypeMaskArr.find(
       (obj) => obj.inputName === keyMask

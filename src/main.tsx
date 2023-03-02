@@ -6,13 +6,13 @@ import {
   useConfigEntry,
   useValiskContext,
   ValiskProvider,
-  ValiskEntryType,
-  ConfigEntryType,
-  ForceUpdateEntryType,
-  CleanValuesType,
-  ForceUpdateType,
-  GetValuesType,
-  MasksType,
+  ValiskProps,
+  ConfigEntryProps,
+  ForceUpdateProps,
+  CleanValues,
+  ForceUpdate,
+  GetValues,
+  Masks,
 } from "./lib/index";
 
 let cont = 0;
@@ -35,26 +35,26 @@ const App = () => {
   console.log(`Renderizou ${(cont += 1)} ${cont > 1 ? "vezes" : "vez"}`);
 
   type Dados = Array<
-    Array<React.HTMLAttributes<HTMLInputElement> & ConfigEntryType<Inputs>>
+    Array<React.HTMLAttributes<HTMLInputElement> & ConfigEntryProps<Inputs>>
   >;
 
   const dados: Dados = [
     [
       {
-        name: "campo1",
+        nameInput: "campo1",
         id: "campo1",
         defaultValue: "aaaa",
-        props: { money: { typeMoney: "real", explictMask: true } },
+        maskConfig: { money: { typeMoney: "real", explictMask: true } },
       },
       {
-        name: "campo2",
+        nameInput: "campo2",
         placeholder: "teste1",
       },
     ],
     [
       {
-        name: "campo3",
-        props: { cnpj: { explictMask: true } },
+        nameInput: "campo3",
+        maskConfig: { cnpj: { explictMask: true } },
       },
     ],
   ];
@@ -62,7 +62,14 @@ const App = () => {
   const configMasks = useConfigEntry<Inputs>(dados);
   console.log(configMasks);
 
-  const methodsValisk = useValisk<Inputs>(configMasks);
+  const methodsValisk = useValisk<Inputs>({
+    phone: {
+      name: "campo1",
+      typePhone: "phoneMovel",
+      explictMask: true,
+      showDDD: true,
+    },
+  });
 
   const { _masks, _forceUpdate, _getValues, _cleanValues } = methodsValisk;
 
@@ -74,9 +81,11 @@ const App = () => {
   return (
     <ValiskProvider {...methodsValisk}>
       <form onSubmit={_getValues(show)}>
-        {dados.flat().map((obj) => {
+        {/* {dados.flat().map((obj) => {
           return <InputTeste {...obj} />;
-        })}
+        })} */}
+
+        <InputTeste name="campo1" />
 
         <button>Mostrar Valor</button>
       </form>
@@ -89,8 +98,7 @@ interface InputTesteType extends React.HTMLAttributes<HTMLInputElement> {
 }
 
 function InputTeste({ name, ...rest }: InputTesteType) {
-  const { _masks, _forceUpdate, _cleanValues, _getValues } =
-    useValiskContext<Inputs>();
+  const { _masks, _forceUpdate } = useValiskContext<Inputs>();
 
   useEffect(() => {
     _forceUpdate({ inputName: name, inputType: "uncontrolled" });

@@ -3,6 +3,118 @@ Aqui estão todos os commits realizados até o momento, acompanhe todos eles na 
 
 **Commits:**
 
+- **feee2864056ca76e5866545052801fe7c50f6176**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/feee2864056ca76e5866545052801fe7c50f6176)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 02/03/2023
+
+	```
+    📝 (readme & imgs_readme): Incremento de ilustração e criação de uma pasta para imagens
+    
+    Resolvi criar uma pasta com todas as imagens que pretendo utilizar na documentação daqui em diante, facilitando até a busca. Além disso, incrementei uma imagem ilustativa na sessão `v-check` para mostrar qual é o erro que irá aparecer caso haja um problema.
+	```
+
+<br />
+
+- **638c43dc1a453b488021d160568f2e8317378c0e**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/638c43dc1a453b488021d160568f2e8317378c0e)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 02/03/2023
+
+	```
+    🚚 (Tipos & ConfigEntryProps): Renomeação dos tipos e propriedades do useConfigEntry
+    
+    Realizei a altração dos nomes dos tipos para facilitar ainda mais, removendo a redundancia 'type' de todos os tipos, além de trocar os 'entry' por 'props' para facilitar a utilização
+	```
+
+<br />
+
+- **206f39eb7cab9cff367713a5f8b2b484a75cd389**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/206f39eb7cab9cff367713a5f8b2b484a75cd389)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 01/03/2023
+
+	```
+    🐛 (README.md): Ajustes de formatação na documentação
+    
+    Incremento de um '.' no exemplo com a lib Material UI e adição de espaçamento dentre títulos
+	```
+
+<br />
+
+- **63d5c18ef86aa2302453cd59c4e4d992f9b23d70**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/63d5c18ef86aa2302453cd59c4e4d992f9b23d70)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 01/03/2023
+
+	```
+    📝 (readme): sessão de erros + v-check
+    
+    Dentro do useValisk foi adicionado uma funcionalidade que insere uma propriedade no elemento que o _masks(...) é inserido, isso devido a identificação de erros relacionados a esse método. Agora, caso algum elemento que não seja um input receber a função _masks(...), irá gerar um uma mensagem de erro no console informando qual é o tipo de elemento e o seu valor, além de encaminhar uma possivel solução logo abaixo.\n\nV-check apenas serve para identificar dentro da página quais são os elementos que possuem uma máscara e caso algum não seja um input, mostrar no console.\n\nAlém disso, também foi adicionado duas novas sessões dentro do readme, a primeira sobre v-check, como toda explicação acima. E a segunda com 'Erros comuns', para deixar mais fácil a descoberta de erros casos aconteça tenha uma possivel solução.\n\nPor fim, ainda foi adicionado mais um exemplo nos casos de uso, agora com a lib MUI, mostrando como fazer para usar a máscara nesse componente disponibilizado.
+	```
+
+<br />
+
+- **f59af5da163a6e267dc986a824fb4426dff90bca**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/f59af5da163a6e267dc986a824fb4426dff90bca)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 01/03/2023
+
+	```
+    ♻️ (useValiskContext - hook): Foi preciso realizar vários testes e mudanças na estrutura de arquivo para esse hook
+    
+    Após diversos testes, percebi que o useValiskContext não estava funcionando corretamente, e por conta disso, precisei refatorar a estrutura de pastas e arquivos do hook, porém, já está estável novamente
+	```
+
+<br />
+
+- **4132359baa32259516b67fcf82e30dc82664036e**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/4132359baa32259516b67fcf82e30dc82664036e)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 01/03/2023
+
+	```
+    🔧 (vite.config.ts): Extração das dependencias para melhor desempenho
+    
+    Incrementei nas configurações do vite uma extração das dependencias que eu não quero que sejam renderizadas juntamente com o bunlde, ou seja, agora a lib está mais leve do que antes
+	```
+
+<br />
+
+- **92300bd0773965ba620ee3e6ad61611181b44780**
+
+	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/92300bd0773965ba620ee3e6ad61611181b44780)
+
+	Autor: MauMuller - [https://github.com/MauMuller/](https://github.com/MauMuller/)
+
+	Data: 27/02/2023
+
+	```
+    📝 (readme): Melhora no menu para navegação
+    
+    Ajuste dos link que não funcionavam na documentação e foco dos links para manter mais centralizado as buscas
+	```
+
+<br />
+
 - **39b0374ee61b6e52dcbd82002c477e63c97c8e9e**
 
 	Link para o commit: [Ver modificações do commit](https://github.com/MauMuller/valisk/commit/39b0374ee61b6e52dcbd82002c477e63c97c8e9e)
